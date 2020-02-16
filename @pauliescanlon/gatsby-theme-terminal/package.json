@@ -1,0 +1,43 @@
+{
+  "name": "@pauliescanlon/gatsby-theme-terminal",
+  "private": true,
+  "description": "A terminal style blog",
+  "version": "0.0.0",
+  "author": "Paul Scanlon <pauliescanlon@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.19.7",
+    "gatsby-plugin-mdx": "^1.0.73",
+    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
+    "gatsby-source-filesystem": "^2.1.46",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pauliescanlon/gatsby-theme-terminal"
+  },
+  "bugs": {
+    "url": "https://github.com/pauliescanlon/gatsby-theme-terminal/issues"
+  }
+}
