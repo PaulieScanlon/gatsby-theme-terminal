@@ -2,39 +2,103 @@
 navigationLabel: Home
 ---
 
+<Button as='a' variant='success'>View CV</Button>{' '}
+<Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit'>docs.google.com</Link>
+<Divider />
+
+<Alert variant='success'>
+  I'm available for contract React/Gatsby work!
+</Alert>
+<Divider />
+<Divider />
+
 # about
 
 Write anything you want in `src/pages/index.mdx` and it'll go here.
 
-<br />
+<Divider />
 
-<Flex sx={{ flexWrap: "wrap" }}>
+<Flex sx={{ flexWrap: "wrap" }}>  
   <Box
     sx={{
       width: ["100%", "50%", "33%"]
     }}
-  >
-    <Heading as='h1'>
-      test
-    </Heading>
+  >          
+  <Heading variant='styles.h1'>contact</Heading>
+
+  <Heading variant='styles.h2'>Email</Heading>
+  <Link href='mailto:pauliescanlon@gmail.com' variant='styles.a'>pauliescanlon@gmail.com</Link>
+  <Divider />
+
+  <Heading variant='styles.h2'>Twitter</Heading>
+  <Link href='https://twitter.com/PaulieScanlon/' variant='styles.a'>https://twitter.com/PaulieScanlon/</Link>
+  <Divider />
+
+  <Heading variant='styles.h2'>GitHub</Heading>
+  <Link href='https://github.com/PaulieScanlon/' variant='styles.a'>https://github.com/PaulieScanlon/</Link>
+  <Divider />
+
+  <Heading variant='styles.h2'>GitHub</Heading>
+  <Link href='https://www.linkedin.com/in/pauliescanlon/' variant='styles.a'>https://www.linkedin.com/in/pauliescanlon/</Link>
+  <Divider />
+
   </Box>
 </Flex>
 
+<Divider />
 
-# contact
+<Flex sx={{ flexWrap: "wrap" }}>  
+  <Box
+    sx={{
+      width: ["100%", "50%", "33%"]
+    }}
+  >          
+  <Heading variant='styles.h1'>work-history</Heading>
 
-## Email:
+  <Text>Company A</Text>
+  <Text variant='text.muted'>Feb 2019 - Feb 2020</Text>
+  <Divider />
 
-[pauliescanlon@gmail.com](mailto:pauliescanlon@gmail.com)
+  <Text>Company B</Text>
+  <Text variant='text.muted'>Feb 2018 - Jan 2020</Text>
+  <Divider />
+  <Divider />
+  </Box>
 
-## Twitter:
+  <Box
+    sx={{
+      width: ["100%", "50%", "33%"]
+    }}
+  >          
+  <Heading variant='styles.h1'>speaking</Heading>
 
-[https://twitter.com/PaulieScanlon/](https://twitter.com/PaulieScanlon/)
+  <Text>Conference A</Text>
+  <Text variant='text.muted'>Feb 2020</Text>
+  <Divider />
 
-## GitHub
+  <Text>Conference B</Text>
+  <Text variant='text.muted'>Jan 2020</Text>
+  <Divider />
+  <Divider />
+  </Box>
 
-[https://github.com/PaulieScanlon/](https://github.com/PaulieScanlon/)
 
-## LinkedIn
 
-[https://www.linkedin.com/in/pauliescanlon/](https://www.linkedin.com/in/pauliescanlon/)
+  <Box
+    sx={{
+      width: ["100%", "50%", "33%"]
+    }}
+  >          
+  <Heading variant='styles.h1'>accolades</Heading>
+
+  <Text>Some Award A</Text>
+  <Text variant='text.muted'>Feb 2020</Text>
+  <Divider />
+
+  <Text>Some Award B</Text>
+  <Text variant='text.muted'>Jan 2020</Text>
+  <Divider />
+  <Divider />
+  </Box>
+
+</Flex>

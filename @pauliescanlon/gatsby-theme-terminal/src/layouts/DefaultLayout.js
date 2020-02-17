@@ -17,7 +17,6 @@ const DefaultLayout = ({ children }) => (
       {(routes, _) => (
         <ul sx={styles.ul}>
           {routes
-            .reverse()
             .filter(route => route.navigationLabel !== DUMMY_NAVIGATION_LABEL)
             .map((route, index) => (
               <li sx={styles.li} key={index}>

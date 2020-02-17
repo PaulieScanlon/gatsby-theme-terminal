@@ -4,10 +4,6 @@ module.exports = {
   siteMetadata: {
     title: ``,
     description: ``,
-    links: {
-      twitter: ``,
-      github: ``,
-    },
   },
   plugins: [
     `gatsby-plugin-theme-ui`,

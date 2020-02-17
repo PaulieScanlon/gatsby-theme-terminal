@@ -8,10 +8,6 @@ export const useConfig = () => {
           siteMetadata {
             title
             description
-            links {
-              twitter
-              github
-            }
           }
         }
       }

@@ -1,7 +1,7 @@
 import * as theme from "../../gatsby-plugin-theme-ui"
 
 export const intro = {
-  mb: 5,
+  mb: 4,
 }
 
 export const title = {
