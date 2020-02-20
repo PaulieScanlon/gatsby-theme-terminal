@@ -3,6 +3,7 @@ import { jsx } from "theme-ui"
 import PropTypes from "prop-types"
 import { MDXProvider } from "@mdx-js/react"
 import * as themeUiComponents from "@theme-ui/components"
+import { Image } from "@theme-ui/components"
 
 import { Nav } from "../Nav"
 import { useConfig } from "../../data"
@@ -18,6 +19,7 @@ const components = {
   Intro,
   SourceList,
   TagList,
+  EmbeddedImage: props => <Image src={props.src.fluid.src} />,
   ...themeUiComponents,
 }
 

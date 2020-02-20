@@ -4,6 +4,18 @@ date: 19-02-2020
 dateModified: 20-20-2020
 tags: ["JavaScript", "React", "GatsbyJs", "HTML", "CSS", "theme-ui"]
 featuredImage: markus-spiske-466ENaLuhLY-unsplash.jpg
+embeddedImages:
+  - markus-spiske-FXFz-sW0uwo-unsplash.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis. Donec non tellus justo. Ut sit amet elit mauris. Praesent eleifend cursus luctus. Praesent posuere rhoncus maximus. Donec nec felis nec metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum pharetra arcu, vel egestas turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
+
+<Flex sx={{ flexWrap: "wrap" }}>
+<Box sx={{ mb: 3,width: ["100%", "50%"]}}>
+  Donec nec felis nec metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum pharetra arcu, vel egestas turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
+</Box>
+
+<Box sx={{ mb: 3, p:[0, 3], width: ["100%", "50%"] }}>
+  <EmbeddedImage src={props.embedded.image1} />
+</Box>
+</Flex>

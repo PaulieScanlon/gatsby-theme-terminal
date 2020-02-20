@@ -34,6 +34,18 @@ const SourceLayout = ({
     embeddedImages,
   } = frontmatter
 
+  const embedded = {}
+
+  if (embeddedImages) {
+    embeddedImages.forEach((image, index) => {
+      if (image && image.childImageSharp.fluid) {
+        embedded[`image${index + 1}`] = {
+          fluid: image.childImageSharp.fluid || null,
+        }
+      }
+    })
+  }
+
   const { next, prev, parent } = pageContext
 
   return (
@@ -78,7 +90,7 @@ const SourceLayout = ({
       {/* <div>embeddedImages {JSON.stringify(embeddedImages, null, 2)}</div> */}
       <Divider />
       <MDXProvider>
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
       </MDXProvider>
 
       <div
@@ -141,16 +153,21 @@ export const singleMdx = graphql`
           }
         }
         embeddedImages {
-          sourceInstanceName
-          absolutePath
-          relativePath
-          extension
-          size
-          prettySize
-          modifiedTime
-          accessTime
-          changeTime
-          birthTime
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+            }
+            id
+          }
         }
       }
       fields {

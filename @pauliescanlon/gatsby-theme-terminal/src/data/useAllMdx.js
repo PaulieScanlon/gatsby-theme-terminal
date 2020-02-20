@@ -44,16 +44,21 @@ export const useAllMdx = filter => {
                 }
               }
               embeddedImages {
-                sourceInstanceName
-                absolutePath
-                relativePath
-                extension
-                size
-                prettySize
-                modifiedTime
-                accessTime
-                changeTime
-                birthTime
+                childImageSharp {
+                  fluid(maxWidth: 1200) {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                    originalImg
+                    originalName
+                  }
+                  id
+                }
               }
             }
             fields {

@@ -2,11 +2,11 @@
 navigationLabel: Components
 ---
 
-## gatsby-theme-terminal
+# gatsby-theme-terminal
 
 gatsby-theme-terminal has some of it's own components, and below is how you use them.
 
-## SourceList
+## [SourceList](#source-list)
 By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`
 
 ```javascript
@@ -39,7 +39,7 @@ By default the source list returns all `.mdx` found from the directories defined
 
 <Divider />
 
-### filter
+### [SourceList filter](#source-list-filter)
 
 You can filter the data returned by the `<SourceList />` component by defining a source with the `filter` prop.
 
@@ -76,7 +76,7 @@ You can filter the data returned by the `<SourceList />` component by defining a
 
 <Divider />
 
-## TagList
+## [TagList](#tag-list)
 By default the tag list returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js`
 
 ```javascript
@@ -119,7 +119,7 @@ By default the tag list returns all tags found in the `.mdx` sourced from the di
 
 <Divider />
 
-### filter
+## [TagList filter](#tag-list-filter)
 
 You can filter the tags returned by the `<TagList />` component by defining a source with the `filter` prop.
 
@@ -165,13 +165,43 @@ You can filter the tags returned by the `<TagList />` component by defining a so
 
 <Divider />
 
-## theme-ui/components
+## [embeddedImages](#embedded-images)
+Using a frontmatter field called `embeddedImages` you can define a _list_ of locally sourced images to embed in the `.mdx` body. 
+
+_NOTE:_ this method won't work for `.mdx` sourced from `src/pages`
+
+
+```javascript
+---
+title: Post 1
+embeddedImages:
+  - markus-spiske-FXFz-sW0uwo-unsplash.jpg
+---
+```
+<Divider />
+
+You can then use the `<EmbeddedImage />` component like this in your `.mdx`. 
+
+The `image1` object key refers to the position in the `embeddedImages` list in frontmatter
+
+<Divider />
+
+```javascript
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+
+<EmbeddedImage src={props.embedded.image1} />
+```
+
+<Divider />
+
+# theme-ui/components
 
 gatsby-theme-terminal also supports the full set of [theme-ui/componets](https://theme-ui.com/components) and below is how you use them.
 
 If you'd like to see the default theme `.js` that file can be found in [here](https://github.com/PaulieScanlon/gatsby-theme-terminal/blob/master/%40pauliescanlon/gatsby-theme-terminal/src/gatsby-plugin-theme-ui/index.js)
 
-## Box
+
+## [Box](#box)
 
 ```javascript
 <Box p={4} color="white" bg="primary">
@@ -185,7 +215,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Flex
+## [Flex](#flex)
 
 ```javascript
 <Flex>
@@ -208,7 +238,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Buttons 
+## [Buttons](#buttons)
 
 ```javascript
 <Button mr={2}>primary</Button>
@@ -224,7 +254,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Text
+## [Text](#text)
 
 ```javascript
 <Text
@@ -246,7 +276,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Heading
+## [Heading](#heading)
 
 ```javascript
 <Heading variant='styles.h1'>h1</Heading>
@@ -265,7 +295,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Heading variant='styles.h6'>h6</Heading>
 
 
-## Link
+## [Link](#link)
 
 ```javascript
 <Link href='#!'>Hello</Link>
@@ -276,7 +306,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Badge
+## [Badge](#badge)
 
 ```javascript
 <Badge variant='primary' mb={2} mr={2}>
@@ -315,7 +345,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Image
+## [Image](#image)
 
 ```javascript
   <Image src='https://placekitten.com/g/400/300' />
@@ -325,7 +355,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Card
+## [Card](#card)
 
 ```javascript
 <Card
@@ -354,7 +384,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Alert
+## [Alert](#alert)
 
 ```javascript
 <Alert variant='primary' mb={2}>
