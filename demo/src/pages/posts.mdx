@@ -19,7 +19,7 @@ Here we use it to return all the `posts` by using the filter prop
     >
       {posts.map((edge, index) => {
         const {
-          frontmatter: { title, featuredImage: { childImageSharp: { fluid }} },
+          frontmatter: { title, featuredImage },
           fields: { slug },
         } = edge.node
         return (
@@ -34,7 +34,9 @@ Here we use it to return all the `posts` by using the filter prop
                 mr: 2,
               }}
             >
-            <Image src={fluid.src} alt={fluid.originalName}/>
+            {featuredImage && featuredImage.childImageSharp && (
+              <Image src={featuredImage.childImageSharp.fluid.src} alt={featuredImage.childImageSharp.fluid.originalName}/>
+            )}
             <Box
             sx={{
                p: 3,

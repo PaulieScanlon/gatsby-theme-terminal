@@ -4,61 +4,79 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 
-// import { useSingleMdx } from "../data/useSingleMdx"
-import { useAllMdx } from "../data/useAllMdx"
-
 import { Main } from "../components/Main"
 
-import { Heading, Link } from "@theme-ui/components"
+import {
+  Heading,
+  Link,
+  Image,
+  Badge,
+  Text,
+  Flex,
+  Box,
+  Divider,
+} from "@theme-ui/components"
+
+import * as styles from "./styles"
 
 const SourceLayout = ({
   data: {
-    mdx: { id },
+    mdx: { body, frontmatter },
   },
   pageContext,
 }) => {
-  // TODO
-  // this might not be the best way to do this but using a graphQL query with an id of just this `.mdx` file means creating another set of frontmatter querys in the query below in addition to the ones defined in useAllMdx
-
-  const data = useAllMdx()
-    .map(edge => edge)
-    .filter(edge => edge.node.id === id)[0].node
-
   const {
-    frontmatter: {
-      title,
-      tags,
-      date,
-      dateModified,
-      status,
-      featuredImage,
-      embeddedImages,
-    },
-    body,
-  } = data
+    title,
+    tags,
+    date,
+    dateModified,
+    featuredImage,
+    embeddedImages,
+  } = frontmatter
 
   const { next, prev, parent } = pageContext
 
-  // console.log("parent: ", pageContext.parent)
-  // console.log("next: ", next.fields.slug)
-  // console.log("prev: ", prev.fields.slug)
-
   return (
     <Main>
-      <Heading as="h1" variant="styles.h1">
+      {featuredImage && featuredImage.childImageSharp && (
+        <Image
+          src={featuredImage.childImageSharp.fluid.src}
+          alt={featuredImage.childImageSharp.fluid.originalName}
+        />
+      )}
+      <Heading as="h1" sx={styles.title}>
         {title}
       </Heading>
-      <div>tags {JSON.stringify(tags, null, 2)}</div>
-      <div>date {JSON.stringify(date, null, 2)}</div>
-      <div>dateModified {JSON.stringify(dateModified, null, 2)}</div>
-      <div>status {JSON.stringify(status, null, 2)}</div>
-      <div>
+
+      <Flex sx={styles.dates}>
+        <Box sx={styles.dateBox}>
+          {date && <Text>Date published: {date}</Text>}
+        </Box>
+        <Box sx={styles.dateBox}>
+          {dateModified && (
+            <Text sx={styles.dateModified}>Date modified: {dateModified}</Text>
+          )}
+        </Box>
+      </Flex>
+
+      {tags &&
+        tags.map((tag, index) => (
+          <Badge key={index} variant="success" sx={styles.tag}>
+            {tag}
+          </Badge>
+        ))}
+      {/* <div>
         featuredImage
         <pre>
           <code>{JSON.stringify(featuredImage, null, 2)}</code>
         </pre>
-      </div>
-      <div>embeddedImages {JSON.stringify(embeddedImages, null, 2)}</div>
+      </div> */}
+      {/* <div>tags {JSON.stringify(tags, null, 2)}</div> */}
+      {/* <div>date {JSON.stringify(date, null, 2)}</div> */}
+      {/* <div>dateModified {JSON.stringify(dateModified, null, 2)}</div> */}
+      {/* <div>status {JSON.stringify(status, null, 2)}</div> */}
+      {/* <div>embeddedImages {JSON.stringify(embeddedImages, null, 2)}</div> */}
+      <Divider />
       <MDXProvider>
         <MDXRenderer>{body}</MDXRenderer>
       </MDXProvider>
@@ -91,12 +109,53 @@ const SourceLayout = ({
   )
 }
 
-// export const sourceQuery = useSingleMdx()
+// This query is a duplicate of useAllMdx so if you update this one update that one too! in data/useAllMdx
+// test id: c147b696-2ac9-58b3-a3e6-17d8402289e0
 
-export const sourceQuery = graphql`
-  query sourceQuery($id: String) {
+export const singleMdx = graphql`
+  query singleMdx($id: String) {
     mdx(id: { eq: $id }) {
       id
+      body
+      frontmatter {
+        title
+        tags
+        date
+        dateModified
+        status
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+            }
+            id
+          }
+        }
+        embeddedImages {
+          sourceInstanceName
+          absolutePath
+          relativePath
+          extension
+          size
+          prettySize
+          modifiedTime
+          accessTime
+          changeTime
+          birthTime
+        }
+      }
+      fields {
+        slug
+      }
     }
   }
 `

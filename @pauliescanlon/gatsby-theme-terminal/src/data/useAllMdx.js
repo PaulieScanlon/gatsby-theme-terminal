@@ -1,6 +1,10 @@
 import { useStaticQuery, graphql } from "gatsby"
 
+const DRAFT = "draft"
+
 export const useAllMdx = filter => {
+  // This query is a duplicate of singleMdx so if you update this one update that one too! in layouts/SourceLayout
+
   const query = useStaticQuery(graphql`
     query allMdx {
       allMdx(
@@ -20,11 +24,11 @@ export const useAllMdx = filter => {
               title
               tags
               date
-              dataModified
+              dateModified
               status
               featuredImage {
                 childImageSharp {
-                  fluid {
+                  fluid(maxWidth: 1200) {
                     base64
                     tracedSVG
                     aspectRatio
@@ -61,9 +65,16 @@ export const useAllMdx = filter => {
     }
   `)
 
-  if (!filter) return query.allMdx.edges
+  if (!filter)
+    return query.allMdx.edges.filter(
+      edge => edge.node.frontmatter.status !== DRAFT
+    )
 
   return query.allMdx.edges
     .map(edge => edge)
-    .filter(edge => edge.node.fields.slug.includes(filter))
+    .filter(
+      edge =>
+        edge.node.fields.slug.includes(filter) &&
+        edge.node.frontmatter.status !== DRAFT
+    )
 }

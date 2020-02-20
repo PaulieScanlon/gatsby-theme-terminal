@@ -53,6 +53,10 @@ const buttons = {
   p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
 }
 
+const badges = {
+  borderRadius: 0,
+}
+
 const alerts = {
   fontWeight: "body",
   borderRadius: 0,
@@ -84,7 +88,7 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
-  fontSizes: [14, 16, 18],
+  fontSizes: [14, 16, 18, 28],
   space: [0, 4, 8, 16, 32, 64],
   shadows: [
     "0 2px 0 0",
@@ -102,6 +106,7 @@ export default {
     h1: {
       ...headings,
       ...specialHeadings,
+      fontSize: 3,
     },
     h2: { ...headings, ...specialHeadings },
     h3: { ...headings, color: "secondary" },
@@ -209,6 +214,26 @@ export default {
     },
     error: {
       ...buttons,
+      backgroundColor: "error",
+    },
+  },
+
+  badges: {
+    primary: {
+      ...badges,
+    },
+    secondary: {
+      ...badges,
+      color: "background",
+      backgroundColor: "secondary",
+    },
+    success: {
+      ...badges,
+      color: "background",
+      backgroundColor: "success",
+    },
+    error: {
+      ...badges,
       backgroundColor: "error",
     },
   },
