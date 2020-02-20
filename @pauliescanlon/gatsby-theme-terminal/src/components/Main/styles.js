@@ -1,8 +1,14 @@
-export const main = {
+export const site = {
   margin: "0px auto",
-  maxWidth: 992,
-  pt: [3, 4],
-  pl: [3, 4],
-  pb: [3, 4],
-  pr: [3, 4],
+  maxWidth: 1200,
 }
+
+export const sidebar = ({ sidebarWidth }) => ({
+  position: "fixed",
+  width: sidebarWidth,
+})
+
+export const main = ({ sidebarWidth }) => ({
+  ml: sidebarWidth,
+  p: theme => [`${theme.space[3]}px`, `${theme.space[4]}px`],
+})

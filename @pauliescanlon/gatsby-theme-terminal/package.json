@@ -6,10 +6,13 @@
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.27",
-    "@pauliescanlon/gatsby-mdx-routes": "^0.0.8",
+    "@pauliescanlon/gatsby-mdx-routes": "^0.0.9",
     "@theme-ui/components": "^0.3.1",
+    "gatsby-image": "^2.2.41",
     "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-transformer-sharp": "^2.3.14",
     "prop-types": "^15.7.2",
     "theme-ui": "^0.3.1"
   },

@@ -12,7 +12,7 @@ navigationLabel: Home
 <Divider />
 <Divider />
 
-# about
+## About
 
 Write anything you want in `src/pages/index.mdx` and it'll go here.
 
@@ -21,39 +21,119 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Flex sx={{ flexWrap: "wrap" }}>  
   <Box
     sx={{
-      width: ["100%", "50%", "33%"]
+      width: ["100%", "100%", "50%"],
+      mb: 3,
+      pr: [0,0, 4],
     }}
   >          
-  <Heading variant='styles.h1'>contact</Heading>
+  <Heading variant='styles.h2'>Contact</Heading>
 
-  <Heading variant='styles.h2'>Email</Heading>
+  <Heading variant='styles.h3' sx={{mb: 0}}>Email</Heading>
   <Link href='mailto:pauliescanlon@gmail.com' variant='styles.a'>pauliescanlon@gmail.com</Link>
   <Divider />
 
-  <Heading variant='styles.h2'>Twitter</Heading>
+  <Heading variant='styles.h3' sx={{mb: 0}}>Twitter</Heading>
   <Link href='https://twitter.com/PaulieScanlon/' variant='styles.a'>https://twitter.com/PaulieScanlon/</Link>
   <Divider />
 
-  <Heading variant='styles.h2'>GitHub</Heading>
+  <Heading variant='styles.h3' sx={{mb: 0}}>GitHub</Heading>
   <Link href='https://github.com/PaulieScanlon/' variant='styles.a'>https://github.com/PaulieScanlon/</Link>
   <Divider />
 
-  <Heading variant='styles.h2'>GitHub</Heading>
-  <Link href='https://www.linkedin.com/in/pauliescanlon/' variant='styles.a'>https://www.linkedin.com/in/pauliescanlon/</Link>
+  <Heading variant='styles.h3' sx={{mb: 0}}>GitHub</Heading>
+  <Link href='https://www.linkedin.com/in/pauliescanlon/' variant='styles.a'>https://linkedin.com/in/pauliescanlon/</Link>
   <Divider />
 
   </Box>
+
+  <Box
+    sx={{
+      width: ["100%", "100%", "50%"],
+      mb: 3
+    }}
+  >
+  <Heading variant='styles.h2'>Top 5 tags</Heading>
+
+  <TagList>
+    {tags => (
+      <Flex
+      sx={{flexDirection: 'column'}}
+      >
+        {
+          tags.splice(0, 5).map((tag, index) => {
+            const {name, count, percent} = tag
+            return <Box  key={index} sx={{ mb:3,}}>
+              <Flex>
+                <Text sx={{color: 'secondary', mr: 2, mb: 1}}>{`${name}`}</Text>
+                <Text sx={{color: 'muted'}} >{percent}</Text>
+                <Text sx={{color: 'error'}}>%</Text>
+              </Flex>
+              <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 3}} />
+            </Box>
+          })
+        }
+      </Flex>
+    )}
+  </TagList>
+  </Box>
 </Flex>
+
+<Divider />
+
+<Heading variant='styles.h2'>Projects</Heading>
+
+You can use the `<SourceList filter="projects" />` component from any `.mdx`. 
+
+Here we use it to return all the `projects` by using the filter prop
+
+
+<SourceList filter="projects">
+  {projects => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: theme => `-${theme.space[2]}px`,
+        mr: theme => `-${theme.space[2]}px`,
+      }}
+    >
+      {projects.map((edge, index) => {
+        const {
+          frontmatter: { title },
+          fields: { slug },
+        } = edge.node
+        return (
+          <Box
+            key={index}
+            sx={{ mb: 3, width: ["100%", "50%", "33.333%"] }}
+          >
+            <Link href={slug} sx={{textDecoration: 'none'}}>
+            <Card
+              sx={{
+                ml: 2, 
+                mr: 2,
+                p: 3,
+              }}
+            >
+              <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+              <Text sx={{textDecoration: 'underline'}}>View project</Text>
+            </Card>
+            </Link>
+          </Box>
+        )
+      })}
+    </Flex>
+  )}
+</SourceList>
 
 <Divider />
 
 <Flex sx={{ flexWrap: "wrap" }}>  
   <Box
     sx={{
-      width: ["100%", "50%", "33%"]
+      width: ["100%", "50%", "33.333%"]
     }}
   >          
-  <Heading variant='styles.h1'>work-history</Heading>
+  <Heading variant='styles.h2'>Experience</Heading>
 
   <Text>Company A</Text>
   <Text variant='text.muted'>Feb 2019 - Feb 2020</Text>
@@ -70,7 +150,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
       width: ["100%", "50%", "33%"]
     }}
   >          
-  <Heading variant='styles.h1'>speaking</Heading>
+  <Heading variant='styles.h2'>Speaking</Heading>
 
   <Text>Conference A</Text>
   <Text variant='text.muted'>Feb 2020</Text>
@@ -82,14 +162,12 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
   <Divider />
   </Box>
 
-
-
   <Box
     sx={{
       width: ["100%", "50%", "33%"]
     }}
   >          
-  <Heading variant='styles.h1'>accolades</Heading>
+  <Heading variant='styles.h2'>Accolades</Heading>
 
   <Text>Some Award A</Text>
   <Text variant='text.muted'>Feb 2020</Text>
@@ -102,3 +180,4 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
   </Box>
 
 </Flex>
+

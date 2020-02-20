@@ -1,5 +1,4 @@
 /** @jsx jsx */
-
 import { jsx } from "theme-ui"
 import { useConfig } from "../../data"
 

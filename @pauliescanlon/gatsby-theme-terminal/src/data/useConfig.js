@@ -8,6 +8,9 @@ export const useConfig = () => {
           siteMetadata {
             title
             description
+            config {
+              sidebarWidth
+            }
           }
         }
       }

@@ -1,4 +1,8 @@
-import * as theme from "../gatsby-plugin-theme-ui"
+import * as theme from "../../gatsby-plugin-theme-ui"
+
+export const nav = {
+  p: theme => [`${theme.space[3]}px`, `${theme.space[4]}px`],
+}
 
 export const ul = {
   ...theme.default.styles.ul,

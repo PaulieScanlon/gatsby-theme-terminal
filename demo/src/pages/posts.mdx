@@ -1,0 +1,53 @@
+---
+navigationLabel: Posts
+---
+
+# posts
+
+You can use the `<SourceList filter="posts" />` component from any `.mdx`. 
+
+Here we use it to return all the `posts` by using the filter prop
+
+<SourceList filter="posts">
+  {posts => (
+    <Flex
+      sx={{
+        flexWrap: "wrap",
+        ml: theme => `-${theme.space[2]}px`,
+        mr: theme => `-${theme.space[2]}px`,
+      }}
+    >
+      {posts.map((edge, index) => {
+        const {
+          frontmatter: { title, featuredImage: { childImageSharp: { fluid }} },
+          fields: { slug },
+        } = edge.node
+        return (
+          <Box
+            key={index}
+            sx={{ mb: 3, width: ["100%", "100%", "50%", "33.333%"] }}
+          >
+          <Link href={slug} sx={{textDecoration: 'none'}}>
+            <Card
+              sx={{
+                ml: 2, 
+                mr: 2,
+              }}
+            >
+            <Image src={fluid.src} alt={fluid.originalName}/>
+            <Box
+            sx={{
+               p: 3,
+            }}
+            >
+              <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+              <Text sx={{textDecoration: 'underline'}}>View post</Text>
+            </Box>
+            </Card>
+          </Link>
+          </Box>
+        )
+      })}
+    </Flex>
+  )}
+</SourceList>

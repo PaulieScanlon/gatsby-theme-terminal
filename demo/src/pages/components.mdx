@@ -2,9 +2,172 @@
 navigationLabel: Components
 ---
 
-# theme-ui/components
+## gatsby-theme-terminal
 
-gatsby-theme-terminal suports the full set of [theme-ui/componets](https://theme-ui.com/components) and below is how you use them.
+gatsby-theme-terminal has some of it's own components, and below is how you use them.
+
+## SourceList
+By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`
+
+```javascript
+<SourceList>
+  {source => (
+    <ul>
+      {source.map((edge, index) => {
+        const {
+          frontmatter: { title },
+        } = edge.node
+        return <li key={index}>{title}</li>
+      })}
+    </ul>
+  )}
+</SourceList>
+```
+
+<SourceList>
+  {source => (
+    <ul>
+      {source.map((edge, index) => {
+        const {
+          frontmatter: { title },
+        } = edge.node
+        return <li key={index}>{title}</li>
+      })}
+    </ul>
+  )}
+</SourceList>
+
+<Divider />
+
+### filter
+
+You can filter the data returned by the `<SourceList />` component by defining a source with the `filter` prop.
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
+
+
+```javascript
+<SourceList filter='posts'>
+  {source => (
+    <ul>
+      {source.map((edge, index) => {
+        const {
+          frontmatter: { title },
+        } = edge.node
+        return <li key={index}>{title}</li>
+      })}
+    </ul>
+  )}
+</SourceList>
+```
+
+<SourceList filter='posts'>
+  {source => (
+    <ul>
+      {source.map((edge, index) => {
+        const {
+          frontmatter: { title },
+        } = edge.node
+        return <li key={index}>{title}</li>
+      })}
+    </ul>
+  )}
+</SourceList>
+
+<Divider />
+
+## TagList
+By default the tag list returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js`
+
+```javascript
+<TagList>
+  {source => (
+    <Flex
+    sx={{flexDirection: 'column'}}
+    >
+      {
+        source.map((tag, index) => {
+          const {name, count, percent} = tag
+          return <Box  key={index}>
+            {`${name}  x${count}`}
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
+          </Box>
+        })
+      }
+    </Flex>
+  )}
+</TagList>
+```
+
+<TagList>
+  {source => (
+    <Flex
+    sx={{flexDirection: 'column'}}
+    >
+      {
+        source.map((tag, index) => {
+          const {name, count, percent} = tag
+          return <Box  key={index}>
+            {`${name}  x${count}`}
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
+          </Box>
+        })
+      }
+    </Flex>
+  )}
+</TagList>
+
+<Divider />
+
+### filter
+
+You can filter the tags returned by the `<TagList />` component by defining a source with the `filter` prop.
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
+
+```javascript
+<TagList filter='posts'>
+  {source => (
+    <Flex
+    sx={{flexDirection: 'column'}}
+    >
+      {
+        source.map((tag, index) => {
+          const {name, count, percent} = tag
+          return <Box  key={index}>
+            {`${name}  x${count}`}
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
+          </Box>
+        })
+      }
+    </Flex>
+  )}
+</TagList>
+```
+
+<TagList filter='posts'>
+  {source => (
+    <Flex
+    sx={{flexDirection: 'column'}}
+    >
+      {
+        source.map((tag, index) => {
+          const {name, count, percent} = tag
+          return <Box  key={index}>
+            {`${name}  x${count}`}
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
+          </Box>
+        })
+      }
+    </Flex>
+  )}
+</TagList>
+
+<Divider />
+
+## theme-ui/components
+
+gatsby-theme-terminal also supports the full set of [theme-ui/componets](https://theme-ui.com/components) and below is how you use them.
 
 If you'd like to see the default theme `.js` that file can be found in [here](https://github.com/PaulieScanlon/gatsby-theme-terminal/blob/master/%40pauliescanlon/gatsby-theme-terminal/src/gatsby-plugin-theme-ui/index.js)
 
@@ -34,7 +197,6 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
   </Box>
 </Flex>
 ```
-
 <Flex>
   <Box p={2} bg='primary' sx={{ flex: '1 1 auto' }}>
     Flex
@@ -46,7 +208,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## Button
+## Buttons 
 
 ```javascript
 <Button mr={2}>primary</Button>

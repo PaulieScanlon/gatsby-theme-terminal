@@ -11,6 +11,20 @@ const headings = {
   mb: 3,
 }
 
+const specialHeadings = {
+  color: "primary",
+  "::before": {
+    content: `'→'`,
+    color: "success",
+    mr: 2,
+  },
+  "::after": {
+    content: `'()'`,
+    color: "secondary",
+    ml: 1,
+  },
+}
+
 const anchors = {
   color: "muted",
   wordBreak: "break-all",
@@ -36,14 +50,13 @@ const preBlock = {
 const buttons = {
   borderRadius: 0,
   minWidth: 120,
-  p: 3,
-  textTransform: "uppercase",
+  p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
 }
 
 const alerts = {
   fontWeight: "body",
   borderRadius: 0,
-  p: 3,
+  p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
 }
 
 export default {
@@ -88,23 +101,13 @@ export default {
     },
     h1: {
       ...headings,
-      color: "primary",
-      "::before": {
-        content: `'→'`,
-        color: "success",
-        mr: 2,
-      },
-      "::after": {
-        content: `'()'`,
-        color: "secondary",
-        ml: 1,
-      },
+      ...specialHeadings,
     },
-    h2: { ...headings, color: "secondary" },
-    h3: { ...headings },
+    h2: { ...headings, ...specialHeadings },
+    h3: { ...headings, color: "secondary" },
     h4: { ...headings },
-    h5: { ...headings },
-    h6: { ...headings },
+    h5: { ...headings, color: "success" },
+    h6: { ...headings, color: "error" },
     p: {
       mt: 0,
       mb: 3,
@@ -217,7 +220,14 @@ export default {
     },
   },
 
+  links: {
+    ...anchors,
+  },
+
   text: {
+    caps: {
+      textTransform: "uppercase",
+    },
     muted: {
       fontSize: 0,
       color: "muted",
