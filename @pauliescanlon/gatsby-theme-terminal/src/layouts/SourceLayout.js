@@ -32,7 +32,7 @@ const SourceLayout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { name, siteURL, lang },
+      siteMetadata: { name, siteURL, siteImage, lang },
     },
   } = useConfig()
 
@@ -83,7 +83,7 @@ const SourceLayout = ({
                 image={
                   featuredImage && featuredImage.childImageSharp
                     ? featuredImage.childImageSharp.fluid.src
-                    : ''
+                    : siteImage
                 }
                 path={pathname}
                 keywords={tags}
@@ -92,6 +92,7 @@ const SourceLayout = ({
               <Main>
                 {featuredImage && featuredImage.childImageSharp && (
                   <Image
+                    sx={{ mb: 3 }}
                     src={featuredImage.childImageSharp.fluid.src}
                     alt={featuredImage.childImageSharp.fluid.originalName}
                   />

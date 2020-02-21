@@ -63,11 +63,12 @@ const buttons = {
 }
 
 const badges = {
+  fontSize: 0,
   borderRadius: 0,
   borderWidth: 1,
   borderStyle: 'solid',
   backgroundColor: 'transparent',
-  p: theme => `${theme.space[1]}px ${theme.space[2]}px`,
+  p: theme => `${theme.space[0]}px ${theme.space[1]}px`,
 }
 
 const alerts = {
@@ -82,7 +83,7 @@ export default {
     text: '#ffffff',
     muted: '#8394ca',
     background: '#282a36',
-    surface: '#373a4a',
+    surface: '#2c2e3c',
     primary: '#ff79c6',
     secondary: '#8be9fd',
     success: '#50fa7b',
@@ -102,7 +103,7 @@ export default {
     body: 1.5,
     heading: 1.125,
   },
-  fontSizes: [14, 16, 18, 28],
+  fontSizes: [12, 16, 18, 28],
   space: [0, 4, 8, 16, 32, 48, 64],
   shadows: [
     `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,

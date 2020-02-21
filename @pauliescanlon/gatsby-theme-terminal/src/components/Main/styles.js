@@ -17,7 +17,7 @@ export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
 })
 
 export const navbar = ({ sidebarWidth, isNavOpen }) => ({
-  boxShadow: `3px 0 0 0 rgba(0,0,0,0.12)`,
+  boxShadow: `3px 0 0 0 rgba(0,0,0,0.07)`,
   backgroundColor: 'background',
   height: '100%',
   left: [
