@@ -13,6 +13,7 @@ export const ul = {
 
 export const li = {
   ...theme.default.styles.li,
+  textAlign: ['left', 'left', 'left', 'right'],
   '.active-link': {
     textDecoration: 'none',
     color: 'text',

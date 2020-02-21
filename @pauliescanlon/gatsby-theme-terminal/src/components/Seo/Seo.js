@@ -42,14 +42,12 @@ export const Seo = ({
       <meta name="image:alt" content={description} />
       <meta
         name="gatsby-theme"
-        content="@pauliescanlon/gatsby-theme-gatstats"
+        content="@pauliescanlon/gatsby-theme-terminal"
       />
       <meta name="keywords" content={keywords.join(', ')} />
 
       {/* Facebook */}
-
       <meta property="og:type" content={type} />
-      <meta property="og:type" content="website" />
       <meta property="og:title" content={formatTitleTemplate} />
       <meta property="og:url" content={`${siteURL}${path ? path : ''}`} />
       <meta property="og:description" content={description} />
@@ -63,7 +61,6 @@ export const Seo = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${siteURL}/${image}`} />
       <meta name="twitter:image:alt" content={description}></meta>
-      <meta name="twitter:creator" content={title}></meta>
     </Helmet>
   )
 }
