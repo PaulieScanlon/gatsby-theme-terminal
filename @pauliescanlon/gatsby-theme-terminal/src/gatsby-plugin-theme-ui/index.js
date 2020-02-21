@@ -111,7 +111,7 @@ export default {
     h1: {
       ...headings,
       ...specialHeadings,
-      fontSize: 3,
+      fontSize: [2, 3],
     },
     h2: { ...headings, ...specialHeadings },
     h3: { ...headings, color: 'secondary' },
