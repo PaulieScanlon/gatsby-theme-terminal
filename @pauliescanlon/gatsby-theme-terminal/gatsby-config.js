@@ -27,8 +27,12 @@ module.exports = themeOptions => {
 
   return {
     siteMetadata: {
-      title: ``,
+      name: ``,
       description: ``,
+      keywords: [],
+      siteURL: ``,
+      siteImage: ``,
+      lang: ``,
       config: {
         sidebarWidth: 220,
       },

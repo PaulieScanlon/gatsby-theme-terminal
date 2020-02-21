@@ -20,6 +20,7 @@ export const useAllMdx = filter => {
           node {
             id
             body
+            excerpt
             frontmatter {
               title
               tags

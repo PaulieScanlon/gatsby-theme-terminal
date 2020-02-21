@@ -7,13 +7,13 @@ import * as styles from './styles'
 export const Intro = () => {
   const {
     site: {
-      siteMetadata: { title, description },
+      siteMetadata: { name, description },
     },
   } = useConfig()
 
   return (
     <section sx={styles.intro}>
-      <h1 sx={styles.title}>{title}</h1>
+      <h1 sx={styles.title}>{name}</h1>
       <p sx={styles.description}>{description}</p>
     </section>
   )

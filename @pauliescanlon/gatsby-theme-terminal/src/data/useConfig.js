@@ -6,8 +6,12 @@ export const useConfig = () => {
       query {
         site {
           siteMetadata {
-            title
+            name
             description
+            keywords
+            siteURL
+            siteImage
+            lang
             config {
               sidebarWidth
             }
