@@ -71,7 +71,7 @@ const SourceLayout = ({
       <Location>
         {({ location }) => {
           const { pathname } = location
-          console.log('pathName: ', pathname)
+          // console.log('pathName: ', pathname)
           return (
             <Fragment>
               <Seo
@@ -80,7 +80,11 @@ const SourceLayout = ({
                 titleTemplate={title}
                 description={excerpt}
                 siteURL={siteURL}
-                image={featuredImage.childImageSharp.fluid.src}
+                image={
+                  featuredImage && featuredImage.childImageSharp
+                    ? featuredImage.childImageSharp.fluid.src
+                    : ''
+                }
                 path={pathname}
                 keywords={tags}
                 lang={lang}
