@@ -2,12 +2,12 @@
 navigationLabel: Home
 ---
 
-<Button as='a' variant='success'>View CV</Button>{" "}
-<Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit'>docs.google.com</Link>
+<Button as='a' variant='success' href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank'>View CV</Button>{" "}
+<Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank' >docs.google.com</Link>
 <Divider />
 
 <Alert variant='success'>
-  I'm available for contract React/Gatsby work!
+  Alert... I'm available for contract React/Gatsby work!
 </Alert>
 <Divider />
 <Divider />
@@ -21,7 +21,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Flex sx={{ flexWrap: "wrap" }}>  
   <Box
     sx={{
-      width: ["100%", "100%", "50%"],
+      width: ["100%", "100%", "55%"],
       mb: 3,
       pr: [0,0, 4],
     }}
@@ -32,7 +32,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
   <Link href='mailto:pauliescanlon@gmail.com' variant='styles.a'>pauliescanlon@gmail.com</Link>
   <Divider />
 
-  <Heading variant='styles.h3' sx={{mb: 0}}>Twitter</Heading>
+  <Heading variant='styles.h3' sx={{mb: 0,}}>Twitter</Heading>
   <Link href='https://twitter.com/PaulieScanlon/' variant='styles.a'>https://twitter.com/PaulieScanlon/</Link>
   <Divider />
 
@@ -48,33 +48,50 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 
   <Box
     sx={{
-      width: ["100%", "100%", "50%"],
+      width: ["100%", "100%", "45%"],
       mb: 3
     }}
   >
   <Heading variant='styles.h2'>Top 5 tags</Heading>
 
-  <TagList>
+  <TagList filter="posts">
     {tags => (
-      <Flex
-      sx={{flexDirection: 'column'}}
-      >
-        {
-          tags.splice(0, 5).map((tag, index) => {
-            const {name, count, percent} = tag
-            return <Box  key={index} sx={{ mb:3,}}>
-              <Flex>
-                <Text sx={{color: 'secondary', mr: 2, mb: 1}}>{`${name}`}</Text>
-                <Text sx={{color: 'muted'}} >{percent}</Text>
-                <Text sx={{color: 'error'}}>%</Text>
-              </Flex>
-              <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 3}} />
-            </Box>
-          })
-        }
+      <Flex sx={{ flexDirection: 'column' }}>
+        {tags
+          .splice(0, 5)
+          .sort((a, b) => b.percent - a.percent)
+          .map((tag, index) => {
+            const { name, count, percent } = tag
+            return (
+              <Box
+                key={index}
+                sx={{ color: 'muted', mb: 3, svg: { fill: 'muted' } }}
+              >
+                <Flex sx={{ lineHeight: 'normal' }}>
+                  <Text
+                    sx={{ color: 'secondary', mr: 2, mb: 0 }}
+                  >{`${name}`}</Text>
+                  <Text sx={{ color: 'muted' }}>{percent}</Text>
+                  <Text sx={{ color: 'error' }}>%</Text>
+                </Flex>
+                {'['}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1200 8"
+                  width="100%"
+                  height="8"
+                >
+                  <rect width={`${percent}%`} height={4} />
+                </svg>
+                {']'}
+                {/* <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 4}} /> */}
+              </Box>
+            )
+          })}
       </Flex>
     )}
   </TagList>
+
   </Box>
 </Flex>
 

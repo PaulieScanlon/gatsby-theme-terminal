@@ -3,7 +3,7 @@ module.exports = {
     title: `gatsby-theme-terminal`,
     description: `A Gatsby theme that looks like a terminal!`,
     config: {
-      sidebarWidth: 160,
+      sidebarWidth: 220,
     },
   },
   plugins: [

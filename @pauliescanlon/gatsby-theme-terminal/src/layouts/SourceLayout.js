@@ -77,7 +77,11 @@ const SourceLayout = ({
 
         {tags &&
           tags.map((tag, index) => (
-            <Badge key={index} sx={styles.tag({ index, tags })}>
+            <Badge
+              key={index}
+              variant="primary"
+              sx={styles.tag({ index, tags })}
+            >
               {tag}
             </Badge>
           ))}

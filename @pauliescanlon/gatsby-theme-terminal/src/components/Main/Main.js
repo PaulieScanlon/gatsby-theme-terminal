@@ -3,14 +3,14 @@ import { Fragment, useContext } from 'react'
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
-import * as themeUiComponents from '@theme-ui/components'
-import { Image } from '@theme-ui/components'
 
 import { Context } from '../../context'
 import { Nav } from '../Nav'
 import { useConfig } from '../../data'
 
-// components
+// Mdx components
+import * as themeUiComponents from '@theme-ui/components'
+import { Image, IconButton } from '@theme-ui/components'
 import { Intro } from '../Intro'
 import { SourceList } from '../SourceList'
 import { TagList } from '../TagList'
@@ -53,9 +53,23 @@ export const Main = ({ children }) => {
       <MDXProvider components={components}>
         <main sx={styles.main({ sidebarWidth })}>
           <Fragment>
-            <button onClick={() => dispatch({ type: 'openNav' })}>
-              OpenNav
-            </button>
+            <IconButton
+              aria-label="toggle menu"
+              sx={styles.iconButton({ isNavOpen })}
+              onClick={() => dispatch({ type: 'openNav' })}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="26"
+                fill="currentcolor"
+              >
+                <rect width="100%" height={2} y={2} fill="currentcolor" />
+                <rect width="100%" height={2} y={10} fill="currentcolor" />
+                <rect width="100%" height={2} y={18} fill="currentcolor" />
+              </svg>
+            </IconButton>
             {children}
           </Fragment>
         </main>

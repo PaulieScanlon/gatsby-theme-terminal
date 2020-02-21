@@ -2,7 +2,7 @@ import * as theme from '../../gatsby-plugin-theme-ui'
 
 export const nav = {
   height: '100%',
-  p: theme => [`${theme.space[3]}px`, `${theme.space[4]}px`],
+  p: [4, 5, 5, 5],
 }
 
 export const ul = {

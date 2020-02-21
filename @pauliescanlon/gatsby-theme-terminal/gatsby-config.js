@@ -30,7 +30,7 @@ module.exports = themeOptions => {
       title: ``,
       description: ``,
       config: {
-        sidebarWidth: 160,
+        sidebarWidth: 220,
       },
     },
     plugins: [

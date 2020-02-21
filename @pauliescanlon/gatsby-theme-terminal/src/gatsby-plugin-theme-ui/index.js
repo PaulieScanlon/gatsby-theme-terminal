@@ -1,6 +1,12 @@
-export const commonFocus = {
+export const anchorFocus = {
   transition: '.2s linear box-shadow',
-  boxShadow: theme => `${theme.shadows[0]} ${theme.colors.primary}`,
+  boxShadow: theme => `0 2px 0 0 ${theme.colors.primary}`,
+}
+
+export const buttonFocus = {
+  outline: 'none',
+  transition: '.2s linear box-shadow',
+  boxShadow: theme => `0 0 0 2px ${theme.colors.muted}`,
 }
 
 const headings = {
@@ -30,7 +36,7 @@ const anchors = {
   wordBreak: 'break-all',
   ':focus': {
     outline: 'none',
-    ...commonFocus,
+    ...anchorFocus,
   },
 }
 
@@ -44,13 +50,16 @@ const preBlock = {
   borderRadius: 0,
   overflow: 'auto',
   p: 3,
-  // whiteSpace: "pre-wrap",
+  whiteSpace: 'pre-wrap',
 }
 
 const buttons = {
   borderRadius: 0,
   minWidth: 120,
   p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
+  ':focus': {
+    ...buttonFocus,
+  },
 }
 
 const badges = {
@@ -94,10 +103,13 @@ export default {
     heading: 1.125,
   },
   fontSizes: [14, 16, 18, 28],
-  space: [0, 4, 8, 16, 32, 64],
+  space: [0, 4, 8, 16, 32, 48, 64],
   shadows: [
-    '0 2px 0 0',
-    'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px',
+    `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
+    `0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)`,
+    `0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)`,
+    `0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)`,
+    `0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)`,
   ],
 
   // styles
@@ -248,11 +260,17 @@ export default {
       ...buttons,
       backgroundColor: 'error',
     },
+    icon: {
+      borderRadius: 0,
+      ':focus': {
+        ...buttonFocus,
+      },
+    },
   },
 
   cards: {
     primary: {
-      boxShadow: 1,
+      boxShadow: 0,
       backgroundColor: 'surface',
     },
   },

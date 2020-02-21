@@ -29,13 +29,12 @@ Here we use it to return all the `posts` by using the filter prop
             key={index}
             sx={{ mb: 3, width: ["100%", "100%", "50%", "33.333%"] }}
           >
-            <Link href={slug} sx={{ textDecoration: "none", display: 'flex', height: '100%' }}>
+            <Link href={slug} sx={{ textDecoration: "none", display: 'flex', height: '100%', ml: 2, mr: 2, }}>
               <Card
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  ml: 2,
-                  mr: 2,
+  
                 }}
               >
                 {featuredImage && featuredImage.childImageSharp && (
