@@ -56,7 +56,7 @@ const SourceLayout = ({
           alt={featuredImage.childImageSharp.fluid.originalName}
         />
       )}
-      <Heading as="h1" sx={styles.title}>
+      <Heading as="h1" variant="styles.h1" sx={styles.title}>
         {title}
       </Heading>
 

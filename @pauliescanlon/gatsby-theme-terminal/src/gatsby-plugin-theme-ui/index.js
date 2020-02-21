@@ -127,6 +127,10 @@ export default {
         ...preBlock,
       },
     },
+    small: {
+      color: "muted",
+      fontSize: 0,
+    },
     a: {
       ...anchors,
     },
@@ -250,12 +254,9 @@ export default {
   },
 
   text: {
-    caps: {
-      textTransform: "uppercase",
-    },
-    muted: {
-      fontSize: 0,
-      color: "muted",
+    fontFamily: "body",
+    headings: {
+      ...headings,
     },
   },
 }
