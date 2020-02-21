@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 
 module.exports = themeOptions => {
   const { source } = themeOptions
@@ -42,7 +42,7 @@ module.exports = themeOptions => {
         resolve: `gatsby-plugin-google-fonts`,
         options: {
           fonts: [`inconsolata\:400,700`],
-          display: "swap",
+          display: 'swap',
         },
       },
       {
@@ -56,26 +56,26 @@ module.exports = themeOptions => {
       },
       // Theme pages (Dummy page)
       {
-        resolve: "gatsby-source-filesystem",
+        resolve: 'gatsby-source-filesystem',
         options: {
-          name: "pages",
+          name: 'pages',
           path: path.resolve(__dirname, `src/pages`),
         },
       },
       // Theme posts (Dummy post)
       {
-        resolve: "gatsby-source-filesystem",
+        resolve: 'gatsby-source-filesystem',
         options: {
-          name: "posts",
+          name: 'posts',
           path: path.resolve(__dirname, `src/posts`),
         },
       },
 
       // Demo pages
       {
-        resolve: "gatsby-source-filesystem",
+        resolve: 'gatsby-source-filesystem',
         options: {
-          name: "pages",
+          name: 'pages',
           path: path.resolve(`src/pages`),
         },
       },

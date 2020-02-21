@@ -2,7 +2,7 @@
 navigationLabel: Home
 ---
 
-<Button as='a' variant='success'>View CV</Button>{' '}
+<Button as='a' variant='success'>View CV</Button>{" "}
 <Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit'>docs.google.com</Link>
 <Divider />
 
@@ -107,16 +107,16 @@ Here we use it to return all the `projects` by using the filter prop
             sx={{ mb: 3, width: ["100%", "50%", "33.333%"] }}
           >
             <Link href={slug} sx={{textDecoration: 'none'}}>
-            <Card
-              sx={{
-                ml: 2, 
-                mr: 2,
-                p: 3,
-              }}
-            >
-              <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
-              <Text sx={{textDecoration: 'underline'}}>View project</Text>
-            </Card>
+              <Card
+                sx={{
+                  ml: 2, 
+                  mr: 2,
+                  p: 3,
+                }}
+              >
+                <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
+                <Text sx={{textDecoration: 'underline'}}>View project</Text>
+              </Card>
             </Link>
           </Box>
         )

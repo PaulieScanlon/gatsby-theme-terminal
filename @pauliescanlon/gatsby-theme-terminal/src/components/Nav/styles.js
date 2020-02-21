@@ -1,23 +1,24 @@
-import * as theme from "../../gatsby-plugin-theme-ui"
+import * as theme from '../../gatsby-plugin-theme-ui'
 
 export const nav = {
+  height: '100%',
   p: theme => [`${theme.space[3]}px`, `${theme.space[4]}px`],
 }
 
 export const ul = {
   ...theme.default.styles.ul,
-  listStyle: "none",
+  listStyle: 'none',
   p: 0,
 }
 
 export const li = {
   ...theme.default.styles.li,
-  ".active-link": {
-    textDecoration: "none",
-    color: "text",
-    cursor: "default",
-    ":focus": {
-      boxShadow: "none",
+  '.active-link': {
+    textDecoration: 'none',
+    color: 'text',
+    cursor: 'default',
+    ':focus': {
+      boxShadow: 'none',
     },
   },
 }

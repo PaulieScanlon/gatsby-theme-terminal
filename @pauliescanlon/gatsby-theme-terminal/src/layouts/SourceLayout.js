@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+import { jsx } from 'theme-ui'
+import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
 
-import { Main } from "../components/Main"
+import { Main } from '../components/Main'
 
 import {
   Heading,
@@ -15,9 +15,9 @@ import {
   Flex,
   Box,
   Divider,
-} from "@theme-ui/components"
+} from '@theme-ui/components'
 
-import * as styles from "./styles"
+import * as styles from './styles'
 
 const SourceLayout = ({
   data: {
@@ -73,7 +73,7 @@ const SourceLayout = ({
 
       {tags &&
         tags.map((tag, index) => (
-          <Badge key={index} variant="success" sx={styles.tag}>
+          <Badge key={index} sx={styles.tag({ index, tags })}>
             {tag}
           </Badge>
         ))}
@@ -95,12 +95,12 @@ const SourceLayout = ({
 
       <div
         sx={{
-          display: "flex",
+          display: 'flex',
         }}
       >
         {prev && prev.fields.slug.includes(parent) && (
           <div>
-            {" "}
+            {' '}
             <Link href={prev.fields.slug}>prev</Link>
           </div>
         )}
@@ -108,9 +108,9 @@ const SourceLayout = ({
         {next && next.fields.slug.includes(parent) && (
           <div
             sx={{
-              display: "flex",
-              flex: "1 1 auto",
-              justifyContent: "flex-end",
+              display: 'flex',
+              flex: '1 1 auto',
+              justifyContent: 'flex-end',
             }}
           >
             <Link href={next.fields.slug}>next</Link>

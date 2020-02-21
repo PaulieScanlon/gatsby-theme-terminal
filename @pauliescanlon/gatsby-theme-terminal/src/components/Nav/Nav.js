@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { MdxRoutes } from "@pauliescanlon/gatsby-mdx-routes"
-import { Link } from "gatsby"
+import { jsx } from 'theme-ui'
+import { MdxRoutes } from '@pauliescanlon/gatsby-mdx-routes'
+import { Link } from 'gatsby'
 
-import * as styles from "./styles"
+import * as styles from './styles'
 
-const DUMMY = "dummy"
+const DUMMY = 'dummy'
 
 export const Nav = () => {
   return (

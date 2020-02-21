@@ -1,4 +1,4 @@
-import * as theme from "../../gatsby-plugin-theme-ui"
+import * as theme from '../../gatsby-plugin-theme-ui'
 
 export const intro = {
   mb: 4,
@@ -13,7 +13,7 @@ export const description = {
 }
 
 export const linkSpan = {
-  display: "block",
+  display: 'block',
   mb: 1,
 }
 

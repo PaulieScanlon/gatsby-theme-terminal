@@ -1,6 +1,6 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 
-const DRAFT = "draft"
+const DRAFT = 'draft'
 
 export const useAllMdx = filter => {
   // This query is a duplicate of singleMdx so if you update this one update that one too! in layouts/SourceLayout

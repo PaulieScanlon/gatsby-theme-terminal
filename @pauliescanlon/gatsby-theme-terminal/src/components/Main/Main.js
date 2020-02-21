@@ -1,19 +1,19 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import PropTypes from "prop-types"
-import { MDXProvider } from "@mdx-js/react"
-import * as themeUiComponents from "@theme-ui/components"
-import { Image } from "@theme-ui/components"
+import { jsx } from 'theme-ui'
+import PropTypes from 'prop-types'
+import { MDXProvider } from '@mdx-js/react'
+import * as themeUiComponents from '@theme-ui/components'
+import { Image } from '@theme-ui/components'
 
-import { Nav } from "../Nav"
-import { useConfig } from "../../data"
+import { Nav } from '../Nav'
+import { useConfig } from '../../data'
 
 // components
-import { Intro } from "../Intro"
-import { SourceList } from "../SourceList"
-import { TagList } from "../TagList"
+import { Intro } from '../Intro'
+import { SourceList } from '../SourceList'
+import { TagList } from '../TagList'
 
-import * as styles from "./styles"
+import * as styles from './styles'
 
 const components = {
   Intro,
@@ -34,6 +34,7 @@ export const Main = ({ children }) => {
 
   return (
     <div sx={styles.site}>
+      <div sx={styles.lightbox} />
       <div sx={styles.sidebar({ sidebarWidth })}>
         <Nav />
       </div>

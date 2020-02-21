@@ -9,6 +9,7 @@ gatsby-theme-terminal has some of it's own components, and below is how you use 
 ## [SourceList](#source-list)
 By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`
 
+
 ```javascript
 <SourceList>
   {source => (
@@ -88,7 +89,7 @@ By default the tag list returns all tags found in the `.mdx` sourced from the di
       {
         source.map((tag, index) => {
           const {name, count, percent} = tag
-          return <Box  key={index}>
+          return (<Box  key={index}>
             {`${name}  x${count}`}
             <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
           </Box>
@@ -109,7 +110,7 @@ By default the tag list returns all tags found in the `.mdx` sourced from the di
           const {name, count, percent} = tag
           return <Box  key={index}>
             {`${name}  x${count}`}
-            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}}></Box>
           </Box>
         })
       }

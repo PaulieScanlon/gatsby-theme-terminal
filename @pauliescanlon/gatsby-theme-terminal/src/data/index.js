@@ -1,2 +1,2 @@
-export { useConfig } from "./useConfig"
-export { useAllMdx } from "./useAllMdx"
+export { useConfig } from './useConfig'
+export { useAllMdx } from './useAllMdx'

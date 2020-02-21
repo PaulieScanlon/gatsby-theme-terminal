@@ -7,6 +7,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@pauliescanlon/gatsby-mdx-routes": "^0.0.9",
+    "@theme-ui/color": "^0.3.1",
     "@theme-ui/components": "^0.3.1",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -37,7 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,json}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

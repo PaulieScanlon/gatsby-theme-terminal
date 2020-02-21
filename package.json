@@ -5,7 +5,7 @@
     "serve": "yarn workspace demo serve",
     "develop": "yarn workspace demo develop",
     "build": "yarn workspace demo build",
-    "prettier": "yarn workspace @pauliescanlon/gatsby-theme-terminal prettier"
+    "prettier": "yarn workspace demo format && yarn workspace @pauliescanlon/gatsby-theme-terminal format"
   },
   "workspaces": [
     "@pauliescanlon/gatsby-theme-terminal",

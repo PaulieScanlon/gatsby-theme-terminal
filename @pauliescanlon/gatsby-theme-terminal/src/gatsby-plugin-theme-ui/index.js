@@ -1,48 +1,48 @@
 export const commonFocus = {
-  transition: ".2s linear box-shadow",
+  transition: '.2s linear box-shadow',
   boxShadow: theme => `${theme.shadows[0]} ${theme.colors.primary}`,
 }
 
 const headings = {
-  fontFamily: "heading",
-  fontWeight: "heading",
+  fontFamily: 'heading',
+  fontWeight: 'heading',
   fontSize: 2,
   mt: 0,
   mb: 3,
 }
 
 const specialHeadings = {
-  color: "primary",
-  "::before": {
+  color: 'primary',
+  '::before': {
     content: `'→'`,
-    color: "success",
+    color: 'success',
     mr: 2,
   },
-  "::after": {
+  '::after': {
     content: `'()'`,
-    color: "secondary",
+    color: 'secondary',
     ml: 1,
   },
 }
 
 const anchors = {
-  color: "muted",
-  wordBreak: "break-all",
-  ":focus": {
-    outline: "none",
+  color: 'muted',
+  wordBreak: 'break-all',
+  ':focus': {
+    outline: 'none',
     ...commonFocus,
   },
 }
 
 const codeBlock = {
-  backgroundColor: "surface",
+  backgroundColor: 'surface',
   fontSize: 0,
   p: 1,
 }
 
 const preBlock = {
   borderRadius: 0,
-  overflow: "auto",
+  overflow: 'auto',
   p: 3,
   // whiteSpace: "pre-wrap",
 }
@@ -55,29 +55,34 @@ const buttons = {
 
 const badges = {
   borderRadius: 0,
+  borderWidth: 1,
+  borderStyle: 'solid',
+  backgroundColor: 'transparent',
+  p: theme => `${theme.space[1]}px ${theme.space[2]}px`,
 }
 
 const alerts = {
-  fontWeight: "body",
+  fontWeight: 'body',
   borderRadius: 0,
   p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
 }
 
 export default {
-  borderWidths: [0, 4],
+  borderWidths: [0, 1, 4],
   colors: {
-    text: "#ffffff",
-    muted: "#8394ca",
-    background: "#282a36",
-    surface: "#373a4a",
-    primary: "#ff79c6",
-    secondary: "#8be9fd",
-    success: "#50fa7b",
-    error: "#ff5555",
+    text: '#ffffff',
+    muted: '#8394ca',
+    background: '#282a36',
+    surface: '#373a4a',
+    primary: '#ff79c6',
+    secondary: '#8be9fd',
+    success: '#50fa7b',
+    error: '#ff5555',
+    black: '#000000',
   },
   fonts: {
-    body: "Inconsolata, monospace",
-    heading: "Inconsolata, monospace",
+    body: 'Inconsolata, monospace',
+    heading: 'Inconsolata, monospace',
   },
   fontWeights: {
     body: 400,
@@ -91,17 +96,17 @@ export default {
   fontSizes: [14, 16, 18, 28],
   space: [0, 4, 8, 16, 32, 64],
   shadows: [
-    "0 2px 0 0",
-    "rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px",
+    '0 2px 0 0',
+    'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px',
   ],
 
   // styles
   styles: {
     root: {
-      fontFamily: "body",
-      fontWeight: "body",
+      fontFamily: 'body',
+      fontWeight: 'body',
       fontSize: 1,
-      lineHeight: "body",
+      lineHeight: 'body',
     },
     h1: {
       ...headings,
@@ -109,10 +114,10 @@ export default {
       fontSize: 3,
     },
     h2: { ...headings, ...specialHeadings },
-    h3: { ...headings, color: "secondary" },
+    h3: { ...headings, color: 'secondary' },
     h4: { ...headings },
-    h5: { ...headings, color: "success" },
-    h6: { ...headings, color: "error" },
+    h5: { ...headings, color: 'success' },
+    h6: { ...headings, color: 'error' },
     p: {
       mt: 0,
       mb: 3,
@@ -128,7 +133,7 @@ export default {
       },
     },
     small: {
-      color: "muted",
+      color: 'muted',
       fontSize: 0,
     },
     a: {
@@ -142,7 +147,7 @@ export default {
       ...preBlock,
     },
     hr: {
-      border: "none",
+      border: 'none',
       mt: 0,
       mb: 3,
     },
@@ -155,8 +160,8 @@ export default {
       mt: 0,
       mb: 3,
       // special case so ul lines up with ol
-      pl: "27px",
-      listStyle: "square",
+      pl: '27px',
+      listStyle: 'square',
     },
     li: {
       mb: 1,
@@ -170,7 +175,7 @@ export default {
       mb: 3,
       mr: 0,
       borderLeft: theme =>
-        `${theme.borderWidths[1]}px solid ${theme.colors.muted}`,
+        `${theme.borderWidths[2]}px solid ${theme.colors.muted}`,
       p: {
         p: 3,
         mb: 0,
@@ -183,22 +188,45 @@ export default {
   alerts: {
     primary: {
       ...alerts,
-      color: "text",
-      backgroundColor: "primary",
+      color: 'text',
+      backgroundColor: 'primary',
     },
     secondary: {
       ...alerts,
-      color: "background",
-      backgroundColor: "secondary",
+      color: 'background',
+      backgroundColor: 'secondary',
     },
     success: {
       ...alerts,
-      color: "background",
-      backgroundColor: "success",
+      color: 'background',
+      backgroundColor: 'success',
     },
     error: {
       ...alerts,
-      backgroundColor: "error",
+      backgroundColor: 'error',
+    },
+  },
+
+  badges: {
+    primary: {
+      ...badges,
+      color: 'primary',
+      borderColor: 'primary',
+    },
+    secondary: {
+      ...badges,
+      color: 'secondary',
+      borderColor: 'secondary',
+    },
+    success: {
+      ...badges,
+      color: 'success',
+      borderColor: 'success',
+    },
+    error: {
+      ...badges,
+      color: 'error',
+      borderColor: 'error',
     },
   },
 
@@ -208,44 +236,24 @@ export default {
     },
     secondary: {
       ...buttons,
-      color: "background",
-      backgroundColor: "secondary",
+      color: 'background',
+      backgroundColor: 'secondary',
     },
     success: {
       ...buttons,
-      color: "background",
-      backgroundColor: "success",
+      color: 'background',
+      backgroundColor: 'success',
     },
     error: {
       ...buttons,
-      backgroundColor: "error",
-    },
-  },
-
-  badges: {
-    primary: {
-      ...badges,
-    },
-    secondary: {
-      ...badges,
-      color: "background",
-      backgroundColor: "secondary",
-    },
-    success: {
-      ...badges,
-      color: "background",
-      backgroundColor: "success",
-    },
-    error: {
-      ...badges,
-      backgroundColor: "error",
+      backgroundColor: 'error',
     },
   },
 
   cards: {
     primary: {
       boxShadow: 1,
-      backgroundColor: "surface",
+      backgroundColor: 'surface',
     },
   },
 
@@ -254,7 +262,7 @@ export default {
   },
 
   text: {
-    fontFamily: "body",
+    fontFamily: 'body',
     headings: {
       ...headings,
     },

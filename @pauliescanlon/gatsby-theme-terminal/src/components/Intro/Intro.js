@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import { useConfig } from "../../data"
+import { jsx } from 'theme-ui'
+import { useConfig } from '../../data'
 
-import * as styles from "./styles"
+import * as styles from './styles'
 
 export const Intro = () => {
   const {

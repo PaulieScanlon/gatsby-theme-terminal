@@ -2,6 +2,8 @@
 navigationLabel: Posts
 ---
 
+import { mix } from '@theme-ui/color'
+
 # posts
 
 You can use the `<SourceList filter="posts" />` component from any `.mdx`. 
@@ -19,7 +21,7 @@ Here we use it to return all the `posts` by using the filter prop
     >
       {posts.map((edge, index) => {
         const {
-          frontmatter: { title, featuredImage },
+          frontmatter: { title, featuredImage, tags },
           fields: { slug },
         } = edge.node
         return (
@@ -27,26 +29,66 @@ Here we use it to return all the `posts` by using the filter prop
             key={index}
             sx={{ mb: 3, width: ["100%", "100%", "50%", "33.333%"] }}
           >
-          <Link href={slug} sx={{textDecoration: 'none'}}>
-            <Card
-              sx={{
-                ml: 2, 
-                mr: 2,
-              }}
-            >
-            {featuredImage && featuredImage.childImageSharp && (
-              <Image src={featuredImage.childImageSharp.fluid.src} alt={featuredImage.childImageSharp.fluid.originalName}/>
-            )}
-            <Box
-            sx={{
-               p: 3,
-            }}
-            >
-              <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
-              <Text sx={{textDecoration: 'underline'}}>View post</Text>
-            </Box>
-            </Card>
-          </Link>
+            <Link href={slug} sx={{ textDecoration: "none", display: 'flex', height: '100%' }}>
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  ml: 2,
+                  mr: 2,
+                }}
+              >
+                {featuredImage && featuredImage.childImageSharp && (
+                  <Image
+                    src={featuredImage.childImageSharp.fluid.src}
+                    alt={featuredImage.childImageSharp.fluid.originalName}
+                  />
+                )}
+                <Box
+                  sx={{
+                    p: 3,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: '1 1 auto',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                <Box
+                  sx={{mb: 4}}
+                >
+                  <Heading variant="styles.h4" sx={{ color: "text" }}>
+                    {title}
+                  </Heading>
+                  {tags &&
+                    tags.map((tag, index) => (
+                      <Badge
+                        key={index}
+                        sx={{
+                          mr: 2,
+                          mb: 2,
+                          color: mix(
+                            "muted",
+                            "primary",
+                            `${index / tags.length}`
+                          ),
+                          borderColor: mix(
+                            "muted",
+                            "primary",
+                            `${index / tags.length}`
+                          ),
+                        }}
+                        variant="primary"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </Box>
+                  <Box>
+                  <Text sx={{ textDecoration: "underline" }}>View post</Text>
+                  </Box>
+                </Box>
+              </Card>
+            </Link>
           </Box>
         )
       })}

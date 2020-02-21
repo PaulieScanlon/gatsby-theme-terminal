@@ -1,20 +1,20 @@
-const { createFilePath } = require("gatsby-source-filesystem")
-const path = require("path")
+const { createFilePath } = require('gatsby-source-filesystem')
+const path = require('path')
 
 // String used to differenciate between .mdx sources from pages and .mdx souced from "source"
-const OWNER_NAME = "source"
+const OWNER_NAME = 'source'
 
 exports.onCreateNode = ({ node, actions, getNode }, themeOptions) => {
   const { source } = themeOptions
   const { createNodeField } = actions
 
-  if (node.internal.type === "Mdx" && !node.internal.fieldOwners) {
+  if (node.internal.type === 'Mdx' && !node.internal.fieldOwners) {
     let path = source
     const value = createFilePath({ node, getNode })
 
     if (Array.isArray(source)) {
       path = node.fileAbsolutePath
-        .split("/")
+        .split('/')
         .filter(str => source.includes(str))
         .toString()
     }
