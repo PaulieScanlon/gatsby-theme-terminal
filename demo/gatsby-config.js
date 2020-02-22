@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     name: `gatsby-theme-terminal`,
-    description: `A Gatsby theme that looks like a terminal!`,
+    description: `A Zero Component theme for developers`,
     keywords: [`gatsby`, `gatsbyjs`, `gatsby-theme`],
     siteURL: `https://gatsby-theme-terminal.netlify.com`,
     siteImage: `images/terminal-open-graph-image.jpg`,
