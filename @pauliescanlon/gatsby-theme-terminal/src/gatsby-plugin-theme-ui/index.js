@@ -15,6 +15,9 @@ const headings = {
   fontSize: 2,
   mt: 0,
   mb: 3,
+  a: {
+    color: 'inherit',
+  },
 }
 
 const specialHeadings = {
