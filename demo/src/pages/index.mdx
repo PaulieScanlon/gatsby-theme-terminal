@@ -2,6 +2,19 @@
 navigationLabel: Home
 ---
 
+<SiteMetaData>
+{siteMetadata => {
+  const { name, description } = siteMetadata
+  return (
+    <Fragment>
+      <Heading variant='styles.h1'>{name}</Heading>
+      <Text>{description}</Text>
+      <Divider/>
+    </Fragment>
+  )
+}}
+</SiteMetaData>
+
 <Button as='a' variant='success' href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank'>View CV</Button>{" "}
 <Link href='https://docs.google.com/document/d/10Z8w-099fRjVB1zA1Y9F3zVWtW1RfIxnOTIyrYn0HcY/edit' target='_blank' >docs.google.com</Link>
 <Divider />

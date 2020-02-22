@@ -3,6 +3,24 @@ export const site = {
   maxWidth: 1200,
 }
 
+export const header = ({ sidebarWidth }) => ({
+  alignItems: 'center',
+  backgroundColor: 'background',
+  borderBottom: theme =>
+    `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
+  display: 'flex',
+  justifyContent: 'space-between',
+  height: theme => `${theme.space[5]}px`,
+  ml: [0, 0, 0, sidebarWidth],
+  overflow: 'hidden',
+  position: 'fixed',
+  p: 2,
+  width: '100%',
+})
+
+export const left = {}
+export const right = {}
+
 export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
   height: '100%',
   pointerEvents: [
@@ -16,9 +34,10 @@ export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
   zIndex: 999,
 })
 
-export const navbar = ({ sidebarWidth, isNavOpen }) => ({
-  boxShadow: `3px 0 0 0 rgba(0,0,0,0.07)`,
+export const sidebarChild = ({ sidebarWidth, isNavOpen }) => ({
   backgroundColor: 'background',
+  borderRight: theme =>
+    `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
   height: '100%',
   left: [
     `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
@@ -47,13 +66,15 @@ export const lightbox = ({ isNavOpen }) => ({
 
 export const main = ({ sidebarWidth }) => ({
   ml: [0, 0, 0, sidebarWidth],
-  p: theme => [`${theme.space[3]}px`, `${theme.space[4]}px`],
+  p: theme => [
+    `${theme.space[6]}px ${theme.space[3]}px`,
+    `${theme.space[6]}px ${theme.space[4]}px`,
+  ],
   transition: '.3s ease-in-out margin-left',
 })
 
 export const iconButton = ({ isNavOpen }) => ({
   backgroundColor: 'background',
-  boxShadow: 0,
   cursor: 'pointer',
   display: [
     isNavOpen ? 'none' : 'block',
@@ -61,7 +82,4 @@ export const iconButton = ({ isNavOpen }) => ({
     isNavOpen ? 'none' : 'block',
     'none',
   ],
-  position: 'fixed',
-  top: theme => `${theme.space[1]}px`,
-  right: theme => `${theme.space[2]}px`,
 })

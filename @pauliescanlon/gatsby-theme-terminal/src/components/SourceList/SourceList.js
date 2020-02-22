@@ -10,4 +10,6 @@ export const SourceList = ({ filter, children }) => {
 SourceList.propTypes = {
   /** A string used as a filter for the allMdx GraphQL query */
   filter: PropTypes.string,
+  /** React children */
+  children: PropTypes.func,
 }

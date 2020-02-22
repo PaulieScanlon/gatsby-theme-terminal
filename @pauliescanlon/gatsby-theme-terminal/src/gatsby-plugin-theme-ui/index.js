@@ -45,7 +45,8 @@ const anchors = {
 
 const codeBlock = {
   backgroundColor: 'surface',
-  fontSize: 0,
+  // special case
+  fontSize: '13px',
   p: 1,
 }
 
@@ -86,7 +87,7 @@ export default {
     text: '#ffffff',
     muted: '#8394ca',
     background: '#282a36',
-    surface: '#2c2e3c',
+    surface: '#323442',
     primary: '#ff79c6',
     secondary: '#8be9fd',
     success: '#50fa7b',

@@ -6,7 +6,7 @@ import { ContextProvider } from '../context'
 
 import { Seo } from '../components/Seo'
 import { Main } from '../components/Main'
-import { Intro } from '../components/Intro'
+
 import { useConfig } from '../data'
 
 const PageLayout = ({ children }) => {
@@ -44,7 +44,6 @@ const PageLayout = ({ children }) => {
                   keywords={keywords}
                   lang={lang}
                 />
-                {pathname === '/' ? <Intro /> : null}
               </Fragment>
             )
           }}

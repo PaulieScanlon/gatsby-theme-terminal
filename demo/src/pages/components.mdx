@@ -6,6 +6,40 @@ navigationLabel: Components
 
 gatsby-theme-terminal has some of it's own components, and below is how you use them.
 
+
+## [SiteMetaData](#site-meta-data)
+The `<SiteMetaData />` component returns all fields specified by `siteMetadata` in `gatsby-config.js`
+
+
+```javascript
+<SiteMetaData>
+  {siteMetadata => {
+    const { name, description } = siteMetadata
+    return (
+      <ul>
+        <li>{name}</li>
+        <li>{description}</li>
+      </ul>
+    )
+  }}
+</SiteMetaData>
+```
+
+<SiteMetaData>
+{siteMetadata => {
+  const { name, description } = siteMetadata
+  return (
+      <ul>
+        <li>{name}</li>
+        <li>{description}</li>
+      </ul>
+  )
+}}
+</SiteMetaData>
+
+
+<Divider />
+
 ## [SourceList](#source-list)
 By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`
 
