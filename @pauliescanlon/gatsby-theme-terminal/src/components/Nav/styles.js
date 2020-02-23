@@ -28,9 +28,13 @@ export const li = {
     textDecoration: 'none',
     color: 'text',
     cursor: 'default',
+    ':before': {
+      pr: [2, 2, 2, 0],
+      content: [`"-"`, `"-"`, `"-"`, `""`],
+    },
     ':after': {
-      pl: 2,
-      content: `"-"`,
+      pl: [0, 0, 0, 2],
+      content: [`""`, `""`, `""`, `"-"`],
     },
     ':focus': {
       boxShadow: 'none',

@@ -201,8 +201,8 @@ export default {
   },
 
   // components
-
   alerts: {
+    // default
     primary: {
       ...alerts,
       color: 'text',
@@ -225,6 +225,7 @@ export default {
   },
 
   badges: {
+    // supposed to be default but isn't
     primary: {
       ...badges,
       color: 'primary',
@@ -248,6 +249,7 @@ export default {
   },
 
   buttons: {
+    //primary
     primary: {
       ...buttons,
     },
@@ -271,6 +273,13 @@ export default {
         ...buttonFocus,
       },
     },
+    ghost: {
+      borderRadius: 0,
+      backgroundColor: 'background',
+      ':focus': {
+        ...buttonFocus,
+      },
+    },
   },
 
   cards: {
@@ -282,12 +291,40 @@ export default {
 
   links: {
     ...anchors,
+    nav: {},
   },
 
   text: {
-    fontFamily: 'body',
-    headings: {
+    heading: {
       ...headings,
+      ...specialHeadings,
     },
   },
+
+  images: {
+    avatar: {},
+  },
+
+  forms: {
+    label: {},
+    input: {},
+    slect: {},
+    textarea: {},
+    slider: {},
+    radio: {},
+    checkbox: {},
+  },
+  progress: {},
+  donut: {},
+  spinner: {},
+  hr: {},
+  embed: {},
+  sizes: {
+    container: {},
+  },
+  layouts: {
+    //default
+    container: {},
+  },
+  messages: {},
 }
