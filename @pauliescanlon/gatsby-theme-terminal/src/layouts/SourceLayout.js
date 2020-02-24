@@ -46,14 +46,6 @@ const SourceLayout = ({
     embeddedImages,
   } = frontmatter
 
-  // console.log('name: ', name)
-  // console.log('excerpt: ', excerpt)
-  // console.log('tags: ', tags)
-  // console.log('siteURL: ', siteURL)
-  // console.log('siteImage: ', siteImage)
-  // console.log('lang: ', lang)
-  // console.log('id: ', id)
-
   const embedded = {}
 
   if (embeddedImages) {

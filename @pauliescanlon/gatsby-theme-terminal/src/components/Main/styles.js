@@ -14,7 +14,7 @@ export const header = ({ sidebarWidth }) => ({
   ml: [0, 0, 0, sidebarWidth],
   overflow: 'hidden',
   position: 'fixed',
-  p: 2,
+  p: theme => `${theme.space[3]}px ${theme.space[4]}px`,
   width: ['100%', '100%', '100%', `calc(100% - ${sidebarWidth}px)`],
 })
 
