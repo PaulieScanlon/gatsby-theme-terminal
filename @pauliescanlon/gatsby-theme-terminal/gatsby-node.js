@@ -48,6 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           frontmatter: {
             title: { ne: "dummy" }
             navigationLabel: { ne: "dummy" }
+            status: { ne: "draft" }
           }
           fields: { owner: { eq: "source" } }
         }
@@ -56,6 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           previous {
             frontmatter {
               title
+              status
             }
             fields {
               slug
@@ -64,6 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           next {
             frontmatter {
               title
+              status
             }
             fields {
               slug

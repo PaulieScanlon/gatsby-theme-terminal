@@ -26,6 +26,7 @@ export const useAllMdx = filter => {
               tags
               date
               dateModified
+              author
               status
               featuredImage {
                 childImageSharp {

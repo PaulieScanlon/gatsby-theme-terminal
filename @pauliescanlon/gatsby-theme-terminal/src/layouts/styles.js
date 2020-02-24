@@ -16,7 +16,6 @@ export const tag = ({ index, tags }) => ({
 
 export const dates = {
   flexWrap: 'wrap',
-  mb: 2,
 }
 
 export const dateBox = {

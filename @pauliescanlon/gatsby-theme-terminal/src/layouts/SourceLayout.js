@@ -26,7 +26,7 @@ import * as styles from './styles'
 
 const SourceLayout = ({
   data: {
-    mdx: { body, excerpt, frontmatter },
+    mdx: { id, body, excerpt, frontmatter },
   },
   pageContext,
 }) => {
@@ -41,6 +41,7 @@ const SourceLayout = ({
     tags,
     date,
     dateModified,
+    author,
     featuredImage,
     embeddedImages,
   } = frontmatter
@@ -51,6 +52,7 @@ const SourceLayout = ({
   // console.log('siteURL: ', siteURL)
   // console.log('siteImage: ', siteImage)
   // console.log('lang: ', lang)
+  // console.log('id: ', id)
 
   const embedded = {}
 
@@ -113,6 +115,14 @@ const SourceLayout = ({
                     )}
                   </Box>
                 </Flex>
+                <Divider />
+
+                {author && (
+                  <Fragment>
+                    <Text sx={styles.dateModified}>Author: {author}</Text>
+                    <Divider />
+                  </Fragment>
+                )}
 
                 {tags &&
                   tags.map((tag, index) => (
@@ -124,17 +134,7 @@ const SourceLayout = ({
                       {tag}
                     </Badge>
                   ))}
-                {/* <div>
-              featuredImage
-              <pre>
-                <code>{JSON.stringify(featuredImage, null, 2)}</code>
-              </pre>
-            </div> */}
-                {/* <div>tags {JSON.stringify(tags, null, 2)}</div> */}
-                {/* <div>date {JSON.stringify(date, null, 2)}</div> */}
-                {/* <div>dateModified {JSON.stringify(dateModified, null, 2)}</div> */}
-                {/* <div>status {JSON.stringify(status, null, 2)}</div> */}
-                {/* <div>embeddedImages {JSON.stringify(embeddedImages, null, 2)}</div> */}
+
                 <Divider />
                 <MDXProvider>
                   <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
@@ -147,7 +147,6 @@ const SourceLayout = ({
                 >
                   {prev && prev.fields.slug.includes(parent) && (
                     <div>
-                      {' '}
                       <Link href={prev.fields.slug}>prev</Link>
                     </div>
                   )}
@@ -175,6 +174,7 @@ const SourceLayout = ({
 
 // This query is a duplicate of useAllMdx so if you update this one update that one too! in data/useAllMdx
 // test id: c147b696-2ac9-58b3-a3e6-17d8402289e0
+// draft id: c2a66bb2-6fc4-5b03-94f1-e31abea07a59
 
 export const singleMdx = graphql`
   query singleMdx($id: String) {
@@ -187,6 +187,7 @@ export const singleMdx = graphql`
         tags
         date
         dateModified
+        author
         status
         featuredImage {
           childImageSharp {
