@@ -10,8 +10,12 @@ import { useConfig } from '../../data'
 
 // Mdx components
 import * as themeUiComponents from '@theme-ui/components'
-import { Image, IconButton } from '@theme-ui/components'
 
+// Either used by Main component or components prop
+import { Image, MenuButton } from '@theme-ui/components'
+
+// Theme specific componenbts
+import { Logo } from '../Logo'
 import { SiteMetaData } from '../SiteMetaData'
 import { SourceList } from '../SourceList'
 import { TagList } from '../TagList'
@@ -44,25 +48,14 @@ export const Main = ({ children }) => {
   return (
     <Fragment>
       <header sx={styles.header({ sidebarWidth })}>
-        <div sx={styles.left}></div>
+        <div sx={styles.left}>
+          <Logo />
+        </div>
         <div sx={styles.right}>
-          <IconButton
-            aria-label="toggle menu"
-            sx={styles.iconButton({ isNavOpen })}
+          <MenuButton
+            aria-label="Toggle Menu"
             onClick={() => dispatch({ type: 'openNav' })}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              fill="currentcolor"
-            >
-              <rect width="100%" height={2} y={2} fill="currentcolor" />
-              <rect width="100%" height={2} y={11} fill="currentcolor" />
-              <rect width="100%" height={2} y={20} fill="currentcolor" />
-            </svg>
-          </IconButton>
+          />
         </div>
       </header>
       <div sx={styles.site}>

@@ -7,7 +7,7 @@ module.exports = {
     siteImage: `images/terminal-open-graph-image.jpg`,
     lang: `eng`,
     config: {
-      sidebarWidth: 220,
+      sidebarWidth: 240,
     },
   },
   plugins: [

@@ -15,11 +15,19 @@ export const header = ({ sidebarWidth }) => ({
   overflow: 'hidden',
   position: 'fixed',
   p: 2,
-  width: '100%',
+  width: ['100%', '100%', '100%', `calc(100% - ${sidebarWidth}px)`],
 })
 
-export const left = {}
-export const right = {}
+export const left = {
+  alignItems: 'center',
+  display: ['flex', 'flex', 'flex', 'none'],
+}
+export const right = {
+  alignItems: 'center',
+  display: ['flex', 'flex', 'flex', 'none'],
+  flexBasis: '100%',
+  justifyContent: 'flex-end',
+}
 
 export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
   height: '100%',
@@ -71,15 +79,4 @@ export const main = ({ sidebarWidth }) => ({
     `${theme.space[6]}px ${theme.space[4]}px`,
   ],
   transition: '.3s ease-in-out margin-left',
-})
-
-export const iconButton = ({ isNavOpen }) => ({
-  backgroundColor: 'background',
-  cursor: 'pointer',
-  display: [
-    isNavOpen ? 'none' : 'block',
-    isNavOpen ? 'none' : 'block',
-    isNavOpen ? 'none' : 'block',
-    'none',
-  ],
 })

@@ -3,7 +3,7 @@ export const anchorFocus = {
   boxShadow: theme => `0 2px 0 0 ${theme.colors.primary}`,
 }
 
-export const buttonFocus = {
+export const commonFocus = {
   outline: 'none',
   transition: '.2s linear box-shadow',
   boxShadow: theme => `0 0 0 2px ${theme.colors.muted}`,
@@ -62,7 +62,7 @@ const buttons = {
   minWidth: 120,
   p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
   ':focus': {
-    ...buttonFocus,
+    ...commonFocus,
   },
 }
 
@@ -79,6 +79,19 @@ const alerts = {
   fontWeight: 'body',
   borderRadius: 0,
   p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
+}
+
+export const blockquotes = {
+  borderRadius: 0,
+  borderLeft: theme => `${theme.borderWidths[2]}px solid ${theme.colors.muted}`,
+  mt: 0,
+  ml: 0,
+  mb: 3,
+  mr: 0,
+  p: {
+    p: 3,
+    mb: 0,
+  },
 }
 
 export default {
@@ -187,16 +200,7 @@ export default {
       },
     },
     blockquote: {
-      mt: 0,
-      ml: 0,
-      mb: 3,
-      mr: 0,
-      borderLeft: theme =>
-        `${theme.borderWidths[2]}px solid ${theme.colors.muted}`,
-      p: {
-        p: 3,
-        mb: 0,
-      },
+      ...blockquotes,
     },
   },
 
@@ -225,7 +229,7 @@ export default {
   },
 
   badges: {
-    // supposed to be default but isn't
+    // primary is supposed to be default but isn't
     primary: {
       ...badges,
       color: 'primary',
@@ -270,14 +274,30 @@ export default {
     icon: {
       borderRadius: 0,
       ':focus': {
-        ...buttonFocus,
+        ...commonFocus,
       },
     },
     ghost: {
       borderRadius: 0,
       backgroundColor: 'background',
       ':focus': {
-        ...buttonFocus,
+        ...commonFocus,
+      },
+    },
+    close: {
+      cursor: 'pointer',
+      borderRadius: 0,
+      backgroundColor: 'background',
+      ':focus': {
+        ...commonFocus,
+      },
+    },
+    menu: {
+      cursor: 'pointer',
+      borderRadius: 0,
+      backgroundColor: 'background',
+      ':focus': {
+        ...commonFocus,
       },
     },
   },
@@ -291,7 +311,13 @@ export default {
 
   links: {
     ...anchors,
-    nav: {},
+    nav: {
+      ...anchors,
+      ':hover': {
+        color: 'text',
+        transition: '.2s linear color',
+      },
+    },
   },
 
   text: {
@@ -306,17 +332,51 @@ export default {
   },
 
   forms: {
-    label: {},
-    input: {},
-    slect: {},
-    textarea: {},
-    slider: {},
-    radio: {},
-    checkbox: {},
+    label: {
+      fontWeight: 'bold',
+    },
+    input: {
+      borderRadius: 0,
+      borderColor: 'muted',
+      ':focus': {
+        ...commonFocus,
+      },
+    },
+    select: {
+      borderRadius: 0,
+      borderColor: 'muted',
+      ':focus': {
+        ...commonFocus,
+      },
+    },
+    textarea: {
+      borderRadius: 0,
+      borderColor: 'muted',
+      ':focus': {
+        ...commonFocus,
+      },
+    },
+    slider: {
+      backgroundColor: 'muted',
+    },
+    radio: {
+      color: 'muted',
+      backgroundColor: 'background',
+    },
+    checkbox: {
+      color: 'muted',
+      backgroundColor: 'background',
+    },
   },
-  progress: {},
-  donut: {},
-  spinner: {},
+  progress: {
+    // this can't be styled here
+  },
+  donut: {
+    // this can't be styled here
+  },
+  spinner: {
+    // this can't be styled here
+  },
   hr: {},
   embed: {},
   sizes: {
@@ -326,5 +386,7 @@ export default {
     //default
     container: {},
   },
-  messages: {},
+  messages: {
+    // this can't be styled here
+  },
 }

@@ -46,6 +46,27 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
+## [Grid](#grid)
+
+```javascript
+<Grid
+  gap={2}
+  columns={[2, '1fr 2fr']}>
+  <Box bg='primary'>Box</Box>
+  <Box bg='muted'>Box</Box>
+</Grid>
+```
+
+<Grid
+  gap={2}
+  columns={[2, '1fr 2fr']}>
+  <Box bg='primary'>Box</Box>
+  <Box bg='muted'>Box</Box>
+</Grid>
+
+<Divider />
+
+
 ## [Buttons](#buttons)
 
 ```javascript
@@ -109,54 +130,21 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-## [Badge](#badge)
-
-```javascript
-<Badge variant='primary' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='secondary' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='success' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='error'>
-  Beep boop, this is an badge!
-</Badge>
-```
-
-<Badge variant='primary' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='secondary' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='success' mb={2} mr={2}>
-  Beep boop, this is an badge!
-</Badge>
-
-<Badge variant='error'>
-  Beep boop, this is an badge!
-</Badge>
-
-
-<Divider />
 
 ## [Image](#image)
 
 ```javascript
-  <Image src='https://placekitten.com/g/400/300' />
+<Image
+  src='https://placekitten.com/g/400/400'
+/>
 ```
 
-<Image src='https://placekitten.com/g/400/300' />
+<Image
+  src='https://placekitten.com/g/400/400'
+/>
 
 <Divider />
+
 
 ## [Card](#card)
 
@@ -184,6 +172,308 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
   </Box>
 </Card>
 
+
+<Divider />
+
+<!-- ## [Forms](#forms)
+
+```javascript
+<Label htmlFor='input'>Input</Label>
+<Input
+  name='username'
+  mb={3}
+/>
+
+<Label mb={3}>
+  <Checkbox />
+  Checkbox
+</Label>
+
+<Label mb={3}>
+  <Radio name='radio' /> Radio A
+</Label>
+<Label mb={3}>
+  <Radio name='radio' /> Radio B
+</Label>
+
+<Label htmlFor='select'>Select</Label>
+<Select name='select' mb={3}>
+  <option>Beep</option>
+  <option>Boop</option>
+  <option>Blip</option>
+</Select>
+
+<Label htmlFor='textarea'>Text Area</Label>
+<Textarea
+  name='textarea'
+  rows='6'
+  mb={3}
+/>
+```
+
+<Label htmlFor='input'>Input</Label>
+<Input
+  name='username'
+  mb={3}
+/>
+
+<Label mb={3}>
+  <Checkbox />
+  Checkbox
+</Label>
+
+<Label mb={3}>
+  <Radio name='radio' /> Radio A
+</Label>
+<Label mb={3}>
+  <Radio name='radio' /> Radio B
+</Label>
+
+<Label htmlFor='select'>Select</Label>
+<Select name='select' mb={3}>
+  <option>Beep</option>
+  <option>Boop</option>
+  <option>Blip</option>
+</Select>
+
+<Label htmlFor='textarea'>Text Area</Label>
+<Textarea
+  name='textarea'
+  rows='6'
+  mb={3}
+/> -->
+
+
+## [Label](#label) 
+
+```javascript
+<Label htmlFor='input'>Label</Label>
+```
+
+<Label htmlFor='input'>Label</Label>
+
+<Divider />
+
+## [Input](#input)
+
+```javascript
+<Input name='username'/>
+```
+
+<Input name='username'/>
+
+<Divider />
+
+
+## [Select](#select)
+
+```javascript
+<Select
+  defaultValue='Hello'>
+  <option>Hello</option>
+  <option>Hi</option>
+  <option>Beep</option>
+  <option>Boop</option>
+</Select>
+```
+
+<Select
+  defaultValue='Hello'>
+  <option>Hello</option>
+  <option>Hi</option>
+  <option>Beep</option>
+  <option>Boop</option>
+</Select>
+
+<Divider />
+
+
+## [Textarea](#text-area)
+
+```javascript
+<Textarea
+  defaultValue='Hello'
+  rows={8}
+/>
+```
+
+<Textarea
+  defaultValue='Hello'
+  rows={8}
+/>
+
+<Divider />
+
+## [Radio](#radio)
+
+```javascript
+<Label mb={1}>
+  <Radio
+    name='dark-mode'
+    value='true'
+    defaultChecked={true}
+  />
+  Dark Mode
+</Label>
+<Label mb={1}>
+  <Radio
+    name='dark-mode'
+    value='false'
+  />
+  Light Mode
+</Label>
+```
+
+<Label mb={1}>
+  <Radio
+    name='dark-mode'
+    value='true'
+    defaultChecked={true}
+  />
+  Dark Mode
+</Label>
+<Label mb={1}>
+  <Radio
+    name='dark-mode'
+    value='false'
+  />
+  Light Mode
+</Label>
+
+<Divider />
+
+## [Checkbox](#checkbox)
+
+```javascript
+<Label>
+  <Checkbox />
+  Checkbox
+</Label>
+```
+
+<Label>
+  <Checkbox />
+  Checkbox
+</Label>
+
+<Divider />
+
+## [Slider](#slider)
+
+```javascript
+<Slider defaultValue={25} />
+```
+
+<Slider defaultValue={25} />
+
+<Divider />
+
+
+## [Field](#field)
+
+```javascript
+<Field label='Email' name='email' defaultValue='' />
+```
+
+<Field label='Email' name='email' defaultValue='' />
+
+<Divider />
+
+
+## [Progress](#progress)
+Progress can't be styled at the moment
+
+```javascript
+<Progress max={1} value={1/2}> 50% </Progress>
+```
+
+<Progress max={1} value={1/2}> 50% </Progress>
+
+<Divider />
+
+
+## [Donut](#donut)
+Donut can't be styled at the moment
+
+```javascript
+<Donut value={1/2} />
+```
+
+<Donut value={1/2} />
+
+<Divider />
+
+## [Spinner](#spinner)
+Spinner can't be styled at the moment
+
+```javascript
+<Spinner />
+```
+
+<Spinner />
+
+<Divider />
+
+## [Avatar](#avatar)
+
+```javascript
+<Avatar
+  src='https://placekitten.com/g/50/50'
+/>
+```
+
+<Avatar
+  src='https://placekitten.com/g/50/50'
+/>
+
+## [Badge](#badge)
+Badges need a variant, the default can't be styled at the moment
+
+```javascript
+<Badge variant='primary' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='secondary' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='success' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='error'>
+  Beep boop, this is an badge!
+</Badge>
+```
+
+<Badge variant='primary' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='secondary' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='success' mb={2} mr={2}>
+  Beep boop, this is an badge!
+</Badge>
+
+<Badge variant='error'>
+  Beep boop, this is an badge!
+</Badge>
+
+
+<Divider />
+
+
+## [Close](#close)
+
+```javascript
+<Close />
+```
+
+<Close />
 
 <Divider />
 
@@ -222,3 +512,192 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Alert variant='error'>
   Beep boop, this is an alert!
 </Alert>
+
+<Divider />
+
+## [Divider](#divider)
+
+```javascript
+<Divider />
+```
+
+<Divider />
+
+<Divider />
+
+## Embed
+
+```javascript
+<Embed
+  src="https://www.youtube.com/embed/GNCd_ERZvZM"
+/>
+```
+
+<Embed
+  src="https://www.youtube.com/embed/GNCd_ERZvZM"
+/>
+
+<Divider />
+
+## [AspectRatio](#aspect-ratio)
+
+```javascript
+<AspectRatio ratio={16/9}>
+  <Image
+    src='https://placekitten.com/g/1200/1200'
+    sx={{
+      objectFit: 'cover',
+    }}
+  />
+</AspectRatio>
+```
+
+<AspectRatio ratio={16/9}>
+  <Image
+    src='https://placekitten.com/g/1200/1200'
+    sx={{
+      objectFit: 'cover',
+    }}
+  />
+</AspectRatio>
+
+<Divider />
+
+## [AspectImage](#aspect-image)
+
+```javascript
+<AspectImage
+  ratio={4/3}
+  src='https://placekitten.com/g/1200/1200'
+/>
+```
+
+<AspectImage
+  ratio={4/3}
+  src='https://placekitten.com/g/1200/1200'
+/>
+
+<Divider />
+
+## [Container](#container)
+
+```javascript
+<Container
+  p={4}
+  bg='surface'>
+  Centered container
+</Container>
+```
+
+<Container
+  p={4}
+  bg='surface'>
+  Centered container
+</Container>
+
+<Divider />
+
+## [NavLink](#nav-link)
+
+```javascript
+<Flex as='nav'>
+  <NavLink href='#!' p={2}>
+    Home
+  </NavLink>
+  <NavLink href='#!' p={2}>
+    Blog
+  </NavLink>
+  <NavLink href='#!' p={2}>
+    About
+  </NavLink>
+</Flex>
+```
+
+<Flex as='nav'>
+  <NavLink href='#!' p={2}>
+    Home
+  </NavLink>
+  <NavLink href='#!' p={2}>
+    Blog
+  </NavLink>
+  <NavLink href='#!' p={2}>
+    About
+  </NavLink>
+</Flex>
+
+<Divider />
+
+## [Message](#message)
+
+Messages can't be styled at the moment
+
+```javascript
+<Message>
+  This is just a message for someone to read
+</Message>
+```
+
+<Message>
+  This is just a message for someone to read
+</Message>
+
+<Divider />
+
+
+## [IconButton](#icon-button)
+
+```javascript
+<IconButton
+  aria-label='Toggle dark mode'>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width='24'
+    height='24'
+    fill='currentcolor'>
+    <circle
+      r={11}
+      cx={12}
+      cy={12}
+      fill='none'
+      stroke='currentcolor'
+      strokeWidth={2}
+    />
+  </svg>
+</IconButton>
+```
+
+<IconButton
+  aria-label='Toggle dark mode'>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    width='24'
+    height='24'
+    fill='currentcolor'>
+    <circle
+      r={11}
+      cx={12}
+      cy={12}
+      fill='none'
+      stroke='currentcolor'
+      strokeWidth={2}
+    />
+  </svg>
+</IconButton>
+
+<Divider />
+
+## [MenuButton](#menu-button)
+
+```javascript
+<MenuButton
+  aria-label='Toggle Menu'
+/>
+```
+
+<MenuButton
+  aria-label='Toggle Menu'
+/>
+
+<Divider />
