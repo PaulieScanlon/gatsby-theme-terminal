@@ -3,6 +3,7 @@ import { Fragment, useContext } from 'react'
 import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
+import Prism from '@theme-ui/prism'
 
 import { Context } from '../../context'
 import { Nav } from '../Nav'
@@ -23,6 +24,8 @@ import { TagList } from '../TagList'
 import * as styles from './styles'
 
 const components = {
+  pre: ({ children }) => <Fragment>{children}</Fragment>,
+  code: Prism,
   Fragment,
   SiteMetaData,
   SourceList,

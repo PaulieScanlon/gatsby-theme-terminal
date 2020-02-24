@@ -1,3 +1,5 @@
+import codeTheme from '@theme-ui/prism/presets/night-owl.json'
+
 export const anchorFocus = {
   transition: '.2s linear box-shadow',
   boxShadow: theme => `0 2px 0 0 ${theme.colors.primary}`,
@@ -44,6 +46,7 @@ const anchors = {
 }
 
 const codeBlock = {
+  ...codeTheme,
   backgroundColor: 'surface',
   // special case
   fontSize: '13px',

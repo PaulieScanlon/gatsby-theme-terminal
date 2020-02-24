@@ -10,7 +10,7 @@ gatsby-theme-terminal supports the full set of [markdown shortcodes](https://git
 
 ## [Heading](#heading)
 
-```
+```markdown
 # h1
 ## h2
 ### h3
@@ -72,7 +72,7 @@ Strikethrough uses two tildes. Scratch this. -->
 
 (In this example, leading and trailing spaces are shown with with dots: ⋅)
 
-```
+```markdown
 1. First ordered list item
 2. Another item
 ⋅⋅* Unordered sub-list.
@@ -105,7 +105,7 @@ Strikethrough uses two tildes. Scratch this. -->
 
 There are two ways to create links.
 
-```
+```markdown
 [I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
@@ -153,7 +153,7 @@ Some text to show that the reference links can follow later.
 
 ## [Images](#images)
 
-```
+```markdown
 Here's our logo (hover to see the title text):
 
 Inline-style:
@@ -179,15 +179,15 @@ Reference-style:
 
 Code blocks are part of the Markdown spec, but syntax highlighting isn't.
 
-```
+```markdown
 Inline `code` has `back-ticks around` it.
 ```
 
 Inline `code` has `back-ticks around` it.
 
-Blocks of code are either fenced by lines with three back-ticks ```, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.
+Blocks of code are either fenced by lines with three back-ticks ```, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting, but you must provide a language or none
 
-````javascript
+````markdown
 
 ```javascript
 var s = "JavaScript syntax highlighting"
@@ -197,13 +197,16 @@ alert(s);
 ```python
 s = "Python syntax highlighting"
 print s
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-
 ```
 
+```html
+<div> HTML syntax highlighting </div>
+```
+
+```none
+var s = "JavaScript syntax highlighting"
+alert(s)
+```
 ````
 
 ```javascript
@@ -216,10 +219,15 @@ s = "Python syntax highlighting"
 print s
 ```
 
+```html
+<div> HTML syntax highlighting </div>
 ```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
+
+```none
+var s = "JavaScript syntax highlighting"
+alert(s)
 ```
+
 
 <!-- TODO Tables don't align properly -->
 
@@ -267,7 +275,7 @@ raw Markdown line up prettily. You can also use inline Markdown.
 
 ## [Blockquotes](#blockquotes)
 
-```
+```markdown
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
 
@@ -288,7 +296,7 @@ Quote break.
 
 You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
-```
+```markdown
 <dl>
   <dt>Definition list</dt>
   <dd>Is something people use sometimes.</dd>
