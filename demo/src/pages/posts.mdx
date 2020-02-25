@@ -34,11 +34,10 @@ Here we use it to return all the `posts` by using the filter prop
     
                <Card sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column' }}>
                 {featuredImage && featuredImage.childImageSharp && (
-                  <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+                  <Box sx={{ minHeight: '1px'}}>
                     <Image
                       src={featuredImage.childImageSharp.fluid.src}
                       alt={featuredImage.childImageSharp.fluid.originalName}
-                      sx={{ display: 'block', width: '100%', height: '100%'}}
                     />
                   </Box>
                 )}
