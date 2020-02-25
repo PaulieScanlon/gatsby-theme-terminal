@@ -42,6 +42,8 @@ Here we use it to return all the `posts` by using the filter prop
                 )}
                 <Box
                   sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
                     flex: '1 1 auto',
                     p: 3,
                   }}
@@ -50,8 +52,8 @@ Here we use it to return all the `posts` by using the filter prop
                     {title}
                   </Heading>
                   <Text sx={{mb: 2, color: 'muted'}}>{date}</Text>
-                  <Text sx={{mb: 2, color: 'text'}}>{excerpt}</Text>
-                  <Box sx={{display: 'block' }}>
+                  <Text sx={{mb: 3, color: 'text', flex: '1 1 auto'}}>{excerpt}</Text>
+                  <Box sx={{display: 'block', mb: 2 }}>
                   {tags &&
                     tags.map((tag, index) => (
                       <Badge
@@ -76,6 +78,7 @@ Here we use it to return all the `posts` by using the filter prop
                       </Badge>
                     ))}
                   </Box>
+                  <Text>View Post</Text>
                 </Box>
               </Card>
             </Link>
