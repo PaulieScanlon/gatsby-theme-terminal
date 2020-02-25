@@ -28,11 +28,11 @@ Here we use it to return all the `posts` by using the filter prop
         return (
           <Box
             key={index}
-            sx={{ display: 'flex', mb: 3, width: ["100%", "100%", "50%", "33.333%"], pl: 2, pr: 2, outline: '1px solid red' }}
+            sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', mb: 3, width: ["100%", "100%", "50%", "33.333%"], pl: 2, pr: 2, outline: '1px solid red' }}
           >
             {/* <Link href={slug} sx={{ textDecoration: "none", display: 'flex', flex: '1 1 auto' }}>
              <Box sx={{border: '1px solid red', display: 'flex', flex: '1 1 auto'}}> */}
-               <Card sx={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto', outline: '1px solid blue' }}>
+               <Card sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', outline: '1px solid blue' }}>
                 {/* {featuredImage && featuredImage.childImageSharp && (
                   <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                     <Image
@@ -50,11 +50,11 @@ Here we use it to return all the `posts` by using the filter prop
                     border: '1px solid yellow'
                   }}
                 > */}
+                  <Box sx={{ display: 'flex', flex: '1 1 auto', flexDirection: 'column', border: '1px solid yellow',}}>
                   <Heading variant="styles.h4" sx={{ color: "text" }}>
                     {title}
                   </Heading>
                   {/* <Text sx={{mb: 2, color: 'muted'}}>{date}</Text> */}
-                  <Box sx={{flex: '1 1 auto',  border: '1px solid yellow',}}>
                    <Text sx={{mb: 3, border: '1px solid green', color: 'text'}}>{excerpt}</Text>
                   </Box>
                   {/* <Box sx={{display: 'block', mb: 2 }}>
