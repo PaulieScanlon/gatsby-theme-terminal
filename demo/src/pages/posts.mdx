@@ -28,11 +28,11 @@ Here we use it to return all the `posts` by using the filter prop
         return (
           <Box
             key={index}
-            sx={{ display: 'flex', flex: '1 1 auto', mb: 3, width: ["100%", "100%", "50%", "33.333%"], pl: 2, pr: 2 }}
+            sx={{ display: 'flex', mb: 3, width: ["100%", "100%", "50%", "33.333%"], pl: 2, pr: 2, outline: '1px solid red' }}
           >
             {/* <Link href={slug} sx={{ textDecoration: "none", display: 'flex', flex: '1 1 auto' }}>
              <Box sx={{border: '1px solid red', display: 'flex', flex: '1 1 auto'}}> */}
-               <Card sx={{display: 'flex', flexDirection: 'column', flex: '1 1 auto'}}>
+               <Card sx={{ display: 'flex', flex: '1 1 auto', outline: '1px solid blue' }}>
                 {/* {featuredImage && featuredImage.childImageSharp && (
                   <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                     <Image
@@ -47,13 +47,14 @@ Here we use it to return all the `posts` by using the filter prop
                     flexDirection: 'column',
                     flex: '1 1 auto',
                     p: 3,
+                    border: '1px solid yellow'
                   }}
                 >
-                  {/* <Heading variant="styles.h4" sx={{ color: "text" }}>
+                  <Heading variant="styles.h4" sx={{ color: "text" }}>
                     {title}
-                  </Heading> */}
+                  </Heading>
                   {/* <Text sx={{mb: 2, color: 'muted'}}>{date}</Text> */}
-                  <Text sx={{mb: 3, color: 'text', flex: '1 1 auto'}}>{excerpt}</Text>
+                  <Text sx={{mb: 3, border: '1px solid green', color: 'text', flex: '1 1 auto'}}>{excerpt}</Text>
                   {/* <Box sx={{display: 'block', mb: 2 }}>
                   {tags &&
                     tags.map((tag, index) => (
