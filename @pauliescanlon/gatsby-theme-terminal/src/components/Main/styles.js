@@ -1,3 +1,7 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { transparentize } from '@theme-ui/color'
+
 export const site = {
   margin: '0 auto',
   maxWidth: 1200,
@@ -14,7 +18,7 @@ export const header = ({ sidebarWidth }) => ({
   ml: [0, 0, 0, sidebarWidth],
   overflow: 'hidden',
   position: 'fixed',
-  p: theme => `${theme.space[3]}px ${theme.space[4]}px`,
+  p: theme => [`0px ${theme.space[3]}px`, `0px ${theme.space[4]}px`],
   width: ['100%', '100%', '100%', `calc(100% - ${sidebarWidth}px)`],
 })
 
@@ -58,16 +62,21 @@ export const sidebarChild = ({ sidebarWidth, isNavOpen }) => ({
 })
 
 export const lightbox = ({ isNavOpen }) => ({
-  backgroundColor: 'black',
+  // backgroundColor: theme => `${transparentize(theme.colors.black, 0.8)}`,
+  backgroundColor: transparentize('black', 0.2),
   display: [
-    isNavOpen ? 'block' : 'none',
-    isNavOpen ? 'block' : 'none',
-    isNavOpen ? 'block' : 'none',
+    isNavOpen ? 'flex' : 'none',
+    isNavOpen ? 'flex' : 'none',
+    isNavOpen ? 'flex' : 'none',
     'none',
   ],
   height: '100%',
+  justifyContent: 'flex-end',
+  p: theme => [
+    `${theme.space[2]}px ${theme.space[3]}px`,
+    `${theme.space[2]}px ${theme.space[4]}px`,
+  ],
   position: 'fixed',
-  opacity: 0.8,
   width: '100%',
   zIndex: 998,
 })

@@ -13,7 +13,7 @@ import { useConfig } from '../../data'
 import * as themeUiComponents from '@theme-ui/components'
 
 // Either used by Main component or components prop
-import { Image, MenuButton } from '@theme-ui/components'
+import { Close, Image, MenuButton } from '@theme-ui/components'
 
 // Theme specific componenbts
 import { Logo } from '../Logo'
@@ -70,7 +70,9 @@ export const Main = ({ children }) => {
         <div
           sx={styles.lightbox({ isNavOpen })}
           onClick={() => dispatch({ type: 'closeNav' })}
-        />
+        >
+          <Close />
+        </div>
         <MDXProvider components={components}>
           <main sx={styles.main({ sidebarWidth })}>{children}</main>
         </MDXProvider>

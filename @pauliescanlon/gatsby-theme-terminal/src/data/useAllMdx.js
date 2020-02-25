@@ -12,6 +12,7 @@ export const useAllMdx = filter => {
           frontmatter: {
             title: { ne: "dummy" }
             navigationLabel: { ne: "dummy" }
+            status: { ne: "draft" }
           }
           fields: { owner: { eq: "source" } }
         }

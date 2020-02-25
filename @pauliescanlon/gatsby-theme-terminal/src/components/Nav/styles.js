@@ -6,7 +6,7 @@ export const logo = {
   height: theme => `${theme.space[5]}px`,
   justifyContent: ['flex-start', 'flex-start', 'flex-start', 'flex-end'],
   overFlow: 'hidden',
-  p: theme => `${theme.space[3]}px ${theme.space[4]}px`,
+  p: theme => `0px ${theme.space[4]}px`,
 }
 
 export const nav = {
