@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
 import { transparentize } from '@theme-ui/color'
 
 export const site = {
@@ -41,6 +39,7 @@ export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
     isNavOpen ? 'auto' : 'none',
     'auto',
   ],
+  maxWidth: '260px !important',
   position: 'fixed',
   width: sidebarWidth,
   zIndex: 999,

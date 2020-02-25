@@ -1,4 +1,5 @@
 import codeTheme from '@theme-ui/prism/presets/night-owl.json'
+import { lighten } from '@theme-ui/color'
 
 export const anchorFocus = {
   transition: '.2s linear box-shadow',
@@ -88,7 +89,7 @@ export const blockquotes = {
   borderRadius: 0,
   borderLeft: theme => `${theme.borderWidths[2]}px solid ${theme.colors.muted}`,
   mt: 0,
-  ml: 0,
+  ml: 2,
   mb: 3,
   mr: 0,
   p: {
@@ -200,6 +201,36 @@ export default {
       mb: 1,
       a: {
         ...anchors,
+      },
+    },
+    table: {
+      borderCollapse: 'collapse',
+      mb: 3,
+      border: 'none',
+      thead: {
+        backgroundColor: lighten('background', 0.03),
+        tr: {
+          th: {
+            border: theme =>
+              `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
+            padding: theme => `${theme.space[2]}px ${theme.space[3]}px`,
+          },
+        },
+        td: {
+          color: '#666',
+        },
+      },
+      tbody: {
+        'tr:nth-of-type(even)': {
+          backgroundColor: lighten('background', 0.01),
+        },
+        tr: {
+          td: {
+            padding: theme => `${theme.space[2]}px ${theme.space[3]}px`,
+            border: theme =>
+              `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
+          },
+        },
       },
     },
     blockquote: {
