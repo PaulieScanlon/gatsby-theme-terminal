@@ -355,6 +355,7 @@ export default {
   },
 
   text: {
+    color: 'text',
     heading: {
       ...headings,
       ...specialHeadings,

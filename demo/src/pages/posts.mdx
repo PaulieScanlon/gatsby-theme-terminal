@@ -21,43 +21,37 @@ Here we use it to return all the `posts` by using the filter prop
     >
       {posts.map((edge, index) => {
         const {
-          frontmatter: { title, featuredImage, tags },
+          frontmatter: { title, featuredImage, tags, date },
+          excerpt,
           fields: { slug },
         } = edge.node
         return (
           <Box
             key={index}
-            sx={{ mb: 3, width: ["100%", "100%", "50%", "33.333%"] }}
+            sx={{ display: 'flex', mb: 3, width: ["100%", "100%", "50%", "33.333%"], pl: 2, pr: 2 }}
           >
-            <Link href={slug} sx={{ textDecoration: "none", display: 'flex', height: '100%', ml: 2, mr: 2, }}>
-              <Card
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-  
-                }}
-              >
+            <Link href={slug} sx={{ textDecoration: "none", display: 'flex', flex: '1 1 auto' }}>
+             <Card sx={{display: 'flex', flexDirection: 'column'}}>
                 {featuredImage && featuredImage.childImageSharp && (
-                  <Image
-                    src={featuredImage.childImageSharp.fluid.src}
-                    alt={featuredImage.childImageSharp.fluid.originalName}
-                  />
+                  <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+                    <Image
+                      src={featuredImage.childImageSharp.fluid.src}
+                      alt={featuredImage.childImageSharp.fluid.originalName}
+                    />
+                  </Box>
                 )}
                 <Box
                   sx={{
-                    p: 3,
-                    display: 'flex',
-                    flexDirection: 'column',
                     flex: '1 1 auto',
-                    justifyContent: 'space-between'
+                    p: 3,
                   }}
-                >
-                <Box
-                  sx={{mb: 4}}
                 >
                   <Heading variant="styles.h4" sx={{ color: "text" }}>
                     {title}
                   </Heading>
+                  <Text sx={{mb: 2, color: 'muted'}}>{date}</Text>
+                  <Text sx={{mb: 2, color: 'text'}}>{excerpt}</Text>
+                  <Box sx={{display: 'block' }}>
                   {tags &&
                     tags.map((tag, index) => (
                       <Badge
@@ -81,9 +75,6 @@ Here we use it to return all the `posts` by using the filter prop
                         {tag}
                       </Badge>
                     ))}
-                  </Box>
-                  <Box>
-                  <Text sx={{ textDecoration: "underline" }}>View post</Text>
                   </Box>
                 </Box>
               </Card>

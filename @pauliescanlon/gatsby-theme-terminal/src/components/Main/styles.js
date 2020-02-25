@@ -32,21 +32,22 @@ export const right = {
 }
 
 export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
+  backgroundColor: 'background',
   height: '100%',
-  pointerEvents: [
-    isNavOpen ? 'auto' : 'none',
-    isNavOpen ? 'auto' : 'none',
-    isNavOpen ? 'auto' : 'none',
-    'auto',
+  left: [
+    isNavOpen ? '0px' : `-${sidebarWidth}px`,
+    isNavOpen ? '0px' : `-${sidebarWidth}px`,
+    isNavOpen ? '0px' : `-${sidebarWidth}px`,
+    '0px',
   ],
   maxWidth: '260px !important',
   position: 'fixed',
+  transition: '.3s ease-in-out left',
   width: sidebarWidth,
   zIndex: 999,
 })
 
 export const sidebarChild = ({ sidebarWidth, isNavOpen }) => ({
-  backgroundColor: 'background',
   borderRight: theme =>
     `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
   height: '100%',
@@ -61,7 +62,6 @@ export const sidebarChild = ({ sidebarWidth, isNavOpen }) => ({
 })
 
 export const lightbox = ({ isNavOpen }) => ({
-  // backgroundColor: theme => `${transparentize(theme.colors.black, 0.8)}`,
   backgroundColor: transparentize('black', 0.2),
   display: [
     isNavOpen ? 'flex' : 'none',
@@ -81,6 +81,7 @@ export const lightbox = ({ isNavOpen }) => ({
 })
 
 export const main = ({ sidebarWidth }) => ({
+  display: 'block',
   ml: [0, 0, 0, sidebarWidth],
   p: theme => [
     `${theme.space[6]}px ${theme.space[3]}px`,
