@@ -32,7 +32,7 @@ Here we use it to return all the `posts` by using the filter prop
           >
             {/* <Link href={slug} sx={{ textDecoration: "none", display: 'flex', flex: '1 1 auto' }}>
              <Box sx={{border: '1px solid red', display: 'flex', flex: '1 1 auto'}}> */}
-               <Card sx={{ display: 'flex', flex: '1 1 auto', outline: '1px solid blue' }}>
+               <Card sx={{ display: 'flex', flexDirection: 'column', flex: '1 1 auto', outline: '1px solid blue' }}>
                 {/* {featuredImage && featuredImage.childImageSharp && (
                   <Box sx={{ position: 'relative', overflow: 'hidden' }}>
                     <Image
@@ -41,7 +41,7 @@ Here we use it to return all the `posts` by using the filter prop
                     />
                   </Box>
                 )} */}
-                <Box
+                {/* <Box
                   sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -49,7 +49,7 @@ Here we use it to return all the `posts` by using the filter prop
                     p: 3,
                     border: '1px solid yellow'
                   }}
-                >
+                > */}
                   <Heading variant="styles.h4" sx={{ color: "text" }}>
                     {title}
                   </Heading>
@@ -81,7 +81,7 @@ Here we use it to return all the `posts` by using the filter prop
                     ))}
                   </Box> */}
                   <Text>View Post</Text>
-                </Box>
+                {/* </Box> */}
               </Card>
              {/* </Box>
             </Link> */}
