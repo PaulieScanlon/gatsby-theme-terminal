@@ -24,6 +24,12 @@ To help you get started you can either clone the starter [gatsby-starter-termina
 npm install @pauliescanlon/gatsby-theme-terminal
 ```
 
+### Install Peer Dependencies
+
+```
+npm install @mdx-js/mdx @mdx-js/react gatsby gatsby-plugin-mdx gatsby-source-filesystem react react-dom
+```
+
 ## Setup
 
 ### gatsby-config.js
@@ -39,7 +45,7 @@ module.exports = {
     keywords: ["tech", "blog", "boop"],
     siteUrl: 'https://gatsby-theme-terminal.netlify.com',
     siteImage: 'name-of-open-graph-image.jpg', // pop an image in the static folder to use it as the og:image,
-    config: `eng`
+    lang: `eng`,
     config: {
       sidebarWidth: 240 // optional,
     },

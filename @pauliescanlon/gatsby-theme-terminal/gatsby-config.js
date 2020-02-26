@@ -5,24 +5,26 @@ module.exports = themeOptions => {
 
   let filesystemSources = []
 
-  const sourceFilesystemOption = name => {
-    if (source) {
-      return {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `${name}`,
-          path: path.resolve(`src/${name}`),
-        },
+  if (source) {
+    const sourceFilesystemOption = name => {
+      if (source) {
+        return {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `${name}`,
+            path: path.resolve(`src/${name}`),
+          },
+        }
       }
     }
-  }
 
-  if (Array.isArray(source)) {
-    for (let item of source) {
-      filesystemSources.push(sourceFilesystemOption(item))
+    if (Array.isArray(source)) {
+      for (let item of source) {
+        filesystemSources.push(sourceFilesystemOption(item))
+      }
+    } else {
+      filesystemSources.push(sourceFilesystemOption(source))
     }
-  } else {
-    filesystemSources.push(sourceFilesystemOption(source))
   }
 
   return {

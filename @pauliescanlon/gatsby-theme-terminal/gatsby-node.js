@@ -38,8 +38,11 @@ exports.onCreateNode = ({ node, actions, getNode }, themeOptions) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
+  const { source } = themeOptions
   const { createPage } = actions
+
+  if (!source) return
 
   const result = await graphql(`
     query {
