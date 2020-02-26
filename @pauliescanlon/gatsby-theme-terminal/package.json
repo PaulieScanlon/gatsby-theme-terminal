@@ -1,7 +1,7 @@
 {
   "name": "@pauliescanlon/gatsby-theme-terminal",
   "private": true,
-  "description": "A terminal style blog",
+  "description": "A zero component Gatsby theme for developers",
   "version": "0.0.0",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
   "dependencies": {
@@ -45,13 +45,16 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "publish": "npm login"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pauliescanlon/gatsby-theme-terminal"
+    "url": "git+https://github.com/pauliescanlon/gatsby-theme-terminal.git"
   },
   "bugs": {
     "url": "https://github.com/pauliescanlon/gatsby-theme-terminal/issues"
-  }
+  },
+  "homepage": "https://gatsby-theme-terminal.netlify.com/",
+  "main": "index.js"
 }

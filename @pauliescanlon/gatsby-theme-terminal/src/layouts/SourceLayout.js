@@ -32,7 +32,7 @@ const SourceLayout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { name, siteURL, siteImage, lang },
+      siteMetadata: { name, siteUrl, siteImage, lang },
     },
   } = useConfig()
 
@@ -73,7 +73,7 @@ const SourceLayout = ({
                 title={name}
                 titleTemplate={title}
                 description={excerpt}
-                siteURL={siteURL}
+                siteUrl={siteUrl}
                 image={
                   featuredImage && featuredImage.childImageSharp
                     ? featuredImage.childImageSharp.fluid.src

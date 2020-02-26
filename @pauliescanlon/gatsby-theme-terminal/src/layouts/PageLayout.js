@@ -12,14 +12,14 @@ import { useConfig } from '../data'
 const PageLayout = ({ children }) => {
   const {
     site: {
-      siteMetadata: { name, description, keywords, siteURL, siteImage, lang },
+      siteMetadata: { name, description, keywords, siteUrl, siteImage, lang },
     },
   } = useConfig()
 
   // console.log('name: ', name)
   // console.log('description: ', description)
   // console.log('keywords: ', keywords)
-  // console.log('siteURL: ', siteURL)
+  // console.log('siteUrl: ', siteUrl)
   // console.log('siteImage: ', siteImage)
   // console.log('lang: ', lang)
 
@@ -38,7 +38,7 @@ const PageLayout = ({ children }) => {
                   title={name}
                   titleTemplate={titleTemplate}
                   description={description}
-                  siteURL={siteURL}
+                  siteUrl={siteUrl}
                   image={siteImage}
                   path={pathname}
                   keywords={keywords}

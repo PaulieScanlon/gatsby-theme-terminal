@@ -30,7 +30,7 @@ module.exports = themeOptions => {
       name: ``,
       description: ``,
       keywords: [],
-      siteURL: ``,
+      siteUrl: ``,
       siteImage: ``,
       lang: ``,
       config: {

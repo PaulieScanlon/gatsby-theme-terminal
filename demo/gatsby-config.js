@@ -3,7 +3,7 @@ module.exports = {
     name: `gatsby-theme-terminal`,
     description: `A Zero Component theme for developers`,
     keywords: [`gatsby`, `gatsbyjs`, `gatsby-theme`],
-    siteURL: `https://gatsby-theme-terminal.netlify.com`,
+    siteUrl: `https://gatsby-theme-terminal.netlify.com`,
     siteImage: `images/terminal-open-graph-image.jpg`,
     lang: `eng`,
     config: {

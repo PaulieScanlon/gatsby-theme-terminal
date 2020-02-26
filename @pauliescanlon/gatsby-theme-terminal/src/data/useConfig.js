@@ -9,7 +9,7 @@ export const useConfig = () => {
             name
             description
             keywords
-            siteURL
+            siteUrl
             siteImage
             lang
             config {
