@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
     name: `gatsby-theme-terminal`,
-    description: `A Zero Component theme for developers`,
+    description: `A zero component Gatsby theme for developers`,
     keywords: [`gatsby`, `gatsbyjs`, `gatsby-theme`],
     siteUrl: `https://gatsby-theme-terminal.netlify.com`,
     siteImage: `images/terminal-open-graph-image.jpg`,
     lang: `eng`,
     config: {
-      sidebarWidth: 260,
+      sidebarWidth: 280,
     },
   },
   plugins: [
