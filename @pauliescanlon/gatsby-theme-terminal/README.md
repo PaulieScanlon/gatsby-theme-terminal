@@ -76,7 +76,7 @@ navigationLabel: About
 
 # About
 
-This is about about page
+This is about page
 
 ```
 
@@ -157,7 +157,7 @@ The theme supports _all_ the components provided by [theme-ui/components](https:
 
 The theme also comes with it's own components _but_... These are purely to provide access to the source nodes. What you choose to render is completely up to you!
 
-For example to display a list of _all_ files sourced from the `source` theme option you _could_ do something like this. This component can be used in AND `.mdx` file 😎
+For example to display a list of _all_ files sourced from the `source` theme option you _could_ do something like this. This component can be used in ANY `.mdx` file 😎
 
 ```javascript
 <SourceList>
@@ -174,7 +174,7 @@ For example to display a list of _all_ files sourced from the `source` theme opt
 </SourceList>
 ```
 
-You can see in the [demo](https://gatsby-theme-terminal.netlify.com/components/) how to use them
+You can see more about how to use the theme components in the [demo](https://gatsby-theme-terminal.netlify.com/components/)
 
 ### Component Shadowing
 

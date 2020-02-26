@@ -1,6 +1,5 @@
 {
   "name": "@pauliescanlon/gatsby-theme-terminal",
-  "private": true,
   "description": "A zero component Gatsby theme for developers",
   "version": "0.0.0",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
