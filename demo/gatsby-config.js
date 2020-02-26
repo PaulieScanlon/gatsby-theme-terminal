@@ -7,14 +7,13 @@ module.exports = {
     siteImage: `images/terminal-open-graph-image.jpg`,
     lang: `eng`,
     config: {
-      sidebarWidth: 240,
+      sidebarWidth: 260,
     },
   },
   plugins: [
     {
       resolve: `@pauliescanlon/gatsby-theme-terminal`,
       options: {
-        // source: "posts",
         source: [`posts`, `projects`],
       },
     },

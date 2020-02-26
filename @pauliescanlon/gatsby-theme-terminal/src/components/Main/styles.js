@@ -40,7 +40,6 @@ export const sidebar = ({ sidebarWidth, isNavOpen }) => ({
     isNavOpen ? '0px' : `-${sidebarWidth}px`,
     '0px',
   ],
-  maxWidth: '260px !important',
   position: 'fixed',
   transition: '.3s ease-in-out left',
   width: sidebarWidth,

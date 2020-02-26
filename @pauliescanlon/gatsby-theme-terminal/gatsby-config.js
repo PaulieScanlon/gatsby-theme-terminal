@@ -36,7 +36,7 @@ module.exports = themeOptions => {
       siteImage: ``,
       lang: ``,
       config: {
-        sidebarWidth: 220,
+        sidebarWidth: 260,
       },
     },
     plugins: [

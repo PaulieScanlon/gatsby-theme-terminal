@@ -186,13 +186,37 @@ You can see more about how to use the theme components in the [demo](https://gat
 
 There is very little to shadow because almost everything is exposed by the components but you might want to add your own logo.
 
-To do this create a `@pauliescanlon/gatsby-theme-terminal` directory in the `src` directory of your project and then create a `Logo.js` file. You can do anything you like in here.
+To do this create the following directories `@pauliescanlon/gatsby-theme-terminal/components/Logo` in the `src` directory of your project and then create a `Logo.js` file. You can do anything you like in here.
 
 ```
 |-- src
     |-- @pauliescanlon
       |-- gatsby-theme-terminal
-        |-- Logo.js
+        |-- components
+          |-- Logo
+            |-- Logo.js
+```
+
+If you would like to customize any part of the theme you can do so by shadowing the theme file.
+
+To do this create the following directory `src/gatsby-plugin-theme-ui` and then create an `index.js`
+
+```javascript
+// src/gatsby-plugin-theme-ui/index.js
+
+import baseTheme from '@pauliescanlon/gatsby-theme-terminal/src/gatsby-plugin-theme-ui'
+
+export default {
+  ...baseTheme,
+  colors: {
+    ...baseTheme.colors,
+    primary: '#FF4081',
+    secondary: '#03A9F4',
+    success: '#FFEB3B',
+    background: '#232323',
+    surface: '#393939',
+  },
+}
 ```
 
 ### favicon
