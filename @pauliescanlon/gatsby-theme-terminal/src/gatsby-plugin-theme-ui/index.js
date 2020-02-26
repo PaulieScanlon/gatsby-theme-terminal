@@ -175,6 +175,7 @@ export default {
     },
     code: {
       ...codeBlock,
+      color: 'inherit',
     },
     pre: {
       ...codeBlock,
