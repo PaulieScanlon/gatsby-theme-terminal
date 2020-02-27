@@ -385,36 +385,34 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 
 ## [Progress](#progress)
-Progress can't be styled at the moment
 
 ```javascript
-<Progress max={1} value={1/2}> 50% </Progress>
+<Progress max={1} value={1/2}  sx={{color:'secondary'}}> 50% </Progress>
 ```
 
-<Progress max={1} value={1/2}> 50% </Progress>
+<Progress max={1} value={1/2} sx={{color:'secondary'}}> 50% </Progress>
 
 <Divider />
 
 
 ## [Donut](#donut)
-Donut can't be styled at the moment
+
 
 ```javascript
-<Donut value={1/2} />
+<Donut value={1/2} sx={{color:'success'}} />
 ```
 
-<Donut value={1/2} />
+<Donut value={1/2} sx={{color:'success'}} />
 
 <Divider />
 
 ## [Spinner](#spinner)
-Spinner can't be styled at the moment
 
 ```javascript
-<Spinner />
+<Spinner  sx={{color:'error'}} />
 ```
 
-<Spinner />
+<Spinner  sx={{color:'error'}} />
 
 <Divider />
 
@@ -633,17 +631,41 @@ Badges need a variant, the default can't be styled at the moment
 
 ## [Message](#message)
 
-Messages can't be styled at the moment
-
 ```javascript
-<Message>
+<Message variant='primary' mb={2}>
+  This is just a message for someone to read
+</Message>
+
+<Message variant='secondary' mb={2}>
+  This is just a message for someone to read
+</Message>
+
+<Message variant='success' mb={2}>
+  This is just a message for someone to read
+</Message>
+
+<Message variant='error' mb={2}>
   This is just a message for someone to read
 </Message>
 ```
 
-<Message>
+
+<Message variant='primary' mb={2}>
   This is just a message for someone to read
 </Message>
+
+<Message variant='secondary' mb={2}>
+  This is just a message for someone to read
+</Message>
+
+<Message variant='success' mb={2}>
+  This is just a message for someone to read
+</Message>
+
+<Message variant='error' mb={2}>
+  This is just a message for someone to read
+</Message>
+
 
 <Divider />
 

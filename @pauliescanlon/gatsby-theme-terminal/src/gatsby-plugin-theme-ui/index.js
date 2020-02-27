@@ -98,7 +98,13 @@ export const blockquotes = {
   },
 }
 
+export const messages = {
+  borderRadius: 0,
+  backgroundColor: 'surface',
+}
+
 export default {
+  // tokens
   borderWidths: [0, 1, 4],
   colors: {
     text: '#ffffff',
@@ -264,7 +270,7 @@ export default {
   },
 
   badges: {
-    // primary is supposed to be default but isn't
+    // primary is supposed to be default but it isn't
     primary: {
       ...badges,
       color: 'primary',
@@ -288,7 +294,7 @@ export default {
   },
 
   buttons: {
-    //primary
+    // default
     primary: {
       ...buttons,
     },
@@ -404,25 +410,48 @@ export default {
       backgroundColor: 'background',
     },
   },
+
   progress: {
     // this can't be styled here
   },
+
   donut: {
     // this can't be styled here
   },
+
   spinner: {
     // this can't be styled here
   },
+
   hr: {},
+
   embed: {},
+
   sizes: {
     container: {},
   },
+
   layouts: {
     //default
     container: {},
   },
+
   messages: {
-    // this can't be styled here
+    primary: {
+      ...messages,
+      borderLeftColor: 'primary',
+    },
+    secondary: {
+      ...messages,
+      borderLeftColor: 'secondary',
+    },
+    success: {
+      ...messages,
+      borderLeftColor: 'success',
+    },
+    error: {
+      ...messages,
+      borderLeftColor: 'error',
+    },
   },
 }
