@@ -91,17 +91,20 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
                   <Text sx={{ color: 'muted' }}>{percent}</Text>
                   <Text sx={{ color: 'error' }}>%</Text>
                 </Flex>
-                {'['}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1200 8"
-                  width="100%"
-                  height="8"
-                >
-                  <rect width={`${percent}%`} height={4} />
-                </svg>
-                {']'}
-                {/* <Box sx={{ backgroundColor:'muted', width: `${percent * 3}%`, height: 4}} /> */}
+                <Flex>
+                 {'['}
+                  <Box>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 1200 8"
+                      width="100%"
+                      height="8"
+                    >
+                      <rect width={`${percent}%`} height={4} />
+                    </svg>
+                  </Box>
+                  {']'}
+                </Flex>
               </Box>
             )
           })}
