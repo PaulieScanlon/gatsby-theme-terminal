@@ -45,6 +45,7 @@ module.exports = {
     keywords: ["tech", "blog", "boop"],
     siteUrl: 'https://gatsby-theme-terminal.netlify.com',
     siteImage: 'name-of-open-graph-image.jpg', // pop an image in the static folder to use it as the og:image,
+    profileImage: 'name-of-profile-image.jpg'
     lang: `eng`,
     config: {
       sidebarWidth: 240 // optional,

@@ -11,6 +11,7 @@ export const useConfig = () => {
             keywords
             siteUrl
             siteImage
+            profileImage
             lang
             config {
               sidebarWidth

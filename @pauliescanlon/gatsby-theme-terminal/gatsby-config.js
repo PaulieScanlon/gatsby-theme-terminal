@@ -34,6 +34,7 @@ module.exports = themeOptions => {
       keywords: [],
       siteUrl: ``,
       siteImage: ``,
+      profileImage: ``,
       lang: ``,
       config: {
         sidebarWidth: 260,
