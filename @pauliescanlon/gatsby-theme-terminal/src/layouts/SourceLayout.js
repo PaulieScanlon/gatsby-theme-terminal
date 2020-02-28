@@ -5,6 +5,7 @@ import { Location } from '@reach/router'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
+import { format } from 'date-fns'
 import { ContextProvider } from '../context'
 
 import { Seo } from '../components/Seo'
@@ -23,6 +24,8 @@ import {
 } from '@theme-ui/components'
 
 import * as styles from './styles'
+
+const formatDate = date => format(new Date(date), 'd-MMM-u')
 
 const SourceLayout = ({
   data: {
@@ -65,7 +68,6 @@ const SourceLayout = ({
       <Location>
         {({ location }) => {
           const { pathname } = location
-          // console.log('pathName: ', pathname)
           return (
             <Fragment>
               <Seo
@@ -97,12 +99,12 @@ const SourceLayout = ({
 
                 <Flex sx={styles.dates}>
                   <Box sx={styles.dateBox}>
-                    {date && <Text>Date published: {date}</Text>}
+                    {date && <Text>Date published: {formatDate(date)}</Text>}
                   </Box>
                   <Box sx={styles.dateBox}>
                     {dateModified && (
                       <Text sx={styles.dateModified}>
-                        Date modified: {dateModified}
+                        Date modified: {formatDate(dateModified)}
                       </Text>
                     )}
                   </Box>

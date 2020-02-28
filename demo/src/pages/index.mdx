@@ -2,6 +2,8 @@
 navigationLabel: Home
 ---
 
+import { format } from 'date-fns'
+
 <SiteMetaData>
 {siteMetadata => {
   const { name, description } = siteMetadata
@@ -92,18 +94,18 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
                   <Text sx={{ color: 'error' }}>%</Text>
                 </Flex>
                 <Flex>
-                 {'['}
-                  <Box>
+                 <Box>{'['}</Box>
+                  <Box sx={{flexBasis: '100%'}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 1200 8"
                       width="100%"
                       height="8"
                     >
-                      <rect width={`${percent}%`} height={4} />
+                      <rect width={`${percent * 3}%`} height={4} />
                     </svg>
                   </Box>
-                  {']'}
+                  <Box> {']'}</Box>
                 </Flex>
               </Box>
             )
@@ -134,7 +136,7 @@ Here we use it to return all the `projects` by using the filter prop
     >
       {projects.map((edge, index) => {
         const {
-          frontmatter: { title },
+          frontmatter: { title, date },
           fields: { slug },
         } = edge.node
         return (
@@ -149,7 +151,8 @@ Here we use it to return all the `projects` by using the filter prop
                   mr: 2,
                   p: 3,
                 }}
-              >
+              > 
+                <Text sx={{fontSize:0, color:'muted'}}>{format(new Date(date), 'd-MMM-u')}</Text>
                 <Heading variant="styles.h4" sx={{color: 'text'}}>{title}</Heading>
                 <Text sx={{textDecoration: 'underline'}}>View project</Text>
               </Card>

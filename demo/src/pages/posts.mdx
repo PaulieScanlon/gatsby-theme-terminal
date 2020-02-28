@@ -3,6 +3,7 @@ navigationLabel: Posts
 ---
 
 import { mix } from '@theme-ui/color'
+import { format } from 'date-fns'
 
 # posts
 
@@ -49,7 +50,7 @@ Here we use it to return all the `posts` by using the filter prop
                   <Heading variant="styles.h4" sx={{ color: "text" }}>
                     {title}
                   </Heading>
-                   <Text sx={{mb: 1, color: 'muted'}}>{date}</Text>
+                   <Text sx={{mb: 1, color: 'muted'}}>{format(new Date(date), 'd-MMM-u')}</Text>
                    <Text sx={{mb: 1, color: 'text'}}>{excerpt}</Text>
                   </Box>
                   <Box sx={{p: 3}}>
