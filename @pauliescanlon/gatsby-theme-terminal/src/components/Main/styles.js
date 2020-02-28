@@ -75,8 +75,12 @@ export const lightbox = ({ isNavOpen }) => ({
     `${theme.space[2]}px ${theme.space[4]}px`,
   ],
   position: 'fixed',
+  transition: '.2s linear background-color',
   width: '100%',
   zIndex: 998,
+  ':focus': {
+    backgroundColor: transparentize('black', 0.4),
+  },
 })
 
 export const main = ({ sidebarWidth }) => ({

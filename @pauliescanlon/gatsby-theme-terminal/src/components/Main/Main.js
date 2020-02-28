@@ -68,8 +68,13 @@ export const Main = ({ children }) => {
           </div>
         </div>
         <div
+          role="button"
+          tabIndex="0"
           sx={styles.lightbox({ isNavOpen })}
           onClick={() => dispatch({ type: 'closeNav' })}
+          onKeyDown={event =>
+            event.key === 'Enter' ? dispatch({ type: 'closeNav' }) : {}
+          }
         >
           <Close />
         </div>
