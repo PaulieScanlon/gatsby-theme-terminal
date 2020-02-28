@@ -132,7 +132,7 @@ Any file that is _not_ sourced from `pages` can contain any of the following `fr
 // src/posts/2020/02/some-post.mdx
 ---
 title: Some Post
-date: 26-02-2020
+date: 2020-01-01
 dateModified: 20-20-2020
 author: Paul Scanlon
 tags: ["JavaScript", "React", "GatsbyJs", "HTML", "CSS", "theme-ui"]
