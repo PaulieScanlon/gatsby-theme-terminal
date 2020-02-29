@@ -41,48 +41,13 @@ The `<SiteMetaData />` component returns all fields specified by `siteMetadata` 
 <Divider />
 
 ## [SourceList](#source-list)
-By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`
-
-
-```javascript
-<SourceList>
-  {source => (
-    <ul>
-      {source.map((edge, index) => {
-        const {
-          frontmatter: { title },
-        } = edge.node
-        return <li key={index}>{title}</li>
-      })}
-    </ul>
-  )}
-</SourceList>
-```
-
-<SourceList>
-  {source => (
-    <ul>
-      {source.map((edge, index) => {
-        const {
-          frontmatter: { title },
-        } = edge.node
-        return <li key={index}>{title}</li>
-      })}
-    </ul>
-  )}
-</SourceList>
-
-<Divider />
-
-## [SourceList filter](#source-list-filter)
-
-You can filter the data returned by the `<SourceList />` component by defining a source with the `filter` prop.
+By default the source list returns all `.mdx` found from the directories defined in `gatsby-config.js`. You can also use the `filter` prop with this component eg: `<SourceList filter='posts' />`
 
 *NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
 
 
 ```javascript
-<SourceList filter='posts'>
+<SourceList>
   {source => (
     <ul>
       {source.map((edge, index) => {
@@ -96,7 +61,7 @@ You can filter the data returned by the `<SourceList />` component by defining a
 </SourceList>
 ```
 
-<SourceList filter='posts'>
+<SourceList>
   {source => (
     <ul>
       {source.map((edge, index) => {
@@ -111,8 +76,110 @@ You can filter the data returned by the `<SourceList />` component by defining a
 
 <Divider />
 
+## [SourceDays](#source-days)
+By default source days returns an accumulated count and percent of all `frontmatter` date fields. You can also use the `filter` prop with this component eg: `<SourceDays filter='posts' />`
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
+
+```javascript
+<SourceDays>
+  {sourceDays => {
+    return (
+      <Box>
+        {sourceDays.map((day, index) => {
+          const { name, count, percent } = day
+          return (
+            <Flex
+              key={index}
+              sx={{
+                backgroundColor: 'surface',
+                flexDirection: 'column',
+                mb: 2,
+                position: 'relative',
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: 'primary',
+                  height: '100%',
+                  position: 'absolute',
+                  width: `${percent}%`,
+                }}
+              />
+              <Box
+                sx={{
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Text sx={{ textTransform: 'capitalize', pl: 2 }}>
+                  {name}
+                </Text>
+                <Text sx={{ pr: 2 }}>{`x${count}`}</Text>
+              </Box>
+            </Flex>
+          )
+        })}
+      </Box>
+    )
+  }}
+</SourceDays>
+```
+
+<SourceDays>
+  {sourceDays => {
+    return (
+      <Box>
+        {sourceDays.map((day, index) => {
+          const { name, count, percent } = day
+          return (
+            <Flex
+              key={index}
+              sx={{
+                backgroundColor: 'surface',
+                flexDirection: 'column',
+                mb: 2,
+                position: 'relative',
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: 'primary',
+                  height: '100%',
+                  position: 'absolute',
+                  width: `${percent}%`,
+                }}
+              />
+              <Box
+                sx={{
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Text sx={{ textTransform: 'capitalize', pl: 2 }}>
+                  {name}
+                </Text>
+                <Text sx={{ pr: 2 }}>{`x${count}`}</Text>
+              </Box>
+            </Flex>
+          )
+        })}
+      </Box>
+    )
+  }}
+</SourceDays>
+
+
+<Divider />
+
 ## [TagList](#tag-list)
-By default the tag list returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js`
+By default the tag list returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js.
+
+You can also use the `filter` prop with this component eg: `<TagList filter='posts' />`
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js``
 
 ```javascript
 <TagList>
@@ -145,52 +212,6 @@ By default the tag list returns all tags found in the `.mdx` sourced from the di
           return <Box  key={index}>
             {`${name}  x${count}`}
             <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}}></Box>
-          </Box>
-        })
-      }
-    </Flex>
-  )}
-</TagList>
-
-<Divider />
-
-## [TagList filter](#tag-list-filter)
-
-You can filter the tags returned by the `<TagList />` component by defining a source with the `filter` prop.
-
-*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
-
-```javascript
-<TagList filter='posts'>
-  {source => (
-    <Flex
-    sx={{flexDirection: 'column'}}
-    >
-      {
-        source.map((tag, index) => {
-          const {name, count, percent} = tag
-          return <Box  key={index}>
-            {`${name}  x${count}`}
-            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
-          </Box>
-        })
-      }
-    </Flex>
-  )}
-</TagList>
-```
-
-<TagList filter='posts'>
-  {source => (
-    <Flex
-    sx={{flexDirection: 'column'}}
-    >
-      {
-        source.map((tag, index) => {
-          const {name, count, percent} = tag
-          return <Box  key={index}>
-            {`${name}  x${count}`}
-            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}} />
           </Box>
         })
       }

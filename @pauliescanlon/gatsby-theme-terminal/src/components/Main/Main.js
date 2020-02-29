@@ -19,6 +19,7 @@ import { Close, Image, MenuButton } from '@theme-ui/components'
 import { Logo } from '../Logo'
 import { SiteMetaData } from '../SiteMetaData'
 import { SourceList } from '../SourceList'
+import { SourceDays } from '../SourceDays'
 import { TagList } from '../TagList'
 
 import * as styles from './styles'
@@ -29,6 +30,7 @@ const components = {
   Fragment,
   SiteMetaData,
   SourceList,
+  SourceDays,
   TagList,
   EmbeddedImage: props => <Image src={props.src.fluid.src} />,
   ...themeUiComponents,
