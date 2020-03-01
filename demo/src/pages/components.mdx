@@ -171,6 +171,108 @@ By default source days returns an accumulated count and percent of all `frontmat
   }}
 </SourceDays>
 
+<Divider />
+
+## [SourceMonths](#source-months)
+By default source months returns an accumulated count and percent of all `frontmatter` date fields, grouped by year. You can also use the `filter` prop with this component eg: `<SourceMonths filter='posts' />`
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
+
+```javascript
+<SourceMonths>
+  {sourceMonths => {
+    const currentYear = sourceMonths[sourceMonths.length - 1]
+    return (
+      <Box sx={{ backgroundColor: 'surface', p: 3 }}>
+        <Heading variant="styles.h4">{currentYear[0].year}</Heading>
+        <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
+          <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
+            {currentYear.map((month, index) => {
+              const { initial, percent } = month
+              return (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    pl: 1,
+                    pr: 1,
+                    width: `${100 / 12}%`,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: 'primary',
+                      height: `${percent}%`,
+                      p: 1,
+                    }}
+                  />
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {initial}
+                  </Text>
+                </Box>
+              )
+            })}
+          </Flex>
+        </Box>
+      </Box>
+    )
+  }}
+</SourceMonths>
+```
+
+<SourceMonths>
+  {sourceMonths => {
+    const currentYear = sourceMonths[sourceMonths.length - 1]
+    return (
+      <Box sx={{ backgroundColor: 'surface', p: 3 }}>
+        <Heading variant="styles.h4">{currentYear[0].year}</Heading>
+        <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
+          <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
+            {currentYear.map((month, index) => {
+              const { initial, percent } = month
+              return (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    pl: 1,
+                    pr: 1,
+                    width: `${100 / currentYear.length}%`,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      backgroundColor: 'primary',
+                      height: `${percent}%`,
+                      p: 1,
+                    }}
+                  />
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {initial}
+                  </Text>
+                </Box>
+              )
+            })}
+          </Flex>
+        </Box>
+      </Box>
+    )
+  }}
+</SourceMonths>
 
 <Divider />
 

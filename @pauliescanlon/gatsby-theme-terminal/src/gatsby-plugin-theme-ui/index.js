@@ -58,7 +58,6 @@ const preBlock = {
   borderRadius: 0,
   overflow: 'auto',
   p: 3,
-  whiteSpace: 'pre-wrap',
 }
 
 const buttons = {

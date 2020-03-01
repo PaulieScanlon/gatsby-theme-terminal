@@ -18,6 +18,7 @@ export const header = ({ sidebarWidth }) => ({
   position: 'fixed',
   p: theme => [`0px ${theme.space[3]}px`, `0px ${theme.space[4]}px`],
   width: ['100%', '100%', '100%', `calc(100% - ${sidebarWidth}px)`],
+  zIndex: 997,
 })
 
 export const left = {
