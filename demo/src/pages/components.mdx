@@ -77,16 +77,17 @@ By default the source list returns all `.mdx` found from the directories defined
 <Divider />
 
 ## [SourceDays](#source-days)
-By default source days returns an accumulated count and percent of all `frontmatter` date fields. You can also use the `filter` prop with this component eg: `<SourceDays filter='posts' />`
+By default source days returns an accumulated count and percent of all `frontmatter` date fields grouped by year. You can also use the `filter` prop with this component eg: `<SourceDays filter='posts' />`
 
 *NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
 
 ```javascript
 <SourceDays>
   {sourceDays => {
+    const currentYear = sourceDays[sourceDays.length - 1]
     return (
-      <Box>
-        {sourceDays.map((day, index) => {
+       <Box>
+        {currentYear.map((day, index) => {
           const { name, count, percent } = day
           return (
             <Flex
@@ -129,9 +130,10 @@ By default source days returns an accumulated count and percent of all `frontmat
 
 <SourceDays>
   {sourceDays => {
+    const currentYear = sourceDays[sourceDays.length - 1]
     return (
-      <Box>
-        {sourceDays.map((day, index) => {
+       <Box>
+        {currentYear.map((day, index) => {
           const { name, count, percent } = day
           return (
             <Flex
@@ -174,7 +176,7 @@ By default source days returns an accumulated count and percent of all `frontmat
 <Divider />
 
 ## [SourceMonths](#source-months)
-By default source months returns an accumulated count and percent of all `frontmatter` date fields, grouped by year. You can also use the `filter` prop with this component eg: `<SourceMonths filter='posts' />`
+By default source months returns an accumulated count and percent of all `frontmatter` date fields grouped by year. You can also use the `filter` prop with this component eg: `<SourceMonths filter='posts' />`
 
 *NOTE:* the `filter` source _must_ be one from your `gatsby-config.js`
 
@@ -188,7 +190,7 @@ By default source months returns an accumulated count and percent of all `frontm
         <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
           <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
             {currentYear.map((month, index) => {
-              const { initial, percent } = month
+              const { initial, count, percent } = month
               return (
                 <Box
                   key={index}
@@ -198,9 +200,16 @@ By default source months returns an accumulated count and percent of all `frontm
                     justifyContent: 'flex-end',
                     pl: 1,
                     pr: 1,
-                    width: `${100 / 12}%`,
+                    width: `${100 / currentYear.length}%`,
                   }}
                 >
+                 <Text
+                    sx={{
+                      textAlign: 'center',
+                    }}
+                  >
+                    {`x${count}`}
+                  </Text>
                   <Box
                     sx={{
                       backgroundColor: 'primary',
@@ -236,7 +245,7 @@ By default source months returns an accumulated count and percent of all `frontm
         <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
           <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
             {currentYear.map((month, index) => {
-              const { initial, percent } = month
+              const { initial, count, percent } = month
               return (
                 <Box
                   key={index}
@@ -249,6 +258,13 @@ By default source months returns an accumulated count and percent of all `frontm
                     width: `${100 / currentYear.length}%`,
                   }}
                 >
+                 <Text
+                    sx={{
+                      textAlign: 'center',
+                    }}
+                  >
+                    {`x${count}`}
+                  </Text>
                   <Box
                     sx={{
                       backgroundColor: 'primary',

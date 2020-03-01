@@ -17,49 +17,58 @@ const abbreviation = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
 const initial = ['m', 't', 'w', 't', 'f', 's', 's']
 
-const createDayObject = date => {
+const createDayObject = (day, year) => {
   return {
-    name: name[date],
-    abbreviation: abbreviation[date],
-    initial: initial[date],
+    year: year,
+    name: name[day],
+    abbreviation: abbreviation[day],
+    initial: initial[day],
     count: -1,
     percent: 0,
   }
 }
 
 export const SourceDays = ({ filter, children }) => {
-  const defaultValues = name.map((_, index) => createDayObject(index))
-  const count = Object.values(
-    useAllMdx(filter)
-      .reduce(
-        (items, item) => {
-          let date = new Date(item.node.frontmatter.date).getDay()
-          items.push(createDayObject(date))
-          return items
-        },
-        [...defaultValues]
+  const defaultValues = name.map((_, index) => createDayObject(index, 0))
+
+  const count = useAllMdx(filter)
+    .reduce((items, item) => {
+      let day = new Date(item.node.frontmatter.date).getDay()
+      let year = new Date(item.node.frontmatter.date).getFullYear()
+      items[year] = items[year] || [...defaultValues]
+      items[year].push(createDayObject(day, year))
+
+      return items
+    }, [])
+    .map(year => {
+      let yearValue = year.reduce((a, b) =>
+        b.year !== 0 ? (a = b.year) : null
       )
-      .reduce((items, item) => {
-        const { name, abbreviation, initial, count, percent } = item
-        items[name] = items[name] || {
-          name,
-          abbreviation,
-          initial,
-          count,
-          percent,
+
+      return Object.values(
+        year.reduce((items, item) => {
+          const { name } = item
+          items[name] = items[name] || {
+            ...item,
+            year: yearValue,
+          }
+          items[name].count += 1
+          return items
+        }, {})
+      )
+    })
+
+  const days = Object.values(
+    count.map(year => {
+      let total = year.reduce((a, b) => ({ count: a.count + b.count }))
+      return year.map(day => {
+        return {
+          ...day,
+          percent: Math.round((day.count / total.count) * 100),
         }
-        items[name].count += 1
-
-        return items
-      }, [])
+      })
+    })
   )
-
-  const days = count.map(item => {
-    return {
-      ...item,
-      percent: Math.round((item.count / 6) * 100),
-    }
-  })
 
   return <Fragment>{children(days)}</Fragment>
 }
