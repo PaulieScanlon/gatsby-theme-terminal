@@ -102,6 +102,10 @@ export const messages = {
   backgroundColor: 'surface',
 }
 
+export const progress = {
+  backgroundColor: 'surface',
+}
+
 export default {
   // tokens
   borderWidths: [0, 1, 4],
@@ -241,6 +245,54 @@ export default {
     },
     blockquote: {
       ...blockquotes,
+    },
+    progress: {
+      ...progress,
+      primary: {
+        ...progress,
+        color: 'primary',
+      },
+      secondary: {
+        ...progress,
+        color: 'secondary',
+      },
+      success: {
+        ...progress,
+        color: 'success',
+      },
+      error: {
+        ...progress,
+        color: 'error',
+      },
+    },
+    donut: {
+      primary: {
+        color: 'primary',
+      },
+      secondary: {
+        color: 'secondary',
+      },
+      success: {
+        color: 'success',
+      },
+      error: {
+        color: 'error',
+      },
+    },
+
+    spinner: {
+      primary: {
+        color: 'primary',
+      },
+      secondary: {
+        color: 'secondary',
+      },
+      success: {
+        color: 'success',
+      },
+      error: {
+        color: 'error',
+      },
     },
   },
 
@@ -408,18 +460,6 @@ export default {
       color: 'muted',
       backgroundColor: 'background',
     },
-  },
-
-  progress: {
-    // this can't be styled here
-  },
-
-  donut: {
-    // this can't be styled here
-  },
-
-  spinner: {
-    // this can't be styled here
   },
 
   hr: {},
