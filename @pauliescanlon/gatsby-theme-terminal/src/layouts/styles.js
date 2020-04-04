@@ -14,14 +14,19 @@ export const tag = ({ index, tags }) => ({
   ...theme.default.badges,
 })
 
-export const dates = {
+export const flex = {
   flexWrap: 'wrap',
 }
 
-export const dateBox = {
+export const box = {
   width: ['100%', '50%'],
 }
 
-export const dateModified = {
+export const text = {
+  color: 'muted',
+}
+
+export const rightText = {
+  ...text,
   textAlign: ['left', 'right'],
 }

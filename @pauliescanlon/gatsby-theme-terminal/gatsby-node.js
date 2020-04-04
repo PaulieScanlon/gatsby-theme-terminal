@@ -55,6 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
           }
           fields: { owner: { eq: "source" } }
         }
+        sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {
           previous {
@@ -106,7 +107,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         id: node.id,
         prev: index === 0 ? null : previous,
         next: index === data.length - 1 ? null : next,
-        // used a back link in SourceLayout
+        // used as back link in SourceLayout
         parent: node.fields.parent,
       },
     })

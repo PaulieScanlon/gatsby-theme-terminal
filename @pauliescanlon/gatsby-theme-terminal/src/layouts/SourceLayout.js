@@ -14,7 +14,6 @@ import { useConfig } from '../data'
 
 import {
   Heading,
-  Link,
   Image,
   Badge,
   Text,
@@ -29,7 +28,15 @@ const formatDate = date => format(new Date(date), 'd-MMM-u')
 
 const SourceLayout = ({
   data: {
-    mdx: { id, body, excerpt, frontmatter },
+    mdx: {
+      id,
+      body,
+      excerpt,
+      frontmatter,
+      timeToRead,
+      wordCount: { words },
+      fields,
+    },
   },
   pageContext,
 }) => {
@@ -62,6 +69,11 @@ const SourceLayout = ({
   }
 
   const { next, prev, parent } = pageContext
+
+  console.log('fields: ', fields)
+  console.log('next: ', JSON.stringify(next, null, 2))
+  console.log('next: ', JSON.stringify(prev, null, 2))
+  console.log('parent: ', parent)
 
   return (
     <ContextProvider>
@@ -97,26 +109,37 @@ const SourceLayout = ({
                   {title}
                 </Heading>
 
-                <Flex sx={styles.dates}>
-                  <Box sx={styles.dateBox}>
-                    {date && <Text>Date published: {formatDate(date)}</Text>}
+                <Flex sx={styles.flex}>
+                  <Box sx={styles.box}>
+                    {date && (
+                      <Text sx={styles.text}>
+                        Date published: {formatDate(date)}
+                      </Text>
+                    )}
                   </Box>
-                  <Box sx={styles.dateBox}>
+                  <Box sx={styles.box}>
                     {dateModified && (
-                      <Text sx={styles.dateModified}>
+                      <Text sx={styles.rightText}>
                         Date modified: {formatDate(dateModified)}
                       </Text>
                     )}
                   </Box>
                 </Flex>
-                <Divider />
 
-                {author && (
-                  <Fragment>
-                    <Text sx={styles.dateModified}>Author: {author}</Text>
-                    <Divider />
-                  </Fragment>
-                )}
+                <Flex sx={styles.flex}>
+                  <Box sx={styles.box}>
+                    <Text
+                      sx={styles.text}
+                    >{`${timeToRead} min read / ${words} words`}</Text>
+                  </Box>
+                  {author && (
+                    <Box sx={styles.box}>
+                      <Text sx={styles.rightText}>Author: {author}</Text>
+                    </Box>
+                  )}
+                </Flex>
+
+                <Divider />
 
                 {tags &&
                   tags.map((tag, index) => (
@@ -133,30 +156,6 @@ const SourceLayout = ({
                 <MDXProvider>
                   <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
                 </MDXProvider>
-
-                <div
-                  sx={{
-                    display: 'flex',
-                  }}
-                >
-                  {prev && prev.fields.slug.includes(parent) && (
-                    <div>
-                      <Link href={prev.fields.slug}>prev</Link>
-                    </div>
-                  )}
-
-                  {next && next.fields.slug.includes(parent) && (
-                    <div
-                      sx={{
-                        display: 'flex',
-                        flex: '1 1 auto',
-                        justifyContent: 'flex-end',
-                      }}
-                    >
-                      <Link href={next.fields.slug}>next</Link>
-                    </div>
-                  )}
-                </div>
               </Main>
             </Fragment>
           )
@@ -176,6 +175,10 @@ export const singleMdx = graphql`
       id
       body
       excerpt
+      timeToRead
+      wordCount {
+        words
+      }
       frontmatter {
         title
         tags
@@ -220,6 +223,8 @@ export const singleMdx = graphql`
       }
       fields {
         slug
+        owner
+        parent
       }
     }
   }

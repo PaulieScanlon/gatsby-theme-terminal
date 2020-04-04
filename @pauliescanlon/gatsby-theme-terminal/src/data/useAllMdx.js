@@ -16,12 +16,17 @@ export const useAllMdx = filter => {
           }
           fields: { owner: { eq: "source" } }
         }
+        sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {
           node {
             id
             body
             excerpt
+            timeToRead
+            wordCount {
+              words
+            }
             frontmatter {
               title
               tags
@@ -66,6 +71,8 @@ export const useAllMdx = filter => {
             }
             fields {
               slug
+              owner
+              parent
             }
           }
         }
