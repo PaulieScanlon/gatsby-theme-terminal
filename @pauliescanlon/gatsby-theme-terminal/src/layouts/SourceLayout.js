@@ -28,15 +28,7 @@ const formatDate = date => format(new Date(date), 'd-MMM-u')
 
 const SourceLayout = ({
   data: {
-    mdx: {
-      id,
-      body,
-      excerpt,
-      frontmatter,
-      timeToRead,
-      wordCount: { words },
-      fields,
-    },
+    mdx: { id, body, excerpt, frontmatter, timeToRead, wordCount, fields },
   },
   pageContext,
 }) => {
@@ -67,13 +59,6 @@ const SourceLayout = ({
       }
     })
   }
-
-  const { next, prev, parent } = pageContext
-
-  console.log('fields: ', fields)
-  console.log('next: ', JSON.stringify(next, null, 2))
-  console.log('next: ', JSON.stringify(prev, null, 2))
-  console.log('parent: ', parent)
 
   return (
     <ContextProvider>
@@ -130,7 +115,7 @@ const SourceLayout = ({
                   <Box sx={styles.box}>
                     <Text
                       sx={styles.text}
-                    >{`${timeToRead} min read / ${words} words`}</Text>
+                    >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
                   </Box>
                   {author && (
                     <Box sx={styles.box}>
