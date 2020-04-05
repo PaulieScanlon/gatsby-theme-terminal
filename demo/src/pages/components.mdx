@@ -292,15 +292,15 @@ By default source months returns an accumulated count and percent of all `frontm
 
 <Divider />
 
-## [TagList](#tag-list)
-By default the tag list returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js.
+## [SourceTags](#tag-list)
+By default source tags returns all tags found in the `.mdx` sourced from the directories defined in `gatsby-config.js.
 
-You can also use the `filter` prop with this component eg: `<TagList filter='posts' />`
+You can also use the `filter` prop with this component eg: `<SourceTags filter='posts' />`
 
 *NOTE:* the `filter` source _must_ be one from your `gatsby-config.js``
 
 ```javascript
-<TagList>
+<SourceTags>
   {source => (
     <Flex
     sx={{flexDirection: 'column'}}
@@ -316,10 +316,10 @@ You can also use the `filter` prop with this component eg: `<TagList filter='pos
       }
     </Flex>
   )}
-</TagList>
+</SourceTags>
 ```
 
-<TagList>
+<SourceTags>
   {source => (
     <Flex
     sx={{flexDirection: 'column'}}
@@ -335,7 +335,7 @@ You can also use the `filter` prop with this component eg: `<TagList filter='pos
       }
     </Flex>
   )}
-</TagList>
+</SourceTags>
 
 <Divider />
 

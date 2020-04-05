@@ -22,7 +22,7 @@ import { SourceList } from '../SourceList'
 import { SourceDays } from '../SourceDays'
 import { SourceMonths } from '../SourceMonths'
 import { SourceWords } from '../SourceWords'
-import { TagList } from '../TagList'
+import { SourceTags } from '../SourceTags'
 
 import * as styles from './styles'
 
@@ -35,7 +35,7 @@ const components = {
   SourceDays,
   SourceMonths,
   SourceWords,
-  TagList,
+  SourceTags,
   EmbeddedImage: props => <Image src={props.src.fluid.src} />,
   ...themeUiComponents,
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { useAllMdx } from '../../data'
 
-export const TagList = ({ filter, children }) => {
+export const SourceTags = ({ filter, children }) => {
   const count = Object.values(
     useAllMdx(filter)
       .filter(edge => edge.node.frontmatter.tags)
@@ -39,7 +39,7 @@ export const TagList = ({ filter, children }) => {
   return <Fragment>{children(tags)}</Fragment>
 }
 
-TagList.propTypes = {
+SourceTags.propTypes = {
   /** A string used as a filter for the allMdx GraphQL query */
   filter: PropTypes.string,
   /** React children */

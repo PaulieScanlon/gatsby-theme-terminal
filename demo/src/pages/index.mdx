@@ -73,7 +73,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 
   ## Top 5 tags
 
-  <TagList filter="posts">
+  <SourceTags filter="posts">
     {tags => (
       <Flex sx={{ flexDirection: 'column' }}>
         {tags
@@ -112,7 +112,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
           })}
       </Flex>
     )}
-  </TagList>
+  </SourceTags>
 
   </Box>
 </Flex>
