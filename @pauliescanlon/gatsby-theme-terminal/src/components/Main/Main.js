@@ -21,6 +21,7 @@ import { SiteMetaData } from '../SiteMetaData'
 import { SourceList } from '../SourceList'
 import { SourceDays } from '../SourceDays'
 import { SourceMonths } from '../SourceMonths'
+import { SourceWords } from '../SourceWords'
 import { TagList } from '../TagList'
 
 import * as styles from './styles'
@@ -33,6 +34,7 @@ const components = {
   SourceList,
   SourceDays,
   SourceMonths,
+  SourceWords,
   TagList,
   EmbeddedImage: props => <Image src={props.src.fluid.src} />,
   ...themeUiComponents,

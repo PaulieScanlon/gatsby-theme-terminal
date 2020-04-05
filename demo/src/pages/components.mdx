@@ -367,3 +367,249 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
 ```
 
 <Divider />
+
+
+
+## [SourceWords](#source-words)
+
+
+```javascript
+<SourceWords>
+    {source => {
+      const {
+        wordCountTotal,
+        wordCountAverage,
+        wordCountHighest,
+        wordCountLowest,
+        timeToReadTotal,
+        timeToReadAverage,
+      } = source
+      return (
+          <Box
+            sx={{
+              display: 'flex',
+              flex: '1 1 auto',
+              flexDirection: 'column',
+              mb: 3,
+              px: 2,
+              width: ['100%', '50%', '33.333333333%'],
+            }}
+          >
+            <Flex
+              sx={{
+                alignItems: 'center',
+                backgroundColor: 'surface',
+                flex: '1 1 auto',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                p: 3,
+                position: 'relative',
+              }}
+            >
+              <Heading as="h4" variant="styles.h4">
+                Average word count
+              </Heading>
+              <Donut
+                sx={{ mx: 3, mb: 2 }}
+                value={wordCountAverage / wordCountTotal}
+              />
+              <Box sx={{ position: 'absolute' }}>
+                <Text
+                  sx={{
+                    textAlign: 'center',
+                    color: 'primary',
+                    fontSize: '22px',
+                    fontWeight: 'bold',
+                    lineHeight: '1',
+                  }}
+                >
+                  {wordCountAverage}
+                </Text>
+                <Text sx={{ textAlign: 'center', color: 'primary', lineHeight: '1' }}>
+                  Words
+                </Text>
+              </Box>
+              <Text
+                sx={{ textAlign: 'center' }}
+              >{`Total words: ${wordCountTotal}`}</Text>
+            </Flex>
+          </Box>
+        )
+      }}
+  </SourceWords>
+```
+
+<SourceWords>
+    {source => {
+      const {
+        wordCountTotal,
+        wordCountAverage,
+        wordCountHighest,
+        wordCountLowest,
+        timeToReadTotal,
+        timeToReadAverage,
+      } = source
+      return (
+        <Flex
+          sx={{
+            flexWrap: 'wrap',
+            mx: theme => `-${theme.space[2]}px`,
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flex: '1 1 auto',
+              flexDirection: 'column',
+              mb: 3,
+              px: 2,
+              width: ['100%', '50%', '33.333333333%'],
+            }}
+          >
+            <Flex
+              sx={{
+                alignItems: 'center',
+                backgroundColor: 'surface',
+                flex: '1 1 auto',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                p: 3,
+                position: 'relative',
+              }}
+            >
+              <Heading as="h4" variant="styles.h4">
+                Average word count
+              </Heading>
+              <Donut
+                sx={{ mx: 3, mb: 2 }}
+                value={wordCountAverage / wordCountTotal}
+              />
+              <Box sx={{ position: 'absolute' }}>
+                <Text
+                  sx={{
+                    textAlign: 'center',
+                    color: 'primary',
+                    fontSize: '22px',
+                    fontWeight: 'bold',
+                    lineHeight: '1',
+                  }}
+                >
+                  {wordCountAverage}
+                </Text>
+                <Text sx={{ textAlign: 'center', color: 'primary', lineHeight: '1' }}>
+                  Words
+                </Text>
+              </Box>
+              <Text
+                sx={{ textAlign: 'center' }}
+              >{`Total words: ${wordCountTotal}`}</Text>
+            </Flex>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flex: '1 1 auto',
+              flexDirection: 'column',
+              mb: 3,
+              px: 2,
+              width: ['100%', '50%', '33.333333333%'],
+            }}
+          >
+            <Flex
+              sx={{
+                alignItems: 'center',
+                backgroundColor: 'surface',
+                flex: '1 1 auto',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                p: 3,
+                position: 'relative',
+              }}
+            >
+              <Heading as="h4" variant="styles.h4">
+                Average time to read
+              </Heading>
+              <Donut
+                variant="styles.donut.secondary"
+                sx={{ mx: 3, mb: 2 }}
+                value={timeToReadAverage / timeToReadTotal}
+              />
+              <Box sx={{ position: 'absolute' }}>
+                <Text
+                  sx={{
+                    textAlign: 'center',
+                    color: 'secondary',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    lineHeight: '1',
+                  }}
+                >
+                  {timeToReadAverage}
+                </Text>
+                <Text
+                  sx={{ textAlign: 'center', color: 'secondary', lineHeight: '1' }}
+                >
+                  Minute
+                </Text>
+              </Box>
+              <Text
+                sx={{ textAlign: 'center' }}
+              >{`Total time to read: ${timeToReadTotal} mins`}</Text>
+            </Flex>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flex: '1 1 auto',
+              flexDirection: 'column',
+              mb: 3,
+              px: 2,
+              width: ['100%', '50%', '33.333333333%'],
+            }}
+          >
+            <Flex
+              sx={{
+                alignItems: 'center',
+                backgroundColor: 'surface',
+                flex: '1 1 auto',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                p: 3,
+                position: 'relative',
+              }}
+            >
+              <Heading as="h4" variant="styles.h4">
+                Highest word count
+              </Heading>
+              <Donut
+                variant="styles.donut.success"
+                sx={{ mx: 3, mb: 2 }}
+                value={wordCountHighest / wordCountTotal}
+              />
+              <Box sx={{ position: 'absolute' }}>
+                <Text
+                  sx={{
+                    textAlign: 'center',
+                    color: 'success',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    lineHeight: '1',
+                  }}
+                >
+                  {wordCountHighest}
+                </Text>
+                <Text sx={{ textAlign: 'center', color: 'success', lineHeight: '1' }}>
+                  Words
+                </Text>
+              </Box>
+              <Text
+                sx={{ textAlign: 'center' }}
+              >{`Total words: ${wordCountTotal}`}</Text>
+            </Flex>
+          </Box>
+        </Flex>
+      )
+    }}
+  </SourceWords>
+
+<Divider />
