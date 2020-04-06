@@ -368,10 +368,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
 
 <Divider />
 
-
-
 ## [SourceWords](#source-words)
 
+By default source words returns a word count for all words found in the `.mdx` sourced from the directories defined in `gatsby-config.js.
+
+You can also use the `filter` prop with this component eg: `<SourceTags filter='posts' />`
+
+*NOTE:* the `filter` source _must_ be one from your `gatsby-config.js``
 
 ```javascript
 <SourceWords>
@@ -613,3 +616,119 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
   </SourceWords>
 
 <Divider />
+
+```javascript
+<SourceWords>
+  {sourceWords => {
+    const currentYear = sourceWords.wordCountByMonth[sourceWords.wordCountByMonth.length - 1]
+    return (
+      <Box sx={{ backgroundColor: 'surface', p: 3 }}>
+        <Flex>
+        <Heading variant="styles.h4" sx={{mr: 2}}>{currentYear[0].year}</Heading>
+        <Text>Word count by month</Text>
+        </Flex>
+        <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
+          <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
+            {currentYear.map((month, index) => {
+              const { initial, words } = month
+              return (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    pl: 1,
+                    pr: 1,
+                    width: `${100 / currentYear.length}%`,
+                  }}
+                >
+                 <Text
+                    sx={{
+                      textAlign: 'center',
+                    }}
+                  >
+                    {`x${words}`}
+                  </Text>
+                  <Box
+                    sx={{
+                      backgroundColor: 'primary',
+                      height: `${words}%`,
+                      p: 1,
+                    }}
+                  />
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {initial}
+                  </Text>
+                </Box>
+              )
+            })}
+          </Flex>
+        </Box>
+      </Box>
+    )
+  }}
+</SourceWords>
+```
+
+<SourceWords>
+  {sourceWords => {
+    const currentYear = sourceWords.wordCountByMonth[sourceWords.wordCountByMonth.length - 1]
+    return (
+      <Box sx={{ backgroundColor: 'surface', p: 3 }}>
+        <Flex>
+        <Heading variant="styles.h4" sx={{mr: 2}}>{currentYear[0].year}</Heading>
+        <Text>Word count by month</Text>
+        </Flex>
+        <Box sx={{ display: 'flex', flex: '1 1 auto', height: 300 }}>
+          <Flex sx={{ flexWrap: 'wrap', width: '100%' }}>
+            {currentYear.map((month, index) => {
+              const { initial, words } = month
+              return (
+                <Box
+                  key={index}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    pl: 1,
+                    pr: 1,
+                    width: `${100 / currentYear.length}%`,
+                  }}
+                >
+                 <Text
+                    sx={{
+                      textAlign: 'center',
+                    }}
+                  >
+                    {`x${words}`}
+                  </Text>
+                  <Box
+                    sx={{
+                      backgroundColor: 'primary',
+                      height: `${words}%`,
+                      p: 1,
+                    }}
+                  />
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {initial}
+                  </Text>
+                </Box>
+              )
+            })}
+          </Flex>
+        </Box>
+      </Box>
+    )
+  }}
+</SourceWords>
