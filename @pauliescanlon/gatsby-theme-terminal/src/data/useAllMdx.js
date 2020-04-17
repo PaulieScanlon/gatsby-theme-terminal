@@ -36,7 +36,7 @@ export const useAllMdx = filter => {
               status
               featuredImage {
                 childImageSharp {
-                  fluid(maxWidth: 1200) {
+                  fluid(maxWidth: 1200, quality: 90) {
                     base64
                     tracedSVG
                     aspectRatio
@@ -53,7 +53,7 @@ export const useAllMdx = filter => {
               }
               embeddedImages {
                 childImageSharp {
-                  fluid(maxWidth: 1200) {
+                  fluid(maxWidth: 1200, quality: 90) {
                     base64
                     tracedSVG
                     aspectRatio
