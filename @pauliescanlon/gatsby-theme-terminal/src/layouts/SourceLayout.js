@@ -78,16 +78,17 @@ const SourceLayout = ({
                 lang={lang}
               />
               <Main>
-                {featuredImage && featuredImage.childImageSharp && (
-                  <Img
-                    fluid={featuredImage.childImageSharp.fluid}
-                    alt={featuredImage.childImageSharp.fluid.originalName}
-                  />
-                )}
+                <Box sx={styles.featuredImage}>
+                  {featuredImage && featuredImage.childImageSharp && (
+                    <Img
+                      fluid={featuredImage.childImageSharp.fluid}
+                      alt={featuredImage.childImageSharp.fluid.originalName}
+                    />
+                  )}
+                </Box>
                 <Heading as="h1" variant="styles.h1" sx={styles.title}>
                   {title}
                 </Heading>
-
                 <Flex sx={styles.flex}>
                   <Box sx={styles.box}>
                     {date && (

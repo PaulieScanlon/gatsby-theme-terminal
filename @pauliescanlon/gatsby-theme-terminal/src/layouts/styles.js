@@ -1,8 +1,12 @@
 import { mix } from '@theme-ui/color'
 import * as theme from '../gatsby-plugin-theme-ui'
 
+export const featuredImage = {
+  mb: 4,
+}
+
 export const title = {
-  my: 4,
+  mb: 4,
   fontSize: 4,
 }
 
