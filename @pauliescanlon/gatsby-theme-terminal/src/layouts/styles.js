@@ -7,7 +7,6 @@ export const featuredImage = {
 
 export const title = {
   mb: 4,
-  fontSize: 4,
 }
 
 export const tag = ({ index, tags }) => ({
