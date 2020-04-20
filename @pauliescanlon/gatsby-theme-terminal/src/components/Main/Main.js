@@ -11,6 +11,7 @@ import { useConfig } from '../../data'
 
 // Mdx components
 import * as themeUiComponents from '@theme-ui/components'
+import Img from 'gatsby-image'
 
 // Either used by Main component or components prop
 import { Close, Image, MenuButton } from '@theme-ui/components'
@@ -37,6 +38,7 @@ const components = {
   SourceWords,
   SourceTags,
   EmbeddedImage: props => <Image src={props.src.fluid.src} />,
+  Img,
   ...themeUiComponents,
 }
 

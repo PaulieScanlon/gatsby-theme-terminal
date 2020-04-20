@@ -3,9 +3,35 @@ title: Post 0
 tags: ['React', 'GatsbyJs', 'ES6', 'Css']
 featuredImage: pankaj-patel-SXihyA4oEJs-unsplash.jpg
 date: 2018-11-23
+embeddedImages:
+  - pankaj-patel-SXihyA4oEJs-unsplash.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum
 lobortis.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis.
+
+Fluid Image
+
+<Img fluid={props.embedded.image1.fluid} />
+<Divider />
+
+Fixed Image
+
+<Box>
+  <Img fixed={props.embedded.image1.fixed} />
+</Box>
+<Divider />
+
+Theme UI Image
+
+<Image src={props.embedded.image1.fluid.src} />
+<Divider />
+<Box>
+  Fluid:
+  <pre>{JSON.stringify(props.embedded.image1.fluid, null, 2)}</pre>
+  <Divider />
+  Fixed:
+  <pre>{JSON.stringify(props.embedded.image1.fixed, null, 2)}</pre>
+</Box>

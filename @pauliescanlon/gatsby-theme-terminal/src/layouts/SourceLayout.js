@@ -12,19 +12,15 @@ import { Seo } from '../components/Seo'
 import { Main } from '../components/Main'
 import { useConfig } from '../data'
 
-import {
-  Heading,
-  Image,
-  Badge,
-  Text,
-  Flex,
-  Box,
-  Divider,
-} from '@theme-ui/components'
+import { Heading, Badge, Text, Flex, Box, Divider } from '@theme-ui/components'
+
+import Img from 'gatsby-image'
 
 import * as styles from './styles'
 
 const formatDate = date => format(new Date(date), 'd-MMM-u')
+
+const IMAGE_KEY = 'image'
 
 const SourceLayout = ({
   data: {
@@ -48,17 +44,16 @@ const SourceLayout = ({
     embeddedImages,
   } = frontmatter
 
-  const embedded = {}
-
-  if (embeddedImages) {
-    embeddedImages.forEach((image, index) => {
-      if (image && image.childImageSharp.fluid) {
-        embedded[`image${index + 1}`] = {
-          fluid: image.childImageSharp.fluid || null,
-        }
+  const embedded =
+    embeddedImages &&
+    embeddedImages.reduce((images, image, index) => {
+      images[`${IMAGE_KEY}${index + 1}`] = images[
+        `${IMAGE_KEY}${index + 1}`
+      ] || {
+        ...image.childImageSharp,
       }
-    })
-  }
+      return images
+    }, {})
 
   return (
     <ContextProvider>
@@ -84,9 +79,8 @@ const SourceLayout = ({
               />
               <Main>
                 {featuredImage && featuredImage.childImageSharp && (
-                  <Image
-                    sx={{ mb: 3 }}
-                    src={featuredImage.childImageSharp.fluid.src}
+                  <Img
+                    fluid={featuredImage.childImageSharp.fluid}
                     alt={featuredImage.childImageSharp.fluid.originalName}
                   />
                 )}
@@ -113,9 +107,9 @@ const SourceLayout = ({
 
                 <Flex sx={styles.flex}>
                   <Box sx={styles.box}>
-                    <Text
-                      sx={styles.text}
-                    >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
+                    <Text sx={styles.text}>{`${timeToRead * 2} min read / ${
+                      wordCount.words
+                    } words`}</Text>
                   </Box>
                   {author && (
                     <Box sx={styles.box}>
@@ -173,34 +167,32 @@ export const singleMdx = graphql`
         status
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 90) {
-              base64
-              tracedSVG
-              aspectRatio
+            original {
+              width
+              height
               src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
+            }
+            fluid(maxWidth: 1200, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+            fixed(quality: 90) {
+              ...GatsbyImageSharpFixed
             }
             id
           }
         }
         embeddedImages {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 90) {
-              base64
-              tracedSVG
-              aspectRatio
+            original {
+              width
+              height
               src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
+            }
+            fluid(maxWidth: 1200, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+            fixed(quality: 90) {
+              ...GatsbyImageSharpFixed
             }
             id
           }

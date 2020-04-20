@@ -144,10 +144,19 @@ embeddedImages:
 
 ### Embedded Images
 
-The `<EmbeddedImage />` component can be used to access the image or images named in the `embeddedImages` `frontmatter` and will be 100% width by default
+By using the The `<Img />` component from `gatsby-image` you can pass the image data queried by GraphQL.
+
+The `original`, `fixed` and `fluid` data is available via `props.embedded.image(n)`
 
 ```
-<EmbeddedImage src={props.embedded.image1} />
+<Img fluid={props.embedded.image1.fluid} />
+<Img fixed={props.embedded.image1.fixed} />
+```
+
+You can also use the Theme UI `<Image />` component but passing it a `src`
+
+```
+<Image src={props.embedded.image1.fluid.src} />
 ```
 
 `image1` in this example would be `markus-spiske-FXFz-sW0uwo-unsplash.jpg`

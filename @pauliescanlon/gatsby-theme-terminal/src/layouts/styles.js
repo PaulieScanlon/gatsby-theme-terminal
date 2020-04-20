@@ -2,8 +2,8 @@ import { mix } from '@theme-ui/color'
 import * as theme from '../gatsby-plugin-theme-ui'
 
 export const title = {
-  mb: 2,
-  fontSize: 3,
+  my: 4,
+  fontSize: 4,
 }
 
 export const tag = ({ index, tags }) => ({
