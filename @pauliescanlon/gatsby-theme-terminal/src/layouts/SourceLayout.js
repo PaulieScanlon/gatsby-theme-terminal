@@ -108,9 +108,9 @@ const SourceLayout = ({
 
                 <Flex sx={styles.flex}>
                   <Box sx={styles.box}>
-                    <Text sx={styles.text}>{`${timeToRead * 2} min read / ${
-                      wordCount.words
-                    } words`}</Text>
+                    <Text
+                      sx={styles.text}
+                    >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
                   </Box>
                   {author && (
                     <Box sx={styles.box}>
