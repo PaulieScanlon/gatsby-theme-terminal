@@ -19,7 +19,9 @@ Here we use it to return all the `posts` by using the filter prop
         mr: theme => `-${theme.space[2]}px`,
       }}
     >
-      {posts.map((edge, index) => {
+      {posts
+      .filter(edge => !edge.node.frontmatter.isPrivate)
+      .map((edge, index) => {
         const {
           frontmatter: { title, featuredImage, tags, date },
           excerpt,

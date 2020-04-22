@@ -40,9 +40,12 @@ const SourceLayout = ({
     date,
     dateModified,
     author,
+    isPrivate,
     featuredImage,
     embeddedImages,
   } = frontmatter
+
+  console.log(isPrivate)
 
   const embedded =
     embeddedImages &&
@@ -91,6 +94,7 @@ const SourceLayout = ({
                 </Heading>
                 <Flex sx={styles.flex}>
                   <Box sx={styles.box}>
+                    {isPrivate && <Text sx={styles.text}>This is private</Text>}
                     {date && (
                       <Text sx={styles.text}>
                         Date published: {formatDate(date)}
@@ -166,6 +170,7 @@ export const singleMdx = graphql`
         dateModified
         author
         status
+        isPrivate
         featuredImage {
           childImageSharp {
             original {

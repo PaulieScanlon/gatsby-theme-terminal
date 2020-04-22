@@ -34,6 +34,7 @@ export const useAllMdx = filter => {
               dateModified
               author
               status
+              isPrivate
               featuredImage {
                 childImageSharp {
                   original {
