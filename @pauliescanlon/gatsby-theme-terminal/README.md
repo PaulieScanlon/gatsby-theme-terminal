@@ -134,6 +134,8 @@ Any file that is _not_ sourced from `pages` can contain any of the following `fr
 title: Some Post
 date: 2020-01-01
 dateModified: 20-20-2020
+status: draft // => means it won't be rendered
+isPrivate: // -> it will be rendered but you can use this prop as a filter
 author: Paul Scanlon
 tags: ["JavaScript", "React", "GatsbyJs", "HTML", "CSS", "theme-ui"]
 featuredImage: markus-spiske-466ENaLuhLY-unsplash.jpg

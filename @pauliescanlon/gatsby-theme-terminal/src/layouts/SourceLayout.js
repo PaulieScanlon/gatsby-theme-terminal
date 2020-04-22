@@ -12,7 +12,15 @@ import { Seo } from '../components/Seo'
 import { Main } from '../components/Main'
 import { useConfig } from '../data'
 
-import { Heading, Badge, Text, Flex, Box, Divider } from '@theme-ui/components'
+import {
+  Heading,
+  Badge,
+  Text,
+  Flex,
+  Box,
+  Divider,
+  Alert,
+} from '@theme-ui/components'
 
 import Img from 'gatsby-image'
 
@@ -81,6 +89,9 @@ const SourceLayout = ({
                 lang={lang}
               />
               <Main>
+                {isPrivate && (
+                  <Alert variant="error">This is a private post</Alert>
+                )}
                 <Box sx={styles.featuredImage}>
                   {featuredImage && featuredImage.childImageSharp && (
                     <Img
@@ -94,7 +105,6 @@ const SourceLayout = ({
                 </Heading>
                 <Flex sx={styles.flex}>
                   <Box sx={styles.box}>
-                    {isPrivate && <Text sx={styles.text}>This is private</Text>}
                     {date && (
                       <Text sx={styles.text}>
                         Date published: {formatDate(date)}
