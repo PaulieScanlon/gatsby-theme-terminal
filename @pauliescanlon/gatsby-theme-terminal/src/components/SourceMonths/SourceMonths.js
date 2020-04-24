@@ -50,6 +50,11 @@ export const SourceMonths = ({ filter, children }) => {
   const defaultValues = name.map((_, index) => createMonthObject(index, 0))
 
   const count = useAllMdx(filter)
+    .filter(
+      edge =>
+        !edge.node.frontmatter.isPrivate ||
+        edge.node.frontmatter.status !== 'draft'
+    )
     .reduce((items, item) => {
       let month = new Date(item.node.frontmatter.date).getMonth()
       let year = new Date(item.node.frontmatter.date).getFullYear()

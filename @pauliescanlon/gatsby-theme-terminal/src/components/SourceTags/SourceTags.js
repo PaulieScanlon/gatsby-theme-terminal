@@ -6,6 +6,11 @@ import { useAllMdx } from '../../data'
 export const SourceTags = ({ filter, children }) => {
   const count = Object.values(
     useAllMdx(filter)
+      .filter(
+        edge =>
+          !edge.node.frontmatter.isPrivate ||
+          edge.node.frontmatter.status !== 'draft'
+      )
       .filter(edge => edge.node.frontmatter.tags)
       .reduce((items, item) => {
         const { tags } = item.node.frontmatter

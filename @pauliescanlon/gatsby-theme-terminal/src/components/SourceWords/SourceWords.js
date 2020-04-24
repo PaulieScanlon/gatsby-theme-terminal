@@ -48,7 +48,11 @@ const createMonthObject = (month, year, words) => {
 export const SourceWords = ({ filter, children }) => {
   const defaultValues = name.map((_, index) => createMonthObject(index, 0, 0))
 
-  const mdx = useAllMdx(filter)
+  const mdx = useAllMdx(filter).filter(
+    edge =>
+      !edge.node.frontmatter.isPrivate ||
+      edge.node.frontmatter.status !== 'draft'
+  )
 
   const wordCountTotal = mdx.reduce((a, b) => a + b.node.wordCount.words, 0)
 
@@ -67,6 +71,7 @@ export const SourceWords = ({ filter, children }) => {
   )
 
   const wordCountByMonth = mdx
+
     .reduce((items, item) => {
       let month = new Date(item.node.frontmatter.date).getMonth()
       let year = new Date(item.node.frontmatter.date).getFullYear()

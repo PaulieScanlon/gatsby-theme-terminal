@@ -16,13 +16,6 @@ const PageLayout = ({ children }) => {
     },
   } = useConfig()
 
-  // console.log('name: ', name)
-  // console.log('description: ', description)
-  // console.log('keywords: ', keywords)
-  // console.log('siteUrl: ', siteUrl)
-  // console.log('siteImage: ', siteImage)
-  // console.log('lang: ', lang)
-
   return (
     <ContextProvider>
       <Main>
