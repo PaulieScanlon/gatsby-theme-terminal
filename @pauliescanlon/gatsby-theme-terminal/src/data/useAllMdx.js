@@ -81,7 +81,9 @@ export const useAllMdx = filter => {
 
   if (!filter)
     return query.allMdx.edges.filter(
-      edge => edge.node.frontmatter.status !== DRAFT
+      edge =>
+        edge.node.frontmatter.status !== DRAFT &&
+        edge.node.frontmatter.isPrivate !== true
     )
 
   return query.allMdx.edges
@@ -89,6 +91,7 @@ export const useAllMdx = filter => {
     .filter(
       edge =>
         edge.node.fields.slug.includes(filter) &&
-        edge.node.frontmatter.status !== DRAFT
+        edge.node.frontmatter.status !== DRAFT &&
+        edge.node.frontmatter.isPrivate !== true
     )
 }
