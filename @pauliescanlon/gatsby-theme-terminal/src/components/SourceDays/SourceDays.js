@@ -33,7 +33,7 @@ export const SourceDays = ({ filter, children }) => {
 
   const count = useAllMdx(filter)
     .reduce((items, item) => {
-      let day = new Date(item.node.frontmatter.date).getDay() - 1
+      let day = new Date(item.node.frontmatter.date).getDay() + 1
       let year = new Date(item.node.frontmatter.date).getFullYear()
       items[year] = items[year] || [...defaultValues]
       items[year].push(createDayObject(day, year))
@@ -60,14 +60,12 @@ export const SourceDays = ({ filter, children }) => {
   const days = Object.values(
     count.map(year => {
       let total = year.reduce((a, b) => ({ count: a.count + b.count }))
-      return year
-        .map(day => {
-          return {
-            ...day,
-            percent: Math.round((day.count / total.count) * 100),
-          }
-        })
-        .filter(day => day.name)
+      return year.map(day => {
+        return {
+          ...day,
+          percent: Math.round((day.count / total.count) * 100),
+        }
+      })
     })
   )
 

@@ -130,7 +130,7 @@ export default {
     bold: 700,
   },
   lineHeights: {
-    body: 1.5,
+    body: 1.75,
     heading: 1.125,
   },
   fontSizes: [12, 16, 18, 28],
@@ -211,6 +211,9 @@ export default {
       mb: 1,
       a: {
         ...anchors,
+      },
+      code: {
+        ...codeBlock,
       },
     },
     table: {
