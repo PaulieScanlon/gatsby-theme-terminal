@@ -58,15 +58,17 @@ export const SourceDays = ({ filter, children }) => {
     })
 
   const days = Object.values(
-    count.map(year => {
-      let total = year.reduce((a, b) => ({ count: a.count + b.count }))
-      return year.map(day => {
-        return {
-          ...day,
-          percent: Math.round((day.count / total.count) * 100),
-        }
+    count
+      .map(year => {
+        let total = year.reduce((a, b) => ({ count: a.count + b.count }))
+        return year.map(day => {
+          return {
+            ...day,
+            percent: Math.round((day.count / total.count) * 100),
+          }
+        })
       })
-    })
+      .filter(day => day.name)
   )
 
   return <Fragment>{days.length ? children(days) : null}</Fragment>
