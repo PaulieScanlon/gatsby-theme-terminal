@@ -87,7 +87,7 @@ By default source days returns an accumulated count and percent of all `frontmat
     const currentYear = sourceDays[sourceDays.length - 1]
     return (
        <Box>
-        {currentYear.map((day, index) => {
+        {currentYear.sort((a, b) => a.number - b.number).map((day, index) => {
           const { name, count, percent } = day
           return (
             <Flex
@@ -133,7 +133,7 @@ By default source days returns an accumulated count and percent of all `frontmat
     const currentYear = sourceDays[sourceDays.length - 1]
     return (
        <Box>
-        {currentYear.map((day, index) => {
+        {currentYear.sort((a, b) => a.number - b.number).map((day, index) => {
           const { name, count, percent } = day
           return (
             <Flex

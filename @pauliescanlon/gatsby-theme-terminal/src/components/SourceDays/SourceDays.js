@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'
 import { useAllMdx } from '../../data'
 
 const name = [
+  'sunday',
   'monday',
   'tuesday',
   'wednesday',
   'thursday',
   'friday',
   'saturday',
-  'sunday',
 ]
 
-const abbreviation = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+const abbreviation = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 
 const initial = ['m', 't', 'w', 't', 'f', 's', 's']
 
@@ -23,6 +23,7 @@ const createDayObject = (day, year) => {
     name: name[day],
     abbreviation: abbreviation[day],
     initial: initial[day],
+    number: day === 0 ? 7 : day,
     count: -1,
     percent: 0,
   }
@@ -33,8 +34,14 @@ export const SourceDays = ({ filter, children }) => {
 
   const count = useAllMdx(filter)
     .reduce((items, item) => {
-      let day = new Date(item.node.frontmatter.date).getDay() + 1
-      let year = new Date(item.node.frontmatter.date).getFullYear()
+      const {
+        node: {
+          frontmatter: { date },
+        },
+      } = item
+
+      let day = new Date(date).getDay()
+      let year = new Date(date).getFullYear()
       items[year] = items[year] || [...defaultValues]
       items[year].push(createDayObject(day, year))
 
