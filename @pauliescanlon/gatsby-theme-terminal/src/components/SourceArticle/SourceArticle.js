@@ -145,7 +145,7 @@ SourceArticle.propTypes = {
   /** isPrivate from frontMatter */
   isPrivate: PropTypes.bool,
   /** FeaturedImage from frontmatter */
-  featuredImage: PropTypes.string,
+  featuredImage: PropTypes.any,
   /** embeddedImage array from SourceLayout */
   embedded: PropTypes.any,
   /** body from SourceLayout */
