@@ -1,7 +1,7 @@
 {
   "name": "@pauliescanlon/gatsby-theme-terminal",
   "description": "A zero component Gatsby theme for developers",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.27",
