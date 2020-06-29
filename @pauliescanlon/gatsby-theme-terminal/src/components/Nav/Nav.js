@@ -1,43 +1,85 @@
-/** @jsx jsx */
-import { Fragment } from 'react'
-import { jsx } from 'theme-ui'
+import React, { Fragment } from 'react'
+import { Box } from 'theme-ui'
 import { MdxRoutes } from '@pauliescanlon/gatsby-mdx-routes'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 
 import { Logo } from '../Logo'
-
-import * as styles from './styles'
+import * as theme from '../../gatsby-plugin-theme-ui'
 
 const DUMMY = 'dummy'
 
 export const Nav = () => (
   <Fragment>
-    <div sx={styles.logo}>
+    <Box
+      sx={{
+        alignItems: 'center',
+        display: 'flex',
+        height: theme => `${theme.space[5]}px`,
+        justifyContent: ['flex-start', 'flex-start', 'flex-start', 'flex-end'],
+        overFlow: 'hidden',
+        px: 4,
+      }}
+    >
       <Logo />
-    </div>
-    <nav sx={styles.nav}>
+    </Box>
+    <Box
+      as="nav"
+      sx={{
+        height: '100%',
+        py: 3,
+        px: 4,
+      }}
+    >
       <MdxRoutes>
         {(routes, _) => (
-          <ul sx={styles.ul}>
+          <Box
+            as="ul"
+            sx={{
+              listStyle: 'none',
+              mt: 2,
+              p: 0,
+            }}
+          >
             {routes
               .filter(
                 route =>
                   route.navigationLabel && route.navigationLabel !== DUMMY
               )
               .map((route, index) => (
-                <li sx={styles.li} key={index}>
-                  <Link
-                    sx={styles.link}
-                    activeClassName="active-link"
-                    to={route.slug}
-                  >
+                <Box
+                  as="li"
+                  sx={{
+                    textAlign: ['left', 'left', 'left', 'right'],
+                    a: {
+                      ...theme.default.styles.a,
+                    },
+                    '.active-link': {
+                      textDecoration: 'none',
+                      color: 'text',
+                      cursor: 'default',
+                      ':before': {
+                        pr: [2, 2, 2, 0],
+                        content: [`"-"`, `"-"`, `"-"`, `""`],
+                      },
+                      ':after': {
+                        pl: [0, 0, 0, 2],
+                        content: [`""`, `""`, `""`, `"-"`],
+                      },
+                      ':focus': {
+                        boxShadow: 'none',
+                      },
+                    },
+                  }}
+                  key={index}
+                >
+                  <GatsbyLink activeClassName="active-link" to={route.slug}>
                     {route.navigationLabel}
-                  </Link>
-                </li>
+                  </GatsbyLink>
+                </Box>
               ))}
-          </ul>
+          </Box>
         )}
       </MdxRoutes>
-    </nav>
+    </Box>
   </Fragment>
 )
