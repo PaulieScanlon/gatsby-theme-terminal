@@ -46,6 +46,8 @@ module.exports = themeOptions => {
       `gatsby-transformer-sharp`,
       `gatsby-plugin-theme-ui`,
       `@pauliescanlon/gatsby-mdx-routes`,
+      `gatsby-plugin-sitemap`,
+      `gatsby-plugin-robots-txt`,
       {
         resolve: `gatsby-plugin-google-fonts`,
         options: {
