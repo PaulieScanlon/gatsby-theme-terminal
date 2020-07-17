@@ -132,12 +132,14 @@ Any file that is _not_ sourced from `pages` can contain any of the following `fr
 // src/posts/2020/02/some-post.mdx
 ---
 title: Some Post
+tags: ["JavaScript", "React", "GatsbyJs", "HTML", "CSS", "theme-ui"]
 date: 2020-01-01
 dateModified: 20-20-2020
-status: draft // => means it won't be rendered
-isPrivate: // -> it will be rendered but you can use this prop as a filter
 author: Paul Scanlon
-tags: ["JavaScript", "React", "GatsbyJs", "HTML", "CSS", "theme-ui"]
+status: draft // => means it won't be rendered
+isPrivate: // => it will be rendered but you can use this prop as a filter
+url: "https://example.com"  // => could be an external url
+misc: "Ahoy" // => use how you wish
 featuredImage: markus-spiske-466ENaLuhLY-unsplash.jpg
 embeddedImages:
   - markus-spiske-FXFz-sW0uwo-unsplash.jpg

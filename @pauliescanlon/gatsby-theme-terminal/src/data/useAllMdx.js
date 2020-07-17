@@ -35,6 +35,8 @@ export const useAllMdx = filter => {
               author
               status
               isPrivate
+              url
+              misc
               featuredImage {
                 childImageSharp {
                   original {

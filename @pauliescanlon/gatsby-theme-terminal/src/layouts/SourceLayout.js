@@ -109,6 +109,8 @@ export const singleMdx = graphql`
         author
         status
         isPrivate
+        url
+        misc
         featuredImage {
           childImageSharp {
             original {

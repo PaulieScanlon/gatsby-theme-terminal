@@ -136,7 +136,7 @@ Here we use it to return all the `projects` by using the filter prop
     >
       {projects.map((edge, index) => {
         const {
-          frontmatter: { title, date },
+          frontmatter: { title, date, url, misc },
           fields: { slug },
         } = edge.node
         return (
