@@ -30,19 +30,27 @@ const SourceLayout = ({
     author,
     isPrivate,
     featuredImage,
+    featuredImageUrl,
     embeddedImages,
+    embeddedImageUrls,
   } = frontmatter
 
-  const embedded =
-    embeddedImages &&
-    embeddedImages.reduce((images, image, index) => {
-      images[`${IMAGE_KEY}${index + 1}`] = images[
-        `${IMAGE_KEY}${index + 1}`
-      ] || {
-        ...image.childImageSharp,
-      }
-      return images
-    }, {})
+  const seoImage =
+    (featuredImage && featuredImage.childImageSharp.fluid.src) ||
+    featuredImageUrl ||
+    siteImage
+
+  const combinedEmbedded = [
+    ...(embeddedImages || []),
+    ...(embeddedImageUrls || []),
+  ].filter(n => n)
+
+  const embedded = combinedEmbedded.reduce((images, image, index) => {
+    images[`${IMAGE_KEY}${index + 1}`] = images[`${IMAGE_KEY}${index + 1}`] || {
+      ...(image.childImageSharp || { url: image }),
+    }
+    return images
+  }, [])
 
   return (
     <ContextProvider>
@@ -57,11 +65,7 @@ const SourceLayout = ({
                 titleTemplate={title}
                 description={excerpt}
                 siteUrl={siteUrl}
-                image={
-                  featuredImage && featuredImage.childImageSharp
-                    ? featuredImage.childImageSharp.fluid.src
-                    : siteImage
-                }
+                image={seoImage}
                 path={pathname}
                 keywords={tags}
                 lang={lang}
@@ -74,6 +78,7 @@ const SourceLayout = ({
                 author={author}
                 isPrivate={isPrivate}
                 featuredImage={featuredImage}
+                featuredImageUrl={featuredImageUrl}
                 embedded={embedded}
                 body={body}
                 timeToRead={timeToRead}
@@ -127,6 +132,7 @@ export const singleMdx = graphql`
             id
           }
         }
+        featuredImageUrl
         embeddedImages {
           childImageSharp {
             original {
@@ -143,6 +149,7 @@ export const singleMdx = graphql`
             id
           }
         }
+        embeddedImageUrls
       }
       fields {
         slug

@@ -39,7 +39,6 @@ const specialHeadings = {
 
 const anchors = {
   color: 'muted',
-  wordBreak: 'break-all',
   ':focus': {
     outline: 'none',
     ...anchorFocus,

@@ -9,6 +9,7 @@ import {
   Flex,
   Box,
   Divider,
+  Image,
   Alert,
 } from '@theme-ui/components'
 import { mix } from '@theme-ui/color'
@@ -27,6 +28,7 @@ export const SourceArticle = ({
   author,
   isPrivate,
   featuredImage,
+  featuredImageUrl,
   embedded,
   body,
   timeToRead,
@@ -48,6 +50,7 @@ export const SourceArticle = ({
             alt={featuredImage.childImageSharp.fluid.originalName}
           />
         )}
+        {featuredImageUrl && <Image src={featuredImageUrl} />}
       </Box>
       <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
         {title}
@@ -146,6 +149,8 @@ SourceArticle.propTypes = {
   isPrivate: PropTypes.bool,
   /** FeaturedImage from frontmatter */
   featuredImage: PropTypes.any,
+  /** FeaturedImageUrl from frontmatter */
+  featuredImageUrl: PropTypes.string,
   /** embeddedImage array from SourceLayout */
   embedded: PropTypes.any,
   /** body from SourceLayout */

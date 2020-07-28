@@ -1,0 +1,31 @@
+---
+title: remote images
+tags: ['remoate', 'images']
+date: 2020-07-28
+author: Paul
+featuredImage: markus-spiske-70Rir5vB96U-unsplash.jpg
+featuredImageUrl: https://via.placeholder.com/936x528
+embeddedImages:
+  - pankaj-patel-SXihyA4oEJs-unsplash.jpg
+  - pankaj-patel-_SgRNwAVNKw-unsplash.jpg
+embeddedImageUrls:
+  - https://via.placeholder.com/468x264
+  - https://via.placeholder.com/400x200
+  - https://via.placeholder.com/100x100
+---
+
+Test post using `featuredImage` and `featuredImageUrl` with `embeddedImages` and `embeddedImageUrls` 
+
+Both the featured image and the embedded images can be sourced locally or from a remote source
+
+<Img fluid={props.embedded.image1.fluid} />
+<Img fluid={props.embedded.image2.fluid} />
+<Image src={props.embedded.image3.url} sx={{width: '100%', height: '100%'}}/>
+<Grid
+  sx={{
+    gridTemplateColumns: '1fr 1fr'
+  }}
+>
+  <Image src={props.embedded.image4.url} />
+  <Image src={props.embedded.image5.url} />
+</Grid>

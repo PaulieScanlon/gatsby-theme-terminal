@@ -53,6 +53,7 @@ export const useAllMdx = filter => {
                   id
                 }
               }
+              featuredImageUrl
               embeddedImages {
                 childImageSharp {
                   original {
@@ -69,6 +70,7 @@ export const useAllMdx = filter => {
                   id
                 }
               }
+              embeddedImageUrls
             }
             fields {
               slug

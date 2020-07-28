@@ -141,8 +141,11 @@ isPrivate: // => it will be rendered but you can use this prop as a filter
 url: "https://example.com"  // => could be an external url
 misc: "Ahoy" // => use how you wish
 featuredImage: markus-spiske-466ENaLuhLY-unsplash.jpg
+featuredImageUrl: https://via.placeholder.com/936x528
 embeddedImages:
   - markus-spiske-FXFz-sW0uwo-unsplash.jpg
+embeddedImageUrls:
+  - https://via.placeholder.com/468x264
 ---
 ```
 
@@ -157,13 +160,19 @@ The `original`, `fixed` and `fluid` data is available via `props.embedded.image(
 <Img fixed={props.embedded.image1.fixed} />
 ```
 
-You can also use the Theme UI `<Image />` component but passing it a `src`
+You can also use the Theme UI `<Image />` component by passing it a `src`
 
 ```
 <Image src={props.embedded.image1.fluid.src} />
 ```
 
 `image1` in this example would be `markus-spiske-FXFz-sW0uwo-unsplash.jpg`
+
+EmbeddedImages can also be sourced from a remote url, in this case use the `<Image />` component and pass it the `url`
+
+```
+<Image src={props.embedded.image2.url} />
+```
 
 ### markdown
 
