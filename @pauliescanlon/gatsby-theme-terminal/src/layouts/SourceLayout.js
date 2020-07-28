@@ -36,9 +36,10 @@ const SourceLayout = ({
   } = frontmatter
 
   const seoImage =
-    (featuredImage && featuredImage.childImageSharp.fluid.src) ||
+    (featuredImage &&
+      `${siteUrl}/${featuredImage.childImageSharp.fluid.src}`) ||
     featuredImageUrl ||
-    siteImage
+    `${siteUrl}/${siteImage}`
 
   const combinedEmbedded = [
     ...(embeddedImages || []),
