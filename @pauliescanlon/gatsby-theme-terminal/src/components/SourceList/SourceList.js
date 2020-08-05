@@ -4,7 +4,15 @@ import PropTypes from 'prop-types'
 import { useAllMdx } from '../../data'
 
 export const SourceList = ({ filter, children }) => {
-  return <Fragment>{children(useAllMdx(filter))}</Fragment>
+  return (
+    <Fragment>
+      {children(
+        useAllMdx(filter).sort(
+          (a, b) => b.node.frontmatter.pinned - a.node.frontmatter.pinned
+        )
+      )}
+    </Fragment>
+  )
 }
 
 SourceList.propTypes = {

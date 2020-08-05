@@ -23,7 +23,7 @@ Here we use it to return all the `posts` by using the filter prop
       .filter(edge => !edge.node.frontmatter.isPrivate)
       .map((edge, index) => {
         const {
-          frontmatter: { title, featuredImage, tags, date },
+          frontmatter: { title, featuredImage, tags, date, pinned },
           excerpt,
           fields: { slug },
         } = edge.node
@@ -48,7 +48,7 @@ Here we use it to return all the `posts` by using the filter prop
                     flex: '1 1 auto', 
                     flexDirection: 'column', 
                     p: 3}}>
-                  <Heading variant="styles.h4" sx={{ color: "text" }}>
+                  <Heading variant="styles.h4" sx={{ color: pinned ? "primary": "text" }}>
                     {title}
                   </Heading>
                    <Text sx={{mb: 1, color: 'muted'}}>{format(new Date(date), 'd-MMM-u')}</Text>

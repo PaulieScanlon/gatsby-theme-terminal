@@ -37,6 +37,7 @@ export const useAllMdx = filter => {
               isPrivate
               url
               misc
+              pinned
               featuredImage {
                 childImageSharp {
                   original {

@@ -140,6 +140,7 @@ status: draft // => means it won't be rendered
 isPrivate: // => it will be rendered but you can use this prop as a filter
 url: "https://example.com"  // => could be an external url
 misc: "Ahoy" // => use how you wish
+pinned: false // => Could be used as a filter for pinned posts
 featuredImage: markus-spiske-466ENaLuhLY-unsplash.jpg
 featuredImageUrl: https://via.placeholder.com/936x528
 embeddedImages:

@@ -117,6 +117,7 @@ export const singleMdx = graphql`
         isPrivate
         url
         misc
+        pinned
         featuredImage {
           childImageSharp {
             original {
