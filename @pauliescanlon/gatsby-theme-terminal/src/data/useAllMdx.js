@@ -4,7 +4,6 @@ const DRAFT = 'draft'
 
 export const useAllMdx = filter => {
   // This query is a duplicate of singleMdx so if you update this one update that one too! in layouts/SourceLayout
-
   const query = useStaticQuery(graphql`
     query allMdx {
       allMdx(
@@ -14,7 +13,7 @@ export const useAllMdx = filter => {
             navigationLabel: { ne: "dummy" }
             status: { ne: "draft" }
           }
-          fields: { owner: { eq: "source" } }
+          fields: { parent: { ne: "" } }
         }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {

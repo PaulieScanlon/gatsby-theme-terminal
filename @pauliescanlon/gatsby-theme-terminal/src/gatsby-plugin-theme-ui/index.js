@@ -407,9 +407,25 @@ export default {
     ...anchors,
     nav: {
       ...anchors,
+      fontWeight: 'body',
+      ':before': {
+        pr: [2, 2, 2, 0],
+        content: [`"-"`, `"-"`, `"-"`, `""`],
+      },
+      ':after': {
+        pl: [0, 0, 0, 2],
+        content: [`""`, `""`, `""`, `"-"`],
+      },
       ':hover': {
         color: 'text',
         transition: '.2s linear color',
+      },
+      ':focus': {
+        boxShadow: 'none',
+      },
+      '&[aria-current="page"]': {
+        color: 'text',
+        pointerEvents: 'none',
       },
     },
   },

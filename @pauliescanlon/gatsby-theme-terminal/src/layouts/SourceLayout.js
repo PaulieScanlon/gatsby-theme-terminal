@@ -68,7 +68,7 @@ const SourceLayout = ({
                 siteUrl={siteUrl}
                 image={seoImage}
                 path={pathname}
-                keywords={tags}
+                keywords={tags || ['']}
                 lang={lang}
               />
               <SourceArticle

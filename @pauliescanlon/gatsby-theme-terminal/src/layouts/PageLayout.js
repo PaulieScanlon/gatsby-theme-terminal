@@ -22,7 +22,6 @@ const PageLayout = ({ children }) => {
         <Location>
           {({ location }) => {
             const { pathname } = location
-            // console.log('pathName: ', pathname)
             const titleTemplate = pathname.replace(/\//gm, '')
             return (
               <Fragment>
@@ -34,7 +33,7 @@ const PageLayout = ({ children }) => {
                   siteUrl={siteUrl}
                   image={siteImage}
                   path={pathname}
-                  keywords={keywords}
+                  keywords={keywords || ['']}
                   lang={lang}
                 />
               </Fragment>
