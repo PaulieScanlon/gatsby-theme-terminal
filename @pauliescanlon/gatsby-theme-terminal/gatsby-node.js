@@ -21,7 +21,7 @@ exports.onCreateNode = ({ node, actions, getNode }, themeOptions) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `/${path}${value}`,
+      value: path ? `/${path}${value}` : value,
     })
     // a owner and parent node fields to the .mdx sourced from "source"
     createNodeField({

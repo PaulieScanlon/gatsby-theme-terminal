@@ -10,6 +10,12 @@ export const Nav = () => {
     allMdx: { edges },
   } = useNavigation()
 
+  const navigation = edges.reduce((routes, route) => {
+    return route.node.fields.slug === '/'
+      ? [route, ...routes]
+      : [...routes, route]
+  }, [])
+
   return (
     <Fragment>
       <Box
@@ -45,7 +51,7 @@ export const Nav = () => {
             p: 0,
           }}
         >
-          {edges.map((route, index) => {
+          {navigation.map((route, index) => {
             const {
               frontmatter: { navigationLabel },
               fields: { slug },
@@ -59,7 +65,7 @@ export const Nav = () => {
                   textAlign: ['left', 'left', 'left', 'right'],
                 }}
               >
-                <NavLink as={GatsbyLink} to={slug.replace(/^\/+/g, '/')}>
+                <NavLink as={GatsbyLink} to={slug}>
                   {navigationLabel}
                 </NavLink>
               </Box>

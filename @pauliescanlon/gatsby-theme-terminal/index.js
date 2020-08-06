@@ -1,4 +1,7 @@
-// Data Componets
+// Data Components
+export { Main } from './src/components/Main'
+
+// Data Components
 export { SourceDays } from './src/components/SourceDays'
 export { SourceList } from './src/components/SourceList'
 export { SourceMonths } from './src/components/SourceMonths'
