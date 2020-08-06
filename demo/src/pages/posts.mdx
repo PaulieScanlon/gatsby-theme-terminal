@@ -21,6 +21,7 @@ Here we use it to return all the `posts` by using the filter prop
     >
       {posts
       .filter(edge => !edge.node.frontmatter.isPrivate)
+      .sort((a, b) => b.node.frontmatter.pinned - a.node.frontmatter.pinned)
       .map((edge, index) => {
         const {
           frontmatter: { title, featuredImage, tags, date, pinned },
