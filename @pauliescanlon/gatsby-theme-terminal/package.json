@@ -4,9 +4,9 @@
   "version": "0.0.36",
   "author": "Paul Scanlon <pauliescanlon@gmail.com>",
   "dependencies": {
-    "@emotion/core": "^10.0.27",
+    "@emotion/core": "^10.0.28",
     "@theme-ui/color": "^0.3.1",
-    "@theme-ui/prism": "^0.4.0-rc.1",
+    "@theme-ui/prism": "^0.3.0",
     "date-fns": "^2.10.0",
     "gatsby-image": "^2.2.41",
     "gatsby-plugin-google-fonts": "^1.0.1",
