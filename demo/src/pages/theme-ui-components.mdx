@@ -70,17 +70,19 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 ## [Buttons](#buttons)
 
 ```javascript
-<Button mr={2}>primary</Button>
-<Button mr={2} variant='secondary'>secondary</Button>
-<Button mr={2} variant='success'>success</Button>
-<Button mr={2} variant='error'>error</Button>
-<Button mr={2} variant='close' />
+<Button>primary</Button>
+<Button variant='secondary'>secondary</Button>
+<Button variant='success'>success</Button>
+<Button variant='error'>error</Button>
+<Button variant='ghost' />
 ```
-<Button mr={2}>primary</Button>
-<Button mr={2} variant='secondary'>secondary</Button>
-<Button mr={2} variant='success'>success</Button>
-<Button mr={2} variant='error'>error</Button>
-<Button mr={2} variant='ghost'>ghost</Button>
+<Grid sx={{gridTemplateColumns: 'auto auto auto auto auto'}}>
+<Button>primary</Button>
+<Button variant='secondary'>secondary</Button>
+<Button variant='success'>success</Button>
+<Button variant='error'>error</Button>
+<Button variant='ghost'>ghost</Button>
+</Grid>
 
 <Divider />
 
@@ -88,12 +90,14 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 ```javascript
 <Text>Hello</Text>
-<Text variant='styles.p'>Hello</Text>
+<Text as="p" >Hello</Text>
+<Text as="p">Hello <Link href='www.example.com'>www.example.com</Link></Text>
 <Text variant='styles.small'>Hello</Text>
 ```
 
 <Text>Hello</Text>
-<Text variant='styles.p'>Hello</Text>
+<Text as="p">Hello</Text>
+<Text as="p">Hello <Link href='www.example.com'>www.example.com</Link></Text>
 <Text variant='styles.small'>Hello</Text>
 
 <Divider />
@@ -101,22 +105,20 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 ## [Heading](#heading)
 
 ```javascript
-<Heading>heading</Heading>
-<Heading variant='styles.h1'>h1</Heading>
-<Heading variant='styles.h2'>h2</Heading>
-<Heading variant='styles.h3'>h3</Heading>
-<Heading variant='styles.h4'>h4</Heading>
-<Heading variant='styles.h5'>h5</Heading>
-<Heading variant='styles.h6'>h6</Heading>
+<Heading as='h1' variant='styles.h1'>h1</Heading>
+<Heading as='h2 'variant='styles.h2'>h2</Heading>
+<Heading as='h3 'variant='styles.h3'>h3</Heading>
+<Heading as='h4 'variant='styles.h4'>h4</Heading>
+<Heading as='h5 'variant='styles.h5'>h5</Heading>
+<Heading as='h6 'variant='styles.h6'>h6</Heading>
 ```
 
-<Heading>heading</Heading>
-<Heading variant='styles.h1'>h1</Heading>
-<Heading variant='styles.h2'>h2</Heading>
-<Heading variant='styles.h3'>h3</Heading>
-<Heading variant='styles.h4'>h4</Heading>
-<Heading variant='styles.h5'>h5</Heading>
-<Heading variant='styles.h6'>h6</Heading>
+<Heading as='h1' variant='styles.h1'>h1</Heading>
+<Heading as='h2' variant='styles.h2'>h2</Heading>
+<Heading as='h3' variant='styles.h3'>h3</Heading>
+<Heading as='h4' variant='styles.h4'>h4</Heading>
+<Heading as='h5' variant='styles.h5'>h5</Heading>
+<Heading as='h6' variant='styles.h6'>h6</Heading>
 
 
 ## [Link](#link)
@@ -453,15 +455,15 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 Badges need a variant, the default can't be styled at the moment
 
 ```javascript
-<Badge variant='primary' mb={2} mr={2}>
+<Badge variant='primary'>
   Beep boop, this is an badge!
 </Badge>
 
-<Badge variant='secondary' mb={2} mr={2}>
+<Badge variant='secondary'>
   Beep boop, this is an badge!
 </Badge>
 
-<Badge variant='success' mb={2} mr={2}>
+<Badge variant='success'>
   Beep boop, this is an badge!
 </Badge>
 
@@ -470,35 +472,26 @@ Badges need a variant, the default can't be styled at the moment
 </Badge>
 ```
 
-<Badge variant='primary' mb={2} mr={2}>
+<Grid sx={{gridTemplateColumns: 'auto auto auto auto'}}>
+<Badge variant='primary'>
   Beep boop, this is an badge!
 </Badge>
 
-<Badge variant='secondary' mb={2} mr={2}>
+<Badge variant='secondary'>
   Beep boop, this is an badge!
 </Badge>
 
-<Badge variant='success' mb={2} mr={2}>
+<Badge variant='success'>
   Beep boop, this is an badge!
 </Badge>
 
 <Badge variant='error'>
   Beep boop, this is an badge!
 </Badge>
-
-
-<Divider />
-
-
-## [Close](#close)
-
-```javascript
-<Close />
-```
-
-<Close />
+</Grid>
 
 <Divider />
+
 
 ## [Alert](#alert)
 
@@ -687,6 +680,16 @@ Badges need a variant, the default can't be styled at the moment
   This is just a message for someone to read
 </Message>
 
+
+<Divider />
+
+## [Close](#close)
+
+```javascript
+<Close />
+```
+
+<Close />
 
 <Divider />
 
