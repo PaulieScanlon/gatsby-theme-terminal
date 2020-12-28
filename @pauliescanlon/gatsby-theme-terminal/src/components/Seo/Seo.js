@@ -18,25 +18,10 @@ export const Seo = ({
   }`
 
   return (
-    <Helmet
-      title={title}
-      titleTemplate={formatTitleTemplate}
-      link={[
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '16x16',
-          href: `${siteUrl}/images/favicon-16x16.png`,
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '32x32',
-          href: `${siteUrl}/images/favicon-32x32.png`,
-        },
-      ]}
-    >
+    <Helmet>
       <html lang={lang} />
+      <title>{formatTitleTemplate}</title>
+      <link rel="canonical" href={siteUrl} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="image:alt" content={description} />
@@ -44,7 +29,7 @@ export const Seo = ({
         name="gatsby-theme"
         content="@pauliescanlon/gatsby-theme-terminal"
       />
-      <meta name="keywords" content={keywords.join(', ')} />
+      <meta name="keywords" content={keywords ? keywords.join(', ') : null} />
 
       {/* Facebook */}
       <meta property="og:type" content={type} />
@@ -61,6 +46,22 @@ export const Seo = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={description}></meta>
+
+      {/* favicon */}
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href={`${siteUrl}/images/favicon-16x16.png`}
+        data-react-helmet="true"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href={`${siteUrl}/images/favicon-32x32.png`}
+        data-react-helmet="true"
+      />
     </Helmet>
   )
 }
@@ -87,5 +88,5 @@ Seo.propTypes = {
 }
 
 Seo.defaultProps = {
-  lang: 'eng',
+  lang: 'en',
 }

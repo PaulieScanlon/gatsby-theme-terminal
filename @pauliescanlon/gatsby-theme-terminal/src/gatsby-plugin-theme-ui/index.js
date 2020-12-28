@@ -1,117 +1,13 @@
 import codeTheme from '@theme-ui/prism/presets/night-owl.json'
 import { lighten } from '@theme-ui/color'
 
-export const anchorFocus = {
-  transition: '.2s linear box-shadow',
-  boxShadow: theme => `0 2px 0 0 ${theme.colors.primary}`,
-}
-
-export const commonFocus = {
-  outline: 'none',
-  transition: '.2s linear box-shadow',
-  boxShadow: theme => `0 0 0 2px ${theme.colors.muted}`,
-}
-
-const headings = {
-  fontFamily: 'heading',
-  fontWeight: 'heading',
-  fontSize: 2,
-  mt: 0,
-  mb: 3,
-  a: {
-    color: 'inherit',
-  },
-}
-
-const specialHeadings = {
-  color: 'primary',
-  '::before': {
-    content: `'→'`,
-    color: 'success',
-    mr: 2,
-  },
-  '::after': {
-    content: `'()'`,
-    color: 'secondary',
-    ml: 1,
-  },
-}
-
-const anchors = {
-  color: 'muted',
-  ':focus': {
-    outline: 'none',
-    ...anchorFocus,
-  },
-}
-
-const codeBlock = {
-  ...codeTheme,
-  backgroundColor: 'surface',
-  // special case
-  fontSize: '13px',
-  p: 1,
-}
-
-const preBlock = {
-  borderRadius: 0,
-  overflow: 'auto',
-  p: 3,
-}
-
-const buttons = {
-  borderRadius: 0,
-  minWidth: 120,
-  p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
-  ':focus': {
-    ...commonFocus,
-  },
-}
-
-const badges = {
-  fontSize: 0,
-  borderRadius: 0,
-  borderWidth: 1,
-  borderStyle: 'solid',
-  backgroundColor: 'transparent',
-  p: theme => `${theme.space[0]}px ${theme.space[1]}px`,
-}
-
-const alerts = {
-  fontWeight: 'body',
-  borderRadius: 0,
-  p: theme => `${theme.space[2]}px ${theme.space[3]}px`,
-}
-
-export const blockquotes = {
-  borderRadius: 0,
-  borderLeft: theme => `${theme.borderWidths[2]}px solid ${theme.colors.muted}`,
-  mt: 0,
-  ml: 2,
-  mb: 3,
-  mr: 0,
-  p: {
-    p: 3,
-    mb: 0,
-  },
-}
-
-export const messages = {
-  borderRadius: 0,
-  backgroundColor: 'surface',
-}
-
-export const progress = {
-  backgroundColor: 'surface',
-}
-
 export default {
-  // tokens
   borderWidths: [0, 1, 4],
   colors: {
     text: '#ffffff',
-    muted: '#8394ca',
     background: '#282a36',
+    muted: '#8394ca',
+    highlight: '#5a6084',
     surface: '#323442',
     primary: '#ff79c6',
     secondary: '#8be9fd',
@@ -122,6 +18,7 @@ export default {
   fonts: {
     body: 'Inconsolata, monospace',
     heading: 'Inconsolata, monospace',
+    code: 'monospace',
   },
   fontWeights: {
     body: 400,
@@ -142,36 +39,53 @@ export default {
     `0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)`,
   ],
 
-  // styles
   styles: {
     root: {
       fontFamily: 'body',
       fontWeight: 'body',
       fontSize: 1,
       lineHeight: 'body',
+      a: {
+        variant: 'styles.focus',
+      },
+    },
+    focus: {
+      transition: '.2s linear box-shadow',
+      ':focus': {
+        outline: 'none',
+        boxShadow: theme => `0 2px 0 0 ${theme.colors.primary}`,
+      },
     },
     h1: {
-      ...headings,
-      ...specialHeadings,
+      variant: 'text.specialHeading',
+      color: 'primary',
       fontSize: 3,
     },
-    h2: { ...headings, ...specialHeadings },
-    h3: { ...headings, color: 'secondary' },
-    h4: { ...headings },
-    h5: { ...headings, color: 'success' },
-    h6: { ...headings, color: 'error' },
+    h2: {
+      variant: 'text.specialHeading',
+      color: 'primary',
+    },
+    h3: {
+      variant: 'text.heading',
+      color: 'secondary',
+    },
+    h4: {
+      variant: 'text.heading',
+      color: 'text',
+    },
+    h5: {
+      variant: 'text.heading',
+      color: 'success',
+    },
+    h6: {
+      variant: 'text.heading',
+      color: 'error',
+    },
     p: {
       mt: 0,
       mb: 3,
-      a: {
-        ...anchors,
-      },
       code: {
-        ...codeBlock,
-      },
-      pre: {
-        ...codeBlock,
-        ...preBlock,
+        variant: 'styles.code',
       },
     },
     small: {
@@ -179,15 +93,24 @@ export default {
       fontSize: 0,
     },
     a: {
-      ...anchors,
+      color: 'muted',
+      variant: 'styles.focus',
     },
     code: {
-      ...codeBlock,
+      ...codeTheme,
+      fontFamily: 'code',
       color: 'inherit',
+      backgroundColor: 'surface',
+      fontSize: '13px',
+      p: 1,
     },
     pre: {
-      ...codeBlock,
-      ...preBlock,
+      ...codeTheme,
+      fontFamily: 'code',
+      borderRadius: 0,
+      overflow: 'auto',
+      fontSize: '13px',
+      p: 3,
     },
     hr: {
       border: 'none',
@@ -203,16 +126,16 @@ export default {
       mt: 0,
       mb: 3,
       // special case so ul lines up with ol
-      pl: '27px',
+      pl: '24px',
       listStyle: 'square',
     },
     li: {
       mb: 1,
-      a: {
-        ...anchors,
-      },
       code: {
-        ...codeBlock,
+        variant: 'styles.code',
+      },
+      pre: {
+        variant: 'styles.pre',
       },
     },
     table: {
@@ -246,24 +169,34 @@ export default {
       },
     },
     blockquote: {
-      ...blockquotes,
+      borderRadius: 0,
+      borderLeftColor: 'muted',
+      borderLeftStyle: 'solid',
+      borderLeftWidth: 2,
+      mt: 0,
+      ml: 2,
+      mb: 3,
+      mr: 0,
+      p: {
+        p: 3,
+        mb: 0,
+      },
     },
     progress: {
-      ...progress,
       primary: {
-        ...progress,
+        backgroundColor: 'surface',
         color: 'primary',
       },
       secondary: {
-        ...progress,
+        backgroundColor: 'surface',
         color: 'secondary',
       },
       success: {
-        ...progress,
+        backgroundColor: 'surface',
         color: 'success',
       },
       error: {
-        ...progress,
+        backgroundColor: 'surface',
         color: 'error',
       },
     },
@@ -300,99 +233,107 @@ export default {
 
   // components
   alerts: {
-    // default
     primary: {
-      ...alerts,
+      fontWeight: 'body',
+      borderRadius: 0,
+      px: 3,
+      py: 2,
       color: 'text',
       backgroundColor: 'primary',
     },
     secondary: {
-      ...alerts,
+      variant: 'alerts.primary',
       color: 'background',
       backgroundColor: 'secondary',
     },
     success: {
-      ...alerts,
+      variant: 'alerts.primary',
       color: 'background',
       backgroundColor: 'success',
     },
     error: {
-      ...alerts,
+      variant: 'alerts.primary',
       backgroundColor: 'error',
     },
   },
 
   badges: {
-    // primary is supposed to be default but it isn't
     primary: {
-      ...badges,
       color: 'primary',
       borderColor: 'primary',
+      fontSize: 0,
+      borderRadius: 0,
+      borderWidth: 1,
+      borderStyle: 'solid',
+      backgroundColor: 'transparent',
+      px: 2,
+      py: 1,
     },
     secondary: {
-      ...badges,
+      variant: 'badges.primary',
       color: 'secondary',
       borderColor: 'secondary',
     },
     success: {
-      ...badges,
+      variant: 'badges.primary',
       color: 'success',
       borderColor: 'success',
     },
     error: {
-      ...badges,
+      variant: 'badges.primary',
       color: 'error',
       borderColor: 'error',
     },
   },
 
   buttons: {
-    // default
+    focus: {
+      ':focus': {
+        outline: 'none',
+        transition: '.2s linear box-shadow',
+        boxShadow: theme => `0 0 0 2px ${theme.colors.muted}`,
+      },
+    },
     primary: {
-      ...buttons,
+      borderRadius: 0,
+      cursor: 'pointer',
+      minWidth: 120,
+      px: 3,
+      py: 2,
+      variant: 'buttons.focus',
     },
     secondary: {
-      ...buttons,
+      variant: 'buttons.primary',
       color: 'background',
       backgroundColor: 'secondary',
     },
     success: {
-      ...buttons,
+      variant: 'buttons.primary',
       color: 'background',
       backgroundColor: 'success',
     },
     error: {
-      ...buttons,
+      variant: 'buttons.primary',
       backgroundColor: 'error',
     },
-    icon: {
-      borderRadius: 0,
-      ':focus': {
-        ...commonFocus,
-      },
-    },
     ghost: {
-      borderRadius: 0,
+      variant: 'buttons.primary',
       backgroundColor: 'background',
-      ':focus': {
-        ...commonFocus,
-      },
+    },
+    icon: {
+      cursor: 'pointer',
+      borderRadius: 0,
+      variant: 'buttons.focus',
     },
     close: {
       cursor: 'pointer',
       borderRadius: 0,
-      backgroundColor: 'background',
-      ':focus': {
-        ...commonFocus,
-      },
+      variant: 'buttons.focus',
     },
     menu: {
       cursor: 'pointer',
       borderRadius: 0,
-      backgroundColor: 'background',
-      ':focus': {
-        ...commonFocus,
-      },
+      variant: 'buttons.focus',
     },
   },
 
@@ -404,9 +345,9 @@ export default {
   },
 
   links: {
-    ...anchors,
+    variant: 'styles.a',
     nav: {
-      ...anchors,
+      variant: 'styles.a',
       fontWeight: 'body',
       ':before': {
         pr: [2, 2, 2, 0],
@@ -420,9 +361,6 @@ export default {
         color: 'text',
         transition: '.2s linear color',
       },
-      ':focus': {
-        boxShadow: 'none',
-      },
       '&[aria-current="page"]': {
         color: 'text',
         pointerEvents: 'none',
@@ -433,8 +371,27 @@ export default {
   text: {
     color: 'text',
     heading: {
-      ...headings,
-      ...specialHeadings,
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      fontSize: 2,
+      mt: 0,
+      mb: 3,
+      a: {
+        color: 'inherit',
+      },
+    },
+    specialHeading: {
+      variant: 'text.heading',
+      '::before': {
+        content: `'→'`,
+        color: 'success',
+        mr: 2,
+      },
+      '::after': {
+        content: `'()'`,
+        color: 'secondary',
+        ml: 1,
+      },
     },
   },
 
@@ -449,23 +406,17 @@ export default {
     input: {
       borderRadius: 0,
       borderColor: 'muted',
-      ':focus': {
-        ...commonFocus,
-      },
+      variant: 'styles.focus',
     },
     select: {
       borderRadius: 0,
       borderColor: 'muted',
-      ':focus': {
-        ...commonFocus,
-      },
+      variant: 'styles.focus',
     },
     textarea: {
       borderRadius: 0,
       borderColor: 'muted',
-      ':focus': {
-        ...commonFocus,
-      },
+      variant: 'styles.focus',
     },
     slider: {
       backgroundColor: 'muted',
@@ -489,25 +440,28 @@ export default {
   },
 
   layouts: {
-    //default
     container: {},
   },
 
   messages: {
+    default: {
+      borderRadius: 0,
+      backgroundColor: 'surface',
+    },
     primary: {
-      ...messages,
+      variant: 'messages.default',
       borderLeftColor: 'primary',
     },
     secondary: {
-      ...messages,
+      variant: 'messages.default',
       borderLeftColor: 'secondary',
     },
     success: {
-      ...messages,
+      variant: 'messages.default',
       borderLeftColor: 'success',
     },
     error: {
-      ...messages,
+      variant: 'messages.default',
       borderLeftColor: 'error',
     },
   },
