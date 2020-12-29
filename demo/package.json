@@ -12,6 +12,7 @@
     "gatsby": "^2.24.12",
     "gatsby-plugin-google-analytics": "^2.1.36",
     "gatsby-plugin-mdx": "^1.0.73",
+    "gatsby-plugin-preload-fonts": "^1.6.1",
     "gatsby-source-filesystem": "^2.1.46",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -30,7 +31,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "browserslist": [
     ">0.25%",

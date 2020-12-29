@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `@pauliescanlon/gatsby-theme-terminal`,
       options: {
