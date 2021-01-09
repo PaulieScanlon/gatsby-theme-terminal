@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 import Prism from '@theme-ui/prism'
+import { Link as GatsbyLink } from 'gatsby'
 
 import { Context } from '../../context'
 import { Nav } from '../Nav'
@@ -11,7 +12,7 @@ import { useConfig } from '../../data'
 import * as themeUiComponents from 'theme-ui'
 import Img from 'gatsby-image'
 
-import { Container, Box, Close, Image, MenuButton } from 'theme-ui'
+import { Container, Box, Close, Image, MenuButton, Link } from 'theme-ui'
 import { transparentize } from '@theme-ui/color'
 
 // Theme specific componenbts
@@ -24,6 +25,17 @@ import { SourceWords } from '../SourceWords'
 import { SourceTags } from '../SourceTags'
 
 const components = {
+  a: ({ href, children }) => {
+    return Boolean(href.indexOf('/')) ? (
+      <Link href={href} target="_blank">
+        {children}
+      </Link>
+    ) : (
+      <Link as={GatsbyLink} to={href}>
+        {children}
+      </Link>
+    )
+  },
   pre: ({ children }) => <Fragment>{children}</Fragment>,
   code: Prism,
   Fragment,
