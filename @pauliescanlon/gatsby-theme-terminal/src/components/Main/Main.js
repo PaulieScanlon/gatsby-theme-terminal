@@ -26,11 +26,20 @@ import { SourceTags } from '../SourceTags'
 
 const components = {
   a: ({ href, children }) => {
-    return Boolean(href.indexOf('/')) ? (
-      <Link href={href} target="_blank">
-        {children}
-      </Link>
-    ) : (
+    // If it's an external url use Link and target _blank
+    if (href.match(/^(http|https):/g)) {
+      return (
+        <Link href={href} target="_blank">
+          {children}
+        </Link>
+      )
+    }
+    // if it's a # use Link which will fires an anchorScroll in gatsby-browser
+    if (href.match(/#/gi)) {
+      return <Link href={href}>{children}</Link>
+    }
+    // if it's anything else use GatsbyLink
+    return (
       <Link as={GatsbyLink} to={href}>
         {children}
       </Link>
