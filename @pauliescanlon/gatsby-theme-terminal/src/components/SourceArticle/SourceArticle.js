@@ -9,7 +9,6 @@ import {
   Flex,
   Box,
   Divider,
-  Image,
   Alert,
 } from '@theme-ui/components'
 import { mix } from '@theme-ui/color'
@@ -28,7 +27,7 @@ export const SourceArticle = ({
   author,
   isPrivate,
   featuredImage,
-  featuredImageUrl,
+  featuredImageUrlSharp,
   embedded,
   body,
   timeToRead,
@@ -36,79 +35,88 @@ export const SourceArticle = ({
 }) => {
   return (
     <Main>
-      {isPrivate && (
+      {title ? (
         <Fragment>
-          <Alert variant="error">This is a private post</Alert>
-          <Divider />
-        </Fragment>
-      )}
-
-      <Box sx={{ mb: 4 }}>
-        {featuredImage && featuredImage.childImageSharp && (
-          <Img
-            fluid={featuredImage.childImageSharp.fluid}
-            alt={featuredImage.childImageSharp.fluid.originalName}
-          />
-        )}
-        {featuredImageUrl && <Image src={featuredImageUrl} />}
-      </Box>
-      <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
-        {title}
-      </Heading>
-      <Flex sx={{ flexWrap: 'wrap' }}>
-        <Box
-          sx={{
-            width: ['100%', '50%'],
-          }}
-        >
-          {date && (
-            <Text sx={{ color: 'muted' }}>
-              Date published: {formatDate(date)}
-            </Text>
+          {isPrivate && (
+            <Fragment>
+              <Alert variant="error">This is a private post</Alert>
+              <Divider />
+            </Fragment>
           )}
-        </Box>
-        <Box
-          sx={{
-            width: ['100%', '50%'],
-          }}
-        >
-          {dateModified && (
-            <Text
+
+          <Box sx={{ mb: 4 }}>
+            {featuredImage && featuredImage.childImageSharp && (
+              <Img
+                fluid={featuredImage.childImageSharp.fluid}
+                alt={featuredImage.childImageSharp.fluid.originalName}
+              />
+            )}
+            {featuredImageUrlSharp && featuredImageUrlSharp.childImageSharp && (
+              <Img
+                fluid={featuredImageUrlSharp.childImageSharp.fluid}
+                alt={featuredImageUrlSharp.childImageSharp.fluid.originalName}
+              />
+            )}
+          </Box>
+          <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
+            {title}
+          </Heading>
+          <Flex sx={{ flexWrap: 'wrap' }}>
+            <Box
               sx={{
-                color: 'muted',
-                textAlign: ['left', 'right'],
+                width: ['100%', '50%'],
               }}
             >
-              Date modified: {formatDate(dateModified)}
-            </Text>
-          )}
-        </Box>
-      </Flex>
+              {date && (
+                <Text sx={{ color: 'muted' }}>
+                  Date published: {formatDate(date)}
+                </Text>
+              )}
+            </Box>
+            <Box
+              sx={{
+                width: ['100%', '50%'],
+              }}
+            >
+              {dateModified && (
+                <Text
+                  sx={{
+                    color: 'muted',
+                    textAlign: ['left', 'right'],
+                  }}
+                >
+                  Date modified: {formatDate(dateModified)}
+                </Text>
+              )}
+            </Box>
+          </Flex>
 
-      <Flex sx={{ flexWrap: 'wrap' }}>
-        <Box
-          sx={{
-            width: ['100%', '50%'],
-          }}
-        >
-          <Text
-            sx={{ color: 'muted' }}
-          >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
-        </Box>
-        {author && (
-          <Box
-            sx={{
-              width: ['100%', '50%'],
-            }}
-          >
-            <Text sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
-              Author: {author}
-            </Text>
-          </Box>
-        )}
-      </Flex>
+          <Flex sx={{ flexWrap: 'wrap' }}>
+            <Box
+              sx={{
+                width: ['100%', '50%'],
+              }}
+            >
+              <Text
+                sx={{ color: 'muted' }}
+              >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
+            </Box>
+            {author && (
+              <Box
+                sx={{
+                  width: ['100%', '50%'],
+                }}
+              >
+                <Text sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
+                  Author: {author}
+                </Text>
+              </Box>
+            )}
+          </Flex>
 
-      <Divider />
+          <Divider />
+        </Fragment>
+      ) : null}
 
       {tags &&
         tags.map((tag, index) => (
@@ -150,7 +158,7 @@ SourceArticle.propTypes = {
   /** FeaturedImage from frontmatter */
   featuredImage: PropTypes.any,
   /** FeaturedImageUrl from frontmatter */
-  featuredImageUrl: PropTypes.string,
+  featuredImageUrlSharp: PropTypes.any,
   /** embeddedImage array from SourceLayout */
   embedded: PropTypes.any,
   /** body from SourceLayout */

@@ -1,12 +1,40 @@
-const { createFilePath } = require('gatsby-source-filesystem')
+const {
+  createFilePath,
+  createRemoteFileNode,
+} = require('gatsby-source-filesystem')
+
 const path = require('path')
 
 // String used to differenciate between .mdx sources from pages and .mdx souced from "source"
 const OWNER_NAME = 'source'
 
-exports.onCreateNode = ({ node, actions, getNode }, themeOptions) => {
+// https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+
+  createTypes(`
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+      featuredImageUrlSharp: File @link(from: "featuredImageUrlSharp___NODE")
+    }
+  `)
+
+  // Logs out all typeDefs
+  // actions.printTypeDefinitions({ path: './typeDefs.txt' })
+}
+
+exports.onCreateNode = async (
+  {
+    node,
+    actions: { createNodeField, createNode },
+    getNode,
+    store,
+    cache,
+    createNodeId,
+  },
+  themeOptions
+) => {
   const { source } = themeOptions
-  const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx' && !node.internal.fieldOwners) {
     let path = source
@@ -35,6 +63,28 @@ exports.onCreateNode = ({ node, actions, getNode }, themeOptions) => {
       name: `parent`,
       value: path,
     })
+
+    // https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
+    if (
+      node.frontmatter.featuredImageUrl &&
+      node.frontmatter.featuredImageUrl !== undefined
+    ) {
+      console.log('')
+      console.log(node.frontmatter.featuredImageUrlSharp)
+      console.log('')
+      let fileNode = await createRemoteFileNode({
+        url: node.frontmatter.featuredImageUrl,
+        parentNodeId: node.id,
+        createNode,
+        createNodeId,
+        cache,
+        store,
+      })
+
+      if (fileNode) {
+        node.featuredImageUrlSharp___NODE = fileNode.id
+      }
+    }
   }
 }
 

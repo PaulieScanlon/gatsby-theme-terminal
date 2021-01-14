@@ -61,7 +61,6 @@ module.exports = themeOptions => {
           },
         },
       },
-
       // Theme pages (Dummy page)
       {
         resolve: 'gatsby-source-filesystem',

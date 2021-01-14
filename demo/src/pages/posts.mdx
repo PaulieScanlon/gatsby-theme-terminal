@@ -28,6 +28,7 @@ Here we use it to return all the `posts` by using the filter prop
         }, [])
         .map((edge, index) => {
           const {
+            featuredImageUrlSharp,
             frontmatter: { title, featuredImage, tags, date, pinned },
             excerpt,
             fields: { slug },
@@ -68,6 +69,14 @@ Here we use it to return all the `posts` by using the filter prop
                       <Img
                         fluid={featuredImage.childImageSharp.fluid}
                         alt={featuredImage.childImageSharp.fluid.originalName}
+                      />
+                    </Box>
+                  )}
+                {featuredImageUrlSharp && featuredImageUrlSharp.childImageSharp && (
+                    <Box sx={{ minHeight: '1px' }}>
+                      <Img
+                        fluid={featuredImageUrlSharp.childImageSharp.fluid}
+                        alt={featuredImageUrlSharp.childImageSharp.fluid.originalName}
                       />
                     </Box>
                   )}
