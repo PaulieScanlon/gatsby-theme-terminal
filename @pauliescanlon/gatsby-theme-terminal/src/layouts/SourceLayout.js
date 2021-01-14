@@ -53,12 +53,6 @@ const SourceLayout = ({
     return siteImage
   }
 
-  // console.log(siteUrl)
-  // console.log(featuredImageUrlSharp.childImageSharp.fluid.src)
-  // console.log('')
-  // console.log(JSON.stringify(getSeoImage(), null, 2))
-  // console.log('')
-
   const combinedEmbedded = [
     ...(embeddedImages || []),
     ...(embeddedImageUrls || []),
