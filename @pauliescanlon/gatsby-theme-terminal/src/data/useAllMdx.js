@@ -26,6 +26,22 @@ export const useAllMdx = filter => {
             wordCount {
               words
             }
+            featuredImageUrlSharp {
+              childImageSharp {
+                original {
+                  width
+                  height
+                  src
+                }
+                fluid(maxWidth: 1200, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+                fixed(quality: 90) {
+                  ...GatsbyImageSharpFixed
+                }
+                id
+              }
+            }
             frontmatter {
               title
               tags

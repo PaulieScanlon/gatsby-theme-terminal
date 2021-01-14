@@ -13,7 +13,14 @@ const IMAGE_KEY = 'image'
 
 const SourceLayout = ({
   data: {
-    mdx: { body, excerpt, frontmatter, timeToRead, wordCount },
+    mdx: {
+      body,
+      excerpt,
+      frontmatter,
+      timeToRead,
+      wordCount,
+      featuredImageUrlSharp,
+    },
   },
 }) => {
   const {
@@ -30,16 +37,21 @@ const SourceLayout = ({
     author,
     isPrivate,
     featuredImage,
-    featuredImageUrl,
     embeddedImages,
     embeddedImageUrls,
   } = frontmatter
 
-  const seoImage =
-    (featuredImage &&
-      `${siteUrl}/${featuredImage.childImageSharp.fluid.src}`) ||
-    featuredImageUrl ||
-    `${siteUrl}/${siteImage}`
+  const getSeoImage = () => {
+    if (featuredImage) {
+      return `${siteUrl}${featuredImage.childImageSharp.fluid.src}`
+    }
+
+    if (featuredImageUrlSharp) {
+      return `${siteUrl}${featuredImageUrlSharp.childImageSharp.fluid.src}`
+    }
+
+    return siteImage
+  }
 
   const combinedEmbedded = [
     ...(embeddedImages || []),
@@ -66,7 +78,7 @@ const SourceLayout = ({
                 titleTemplate={title}
                 description={excerpt}
                 siteUrl={siteUrl}
-                image={seoImage}
+                image={getSeoImage()}
                 path={pathname}
                 keywords={tags || ['']}
                 lang={lang}
@@ -79,7 +91,7 @@ const SourceLayout = ({
                 author={author}
                 isPrivate={isPrivate}
                 featuredImage={featuredImage}
-                featuredImageUrl={featuredImageUrl}
+                featuredImageUrlSharp={featuredImageUrlSharp}
                 embedded={embedded}
                 body={body}
                 timeToRead={timeToRead}
@@ -106,6 +118,22 @@ export const singleMdx = graphql`
       timeToRead
       wordCount {
         words
+      }
+      featuredImageUrlSharp {
+        childImageSharp {
+          original {
+            width
+            height
+            src
+          }
+          fluid(maxWidth: 1200, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+          fixed(quality: 90) {
+            ...GatsbyImageSharpFixed
+          }
+          id
+        }
       }
       frontmatter {
         title

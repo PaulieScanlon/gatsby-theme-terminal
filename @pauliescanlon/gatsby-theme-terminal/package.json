@@ -24,9 +24,9 @@
   "peerDependencies": {
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
-    "gatsby": "^2.24.12",
+    "gatsby": "^2.30.0",
     "gatsby-plugin-mdx": "^1.0.73",
-    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-source-filesystem": "^2.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
