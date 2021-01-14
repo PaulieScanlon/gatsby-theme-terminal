@@ -43,13 +43,21 @@ const SourceLayout = ({
 
   const getSeoImage = () => {
     if (featuredImage) {
-      return `${siteUrl}/${featuredImage.childImageSharp.fluid.src}`
+      return `${siteUrl}${featuredImage.childImageSharp.fluid.src}`
     }
+
     if (featuredImageUrlSharp) {
-      return `${siteUrl}/${featuredImageUrlSharp.childImageSharp.fluid.src}`
+      return `${siteUrl}${featuredImageUrlSharp.childImageSharp.fluid.src}`
     }
+
     return siteImage
   }
+
+  // console.log(siteUrl)
+  // console.log(featuredImageUrlSharp.childImageSharp.fluid.src)
+  // console.log('')
+  // console.log(JSON.stringify(getSeoImage(), null, 2))
+  // console.log('')
 
   const combinedEmbedded = [
     ...(embeddedImages || []),

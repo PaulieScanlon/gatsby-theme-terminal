@@ -17,6 +17,10 @@ export const Seo = ({
     titleTemplate ? `| ${titleTemplate}` : ''
   }`
 
+  console.log('//')
+  console.log('seo Image:', JSON.stringify(image, null, 2))
+  console.log('//')
+
   return (
     <Helmet>
       <html lang={lang} />
