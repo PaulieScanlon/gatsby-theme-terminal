@@ -29,7 +29,7 @@ const components = {
     // If it's an external url use Link and target _blank
     if (href.match(/^(http|https):/g)) {
       return (
-        <Link href={href} target="_blank">
+        <Link href={href} target="_blank" rel="noopener">
           {children}
         </Link>
       )

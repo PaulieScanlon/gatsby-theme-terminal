@@ -69,9 +69,6 @@ exports.onCreateNode = async (
       node.frontmatter.featuredImageUrl &&
       node.frontmatter.featuredImageUrl !== undefined
     ) {
-      console.log('')
-      console.log(node.frontmatter.featuredImageUrlSharp)
-      console.log('')
       let fileNode = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl,
         parentNodeId: node.id,
