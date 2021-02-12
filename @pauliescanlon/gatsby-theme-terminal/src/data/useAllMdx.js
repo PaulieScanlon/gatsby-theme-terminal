@@ -33,7 +33,7 @@ export const useAllMdx = filter => {
                   height
                   src
                 }
-                fluid(maxWidth: 1200, quality: 90) {
+                fluid(maxWidth: 400, quality: 90) {
                   ...GatsbyImageSharpFluid
                 }
                 fixed(quality: 90) {

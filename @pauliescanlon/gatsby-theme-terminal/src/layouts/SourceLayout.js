@@ -17,6 +17,7 @@ const SourceLayout = ({
       body,
       excerpt,
       frontmatter,
+      fields: { slug },
       timeToRead,
       wordCount,
       featuredImageUrlSharp,
@@ -78,6 +79,7 @@ const SourceLayout = ({
                 titleTemplate={title}
                 description={excerpt}
                 siteUrl={siteUrl}
+                canonical={slug}
                 image={getSeoImage()}
                 path={pathname}
                 keywords={tags || ['']}
@@ -106,8 +108,14 @@ const SourceLayout = ({
 }
 
 // This query is a duplicate of useAllMdx so if you update this one update that one too! in data/useAllMdx
-// test id: c147b696-2ac9-58b3-a3e6-17d8402289e0
-// draft id: c2a66bb2-6fc4-5b03-94f1-e31abea07a59
+
+// {
+//   mdx(id: {eq: "ff24e77a-aa63-564b-a244-24e2298aa659"}) {
+//     frontmatter {
+//       url
+//     }
+//   }
+// }
 
 export const singleMdx = graphql`
   query singleMdx($id: String) {
@@ -135,6 +143,7 @@ export const singleMdx = graphql`
           id
         }
       }
+      slug
       frontmatter {
         title
         tags
@@ -153,7 +162,7 @@ export const singleMdx = graphql`
               height
               src
             }
-            fluid(maxWidth: 1200, quality: 90) {
+            fluid(maxWidth: 800, quality: 90) {
               ...GatsbyImageSharpFluid
             }
             fixed(quality: 90) {

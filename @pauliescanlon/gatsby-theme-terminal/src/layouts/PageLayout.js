@@ -23,6 +23,7 @@ const PageLayout = ({ children }) => {
           {({ location }) => {
             const { pathname } = location
             const titleTemplate = pathname.replace(/\//gm, '')
+
             return (
               <Fragment>
                 <Seo
@@ -31,6 +32,7 @@ const PageLayout = ({ children }) => {
                   titleTemplate={titleTemplate}
                   description={description}
                   siteUrl={siteUrl}
+                  canonical={pathname}
                   image={siteImage}
                   path={pathname}
                   keywords={keywords || ['']}

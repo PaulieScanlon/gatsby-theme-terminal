@@ -8,6 +8,7 @@ export const Seo = ({
   titleTemplate,
   description,
   siteUrl,
+  canonical,
   image,
   path,
   keywords,
@@ -21,7 +22,7 @@ export const Seo = ({
     <Helmet>
       <html lang={lang} />
       <title>{formatTitleTemplate}</title>
-      <link rel="canonical" href={siteUrl} />
+      <link rel="canonical" href={`${siteUrl}${canonical}`} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="image:alt" content={description} />
@@ -77,6 +78,8 @@ Seo.propTypes = {
   description: PropTypes.string.isRequired,
   /** The site URL */
   siteUrl: PropTypes.string.isRequired,
+  /** The canonical URL */
+  canonical: PropTypes.string.isRequired,
   /** Image url to use for opengraph image */
   image: PropTypes.string,
   /** Absolute URL path */
