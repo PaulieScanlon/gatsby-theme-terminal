@@ -1,3 +1,6 @@
+const React = require('react')
+const { PageElement } = require('./src/components/PageElement')
+
 const anchorScroll = location => {
   const anchor = document.querySelectorAll(`a[href="${location.hash}"]`)[0]
   if (location && location.hash && anchor) {
@@ -26,4 +29,8 @@ exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
 exports.onRouteUpdate = ({ location }) => {
   anchorScroll(location)
   return true
+}
+
+exports.wrapPageElement = ({ element }) => {
+  return <PageElement>{element}</PageElement>
 }
