@@ -17,13 +17,13 @@ export const PageElement = ({ children }) => {
         styles={css`
         @font-face {
           font-family: 'Inconsolata';
-          src: url('${siteUrl}/fonts/Inconsolata-Regular.woff') format('woff');
+          src: url('${siteUrl}/fonts/Inconsolata-Regular.woff2') format('woff2');
           font-weight: 400;
           font-style: normal;
         }
         @font-face {
           font-family: 'Inconsolata';
-          src: url('${siteUrl}/fonts/Inconsolata-Bold.woff') format('woff');
+          src: url('${siteUrl}/fonts/Inconsolata-Bold.woff2') format('woff2');
           font-weight: 700;
           font-style: normal;
         }
