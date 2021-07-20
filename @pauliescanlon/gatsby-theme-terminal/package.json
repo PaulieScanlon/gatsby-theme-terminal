@@ -25,6 +25,7 @@
     "@mdx-js/react": "^1.5.5",
     "gatsby": "^3.9.1",
     "gatsby-plugin-mdx": "^1.0.73",
+    "gatsby-source-filesystem": "^3.9.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

@@ -27,7 +27,7 @@ npm install @pauliescanlon/gatsby-theme-terminal
 ### Install Peer Dependencies
 
 ```
-npm install @mdx-js/mdx @mdx-js/react gatsby gatsby-plugin-mdx react react-dom
+npm install @mdx-js/mdx @mdx-js/react gatsby gatsby-plugin-mdx gatsby-source-filesystem react react-dom
 ```
 
 ## Setup
