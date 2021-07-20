@@ -9,6 +9,8 @@ embeddedImages:
   - markus-spiske-FXFz-sW0uwo-unsplash.jpg
 ---
 
+
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis. Donec non tellus justo. Ut sit amet elit mauris. Praesent eleifend cursus luctus. Praesent posuere rhoncus maximus. Donec nec felis nec metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum pharetra arcu, vel egestas turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
 
 
@@ -42,8 +44,14 @@ npm install aThing `aThing` 'aThing' "aThing"
   <Box sx={{ mb: 3,width: ["100%", "50%"]}}>
     Donec nec felis nec metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum pharetra arcu, vel egestas turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
   </Box>
-
   <Box sx={{ mb: 3, p:[0, 3], width: ["100%", "50%"] }}>
-    <Img fluid={props.embedded.image1.fluid} />
+    <GatsbyImage alt='embedded-image-1' image={props.embedded.image1}/>
   </Box>
 </Flex>
+
+
+### Gatsby
+
+`<GatsbyImage alt='...' image={...}/>`
+
+<pre>{JSON.stringify(props.embedded.image1, null,2)}</pre>

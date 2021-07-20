@@ -9,6 +9,8 @@ import { SourceArticle } from '../components/SourceArticle'
 
 import { useConfig } from '../data'
 
+import { transformImages } from '../utils'
+
 const IMAGE_KEY = 'image'
 
 const SourceLayout = ({
@@ -44,11 +46,11 @@ const SourceLayout = ({
 
   const getSeoImage = () => {
     if (featuredImage) {
-      return `${siteUrl}${featuredImage.childImageSharp.fluid.src}`
+      return `${siteUrl}${featuredImage.childImageSharp.gatsbyImageData.images.fallback.src}`
     }
 
     if (featuredImageUrlSharp) {
-      return `${siteUrl}${featuredImageUrlSharp.childImageSharp.fluid.src}`
+      return `${siteUrl}${featuredImageUrlSharp.childImageSharp.gatsbyImageData.images.fallback.src}`
     }
 
     return siteImage
@@ -58,13 +60,6 @@ const SourceLayout = ({
     ...(embeddedImages || []),
     ...(embeddedImageUrls || []),
   ].filter(n => n)
-
-  const embedded = combinedEmbedded.reduce((images, image, index) => {
-    images[`${IMAGE_KEY}${index + 1}`] = images[`${IMAGE_KEY}${index + 1}`] || {
-      ...(image.childImageSharp || { url: image }),
-    }
-    return images
-  }, [])
 
   return (
     <ContextProvider>
@@ -80,6 +75,7 @@ const SourceLayout = ({
                 description={excerpt}
                 siteUrl={siteUrl}
                 canonical={slug}
+                image=""
                 image={getSeoImage()}
                 path={pathname}
                 keywords={tags || ['']}
@@ -94,7 +90,7 @@ const SourceLayout = ({
                 isPrivate={isPrivate}
                 featuredImage={featuredImage}
                 featuredImageUrlSharp={featuredImageUrlSharp}
-                embedded={embedded}
+                embedded={transformImages(combinedEmbedded)}
                 body={body}
                 timeToRead={timeToRead}
                 wordCount={wordCount}
@@ -129,17 +125,7 @@ export const singleMdx = graphql`
       }
       featuredImageUrlSharp {
         childImageSharp {
-          original {
-            width
-            height
-            src
-          }
-          fluid(maxWidth: 1200, quality: 90) {
-            ...GatsbyImageSharpFluid
-          }
-          fixed(quality: 90) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
           id
         }
       }
@@ -157,34 +143,14 @@ export const singleMdx = graphql`
         pinned
         featuredImage {
           childImageSharp {
-            original {
-              width
-              height
-              src
-            }
-            fluid(maxWidth: 800, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
-            fixed(quality: 90) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
             id
           }
         }
         featuredImageUrl
         embeddedImages {
           childImageSharp {
-            original {
-              width
-              height
-              src
-            }
-            fluid(maxWidth: 1200, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
-            fixed(quality: 90) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
             id
           }
         }

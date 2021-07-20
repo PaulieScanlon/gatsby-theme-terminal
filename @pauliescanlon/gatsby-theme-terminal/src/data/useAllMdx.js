@@ -28,17 +28,7 @@ export const useAllMdx = filter => {
             }
             featuredImageUrlSharp {
               childImageSharp {
-                original {
-                  width
-                  height
-                  src
-                }
-                fluid(maxWidth: 400, quality: 90) {
-                  ...GatsbyImageSharpFluid
-                }
-                fixed(quality: 90) {
-                  ...GatsbyImageSharpFixed
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
                 id
               }
             }
@@ -55,34 +45,14 @@ export const useAllMdx = filter => {
               pinned
               featuredImage {
                 childImageSharp {
-                  original {
-                    width
-                    height
-                    src
-                  }
-                  fluid(maxWidth: 1200, quality: 90) {
-                    ...GatsbyImageSharpFluid
-                  }
-                  fixed(quality: 90) {
-                    ...GatsbyImageSharpFixed
-                  }
+                  gatsbyImageData(layout: FULL_WIDTH)
                   id
                 }
               }
               featuredImageUrl
               embeddedImages {
                 childImageSharp {
-                  original {
-                    width
-                    height
-                    src
-                  }
-                  fluid(maxWidth: 1200, quality: 90) {
-                    ...GatsbyImageSharpFluid
-                  }
-                  fixed(quality: 90) {
-                    ...GatsbyImageSharpFixed
-                  }
+                  gatsbyImageData(layout: FULL_WIDTH)
                   id
                 }
               }
