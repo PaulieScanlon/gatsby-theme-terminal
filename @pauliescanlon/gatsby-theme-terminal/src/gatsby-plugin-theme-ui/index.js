@@ -1,7 +1,7 @@
 import codeTheme from '@theme-ui/prism/presets/night-owl.json'
 import { lighten } from '@theme-ui/color'
 
-export default {
+const theme = {
   borderWidths: [0, 1, 4],
   colors: {
     text: '#ffffff',
@@ -466,3 +466,5 @@ export default {
     },
   },
 }
+
+export default theme
