@@ -13,9 +13,9 @@ import {
 } from '@theme-ui/components'
 import { mix } from '@theme-ui/color'
 import { format } from 'date-fns'
-import Img from 'gatsby-image'
 
 import { Main } from '../Main'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const formatDate = date => format(new Date(date), 'd-MMM-u')
 
@@ -46,15 +46,15 @@ export const SourceArticle = ({
 
           <Box sx={{ mb: 4 }}>
             {featuredImage && featuredImage.childImageSharp && (
-              <Img
-                fluid={featuredImage.childImageSharp.fluid}
-                alt={featuredImage.childImageSharp.fluid.originalName}
+              <GatsbyImage
+                alt={`${title}-image`}
+                image={featuredImage.childImageSharp.gatsbyImageData}
               />
             )}
             {featuredImageUrlSharp && featuredImageUrlSharp.childImageSharp && (
-              <Img
-                fluid={featuredImageUrlSharp.childImageSharp.fluid}
-                alt={featuredImageUrlSharp.childImageSharp.fluid.originalName}
+              <GatsbyImage
+                alt={`${title}-image`}
+                image={featuredImageUrlSharp.childImageSharp.gatsbyImageData}
               />
             )}
           </Box>

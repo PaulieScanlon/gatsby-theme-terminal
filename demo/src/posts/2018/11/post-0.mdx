@@ -1,6 +1,6 @@
 ---
 title: Post 0
-tags: ['React', 'GatsbyJs', 'ES6', 'Css']
+tags: ["React", "GatsbyJs", "ES6", "Css"]
 featuredImage: pankaj-patel-SXihyA4oEJs-unsplash.jpg
 date: 2018-11-23
 embeddedImages:
@@ -12,26 +12,32 @@ lobortis.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis.
 
-Fluid Image
+### Gatsby
 
-<Img fluid={props.embedded.image1.fluid} />
-<Divider />
-
-Fixed Image
+`<GatsbyImage alt='...' image={...}/>`
 
 <Box>
-  <Img fixed={props.embedded.image1.fixed} />
+  <GatsbyImage alt="embedded-image-1" image={props.embedded.image1} />
 </Box>
 <Divider />
+<pre>{JSON.stringify(props.embedded.image1, null, 2)}</pre>
+<Divider />
 
-Theme UI Image
+### Theme UI
 
-<Image src={props.embedded.image1.fluid.src} />
+`<Image src={...} />`
+
+<Box>
+  <Image src={props.embedded.image1.gatsbyImageData.images.fallback.src} />
+</Box>
 <Divider />
 <Box>
-  Fluid:
-  <pre>{JSON.stringify(props.embedded.image1.fluid, null, 2)}</pre>
+  <pre>
+    {JSON.stringify(
+      props.embedded.image1.gatsbyImageData.images.fallback.src,
+      null,
+      2
+    )}
+  </pre>
   <Divider />
-  Fixed:
-  <pre>{JSON.stringify(props.embedded.image1.fixed, null, 2)}</pre>
 </Box>

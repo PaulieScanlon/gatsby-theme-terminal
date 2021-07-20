@@ -10,7 +10,7 @@ import { useConfig } from '../../data'
 
 // Mdx components
 import * as themeUiComponents from 'theme-ui'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { Container, Box, Close, Image, MenuButton, Link } from 'theme-ui'
 import { transparentize } from '@theme-ui/color'
@@ -54,8 +54,12 @@ const components = {
   SourceMonths,
   SourceWords,
   SourceTags,
-  EmbeddedImage: props => <Image src={props.src.fluid.src} />,
-  Img,
+  EmbeddedImage: props => (
+    <GatsbyImage alt={props.alt} image={getImage(props.image)} />
+  ),
+  GatsbyImage: props => (
+    <GatsbyImage alt={props.alt} image={getImage(props.image)} />
+  ),
   ...themeUiComponents,
 }
 
