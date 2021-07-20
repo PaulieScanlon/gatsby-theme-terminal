@@ -152,27 +152,26 @@ embeddedImageUrls:
 
 ### Embedded Images
 
-By using the The `<Img />` component from `gatsby-image` you can pass the image data queried by GraphQL.
+By using the The `<GatsbyImage />` component from `gatsby-plugin-image` you can pass the image data queried by GraphQL and pass it on via the `image` prop
 
-The `original`, `fixed` and `fluid` data is available via `props.embedded.image(n)`
+The `gatsbyImageData`, data is available via `props.embedded.image(n)`
 
 ```
-<Img fluid={props.embedded.image1.fluid} />
-<Img fixed={props.embedded.image1.fixed} />
+<GatsbyImage image={props.embedded.image1} />
 ```
 
 You can also use the Theme UI `<Image />` component by passing it a `src`
 
 ```
-<Image src={props.embedded.image1.fluid.src} />
+<Image src={props.embedded.image1.gatsbyImageData.images.fallback.src} />
 ```
 
 `image1` in this example would be `markus-spiske-FXFz-sW0uwo-unsplash.jpg`
 
-EmbeddedImages can also be sourced from a remote url, in this case use the `<Image />` component and pass it the `url`
+EmbeddedImages can also be sourced from a remote url, in this case use the `<Image />` component and pass it the same props
 
 ```
-<Image src={props.embedded.image2.url} />
+<Image src={props.embedded.image2.gatsbyImageData.images.fallback.src} />
 ```
 
 ### markdown
