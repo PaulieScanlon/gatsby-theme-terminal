@@ -26,12 +26,6 @@ export const useAllMdx = filter => {
             wordCount {
               words
             }
-            featuredImageUrlSharp {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-                id
-              }
-            }
             frontmatter {
               title
               tags
@@ -46,18 +40,30 @@ export const useAllMdx = filter => {
               featuredImage {
                 childImageSharp {
                   gatsbyImageData(layout: FULL_WIDTH)
-                  id
                 }
               }
-              featuredImageUrl
               embeddedImages {
                 childImageSharp {
                   gatsbyImageData(layout: FULL_WIDTH)
-                  id
                 }
               }
-              embeddedImageUrls
             }
+
+            featuredImageUrl {
+              url {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
+            embeddedImageUrls {
+              url {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+            }
+
             fields {
               slug
               owner

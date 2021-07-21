@@ -27,7 +27,7 @@ export const SourceArticle = ({
   author,
   isPrivate,
   featuredImage,
-  featuredImageUrlSharp,
+  featuredImageUrl,
   embedded,
   body,
   timeToRead,
@@ -51,10 +51,10 @@ export const SourceArticle = ({
                 image={featuredImage.childImageSharp.gatsbyImageData}
               />
             )}
-            {featuredImageUrlSharp && featuredImageUrlSharp.childImageSharp && (
+            {featuredImageUrl && featuredImageUrl.url.childImageSharp && (
               <GatsbyImage
                 alt={`${title}-image`}
-                image={featuredImageUrlSharp.childImageSharp.gatsbyImageData}
+                image={featuredImageUrl.url.childImageSharp.gatsbyImageData}
               />
             )}
           </Box>
@@ -157,8 +157,8 @@ SourceArticle.propTypes = {
   isPrivate: PropTypes.bool,
   /** FeaturedImage from frontmatter */
   featuredImage: PropTypes.any,
-  /** FeaturedImageUrl from frontmatter */
-  featuredImageUrlSharp: PropTypes.any,
+  /** featuredImageUrl from frontmatter */
+  featuredImageUrl: PropTypes.any,
   /** embeddedImage array from SourceLayout */
   embedded: PropTypes.any,
   /** body from SourceLayout */

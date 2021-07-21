@@ -19,10 +19,11 @@ const SourceLayout = ({
       body,
       excerpt,
       frontmatter,
+      featuredImageUrl,
+      embeddedImageUrls,
       fields: { slug },
       timeToRead,
       wordCount,
-      featuredImageUrlSharp,
     },
   },
 }) => {
@@ -41,7 +42,6 @@ const SourceLayout = ({
     isPrivate,
     featuredImage,
     embeddedImages,
-    embeddedImageUrls,
   } = frontmatter
 
   const getSeoImage = () => {
@@ -49,8 +49,8 @@ const SourceLayout = ({
       return `${siteUrl}${featuredImage.childImageSharp.gatsbyImageData.images.fallback.src}`
     }
 
-    if (featuredImageUrlSharp) {
-      return `${siteUrl}${featuredImageUrlSharp.childImageSharp.gatsbyImageData.images.fallback.src}`
+    if (featuredImageUrl) {
+      return `${siteUrl}${featuredImageUrl.url.childImageSharp.gatsbyImageData.images.fallback.src}`
     }
 
     return siteImage
@@ -89,7 +89,7 @@ const SourceLayout = ({
                 author={author}
                 isPrivate={isPrivate}
                 featuredImage={featuredImage}
-                featuredImageUrlSharp={featuredImageUrlSharp}
+                featuredImageUrl={featuredImageUrl}
                 embedded={transformImages(combinedEmbedded)}
                 body={body}
                 timeToRead={timeToRead}
@@ -123,12 +123,6 @@ export const singleMdx = graphql`
       wordCount {
         words
       }
-      featuredImageUrlSharp {
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
-          id
-        }
-      }
       slug
       frontmatter {
         title
@@ -144,18 +138,30 @@ export const singleMdx = graphql`
         featuredImage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
-            id
           }
         }
-        featuredImageUrl
         embeddedImages {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
-            id
           }
         }
-        embeddedImageUrls
       }
+
+      featuredImageUrl {
+        url {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
+      }
+      embeddedImageUrls {
+        url {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
+        }
+      }
+
       fields {
         slug
         owner

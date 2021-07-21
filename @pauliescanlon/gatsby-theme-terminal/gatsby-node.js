@@ -9,13 +9,40 @@ const path = require('path')
 const OWNER_NAME = 'source'
 
 // https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = async ({ actions }) => {
   const { createTypes } = actions
 
   createTypes(`
     type Mdx implements Node {
       frontmatter: Frontmatter
-      featuredImageUrlSharp: File @link(from: "featuredImageUrlSharp___NODE")
+      featuredImageUrl: FeaturedImageUrl
+      embeddedImageUrls: [EmbeddedImageUrls]
+    }
+
+    type Frontmatter @dontInfer {
+        title: String
+        navigationLabel: String
+        tags: [String]
+        date: String
+        dateModified: String
+        author: String
+        status: String
+        isPrivate: Boolean
+        url: String
+        misc: String
+        pinned: Boolean
+        featuredImage: File @fileByRelativePath
+        featuredImageUrl: String
+        embeddedImages: [File] @fileByRelativePath
+        embeddedImageUrls: [String]
+    }
+
+    type FeaturedImageUrl  {
+      url: File @link(by: "url")
+    }
+
+    type EmbeddedImageUrls  {
+      url: [File] @link(by: "url")
     }
   `)
 
@@ -37,6 +64,8 @@ exports.onCreateNode = async (
   const { source } = themeOptions
 
   if (node.internal.type === 'Mdx' && !node.internal.fieldOwners) {
+    // console.log('node.frontmatter: ', node.frontmatter)
+
     let path = source
     const value = createFilePath({ node, getNode })
 
@@ -64,23 +93,36 @@ exports.onCreateNode = async (
       value: path,
     })
 
-    // https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
-    if (
-      node.frontmatter.featuredImageUrl &&
-      node.frontmatter.featuredImageUrl !== undefined
-    ) {
-      let fileNode = await createRemoteFileNode({
+    if (node.frontmatter.featuredImageUrl) {
+      node.featuredImageUrl = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl,
         parentNodeId: node.id,
         createNode,
         createNodeId,
         cache,
         store,
+      }).catch(error => {
+        console.error(error)
       })
+    }
 
-      if (fileNode) {
-        node.featuredImageUrlSharp___NODE = fileNode.id
-      }
+    if (node.frontmatter.embeddedImageUrls) {
+      node.embeddedImageUrls = await Promise.all(
+        node.frontmatter.embeddedImageUrls.map(url => {
+          try {
+            return createRemoteFileNode({
+              url,
+              parentNodeId: node.id,
+              createNode,
+              createNodeId,
+              cache,
+              store,
+            })
+          } catch (error) {
+            console.error(error)
+          }
+        })
+      )
     }
   }
 }
