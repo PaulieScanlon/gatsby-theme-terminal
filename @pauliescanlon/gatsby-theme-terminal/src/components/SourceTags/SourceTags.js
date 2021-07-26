@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { useAllMdx } from '../../data'
+import { useTags } from '../../data'
 
 export const SourceTags = ({ filter, children }) => {
   const count = Object.values(
-    useAllMdx(filter)
+    useTags(filter)
       .filter(edge => edge.node.frontmatter.tags)
       .reduce((items, item) => {
         const { tags } = item.node.frontmatter

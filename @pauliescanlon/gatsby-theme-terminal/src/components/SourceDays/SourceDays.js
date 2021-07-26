@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { useAllMdx } from '../../data'
+import { useDates } from '../../data'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const name = [
   'sunday',
@@ -32,7 +33,7 @@ const createDayObject = (day, year) => {
 export const SourceDays = ({ filter, children }) => {
   const defaultValues = name.map((_, index) => createDayObject(index, 0))
 
-  const count = useAllMdx(filter)
+  const count = useDates(filter)
     .reduce((items, item) => {
       const {
         node: {

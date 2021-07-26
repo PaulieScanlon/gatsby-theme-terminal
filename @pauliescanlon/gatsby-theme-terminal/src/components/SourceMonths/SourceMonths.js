@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { useAllMdx } from '../../data'
+import { useDates } from '../../data'
 
 const name = [
   'january',
@@ -49,7 +49,7 @@ const createMonthObject = (month, year) => {
 export const SourceMonths = ({ filter, children }) => {
   const defaultValues = name.map((_, index) => createMonthObject(index, 0))
 
-  const count = useAllMdx(filter)
+  const count = useDates(filter)
     .reduce((items, item) => {
       let month = new Date(item.node.frontmatter.date).getMonth()
       let year = new Date(item.node.frontmatter.date).getFullYear()
