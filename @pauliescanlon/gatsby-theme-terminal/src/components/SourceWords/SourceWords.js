@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { useAllMdx } from '../../data'
+import { useWords } from '../../data'
 
 const name = [
   'january',
@@ -48,7 +48,7 @@ const createMonthObject = (month, year, words) => {
 export const SourceWords = ({ filter, children }) => {
   const defaultValues = name.map((_, index) => createMonthObject(index, 0, 0))
 
-  const mdx = useAllMdx(filter)
+  const mdx = useWords(filter)
 
   const wordCountTotal = mdx.reduce((a, b) => a + b.node.wordCount.words, 0)
 
