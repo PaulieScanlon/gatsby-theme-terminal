@@ -147,24 +147,6 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {
-          previous {
-            frontmatter {
-              title
-              status
-            }
-            fields {
-              slug
-            }
-          }
-          next {
-            frontmatter {
-              title
-              status
-            }
-            fields {
-              slug
-            }
-          }
           node {
             id
             frontmatter {
@@ -188,14 +170,12 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
   const data = result.data.allMdx.edges
 
-  data.forEach(({ node, previous, next }, index) => {
+  data.forEach(({ node }, index) => {
     createPage({
       path: node.fields.slug,
       component: path.join(__dirname, `src/layouts/SourceLayout.js`),
       context: {
         id: node.id,
-        prev: index === 0 ? null : previous,
-        next: index === data.length - 1 ? null : next,
         // used as back link in SourceLayout
         parent: node.fields.parent,
       },
