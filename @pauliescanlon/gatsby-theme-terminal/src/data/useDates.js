@@ -23,6 +23,9 @@ export const useDates = filter => {
               status
               isPrivate
             }
+            fields {
+              slug
+            }
           }
         }
       }

@@ -24,6 +24,11 @@ export const useWords = filter => {
             }
             frontmatter {
               date
+              status
+              isPrivate
+            }
+            fields {
+              slug
             }
           }
         }

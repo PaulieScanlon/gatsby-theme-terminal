@@ -103,8 +103,6 @@ const SourceLayout = ({
   )
 }
 
-// This query is a duplicate of useAllMdx so if you update this one update that one too! in data/useAllMdx
-
 // {
 //   mdx(id: {eq: "ff24e77a-aa63-564b-a244-24e2298aa659"}) {
 //     frontmatter {

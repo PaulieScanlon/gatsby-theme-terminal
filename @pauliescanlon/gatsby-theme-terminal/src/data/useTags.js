@@ -20,6 +20,11 @@ export const useTags = filter => {
           node {
             frontmatter {
               tags
+              status
+              isPrivate
+            }
+            fields {
+              slug
             }
           }
         }

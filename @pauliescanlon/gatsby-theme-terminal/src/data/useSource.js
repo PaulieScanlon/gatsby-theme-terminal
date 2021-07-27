@@ -2,10 +2,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const DRAFT = 'draft'
 
-export const useAllMdx = filter => {
-  // This query is a duplicate of singleMdx so if you update this one update that one too! in layouts/SourceLayout
+export const useSource = filter => {
   const query = useStaticQuery(graphql`
-    query allMdx {
+    query source {
       allMdx(
         filter: {
           frontmatter: {
@@ -42,13 +41,7 @@ export const useAllMdx = filter => {
                   gatsbyImageData(layout: FULL_WIDTH)
                 }
               }
-              embeddedImages {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
             }
-
             featuredImageUrl {
               url {
                 childImageSharp {
@@ -56,18 +49,8 @@ export const useAllMdx = filter => {
                 }
               }
             }
-            embeddedImageUrls {
-              url {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
-            }
-
             fields {
               slug
-              owner
-              parent
             }
           }
         }

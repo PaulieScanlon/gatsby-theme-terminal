@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { useAllMdx } from '../../data'
+import { useSource } from '../../data'
 
 export const SourceList = ({ filter, children }) => {
-  return <Fragment>{children(useAllMdx(filter))}</Fragment>
+  return <Fragment>{children(useSource(filter))}</Fragment>
 }
 
 SourceList.propTypes = {
