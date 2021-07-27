@@ -11,3 +11,7 @@ export { SourceWords } from './src/components/SourceWords'
 // Data
 export { useConfig } from './src/data/useConfig'
 export { useNavigation } from './src/data/useNavigation'
+export { useDates } from './src/data/useDates'
+export { useTags } from './src/data/useTags'
+export { useWords } from './src/data/useWords'
+export { useSource } from './src/data/useSource'

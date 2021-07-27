@@ -54,9 +54,6 @@ const components = {
   SourceMonths,
   SourceWords,
   SourceTags,
-  EmbeddedImage: props => (
-    <GatsbyImage alt={props.alt} image={getImage(props.image)} />
-  ),
   GatsbyImage: props => (
     <GatsbyImage alt={props.alt} image={getImage(props.image)} />
   ),
