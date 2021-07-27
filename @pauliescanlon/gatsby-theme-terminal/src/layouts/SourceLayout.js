@@ -162,8 +162,6 @@ export const singleMdx = graphql`
 
       fields {
         slug
-        owner
-        parent
       }
     }
   }

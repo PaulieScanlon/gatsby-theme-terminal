@@ -1,18 +1,14 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-const DRAFT = 'draft'
-
 export const useDates = filter => {
   const query = useStaticQuery(graphql`
     query dates {
       allMdx(
         filter: {
           frontmatter: {
-            title: { ne: "dummy" }
-            navigationLabel: { ne: "dummy" }
             status: { ne: "draft" }
+            navigationLabel: { eq: null }
           }
-          fields: { parent: { ne: "" } }
         }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
@@ -34,9 +30,7 @@ export const useDates = filter => {
 
   if (!filter)
     return query.allMdx.edges.filter(
-      edge =>
-        edge.node.frontmatter.status !== DRAFT &&
-        edge.node.frontmatter.isPrivate !== true
+      edge => edge.node.frontmatter.isPrivate !== true
     )
 
   return query.allMdx.edges
@@ -44,7 +38,6 @@ export const useDates = filter => {
     .filter(
       edge =>
         edge.node.fields.slug.includes(filter) &&
-        edge.node.frontmatter.status !== DRAFT &&
         edge.node.frontmatter.isPrivate !== true
     )
 }

@@ -58,26 +58,9 @@ module.exports = themeOptions => {
       {
         resolve: `gatsby-plugin-mdx`,
         options: {
-          extensions: [`.mdx`, `.md`],
           defaultLayouts: {
             default: require.resolve(`./src/layouts/PageLayout.js`),
           },
-        },
-      },
-      // Theme pages (Dummy page)
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'pages',
-          path: path.resolve(__dirname, `src/pages`),
-        },
-      },
-      // Theme posts (Dummy post)
-      {
-        resolve: 'gatsby-source-filesystem',
-        options: {
-          name: 'posts',
-          path: path.resolve(__dirname, `src/posts`),
         },
       },
 

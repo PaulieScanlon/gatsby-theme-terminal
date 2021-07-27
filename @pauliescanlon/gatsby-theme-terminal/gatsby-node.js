@@ -5,10 +5,6 @@ const {
 
 const path = require('path')
 
-// String used to differenciate between .mdx sources from pages and .mdx souced from "source"
-const OWNER_NAME = 'source'
-
-// https://www.gatsbyjs.com/docs/how-to/images-and-media/preprocessing-external-images/
 exports.createSchemaCustomization = async ({ actions }) => {
   const { createTypes } = actions
 
@@ -63,9 +59,7 @@ exports.onCreateNode = async (
 ) => {
   const { source } = themeOptions
 
-  if (node.internal.type === 'Mdx' && !node.internal.fieldOwners) {
-    // console.log('node.frontmatter: ', node.frontmatter)
-
+  if (node.internal.type === 'Mdx') {
     let path = source
     const value = createFilePath({ node, getNode })
 
@@ -75,22 +69,11 @@ exports.onCreateNode = async (
         .filter(str => source.includes(str))
         .toString()
     }
+
     createNodeField({
       node,
       name: `slug`,
       value: path ? `/${path}${value}` : value,
-    })
-    // a owner and parent node fields to the .mdx sourced from "source"
-    createNodeField({
-      node,
-      name: `owner`,
-      value: OWNER_NAME,
-    })
-    // used as a back link to URL, path is the "source" name
-    createNodeField({
-      node,
-      name: `parent`,
-      value: path,
     })
 
     if (node.frontmatter.featuredImageUrl) {
@@ -138,11 +121,9 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       allMdx(
         filter: {
           frontmatter: {
-            title: { ne: "dummy" }
-            navigationLabel: { ne: "dummy" }
             status: { ne: "draft" }
+            navigationLabel: { eq: null }
           }
-          fields: { owner: { eq: "source" } }
         }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
@@ -155,8 +136,6 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
             }
             fields {
               slug
-              owner
-              parent
             }
           }
         }
@@ -170,14 +149,12 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
   const data = result.data.allMdx.edges
 
-  data.forEach(({ node }, index) => {
+  data.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.join(__dirname, `src/layouts/SourceLayout.js`),
       context: {
         id: node.id,
-        // used as back link in SourceLayout
-        parent: node.fields.parent,
       },
     })
   })
