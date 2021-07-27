@@ -20,6 +20,7 @@ export const useTags = filter => {
           node {
             frontmatter {
               tags
+              date
               status
               isPrivate
             }
