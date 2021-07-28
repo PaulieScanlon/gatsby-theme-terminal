@@ -59,18 +59,34 @@ exports.onCreateNode = async (
 ) => {
   const { source } = themeOptions
 
-  // console.log('source: ', source)
-
   if (node.internal.type === 'Mdx') {
-    const dir = node.fileAbsolutePath.split('/src')[1].split('/')[1]
+    let basePath = ''
+
+    if (Array.isArray(source)) {
+      source.map(item => {
+        const { name, dir } = item
+        if (node.fileAbsolutePath.includes(name)) {
+          basePath = `/${dir}`
+        }
+      })
+    } else {
+      if (node.fileAbsolutePath.includes(source.name)) {
+        basePath = `/${source.dir}`
+      }
+    }
 
     const value = createFilePath({ node, getNode })
 
-    createNodeField({
+    console.log('value: ', `${basePath}${value}`)
+
+    await createNodeField({
       node,
       name: 'slug',
-      value: node.frontmatter.navigationLabel ? value : `/${dir}${value}`,
+      value: value,
+      value: node.frontmatter.navigationLabel ? value : `${basePath}${value}`,
     })
+
+    // await console.log(node.fields)
 
     if (node.frontmatter.featuredImageUrl) {
       node.featuredImageUrl = await createRemoteFileNode({
