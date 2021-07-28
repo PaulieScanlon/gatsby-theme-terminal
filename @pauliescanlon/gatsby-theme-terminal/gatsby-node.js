@@ -64,6 +64,9 @@ exports.onCreateNode = async (
   if (node.internal.type === 'Mdx') {
     const dir = node.fileAbsolutePath.split('/src')[1].split('/')[1]
 
+    console.log('fileAbsolutePath: ', node.fileAbsolutePath)
+    console.log('dir: ', dir)
+
     const value = createFilePath({ node, getNode })
 
     createNodeField({
