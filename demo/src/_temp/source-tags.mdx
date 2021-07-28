@@ -1,0 +1,21 @@
+---
+navigationLabel: SourceTags
+---
+
+<SourceTags>
+  {source => (
+    <Flex
+    sx={{flexDirection: 'column'}}
+    >
+      {
+        source.map((tag, index) => {
+          const {name, count, percent} = tag
+          return <Box  key={index}>
+            {`${name}  x${count}`}
+            <Box mb={2}  bg='muted' sx={{width: `${percent}%`, height: 4}}></Box>
+          </Box>
+        })
+      }
+    </Flex>
+  )}
+</SourceTags>

@@ -55,15 +55,16 @@ export const useSource = filter => {
   `)
 
   if (!filter)
-    return query.allMdx.edges.filter(
-      edge => edge.node.frontmatter.isPrivate !== true
-    )
+    return query.allMdx.edges.filter(edge => {
+      return edge.node.frontmatter.isPrivate !== true
+    })
 
   return query.allMdx.edges
     .map(edge => edge)
-    .filter(
-      edge =>
+    .filter(edge => {
+      return (
         edge.node.fields.slug.includes(filter) &&
         edge.node.frontmatter.isPrivate !== true
-    )
+      )
+    })
 }

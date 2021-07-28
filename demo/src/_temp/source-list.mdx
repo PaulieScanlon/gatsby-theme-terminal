@@ -1,0 +1,16 @@
+---
+navigationLabel: sourceList
+---
+
+<SourceList>
+  {source => (
+    <ul>
+      {source.map((edge, index) => {
+        const {
+          frontmatter: { title },
+        } = edge.node
+        return <li key={index}>{title}</li>
+      })}
+    </ul>
+  )}
+</SourceList>

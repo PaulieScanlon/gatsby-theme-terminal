@@ -59,21 +59,17 @@ exports.onCreateNode = async (
 ) => {
   const { source } = themeOptions
 
-  if (node.internal.type === 'Mdx') {
-    let path = source
-    const value = createFilePath({ node, getNode })
+  // console.log('source: ', source)
 
-    if (Array.isArray(source)) {
-      path = node.fileAbsolutePath
-        .split('/')
-        .filter(str => source.includes(str))
-        .toString()
-    }
+  if (node.internal.type === 'Mdx') {
+    const dir = node.fileAbsolutePath.split('/src')[1].split('/')[1]
+
+    const value = createFilePath({ node, getNode })
 
     createNodeField({
       node,
-      name: `slug`,
-      value: path ? `/${path}${value}` : value,
+      name: 'slug',
+      value: node.frontmatter.navigationLabel ? value : `/${dir}${value}`,
     })
 
     if (node.frontmatter.featuredImageUrl) {

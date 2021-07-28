@@ -100,7 +100,17 @@ Use the `source` option in `gatsby-config.js`
     {
       resolve: `@pauliescanlon/gatsby-theme-terminal`,
       options: {
-        source: [`posts`, `projects`], // can be a string or array of strings
+        source: [
+          {
+            name: "posts",
+            dir: "posts",
+          },
+          {
+            name: "projects",
+            dir: "projects",
+          },
+        ] // can be an object or array of objects
+
       },
     },
   ],

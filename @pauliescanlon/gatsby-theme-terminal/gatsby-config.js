@@ -6,13 +6,13 @@ module.exports = themeOptions => {
   let filesystemSources = []
 
   if (source) {
-    const sourceFilesystemOption = name => {
+    const sourceFilesystemOption = item => {
       if (source) {
         return {
           resolve: `gatsby-source-filesystem`,
           options: {
-            name: `${name}`,
-            path: path.resolve(`src/${name}`),
+            name: `${item.name}`,
+            path: path.resolve(`src/${item.dir}`),
           },
         }
       }
