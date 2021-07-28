@@ -77,8 +77,6 @@ exports.onCreateNode = async (
 
     const value = createFilePath({ node, getNode })
 
-    console.log('value: ', `${basePath}${value}`)
-
     await createNodeField({
       node,
       name: 'slug',
