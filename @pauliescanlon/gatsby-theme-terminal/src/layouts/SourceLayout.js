@@ -94,6 +94,7 @@ const SourceLayout = ({
                 body={body}
                 timeToRead={timeToRead}
                 wordCount={wordCount}
+                slug={slug}
               />
             </Fragment>
           )
