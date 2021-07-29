@@ -80,7 +80,6 @@ exports.onCreateNode = async (
     await createNodeField({
       node,
       name: 'slug',
-      value: value,
       value: node.frontmatter.navigationLabel ? value : `${basePath}${value}`,
     })
 
