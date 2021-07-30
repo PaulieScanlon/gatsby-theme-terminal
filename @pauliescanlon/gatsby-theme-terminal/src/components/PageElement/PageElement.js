@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 import { Fragment } from 'react'
 
 import { useConfig } from '../../data'
