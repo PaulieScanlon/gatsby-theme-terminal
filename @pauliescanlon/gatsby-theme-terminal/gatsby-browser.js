@@ -17,15 +17,6 @@ const anchorScroll = location => {
   }
 }
 
-exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
-  if (location && location.action === 'PUSH') {
-    setTimeout(() => window.scrollTo({ top: 0 }), 250)
-  }
-
-  anchorScroll(location)
-  return false
-}
-
 exports.onRouteUpdate = ({ location }) => {
   anchorScroll(location)
   return true

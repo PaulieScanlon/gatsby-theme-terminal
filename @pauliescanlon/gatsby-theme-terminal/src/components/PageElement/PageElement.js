@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Global, css } from '@emotion/core'
 import { Fragment } from 'react'
 
 import { useConfig } from '../../data'
 
 export const PageElement = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
+
   const {
     site: {
       siteMetadata: { siteUrl },
