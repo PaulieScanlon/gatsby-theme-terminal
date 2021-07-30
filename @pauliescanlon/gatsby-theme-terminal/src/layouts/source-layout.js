@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { ContextProvider } from '../context'
 
 import { Seo } from '../components/Seo'
-import { SourceArticle } from '../components/SourceArticle'
+import { SourceArticle } from '../components/source-article'
 
 import { useConfig } from '../data'
 
