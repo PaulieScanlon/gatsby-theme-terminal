@@ -54,9 +54,7 @@ const components = {
   SourceMonths,
   SourceWords,
   SourceTags,
-  GatsbyImage: props => (
-    <GatsbyImage alt={props.alt} image={getImage(props.image)} />
-  ),
+  GatsbyImage: (props) => <GatsbyImage alt={props.alt} image={getImage(props.image)} />,
   ...themeUiComponents,
 }
 
@@ -81,11 +79,10 @@ export const Main = ({ children }) => {
         sx={{
           alignItems: 'center',
           backgroundColor: 'background',
-          borderBottom: theme =>
-            `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
+          borderBottom: (theme) => `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
           display: 'flex',
           justifyContent: 'space-between',
-          height: theme => `${theme.space[5]}px`,
+          height: (theme) => `${theme.space[5]}px`,
           ml: [0, 0, 0, sidebarWidth],
           overflow: 'hidden',
           position: 'fixed',
@@ -110,10 +107,7 @@ export const Main = ({ children }) => {
             justifyContent: 'flex-end',
           }}
         >
-          <MenuButton
-            aria-label="Toggle Menu"
-            onClick={() => dispatch({ type: 'openNav' })}
-          />
+          <MenuButton aria-label="Toggle Menu" onClick={() => dispatch({ type: 'openNav' })} />
         </Box>
       </Box>
       <Container
@@ -140,8 +134,7 @@ export const Main = ({ children }) => {
         >
           <Box
             sx={{
-              borderRight: theme =>
-                `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
+              borderRight: (theme) => `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
               height: '100%',
               left: [
                 `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
@@ -161,12 +154,7 @@ export const Main = ({ children }) => {
           tabIndex="0"
           sx={{
             backgroundColor: transparentize('black', 0.2),
-            display: [
-              isNavOpen ? 'flex' : 'none',
-              isNavOpen ? 'flex' : 'none',
-              isNavOpen ? 'flex' : 'none',
-              'none',
-            ],
+            display: [isNavOpen ? 'flex' : 'none', isNavOpen ? 'flex' : 'none', isNavOpen ? 'flex' : 'none', 'none'],
             height: '100%',
             justifyContent: 'flex-end',
             px: [3, 4],
@@ -181,9 +169,7 @@ export const Main = ({ children }) => {
             },
           }}
           onClick={() => dispatch({ type: 'closeNav' })}
-          onKeyDown={event =>
-            event.key === 'Enter' ? dispatch({ type: 'closeNav' }) : {}
-          }
+          onKeyDown={(event) => (event.key === 'Enter' ? dispatch({ type: 'closeNav' }) : {})}
         >
           <Close />
         </Box>

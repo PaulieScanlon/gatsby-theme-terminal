@@ -1,7 +1,4 @@
-const {
-  createFilePath,
-  createRemoteFileNode,
-} = require('gatsby-source-filesystem')
+const { createFilePath, createRemoteFileNode } = require('gatsby-source-filesystem')
 
 const path = require('path')
 
@@ -47,15 +44,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
 }
 
 exports.onCreateNode = async (
-  {
-    node,
-    actions: { createNodeField, createNode },
-    getNode,
-    store,
-    cache,
-    createNodeId,
-  },
-  themeOptions
+  { node, actions: { createNodeField, createNode }, getNode, store, cache, createNodeId },
+  themeOptions,
 ) => {
   const { source } = themeOptions
 
@@ -63,7 +53,7 @@ exports.onCreateNode = async (
     let basePath = ''
 
     if (Array.isArray(source)) {
-      source.map(item => {
+      source.map((item) => {
         const { name, dir } = item
         if (node.fileAbsolutePath.includes(name)) {
           basePath = `/${dir}`
@@ -93,14 +83,14 @@ exports.onCreateNode = async (
         createNodeId,
         cache,
         store,
-      }).catch(error => {
+      }).catch((error) => {
         console.error(error)
       })
     }
 
     if (node.frontmatter.embeddedImageUrls) {
       node.embeddedImageUrls = await Promise.all(
-        node.frontmatter.embeddedImageUrls.map(url => {
+        node.frontmatter.embeddedImageUrls.map((url) => {
           try {
             return createRemoteFileNode({
               url,
@@ -113,7 +103,7 @@ exports.onCreateNode = async (
           } catch (error) {
             console.error(error)
           }
-        })
+        }),
       )
     }
   }
@@ -128,12 +118,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const result = await graphql(`
     query {
       allMdx(
-        filter: {
-          frontmatter: {
-            status: { ne: "draft" }
-            navigationLabel: { eq: null }
-          }
-        }
+        filter: { frontmatter: { status: { ne: "draft" }, navigationLabel: { eq: null } } }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {

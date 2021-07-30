@@ -16,9 +16,6 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
-  "devDependencies": {
-    "prettier": "^2.3.2"
-  },
   "keywords": [
     "gatsby"
   ],

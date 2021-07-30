@@ -2,21 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 
-export const Seo = ({
-  type,
-  title,
-  titleTemplate,
-  description,
-  siteUrl,
-  canonical,
-  image,
-  path,
-  keywords,
-  lang,
-}) => {
-  const formatTitleTemplate = `${title} ${
-    titleTemplate ? `| ${titleTemplate}` : ''
-  }`
+export const Seo = ({ type, title, titleTemplate, description, siteUrl, canonical, image, path, keywords, lang }) => {
+  const formatTitleTemplate = `${title} ${titleTemplate ? `| ${titleTemplate}` : ''}`
 
   return (
     <Helmet>
@@ -26,10 +13,7 @@ export const Seo = ({
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="image:alt" content={description} />
-      <meta
-        name="gatsby-theme"
-        content="@pauliescanlon/gatsby-theme-terminal"
-      />
+      <meta name="gatsby-theme" content="@pauliescanlon/gatsby-theme-terminal" />
       <meta name="keywords" content={keywords ? keywords.join(', ') : null} />
 
       {/* Facebook */}

@@ -3,7 +3,7 @@ navigationLabel: SourceMonths
 ---
 
 <SourceMonths>
-  {sourceMonths => {
+  {(sourceMonths) => {
     const currentYear = sourceMonths[sourceMonths.length - 1]
     return (
       <Box sx={{ backgroundColor: 'surface', p: 3 }}>
@@ -24,7 +24,7 @@ navigationLabel: SourceMonths
                     width: `${100 / currentYear.length}%`,
                   }}
                 >
-                 <Text
+                  <Text
                     sx={{
                       textAlign: 'center',
                     }}

@@ -21,7 +21,5 @@ export const Context = React.createContext(initialState)
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
 
-  return (
-    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
-  )
+  return <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
 }

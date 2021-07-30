@@ -3,45 +3,45 @@ navigationLabel: SourceDays
 ---
 
 <SourceDays>
-  {sourceDays => {
+  {(sourceDays) => {
     const currentYear = sourceDays[sourceDays.length - 1]
     return (
-       <Box>
-        {currentYear.sort((a, b) => a.number - b.number).map((day, index) => {
-          const { name, count, percent } = day
-          return (
-            <Flex
-              key={index}
-              sx={{
-                backgroundColor: 'surface',
-                flexDirection: 'column',
-                mb: 2,
-                position: 'relative',
-              }}
-            >
-              <Box
+      <Box>
+        {currentYear
+          .sort((a, b) => a.number - b.number)
+          .map((day, index) => {
+            const { name, count, percent } = day
+            return (
+              <Flex
+                key={index}
                 sx={{
-                  backgroundColor: 'primary',
-                  height: '100%',
-                  position: 'absolute',
-                  width: `${percent}%`,
-                }}
-              />
-              <Box
-                sx={{
+                  backgroundColor: 'surface',
+                  flexDirection: 'column',
+                  mb: 2,
                   position: 'relative',
-                  display: 'flex',
-                  justifyContent: 'space-between',
                 }}
               >
-                <Text sx={{ textTransform: 'capitalize', pl: 2 }}>
-                  {name}
-                </Text>
-                <Text sx={{ pr: 2 }}>{`x${count}`}</Text>
-              </Box>
-            </Flex>
-          )
-        })}
+                <Box
+                  sx={{
+                    backgroundColor: 'primary',
+                    height: '100%',
+                    position: 'absolute',
+                    width: `${percent}%`,
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'relative',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <Text sx={{ textTransform: 'capitalize', pl: 2 }}>{name}</Text>
+                  <Text sx={{ pr: 2 }}>{`x${count}`}</Text>
+                </Box>
+              </Flex>
+            )
+          })}
       </Box>
     )
   }}

@@ -4,10 +4,11 @@ navigationLabel: theme-ui/components
 
 # [theme-ui/components](#theme-ui-components)
 
-gatsby-theme-terminal also supports the full set of [theme-ui/components](https://theme-ui.com/components) and below is how you use them.
+gatsby-theme-terminal also supports the full set of [theme-ui/components](https://theme-ui.com/components) and below is
+how you use them.
 
-If you'd like to see the default theme `.js` that file can be found in [here](https://github.com/PaulieScanlon/gatsby-theme-terminal/blob/master/%40pauliescanlon/gatsby-theme-terminal/src/gatsby-plugin-theme-ui/index.js)
-
+If you'd like to see the default theme `.js` that file can be found in
+[here](https://github.com/PaulieScanlon/gatsby-theme-terminal/blob/master/%40pauliescanlon/gatsby-theme-terminal/src/gatsby-plugin-theme-ui/index.js)
 
 ## [Box](#box)
 
@@ -27,19 +28,20 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 ```javascript
 <Flex>
-  <Box p={2} bg='primary' sx={{ flex: '1 1 auto' }}>
+  <Box p={2} bg="primary" sx={{ flex: '1 1 auto' }}>
     Flex
   </Box>
-  <Box p={2} bg='muted'>
+  <Box p={2} bg="muted">
     Box
   </Box>
 </Flex>
 ```
+
 <Flex>
-  <Box p={2} bg='primary' sx={{ flex: '1 1 auto' }}>
+  <Box p={2} bg="primary" sx={{ flex: '1 1 auto' }}>
     Flex
   </Box>
-  <Box p={2} bg='muted'>
+  <Box p={2} bg="muted">
     Box
   </Box>
 </Flex>
@@ -49,23 +51,18 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 ## [Grid](#grid)
 
 ```javascript
-<Grid
-  gap={2}
-  columns={[2, '1fr 2fr']}>
-  <Box bg='primary'>Box</Box>
-  <Box bg='muted'>Box</Box>
+<Grid gap={2} columns={[2, '1fr 2fr']}>
+  <Box bg="primary">Box</Box>
+  <Box bg="muted">Box</Box>
 </Grid>
 ```
 
-<Grid
-  gap={2}
-  columns={[2, '1fr 2fr']}>
-  <Box bg='primary'>Box</Box>
-  <Box bg='muted'>Box</Box>
+<Grid gap={2} columns={[2, '1fr 2fr']}>
+  <Box bg="primary">Box</Box>
+  <Box bg="muted">Box</Box>
 </Grid>
 
 <Divider />
-
 
 ## [Buttons](#buttons)
 
@@ -76,12 +73,13 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Button variant='error'>error</Button>
 <Button variant='ghost' />
 ```
-<Grid sx={{gridTemplateColumns: 'auto auto auto auto auto'}}>
-<Button>primary</Button>
-<Button variant='secondary'>secondary</Button>
-<Button variant='success'>success</Button>
-<Button variant='error'>error</Button>
-<Button variant='ghost'>ghost</Button>
+
+<Grid sx={{ gridTemplateColumns: 'auto auto auto auto auto' }}>
+  <Button>primary</Button>
+  <Button variant="secondary">secondary</Button>
+  <Button variant="success">success</Button>
+  <Button variant="error">error</Button>
+  <Button variant="ghost">ghost</Button>
 </Grid>
 
 <Divider />
@@ -97,8 +95,10 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Text>Hello</Text>
 <Text as="p">Hello</Text>
-<Text as="p">Hello <Link href='www.example.com'>www.example.com</Link></Text>
-<Text variant='styles.small'>Hello</Text>
+<Text as="p">
+  Hello <Link href="www.example.com">www.example.com</Link>
+</Text>
+<Text variant="styles.small">Hello</Text>
 
 <Divider />
 
@@ -113,40 +113,44 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Heading as='h6 'variant='styles.h6'>h6</Heading>
 ```
 
-<Heading as='h1' variant='styles.h1'>h1</Heading>
-<Heading as='h2' variant='styles.h2'>h2</Heading>
-<Heading as='h3' variant='styles.h3'>h3</Heading>
-<Heading as='h4' variant='styles.h4'>h4</Heading>
-<Heading as='h5' variant='styles.h5'>h5</Heading>
-<Heading as='h6' variant='styles.h6'>h6</Heading>
-
+<Heading as="h1" variant="styles.h1">
+  h1
+</Heading>
+<Heading as="h2" variant="styles.h2">
+  h2
+</Heading>
+<Heading as="h3" variant="styles.h3">
+  h3
+</Heading>
+<Heading as="h4" variant="styles.h4">
+  h4
+</Heading>
+<Heading as="h5" variant="styles.h5">
+  h5
+</Heading>
+<Heading as="h6" variant="styles.h6">
+  h6
+</Heading>
 
 ## [Link](#link)
 
 ```javascript
-<Link href='#!'>Hello</Link>
+<Link href="#!">Hello</Link>
 ```
 
-<Link href='#!'>Hello</Link>
-
+<Link href="#!">Hello</Link>
 
 <Divider />
-
 
 ## [Image](#image)
 
 ```javascript
-<Image
-  src='https://placekitten.com/g/400/400'
-/>
+<Image src="https://placekitten.com/g/400/400" />
 ```
 
-<Image
-  src='https://placekitten.com/g/400/400'
-/>
+<Image src="https://placekitten.com/g/400/400" />
 
 <Divider />
-
 
 ## [Card](#card)
 
@@ -154,11 +158,12 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Card
   sx={{
     maxWidth: 400,
-  }}>
-  <Image src='https://placekitten.com/g/800/600' />
+  }}
+>
+  <Image src="https://placekitten.com/g/800/600" />
   <Box p={3}>
-  <Heading variant='styles.h4'>Heading</Heading>
-  <Text>Text</Text>
+    <Heading variant="styles.h4">Heading</Heading>
+    <Text>Text</Text>
   </Box>
 </Card>
 ```
@@ -166,56 +171,48 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Card
   sx={{
     maxWidth: 400,
-  }}>
-  <Image src='https://placekitten.com/g/800/600' />
+  }}
+>
+  <Image src="https://placekitten.com/g/800/600" />
   <Box p={3}>
-  <Heading variant='styles.h4'>Heading</Heading>
-  <Text>Text</Text>
+    <Heading variant="styles.h4">Heading</Heading>
+    <Text>Text</Text>
   </Box>
 </Card>
-
 
 <Divider />
 
 ## [Forms](#forms)
 
 ```javascript
-<Box
-  as='form'
->
-<Label htmlFor='input'>Input</Label>
-<Input
-  name='username'
-  mb={3}
-/>
+<Box as="form">
+  <Label htmlFor="input">Input</Label>
+  <Input name="username" mb={3} />
 
-<Label mb={3}>
-  <Checkbox />
-  Checkbox
-</Label>
+  <Label mb={3}>
+    <Checkbox />
+    Checkbox
+  </Label>
 
-<Label mb={3}>
-  <Radio name='radio' /> Radio A
-</Label>
-<Label mb={3}>
-  <Radio name='radio' /> Radio B
-</Label>
+  <Label mb={3}>
+    <Radio name="radio" /> Radio A
+  </Label>
+  <Label mb={3}>
+    <Radio name="radio" /> Radio B
+  </Label>
 
-<Label htmlFor='select'>Select</Label>
-<Select name='select' mb={3}>
-  <option>Beep</option>
-  <option>Boop</option>
-  <option>Blip</option>
-</Select>
+  <Label htmlFor="select">Select</Label>
+  <Select name="select" mb={3}>
+    <option>Beep</option>
+    <option>Boop</option>
+    <option>Blip</option>
+  </Select>
 
-<Label htmlFor='textarea'>Text Area</Label>
-<Textarea
-  name='textarea'
-  rows='6'
-  mb={3}
-/>
+  <Label htmlFor="textarea">Text Area</Label>
+  <Textarea name="textarea" rows="6" mb={3} />
 </Box>
 ```
+
 <Box as='form' >
 <Label htmlFor='input'>Input</Label>
 <Input
@@ -229,14 +226,14 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 </Label>
 
 <Label mb={3}>
-  <Radio name='radio' /> Radio A
+  <Radio name="radio" /> Radio A
 </Label>
 <Label mb={3}>
-  <Radio name='radio' /> Radio B
+  <Radio name="radio" /> Radio B
 </Label>
 
-<Label htmlFor='select'>Select</Label>
-<Select name='select' mb={3}>
+<Label htmlFor="select">Select</Label>
+<Select name="select" mb={3}>
   <option>Beep</option>
   <option>Boop</option>
   <option>Blip</option>
@@ -250,32 +247,30 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 />
 </Box>
 
-## [Label](#label) 
+## [Label](#label)
 
 ```javascript
-<Label htmlFor='input'>Label</Label>
+<Label htmlFor="input">Label</Label>
 ```
 
-<Label htmlFor='input'>Label</Label>
+<Label htmlFor="input">Label</Label>
 
 <Divider />
 
 ## [Input](#input)
 
 ```javascript
-<Input name='username'/>
+<Input name="username" />
 ```
 
-<Input name='username'/>
+<Input name="username" />
 
 <Divider />
-
 
 ## [Select](#select)
 
 ```javascript
-<Select
-  defaultValue='Hello'>
+<Select defaultValue="Hello">
   <option>Hello</option>
   <option>Hi</option>
   <option>Beep</option>
@@ -283,8 +278,7 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 </Select>
 ```
 
-<Select
-  defaultValue='Hello'>
+<Select defaultValue="Hello">
   <option>Hello</option>
   <option>Hi</option>
   <option>Beep</option>
@@ -293,20 +287,13 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-
 ## [Textarea](#text-area)
 
 ```javascript
-<Textarea
-  defaultValue='Hello'
-  rows={8}
-/>
+<Textarea defaultValue="Hello" rows={8} />
 ```
 
-<Textarea
-  defaultValue='Hello'
-  rows={8}
-/>
+<Textarea defaultValue="Hello" rows={8} />
 
 <Divider />
 
@@ -331,18 +318,11 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 ```
 
 <Label mb={1}>
-  <Radio
-    name='dark-mode'
-    value='true'
-    defaultChecked={true}
-  />
+  <Radio name="dark-mode" value="true" defaultChecked={true} />
   Dark Mode
 </Label>
 <Label mb={1}>
-  <Radio
-    name='dark-mode'
-    value='false'
-  />
+  <Radio name="dark-mode" value="false" />
   Light Mode
 </Label>
 
@@ -374,17 +354,15 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 
 <Divider />
 
-
 ## [Field](#field)
 
 ```javascript
-<Field label='Email' name='email' defaultValue='' />
+<Field label="Email" name="email" defaultValue="" />
 ```
 
-<Field label='Email' name='email' defaultValue='' />
+<Field label="Email" name="email" defaultValue="" />
 
 <Divider />
-
 
 ## [Progress](#progress)
 
@@ -395,19 +373,29 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Progress max={1} value={1/2} variant='styles.progress.error'> 50% </Progress>
 ```
 
-<Progress max={1} value={1/2} > 50% </Progress>
+<Progress max={1} value={1 / 2}>
+  {' '}
+  50%{' '}
+</Progress>
 <Divider />
-<Progress max={1} value={1/2} variant='styles.progress.secondary'> 50% </Progress>
+<Progress max={1} value={1 / 2} variant="styles.progress.secondary">
+  {' '}
+  50%{' '}
+</Progress>
 <Divider />
-<Progress max={1} value={1/2} variant='styles.progress.success'> 50% </Progress>
+<Progress max={1} value={1 / 2} variant="styles.progress.success">
+  {' '}
+  50%{' '}
+</Progress>
 <Divider />
-<Progress max={1} value={1/2} variant='styles.progress.error'> 50% </Progress>
+<Progress max={1} value={1 / 2} variant="styles.progress.error">
+  {' '}
+  50%{' '}
+</Progress>
 
 <Divider />
-
 
 ## [Donut](#donut)
-
 
 ```javascript
 <Donut value={1/2}/>
@@ -416,10 +404,10 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 <Donut value={1/2} variant='styles.donut.error'/>
 ```
 
-<Donut value={1/2} />
-<Donut value={1/2} variant='styles.donut.secondary'/>
-<Donut value={1/2} variant='styles.donut.success'/>
-<Donut value={1/2} variant='styles.donut.error'/>
+<Donut value={1 / 2} />
+<Donut value={1 / 2} variant="styles.donut.secondary" />
+<Donut value={1 / 2} variant="styles.donut.success" />
+<Donut value={1 / 2} variant="styles.donut.error" />
 
 <Divider />
 
@@ -433,25 +421,22 @@ If you'd like to see the default theme `.js` that file can be found in [here](ht
 ```
 
 <Spinner />
-<Spinner variant='styles.spinner.secondary'/>
-<Spinner variant='styles.spinner.success'/>
-<Spinner variant='styles.spinner.error'/>
+<Spinner variant="styles.spinner.secondary" />
+<Spinner variant="styles.spinner.success" />
+<Spinner variant="styles.spinner.error" />
 
 <Divider />
 
 ## [Avatar](#avatar)
 
 ```javascript
-<Avatar
-  src='https://placekitten.com/g/50/50'
-/>
+<Avatar src="https://placekitten.com/g/50/50" />
 ```
 
-<Avatar
-  src='https://placekitten.com/g/50/50'
-/>
+<Avatar src="https://placekitten.com/g/50/50" />
 
 ## [Badge](#badge)
+
 Badges need a variant, the default can't be styled at the moment
 
 ```javascript
@@ -477,13 +462,9 @@ Badges need a variant, the default can't be styled at the moment
   Beep boop, this is an badge!
 </Badge>
 
-<Badge variant='secondary'>
-  Beep boop, this is an badge!
-</Badge>
+<Badge variant="secondary">Beep boop, this is an badge!</Badge>
 
-<Badge variant='success'>
-  Beep boop, this is an badge!
-</Badge>
+<Badge variant="success">Beep boop, this is an badge!</Badge>
 
 <Badge variant='error'>
   Beep boop, this is an badge!
@@ -491,7 +472,6 @@ Badges need a variant, the default can't be styled at the moment
 </Grid>
 
 <Divider />
-
 
 ## [Alert](#alert)
 
@@ -513,21 +493,19 @@ Badges need a variant, the default can't be styled at the moment
 </Alert>
 ```
 
-<Alert variant='primary' mb={2}>
+<Alert variant="primary" mb={2}>
   Beep boop, this is an alert!
 </Alert>
 
-<Alert variant='secondary' mb={2}>
+<Alert variant="secondary" mb={2}>
   Beep boop, this is an alert!
 </Alert>
 
-<Alert variant='success' mb={2}>
+<Alert variant="success" mb={2}>
   Beep boop, this is an alert!
 </Alert>
 
-<Alert variant='error'>
-  Beep boop, this is an alert!
-</Alert>
+<Alert variant="error">Beep boop, this is an alert!</Alert>
 
 <Divider />
 
@@ -544,23 +522,19 @@ Badges need a variant, the default can't be styled at the moment
 ## Embed
 
 ```javascript
-<Embed
-  src="https://www.youtube.com/embed/GNCd_ERZvZM"
-/>
+<Embed src="https://www.youtube.com/embed/GNCd_ERZvZM" />
 ```
 
-<Embed
-  src="https://www.youtube.com/embed/GNCd_ERZvZM"
-/>
+<Embed src="https://www.youtube.com/embed/GNCd_ERZvZM" />
 
 <Divider />
 
 ## [AspectRatio](#aspect-ratio)
 
 ```javascript
-<AspectRatio ratio={16/9}>
+<AspectRatio ratio={16 / 9}>
   <Image
-    src='https://placekitten.com/g/1200/1200'
+    src="https://placekitten.com/g/1200/1200"
     sx={{
       objectFit: 'cover',
     }}
@@ -568,9 +542,9 @@ Badges need a variant, the default can't be styled at the moment
 </AspectRatio>
 ```
 
-<AspectRatio ratio={16/9}>
+<AspectRatio ratio={16 / 9}>
   <Image
-    src='https://placekitten.com/g/1200/1200'
+    src="https://placekitten.com/g/1200/1200"
     sx={{
       objectFit: 'cover',
     }}
@@ -582,32 +556,22 @@ Badges need a variant, the default can't be styled at the moment
 ## [AspectImage](#aspect-image)
 
 ```javascript
-<AspectImage
-  ratio={4/3}
-  src='https://placekitten.com/g/1200/1200'
-/>
+<AspectImage ratio={4 / 3} src="https://placekitten.com/g/1200/1200" />
 ```
 
-<AspectImage
-  ratio={4/3}
-  src='https://placekitten.com/g/1200/1200'
-/>
+<AspectImage ratio={4 / 3} src="https://placekitten.com/g/1200/1200" />
 
 <Divider />
 
 ## [Container](#container)
 
 ```javascript
-<Container
-  p={4}
-  bg='surface'>
+<Container p={4} bg="surface">
   Centered container
 </Container>
 ```
 
-<Container
-  p={4}
-  bg='surface'>
+<Container p={4} bg="surface">
   Centered container
 </Container>
 
@@ -616,27 +580,27 @@ Badges need a variant, the default can't be styled at the moment
 ## [NavLink](#nav-link)
 
 ```javascript
-<Flex as='nav'>
-  <NavLink href='#!' p={2}>
+<Flex as="nav">
+  <NavLink href="#!" p={2}>
     Home
   </NavLink>
-  <NavLink href='#!' p={2}>
+  <NavLink href="#!" p={2}>
     Blog
   </NavLink>
-  <NavLink href='#!' p={2}>
+  <NavLink href="#!" p={2}>
     About
   </NavLink>
 </Flex>
 ```
 
-<Flex as='nav'>
-  <NavLink href='#!' p={2}>
+<Flex as="nav">
+  <NavLink href="#!" p={2}>
     Home
   </NavLink>
-  <NavLink href='#!' p={2}>
+  <NavLink href="#!" p={2}>
     Blog
   </NavLink>
-  <NavLink href='#!' p={2}>
+  <NavLink href="#!" p={2}>
     About
   </NavLink>
 </Flex>
@@ -663,23 +627,21 @@ Badges need a variant, the default can't be styled at the moment
 </Message>
 ```
 
-
-<Message variant='primary' mb={2}>
+<Message variant="primary" mb={2}>
   This is just a message for someone to read
 </Message>
 
-<Message variant='secondary' mb={2}>
+<Message variant="secondary" mb={2}>
   This is just a message for someone to read
 </Message>
 
-<Message variant='success' mb={2}>
+<Message variant="success" mb={2}>
   This is just a message for someone to read
 </Message>
 
-<Message variant='error' mb={2}>
+<Message variant="error" mb={2}>
   This is just a message for someone to read
 </Message>
-
 
 <Divider />
 
@@ -693,46 +655,19 @@ Badges need a variant, the default can't be styled at the moment
 
 <Divider />
 
-
 ## [IconButton](#icon-button)
 
 ```javascript
-<IconButton
-  aria-label='Toggle dark mode'>
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    viewBox='0 0 24 24'
-    width='24'
-    height='24'
-    fill='currentcolor'>
-    <circle
-      r={11}
-      cx={12}
-      cy={12}
-      fill='none'
-      stroke='currentcolor'
-      strokeWidth={2}
-    />
+<IconButton aria-label="Toggle dark mode">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentcolor">
+    <circle r={11} cx={12} cy={12} fill="none" stroke="currentcolor" strokeWidth={2} />
   </svg>
 </IconButton>
 ```
 
-<IconButton
-  aria-label='Toggle dark mode'>
-  <svg
-    xmlns='http://www.w3.org/2000/svg'
-    viewBox='0 0 24 24'
-    width='24'
-    height='24'
-    fill='currentcolor'>
-    <circle
-      r={11}
-      cx={12}
-      cy={12}
-      fill='none'
-      stroke='currentcolor'
-      strokeWidth={2}
-    />
+<IconButton aria-label="Toggle dark mode">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentcolor">
+    <circle r={11} cx={12} cy={12} fill="none" stroke="currentcolor" strokeWidth={2} />
   </svg>
 </IconButton>
 
@@ -741,13 +676,9 @@ Badges need a variant, the default can't be styled at the moment
 ## [MenuButton](#menu-button)
 
 ```javascript
-<MenuButton
-  aria-label='Toggle Menu'
-/>
+<MenuButton aria-label="Toggle Menu" />
 ```
 
-<MenuButton
-  aria-label='Toggle Menu'
-/>
+<MenuButton aria-label="Toggle Menu" />
 
 <Divider />

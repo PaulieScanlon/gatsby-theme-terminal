@@ -1,11 +1,10 @@
 const React = require('react')
 const { PageElement } = require('./src/components/PageElement')
 
-const anchorScroll = location => {
+const anchorScroll = (location) => {
   const anchor = document.querySelectorAll(`a[href="${location.hash}"]`)[0]
   if (location && location.hash && anchor) {
-    const item = document.querySelectorAll(`a[href="${location.hash}"]`)[0]
-      .offsetTop
+    const item = document.querySelectorAll(`a[href="${location.hash}"]`)[0].offsetTop
     const mainNavHeight = document.querySelector(`header`).offsetHeight
 
     setTimeout(() => {

@@ -6,25 +6,23 @@ import { format } from 'date-fns'
 
 # posts
 
-You can use the `<SourceList filter="posts" />` component from any `.mdx`. 
+You can use the `<SourceList filter="posts" />` component from any `.mdx`.
 
 Here we use it to return all the `posts` by using the filter prop
 
 <SourceList filter="posts">
-  {posts => (
+  {(posts) => (
     <Flex
       sx={{
         flexWrap: 'wrap',
-        ml: theme => `-${theme.space[2]}px`,
-        mr: theme => `-${theme.space[2]}px`,
+        ml: (theme) => `-${theme.space[2]}px`,
+        mr: (theme) => `-${theme.space[2]}px`,
       }}
     >
       {posts
-        .filter(edge => !edge.node.frontmatter.isPrivate)
+        .filter((edge) => !edge.node.frontmatter.isPrivate)
         .reduce((routes, route) => {
-          return route.node.frontmatter.pinned
-            ? [route, ...routes]
-            : [...routes, route]
+          return route.node.frontmatter.pinned ? [route, ...routes] : [...routes, route]
         }, [])
         .map((edge, index) => {
           const {
@@ -52,7 +50,7 @@ Here we use it to return all the `posts` by using the filter prop
                   display: 'flex',
                   flex: '1 1 auto',
                   flexDirection: 'column',
-                  m: theme => `0px ${theme.space[2]}px`,
+                  m: (theme) => `0px ${theme.space[2]}px`,
                   minHeight: '1px',
                 }}
               >
@@ -65,18 +63,8 @@ Here we use it to return all the `posts` by using the filter prop
                   }}
                 >
                   <Box sx={{ minHeight: '1px' }}>
-                    {featuredImage ? (
-                      <GatsbyImage
-                          alt={title}
-                          image={featuredImage.childImageSharp}
-                        /> 
-                    ): null}
-                    {featuredImageUrl ? (
-                        <GatsbyImage
-                          alt={title}
-                          image={featuredImageUrl.url.childImageSharp}
-                        />
-                    ): null}
+                    {featuredImage ? <GatsbyImage alt={title} image={featuredImage.childImageSharp} /> : null}
+                    {featuredImageUrl ? <GatsbyImage alt={title} image={featuredImageUrl.url.childImageSharp} /> : null}
                   </Box>
                   <Box
                     sx={{
@@ -86,15 +74,10 @@ Here we use it to return all the `posts` by using the filter prop
                       p: 3,
                     }}
                   >
-                    <Heading
-                      variant="styles.h4"
-                      sx={{ color: pinned ? 'primary' : 'text' }}
-                    >
+                    <Heading variant="styles.h4" sx={{ color: pinned ? 'primary' : 'text' }}>
                       {title}
                     </Heading>
-                    <Text sx={{ mb: 1, color: 'muted' }}>
-                      {format(new Date(date), 'd-MMM-u')}
-                    </Text>
+                    <Text sx={{ mb: 1, color: 'muted' }}>{format(new Date(date), 'd-MMM-u')}</Text>
                     <Text sx={{ mb: 1, color: 'text' }}>{excerpt}</Text>
                   </Box>
                   <Box sx={{ p: 3 }}>

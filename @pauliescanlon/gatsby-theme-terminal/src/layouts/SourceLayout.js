@@ -33,16 +33,7 @@ const SourceLayout = ({
     },
   } = useConfig()
 
-  const {
-    title,
-    tags,
-    date,
-    dateModified,
-    author,
-    isPrivate,
-    featuredImage,
-    embeddedImages,
-  } = frontmatter
+  const { title, tags, date, dateModified, author, isPrivate, featuredImage, embeddedImages } = frontmatter
 
   const getSeoImage = () => {
     if (featuredImage) {
@@ -56,10 +47,7 @@ const SourceLayout = ({
     return siteImage
   }
 
-  const combinedEmbedded = [
-    ...(embeddedImages || []),
-    ...(embeddedImageUrls || []),
-  ].filter(n => n)
+  const combinedEmbedded = [...(embeddedImages || []), ...(embeddedImageUrls || [])].filter((n) => n)
 
   return (
     <ContextProvider>

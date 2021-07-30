@@ -6,10 +6,10 @@ import { useTags } from '../../data'
 export const SourceTags = ({ filter, children }) => {
   const count = Object.values(
     useTags(filter)
-      .filter(edge => edge.node.frontmatter.tags)
+      .filter((edge) => edge.node.frontmatter.tags)
       .reduce((items, item) => {
         const { tags } = item.node.frontmatter
-        tags.forEach(tag => {
+        tags.forEach((tag) => {
           items.push({
             name: tag,
             count: 1,
@@ -24,12 +24,12 @@ export const SourceTags = ({ filter, children }) => {
         items[name].count += count
 
         return items
-      }, [])
+      }, []),
   )
 
   const total = count.reduce((a, b) => a + b.count, 0)
 
-  const tags = count.map(item => {
+  const tags = count.map((item) => {
     return {
       ...item,
       percent: Math.round((item.count / total) * 100),

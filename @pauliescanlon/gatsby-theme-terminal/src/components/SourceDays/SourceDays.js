@@ -4,15 +4,7 @@ import PropTypes from 'prop-types'
 import { useDates } from '../../data'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const name = [
-  'sunday',
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-]
+const name = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
 const abbreviation = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 
@@ -48,10 +40,8 @@ export const SourceDays = ({ filter, children }) => {
 
       return items
     }, [])
-    .map(year => {
-      let yearValue = year.reduce((a, b) =>
-        b.year !== 0 ? (a = b.year) : null
-      )
+    .map((year) => {
+      let yearValue = year.reduce((a, b) => (b.year !== 0 ? (a = b.year) : null))
       return Object.values(
         year.reduce((items, item) => {
           const { name } = item
@@ -61,20 +51,20 @@ export const SourceDays = ({ filter, children }) => {
           }
           items[name].count += 1
           return items
-        }, {})
+        }, {}),
       )
     })
 
   const days = Object.values(
-    count.map(year => {
+    count.map((year) => {
       let total = year.reduce((a, b) => ({ count: a.count + b.count }))
-      return year.map(day => {
+      return year.map((day) => {
         return {
           ...day,
           percent: Math.round((day.count / total.count) * 100),
         }
       })
-    })
+    }),
   )
 
   return <Fragment>{days.length ? children(days) : null}</Fragment>

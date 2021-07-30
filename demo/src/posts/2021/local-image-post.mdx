@@ -1,14 +1,13 @@
 ---
 title: Local Image Post
 date: 2021-01-14
-tags: ["React", "GatsbyJs", "ES6", "Css"]
+tags: ['React', 'GatsbyJs', 'ES6', 'Css']
 featuredImage: pankaj-patel-SXihyA4oEJs-unsplash.jpg
 embeddedImages:
   - pankaj-patel-SXihyA4oEJs-unsplash.jpg
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum
-lobortis.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris elementum lobortis.
 
@@ -32,12 +31,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris
 </Box>
 <Divider />
 <Box>
-  <pre>
-    {JSON.stringify(
-      props.embedded.image1.gatsbyImageData.images.fallback.src,
-      null,
-      2
-    )}
-  </pre>
+  <pre>{JSON.stringify(props.embedded.image1.gatsbyImageData.images.fallback.src, null, 2)}</pre>
   <Divider />
 </Box>

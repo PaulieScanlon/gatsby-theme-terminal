@@ -18,20 +18,7 @@ const name = [
   'december',
 ]
 
-const abbreviation = [
-  'jan',
-  'feb',
-  'mar',
-  'apr',
-  'may',
-  'jun',
-  'jul',
-  'aug',
-  'sep',
-  'oct',
-  'nov',
-  'dec',
-]
+const abbreviation = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 
 const initial = ['j', 'f', 'm', 'a', 'm', 'j', 'j', 'a', 's', 'o', 'n', 'd']
 
@@ -58,13 +45,9 @@ export const SourceWords = ({ filter, children }) => {
 
   const timeToReadAverage = Math.round(timeToReadTotal / mdx.length)
 
-  const wordCountHighest = Math.max(
-    ...mdx.map(item => item.node.wordCount.words)
-  )
+  const wordCountHighest = Math.max(...mdx.map((item) => item.node.wordCount.words))
 
-  const wordCountLowest = Math.min(
-    ...mdx.map(item => item.node.wordCount.words)
-  )
+  const wordCountLowest = Math.min(...mdx.map((item) => item.node.wordCount.words))
 
   const wordCountByMonth = mdx
     .reduce((items, item) => {
@@ -76,10 +59,8 @@ export const SourceWords = ({ filter, children }) => {
 
       return items
     }, [])
-    .map(year => {
-      let yearValue = year.reduce((a, b) =>
-        b.year !== 0 ? (a = b.year) : null
-      )
+    .map((year) => {
+      let yearValue = year.reduce((a, b) => (b.year !== 0 ? (a = b.year) : null))
 
       return Object.values(
         year.reduce((items, item) => {
@@ -90,7 +71,7 @@ export const SourceWords = ({ filter, children }) => {
           }
           items[name].words += words
           return items
-        }, {})
+        }, {}),
       )
     })
 

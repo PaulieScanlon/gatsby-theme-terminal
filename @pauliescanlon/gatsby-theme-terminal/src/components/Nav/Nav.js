@@ -11,9 +11,7 @@ export const Nav = () => {
   } = useNavigation()
 
   const navigation = edges.reduce((routes, route) => {
-    return route.node.fields.slug === '/'
-      ? [route, ...routes]
-      : [...routes, route]
+    return route.node.fields.slug === '/' ? [route, ...routes] : [...routes, route]
   }, [])
 
   return (
@@ -22,13 +20,8 @@ export const Nav = () => {
         sx={{
           alignItems: 'center',
           display: 'flex',
-          height: theme => `${theme.space[5]}px`,
-          justifyContent: [
-            'flex-start',
-            'flex-start',
-            'flex-start',
-            'flex-end',
-          ],
+          height: (theme) => `${theme.space[5]}px`,
+          justifyContent: ['flex-start', 'flex-start', 'flex-start', 'flex-end'],
           overFlow: 'hidden',
           px: 4,
         }}

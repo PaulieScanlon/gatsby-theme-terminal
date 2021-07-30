@@ -5,26 +5,37 @@ navigationLabel: Home
 import { format } from 'date-fns'
 
 <SiteMetaData>
-{siteMetadata => {
-  const { name, description } = siteMetadata
-  return (
-        <Fragment>
-        <Heading variant='styles.h1'>{name}</Heading>
+  {(siteMetadata) => {
+    const { name, description } = siteMetadata
+    return (
+      <Fragment>
+        <Heading variant="styles.h1">{name}</Heading>
         <Text>{description}</Text>
-        </Fragment>
-  )
-}}
+      </Fragment>
+    )
+  }}
 </SiteMetaData>
 
-<Divider/>
-
-<Button sx={{mb: 2}} as='a' variant='success' href='https://github.com/PaulieScanlon/gatsby-theme-terminal' target='_blank'>View theme on GitHub</Button>{" "}
-<Link sx={{whiteSpace: 'nowrap',}} href='https://github.com/PaulieScanlon/gatsby-theme-terminal' target='_blank' >gatsby-theme-terminal</Link>
 <Divider />
 
-<Alert variant='success'>
-  Alert... My website is faster than yours!
-</Alert>
+<Button
+  sx={{ mb: 2 }}
+  as="a"
+  variant="success"
+  href="https://github.com/PaulieScanlon/gatsby-theme-terminal"
+  target="_blank"
+>
+  View theme on GitHub
+</Button> <Link
+  sx={{ whiteSpace: 'nowrap' }}
+  href="https://github.com/PaulieScanlon/gatsby-theme-terminal"
+  target="_blank"
+>
+  gatsby-theme-terminal
+</Link>
+<Divider />
+
+<Alert variant="success">Alert... My website is faster than yours!</Alert>
 <Divider />
 <Divider />
 
@@ -41,25 +52,49 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
       mb: 3,
       pr: [0,0, 4],
     }}
-  >         
+  >
 
-  ## Contact
+## Contact
 
-  <Heading variant='styles.h3' sx={{mb: 0}}>Email</Heading>
-  <Link href='mailto:******@gmail.com' variant='styles.a'>******@gmail.com</Link>
-  <Divider />
+{' '}
 
-  <Heading variant='styles.h3' sx={{mb: 0,}}>Twitter</Heading>
-  <Link href='https://twitter.com/PaulieScanlon/' variant='styles.a'>https://twitter.com/PaulieScanlon/</Link>
-  <Divider />
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  Email
+</Heading>
+<Link href="mailto:******@gmail.com" variant="styles.a">
+  ******@gmail.com
+</Link>
+<Divider />
 
-  <Heading variant='styles.h3' sx={{mb: 0}}>GitHub</Heading>
-  <Link href='https://github.com/PaulieScanlon/' variant='styles.a'>https://github.com/PaulieScanlon/</Link>
-  <Divider />
+{' '}
 
-  <Heading variant='styles.h3' sx={{mb: 0}}>LinkedIn</Heading>
-  <Link href='https://www.linkedin.com/in/PaulieScanlon/' variant='styles.a'>https://linkedin.com/in/PaulieScanlon/</Link>
-  <Divider />
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  Twitter
+</Heading>
+<Link href="https://twitter.com/PaulieScanlon/" variant="styles.a">
+  https://twitter.com/PaulieScanlon/
+</Link>
+<Divider />
+
+{' '}
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  GitHub
+</Heading>
+<Link href="https://github.com/PaulieScanlon/" variant="styles.a">
+  https://github.com/PaulieScanlon/
+</Link>
+<Divider />
+
+{' '}
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  LinkedIn
+</Heading>
+<Link href="https://www.linkedin.com/in/PaulieScanlon/" variant="styles.a">
+  https://linkedin.com/in/PaulieScanlon/
+</Link>
+<Divider />
 
   </Box>
 
@@ -69,51 +104,41 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
       mb: 3
     }}
   >
- 
 
-  ## Top 5 tags
+## Top 5 tags
 
-  <SourceTags filter="posts">
-    {tags => (
-      <Flex sx={{ flexDirection: 'column' }}>
-        {tags
-          .splice(0, 5)
-          .sort((a, b) => b.percent - a.percent)
-          .map((tag, index) => {
-            const { name, count, percent } = tag
-            return (
-              <Box
-                key={index}
-                sx={{ color: 'muted', mb: 3, svg: { fill: 'muted' } }}
-              >
-                <Flex sx={{ lineHeight: 'normal' }}>
-                  <Text
-                    sx={{ color: 'secondary', mr: 2, mb: 0 }}
-                  >{`${name}`}</Text>
-                  <Text sx={{ color: 'muted' }}>{percent}</Text>
-                  <Text sx={{ color: 'error' }}>%</Text>
-                </Flex>
-                <Flex>
-                 <Box>{'['}</Box>
-                  <Box sx={{flexBasis: '100%'}}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 1200 8"
-                      width="100%"
-                      height="8"
-                    >
-                      <rect width={`${percent * 3}%`} height={4} />
-                    </svg>
-                  </Box>
-                  <Box> {']'}</Box>
-                </Flex>
-              </Box>
-            )
-          })}
-      </Flex>
-    )}
-  </SourceTags>
+{' '}
+
+<SourceTags filter="posts">
+  {(tags) => (
+    <Flex sx={{ flexDirection: 'column' }}>
+      {tags
+        .splice(0, 5)
+        .sort((a, b) => b.percent - a.percent)
+        .map((tag, index) => {
+          const { name, count, percent } = tag
+          return (
+            <Box key={index} sx={{ color: 'muted', mb: 3, svg: { fill: 'muted' } }}>
+              <Flex sx={{ lineHeight: 'normal' }}>
+                <Text sx={{ color: 'secondary', mr: 2, mb: 0 }}>{`${name}`}</Text>
+                <Text sx={{ color: 'muted' }}>{percent}</Text>
+                <Text sx={{ color: 'error' }}>%</Text>
+              </Flex>
+              <Flex>
+                <Box>{'['}</Box>
+                <Box sx={{ flexBasis: '100%' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 8" width="100%" height="8">
+                    <rect width={`${percent * 3}%`} height={4} />
+                  </svg>
+                </Box>
+                <Box> {']'}</Box>
+              </Flex>
+            </Box>
+          )
+        })}
+    </Flex>
+  )}
+</SourceTags>
 
   </Box>
 </Flex>
-

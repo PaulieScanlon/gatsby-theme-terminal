@@ -1,15 +1,10 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-export const useSource = filter => {
+export const useSource = (filter) => {
   const query = useStaticQuery(graphql`
     query source {
       allMdx(
-        filter: {
-          frontmatter: {
-            status: { ne: "draft" }
-            navigationLabel: { eq: null }
-          }
-        }
+        filter: { frontmatter: { status: { ne: "draft" }, navigationLabel: { eq: null } } }
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
         edges {
@@ -55,16 +50,13 @@ export const useSource = filter => {
   `)
 
   if (!filter)
-    return query.allMdx.edges.filter(edge => {
+    return query.allMdx.edges.filter((edge) => {
       return edge.node.frontmatter.isPrivate !== true
     })
 
   return query.allMdx.edges
-    .map(edge => edge)
-    .filter(edge => {
-      return (
-        edge.node.fields.slug.includes(filter) &&
-        edge.node.frontmatter.isPrivate !== true
-      )
+    .map((edge) => edge)
+    .filter((edge) => {
+      return edge.node.fields.slug.includes(filter) && edge.node.frontmatter.isPrivate !== true
     })
 }

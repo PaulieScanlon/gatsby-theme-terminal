@@ -17,20 +17,20 @@ module.exports = {
       options: {
         source: [
           {
-            name: "posts",
-            dir: "posts",
+            name: 'posts',
+            dir: 'posts',
           },
           {
-            name: "projects",
-            dir: "projects",
+            name: 'projects',
+            dir: 'projects',
           },
         ],
       },
     },
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-76055934-8",
+        trackingId: 'UA-76055934-8',
       },
     },
   ],

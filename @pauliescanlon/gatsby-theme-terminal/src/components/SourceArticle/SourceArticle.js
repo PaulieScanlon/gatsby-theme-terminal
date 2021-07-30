@@ -2,22 +2,14 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
-import {
-  Heading,
-  Badge,
-  Text,
-  Flex,
-  Box,
-  Divider,
-  Alert,
-} from '@theme-ui/components'
+import { Heading, Badge, Text, Flex, Box, Divider, Alert } from '@theme-ui/components'
 import { mix } from '@theme-ui/color'
 import { format } from 'date-fns'
 
 import { Main } from '../Main'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const formatDate = date => format(new Date(date), 'd-MMM-u')
+const formatDate = (date) => format(new Date(date), 'd-MMM-u')
 
 export const SourceArticle = ({
   title,
@@ -47,16 +39,10 @@ export const SourceArticle = ({
 
           <Box sx={{ mb: 4 }}>
             {featuredImage && featuredImage.childImageSharp && (
-              <GatsbyImage
-                alt={`${title}-image`}
-                image={featuredImage.childImageSharp.gatsbyImageData}
-              />
+              <GatsbyImage alt={`${title}-image`} image={featuredImage.childImageSharp.gatsbyImageData} />
             )}
             {featuredImageUrl && featuredImageUrl.url.childImageSharp && (
-              <GatsbyImage
-                alt={`${title}-image`}
-                image={featuredImageUrl.url.childImageSharp.gatsbyImageData}
-              />
+              <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.url.childImageSharp.gatsbyImageData} />
             )}
           </Box>
           <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
@@ -68,11 +54,7 @@ export const SourceArticle = ({
                 width: ['100%', '50%'],
               }}
             >
-              {date && (
-                <Text sx={{ color: 'muted' }}>
-                  Date published: {formatDate(date)}
-                </Text>
-              )}
+              {date && <Text sx={{ color: 'muted' }}>Date published: {formatDate(date)}</Text>}
             </Box>
             <Box
               sx={{
@@ -98,9 +80,7 @@ export const SourceArticle = ({
                 width: ['100%', '50%'],
               }}
             >
-              <Text
-                sx={{ color: 'muted' }}
-              >{`${timeToRead} min read / ${wordCount.words} words`}</Text>
+              <Text sx={{ color: 'muted' }}>{`${timeToRead} min read / ${wordCount.words} words`}</Text>
             </Box>
             {author && (
               <Box
@@ -108,9 +88,7 @@ export const SourceArticle = ({
                   width: ['100%', '50%'],
                 }}
               >
-                <Text sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
-                  Author: {author}
-                </Text>
+                <Text sx={{ color: 'muted', textAlign: ['left', 'right'] }}>Author: {author}</Text>
               </Box>
             )}
           </Flex>

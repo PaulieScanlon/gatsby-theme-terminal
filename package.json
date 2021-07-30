@@ -5,11 +5,18 @@
     "serve": "yarn workspace demo serve",
     "develop": "yarn workspace demo develop",
     "build": "yarn workspace demo build",
-    "prettier": "yarn workspace demo format && yarn workspace @pauliescanlon/gatsby-theme-terminal format",
+    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\"",
     "release": "node copy-readme.js && yarn workspace @pauliescanlon/gatsby-theme-terminal publish"
   },
+  "postinstall": "husky install",
   "workspaces": [
     "@pauliescanlon/gatsby-theme-terminal",
     "demo"
-  ]
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^7.0.1",
+    "prettier": "^2.3.2"
+  }
 }

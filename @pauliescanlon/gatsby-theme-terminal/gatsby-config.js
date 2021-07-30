@@ -1,12 +1,12 @@
 const path = require('path')
 
-module.exports = themeOptions => {
+module.exports = (themeOptions) => {
   const { source } = themeOptions
 
   let filesystemSources = []
 
   if (source) {
-    const sourceFilesystemOption = item => {
+    const sourceFilesystemOption = (item) => {
       if (source) {
         return {
           resolve: `gatsby-source-filesystem`,
