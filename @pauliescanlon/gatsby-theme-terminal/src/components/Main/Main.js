@@ -15,8 +15,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Container, Box, Close, Image, MenuButton, Link } from 'theme-ui'
 import { transparentize } from '@theme-ui/color'
 
-// Theme specific componenbts
-import { Logo } from '../Logo'
+// Theme specific components
+import { Logo } from '../logo'
 import { SiteMetaData } from '../site-metadata'
 import { SourceList } from '../source-list'
 import { SourceDays } from '../source-days'

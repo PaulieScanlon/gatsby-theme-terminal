@@ -4,8 +4,8 @@ import { jsx } from 'theme-ui'
 import { Location } from '@reach/router'
 import { ContextProvider } from '../context'
 
-import { Seo } from '../components/Seo'
-import { Main } from '../components/Main'
+import { Seo } from '../components/seo'
+import { Main } from '../components/main'
 
 import { useConfig } from '../data'
 

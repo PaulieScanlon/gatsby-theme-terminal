@@ -18,6 +18,12 @@ import { format } from 'date-fns'
 
 <Divider />
 
+<Grid
+  sx={{ 
+    alignItems: 'center',
+    gridTemplateColumns: 'auto 1fr'
+  }}
+>
 <Button
   sx={{ mb: 2 }}
   as="a"
@@ -26,13 +32,13 @@ import { format } from 'date-fns'
   target="_blank"
 >
   View theme on GitHub
-</Button> <Link
-  sx={{ whiteSpace: 'nowrap' }}
-  href="https://github.com/PaulieScanlon/gatsby-theme-terminal"
-  target="_blank"
->
+</Button>
+
+<Link sx={{ whiteSpace: 'nowrap' }} href="https://github.com/PaulieScanlon/gatsby-theme-terminal" target="_blank">
   gatsby-theme-terminal
 </Link>
+</Grid>
+
 <Divider />
 
 <Alert variant="success">Alert... My website is faster than yours!</Alert>
@@ -45,18 +51,10 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 
 <Divider />
 
-<Flex sx={{ flexWrap: "wrap" }}>  
-  <Box
-    sx={{
-      width: ["100%", "100%", "55%"],
-      mb: 3,
-      pr: [0,0, 4],
-    }}
-  >
+<Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>  
+<Box>
 
 ## Contact
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Email
@@ -66,8 +64,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 </Link>
 <Divider />
 
-{' '}
-
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Twitter
 </Heading>
@@ -75,8 +71,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
   https://twitter.com/PaulieScanlon/
 </Link>
 <Divider />
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   GitHub
@@ -86,8 +80,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 </Link>
 <Divider />
 
-{' '}
-
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   LinkedIn
 </Heading>
@@ -95,19 +87,11 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
   https://linkedin.com/in/PaulieScanlon/
 </Link>
 <Divider />
+</Box>
 
-  </Box>
-
-  <Box
-    sx={{
-      width: ["100%", "100%", "45%"],
-      mb: 3
-    }}
-  >
+<Box>
 
 ## Top 5 tags
-
-{' '}
 
 <SourceTags filter="posts">
   {(tags) => (
@@ -139,6 +123,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
     </Flex>
   )}
 </SourceTags>
+</Box>
 
-  </Box>
-</Flex>
+</Grid>

@@ -6,7 +6,7 @@ import { Heading, Badge, Text, Flex, Box, Divider, Alert } from '@theme-ui/compo
 import { mix } from '@theme-ui/color'
 import { format } from 'date-fns'
 
-import { Main } from '../Main'
+import { Main } from '../main'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const formatDate = (date) => format(new Date(date), 'd-MMM-u')
