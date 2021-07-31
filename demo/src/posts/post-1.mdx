@@ -14,13 +14,9 @@ justo. Ut sit amet elit mauris. Praesent eleifend cursus luctus. Praesent posuer
 metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum pharetra arcu, vel egestas
 turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
 
-<Divider />
-
 ```sh
 npm install aThing `aThing` 'aThing' "aThing"
 ```
-
-<Divider />
 
 ```javascript
 <SourceArticle
@@ -38,20 +34,18 @@ npm install aThing `aThing` 'aThing' "aThing"
 />
 ```
 
-<Divider />
-
-<Flex sx={{ flexWrap: 'wrap' }}>
-  <Box sx={{ mb: 3, width: ['100%', '50%'] }}>
+<Grid sx={{ gridTemplateColumns: ['1fr', '1fr 1fr'] }}>
+  <Box>
     Donec nec felis nec metus semper pharetra ut ut libero. Ut hendrerit dui ut tincidunt egestas. Donec interdum
     pharetra arcu, vel egestas turpis ornare a. Phasellus quis euismod diam, sed convallis dolor.
   </Box>
-  <Box sx={{ mb: 3, p: [0, 3], width: ['100%', '50%'] }}>
+  <Box>
     <GatsbyImage alt="embedded-image-1" image={props.embedded.image1} />
   </Box>
-</Flex>
+</Grid>
 
 ### [Gatsby](#gatsby)
 
 `<GatsbyImage alt='...' image={...}/>`
 
-<pre>{JSON.stringify(props.embedded.image1, null, 2)}</pre>
+<Box as="pre">{JSON.stringify(props.embedded.image1, null, 2)}</Box>

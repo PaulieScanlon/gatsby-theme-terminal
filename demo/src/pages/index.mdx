@@ -4,6 +4,12 @@ navigationLabel: Home
 
 import { format } from 'date-fns'
 
+<Grid
+  sx={{
+    mb: 6
+  }}
+>
+
 <SiteMetaData>
   {(siteMetadata) => {
     const { name, description } = siteMetadata
@@ -15,8 +21,6 @@ import { format } from 'date-fns'
     )
   }}
 </SiteMetaData>
-
-<Divider />
 
 <Grid
   sx={{ 
@@ -39,17 +43,22 @@ import { format } from 'date-fns'
 </Link>
 </Grid>
 
-<Divider />
-
 <Alert variant="success">Alert... My website is faster than yours!</Alert>
-<Divider />
-<Divider />
+
+</Grid>
+
+<Grid
+  sx={{
+    gap: 0,
+    mb: 6
+  }}
+>
 
 ## About
 
 Write anything you want in `src/pages/index.mdx` and it'll go here.
 
-<Divider />
+</Grid>
 
 <Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>  
 <Box>
@@ -62,7 +71,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="mailto:******@gmail.com" variant="styles.a">
   ******@gmail.com
 </Link>
-<Divider />
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Twitter
@@ -70,7 +78,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://twitter.com/PaulieScanlon/" variant="styles.a">
   https://twitter.com/PaulieScanlon/
 </Link>
-<Divider />
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   GitHub
@@ -78,7 +85,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://github.com/PaulieScanlon/" variant="styles.a">
   https://github.com/PaulieScanlon/
 </Link>
-<Divider />
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   LinkedIn
@@ -86,7 +92,7 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://www.linkedin.com/in/PaulieScanlon/" variant="styles.a">
   https://linkedin.com/in/PaulieScanlon/
 </Link>
-<Divider />
+
 </Box>
 
 <Box>
