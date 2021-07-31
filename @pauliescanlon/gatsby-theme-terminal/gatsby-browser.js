@@ -1,5 +1,5 @@
 const React = require('react')
-const { PageElement } = require('./src/components/PageElement')
+const { PageElement } = require('./src/components/page-element')
 
 const anchorScroll = (location) => {
   const anchor = document.querySelectorAll(`a[href="${location.hash}"]`)[0]

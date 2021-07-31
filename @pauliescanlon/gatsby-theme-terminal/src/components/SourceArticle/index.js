@@ -1,1 +1,0 @@
-export { SourceArticle } from './SourceArticle'

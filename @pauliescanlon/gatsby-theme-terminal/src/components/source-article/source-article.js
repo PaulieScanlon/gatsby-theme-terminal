@@ -6,7 +6,7 @@ import { Heading, Badge, Text, Flex, Box, Divider, Alert } from '@theme-ui/compo
 import { mix } from '@theme-ui/color'
 import { format } from 'date-fns'
 
-import { Main } from '../Main'
+import { Main } from '../main'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const formatDate = (date) => format(new Date(date), 'd-MMM-u')
@@ -32,8 +32,9 @@ export const SourceArticle = ({
         <Fragment>
           {isPrivate && (
             <Fragment>
-              <Alert variant="error">This is a private post</Alert>
-              <Divider />
+              <Alert variant="error" sx={{ mb: 4 }}>
+                This is a private post
+              </Alert>
             </Fragment>
           )}
 
@@ -45,16 +46,21 @@ export const SourceArticle = ({
               <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.url.childImageSharp.gatsbyImageData} />
             )}
           </Box>
+
           <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
             {title}
           </Heading>
-          <Flex sx={{ flexWrap: 'wrap' }}>
+          <Flex sx={{ flexWrap: 'wrap', mb: 1 }}>
             <Box
               sx={{
                 width: ['100%', '50%'],
               }}
             >
-              {date && <Text sx={{ color: 'muted' }}>Date published: {formatDate(date)}</Text>}
+              {date && (
+                <Text as="div" sx={{ color: 'muted' }}>
+                  Date published: {formatDate(date)}
+                </Text>
+              )}
             </Box>
             <Box
               sx={{
@@ -63,6 +69,7 @@ export const SourceArticle = ({
             >
               {dateModified && (
                 <Text
+                  as="div"
                   sx={{
                     color: 'muted',
                     textAlign: ['left', 'right'],
@@ -74,13 +81,13 @@ export const SourceArticle = ({
             </Box>
           </Flex>
 
-          <Flex sx={{ flexWrap: 'wrap' }}>
+          <Flex sx={{ flexWrap: 'wrap', mb: 3 }}>
             <Box
               sx={{
                 width: ['100%', '50%'],
               }}
             >
-              <Text sx={{ color: 'muted' }}>{`${timeToRead} min read / ${wordCount.words} words`}</Text>
+              <Text as="div" sx={{ color: 'muted' }}>{`${timeToRead} min read / ${wordCount.words} words`}</Text>
             </Box>
             {author && (
               <Box
@@ -88,32 +95,34 @@ export const SourceArticle = ({
                   width: ['100%', '50%'],
                 }}
               >
-                <Text sx={{ color: 'muted', textAlign: ['left', 'right'] }}>Author: {author}</Text>
+                <Text as="div" sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
+                  Author: {author}
+                </Text>
               </Box>
             )}
           </Flex>
-
-          <Divider />
         </Fragment>
       ) : null}
 
-      {tags &&
-        tags.map((tag, index) => (
-          <Badge
-            key={index}
-            variant="primary"
-            sx={{
-              mb: 2,
-              mr: 2,
-              color: mix('muted', 'primary', `${index / tags.length}`),
-              borderColor: mix('muted', 'primary', `${index / tags.length}`),
-            }}
-          >
-            {tag}
-          </Badge>
-        ))}
+      {tags ? (
+        <Box sx={{ mb: 3 }}>
+          {tags.map((tag, index) => (
+            <Badge
+              key={index}
+              variant="primary"
+              sx={{
+                mb: 2,
+                mr: 2,
+                color: mix('muted', 'primary', `${index / tags.length}`),
+                borderColor: mix('muted', 'primary', `${index / tags.length}`),
+              }}
+            >
+              {tag}
+            </Badge>
+          ))}
+        </Box>
+      ) : null}
 
-      <Divider />
       <MDXProvider>
         <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
       </MDXProvider>

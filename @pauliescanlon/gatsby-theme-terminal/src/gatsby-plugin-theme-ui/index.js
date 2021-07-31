@@ -48,6 +48,16 @@ const theme = {
       a: {
         variant: 'styles.focus',
       },
+      pre: {
+        ...codeTheme,
+        fontFamily: 'code',
+        borderRadius: 0,
+        overflow: 'auto',
+        fontSize: '13px',
+        overflow: 'auto',
+        p: 3,
+        my: '48px!important',
+      },
     },
     focus: {
       transition: '.2s linear box-shadow',
@@ -97,21 +107,13 @@ const theme = {
       variant: 'styles.focus',
     },
     code: {
-      ...codeTheme,
       fontFamily: 'code',
       color: 'inherit',
       backgroundColor: 'surface',
       fontSize: '13px',
       p: 1,
     },
-    pre: {
-      ...codeTheme,
-      fontFamily: 'code',
-      borderRadius: 0,
-      overflow: 'auto',
-      fontSize: '13px',
-      p: 3,
-    },
+
     hr: {
       border: 'none',
       mt: 0,

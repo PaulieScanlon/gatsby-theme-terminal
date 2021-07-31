@@ -4,6 +4,12 @@ navigationLabel: Home
 
 import { format } from 'date-fns'
 
+<Grid
+  sx={{
+    mb: 6
+  }}
+>
+
 <SiteMetaData>
   {(siteMetadata) => {
     const { name, description } = siteMetadata
@@ -16,8 +22,12 @@ import { format } from 'date-fns'
   }}
 </SiteMetaData>
 
-<Divider />
-
+<Grid
+  sx={{ 
+    alignItems: 'center',
+    gridTemplateColumns: 'auto 1fr'
+  }}
+>
 <Button
   sx={{ mb: 2 }}
   as="a"
@@ -26,37 +36,34 @@ import { format } from 'date-fns'
   target="_blank"
 >
   View theme on GitHub
-</Button> <Link
-  sx={{ whiteSpace: 'nowrap' }}
-  href="https://github.com/PaulieScanlon/gatsby-theme-terminal"
-  target="_blank"
->
+</Button>
+
+<Link sx={{ whiteSpace: 'nowrap' }} href="https://github.com/PaulieScanlon/gatsby-theme-terminal" target="_blank">
   gatsby-theme-terminal
 </Link>
-<Divider />
+</Grid>
 
 <Alert variant="success">Alert... My website is faster than yours!</Alert>
-<Divider />
-<Divider />
+
+</Grid>
+
+<Grid
+  sx={{
+    gap: 0,
+    mb: 6
+  }}
+>
 
 ## About
 
 Write anything you want in `src/pages/index.mdx` and it'll go here.
 
-<Divider />
+</Grid>
 
-<Flex sx={{ flexWrap: "wrap" }}>  
-  <Box
-    sx={{
-      width: ["100%", "100%", "55%"],
-      mb: 3,
-      pr: [0,0, 4],
-    }}
-  >
+<Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>  
+<Box>
 
 ## Contact
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Email
@@ -64,9 +71,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="mailto:******@gmail.com" variant="styles.a">
   ******@gmail.com
 </Link>
-<Divider />
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   Twitter
@@ -74,9 +78,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://twitter.com/PaulieScanlon/" variant="styles.a">
   https://twitter.com/PaulieScanlon/
 </Link>
-<Divider />
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   GitHub
@@ -84,9 +85,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://github.com/PaulieScanlon/" variant="styles.a">
   https://github.com/PaulieScanlon/
 </Link>
-<Divider />
-
-{' '}
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
   LinkedIn
@@ -94,20 +92,12 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://www.linkedin.com/in/PaulieScanlon/" variant="styles.a">
   https://linkedin.com/in/PaulieScanlon/
 </Link>
-<Divider />
 
-  </Box>
+</Box>
 
-  <Box
-    sx={{
-      width: ["100%", "100%", "45%"],
-      mb: 3
-    }}
-  >
+<Box>
 
 ## Top 5 tags
-
-{' '}
 
 <SourceTags filter="posts">
   {(tags) => (
@@ -139,6 +129,6 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
     </Flex>
   )}
 </SourceTags>
+</Box>
 
-  </Box>
-</Flex>
+</Grid>

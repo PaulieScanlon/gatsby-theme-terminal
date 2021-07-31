@@ -59,7 +59,7 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           defaultLayouts: {
-            default: require.resolve(`./src/layouts/PageLayout.js`),
+            default: require.resolve(`./src/layouts/page-layout.js`),
           },
         },
       },

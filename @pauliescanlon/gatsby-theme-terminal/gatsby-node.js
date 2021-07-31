@@ -146,7 +146,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   data.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.join(__dirname, `src/layouts/SourceLayout.js`),
+      component: path.join(__dirname, `src/layouts/source-layout.js`),
       context: {
         id: node.id,
       },

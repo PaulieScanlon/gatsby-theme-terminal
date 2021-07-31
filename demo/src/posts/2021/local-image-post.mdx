@@ -13,14 +13,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris
 
 ### Gatsby
 
+```javascript
+<GatsbyImage alt='...' image={...}/>
+```
+
 `<GatsbyImage alt='...' image={...}/>`
 
 <Box>
   <GatsbyImage alt="embedded-image-1" image={props.embedded.image1} />
 </Box>
-<Divider />
-<pre>{JSON.stringify(props.embedded.image1, null, 2)}</pre>
-<Divider />
+
+<Box as="pre">{JSON.stringify(props.embedded.image1, null, 2)}</Box>
 
 ### Theme UI
 
@@ -29,8 +32,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id enim et mauris
 <Box>
   <Image src={props.embedded.image1.gatsbyImageData.images.fallback.src} />
 </Box>
-<Divider />
-<Box>
-  <pre>{JSON.stringify(props.embedded.image1.gatsbyImageData.images.fallback.src, null, 2)}</pre>
-  <Divider />
-</Box>
+
+<Box as="pre">{JSON.stringify(props.embedded.image1.gatsbyImageData.images.fallback.src, null, 2)}</Box>

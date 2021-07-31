@@ -1,1 +1,0 @@
-export { SourceWords } from './SourceWords'

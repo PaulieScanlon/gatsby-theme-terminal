@@ -5,7 +5,7 @@ import Prism from '@theme-ui/prism'
 import { Link as GatsbyLink } from 'gatsby'
 
 import { Context } from '../../context'
-import { Nav } from '../Nav'
+import { Nav } from '../nav'
 import { useConfig } from '../../data'
 
 // Mdx components
@@ -15,14 +15,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Container, Box, Close, Image, MenuButton, Link } from 'theme-ui'
 import { transparentize } from '@theme-ui/color'
 
-// Theme specific componenbts
-import { Logo } from '../Logo'
-import { SiteMetaData } from '../SiteMetaData'
-import { SourceList } from '../SourceList'
-import { SourceDays } from '../SourceDays'
-import { SourceMonths } from '../SourceMonths'
-import { SourceWords } from '../SourceWords'
-import { SourceTags } from '../SourceTags'
+// Theme specific components
+import { Logo } from '../logo'
+import { SiteMetaData } from '../site-metadata'
+import { SourceList } from '../source-list'
+import { SourceDays } from '../source-days'
+import { SourceMonths } from '../source-months'
+import { SourceWords } from '../source-words'
+import { SourceTags } from '../source-tags'
 
 const components = {
   a: ({ href, children }) => {
