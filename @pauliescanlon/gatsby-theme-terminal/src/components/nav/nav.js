@@ -3,7 +3,7 @@ import { Box, NavLink } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
 import { useNavigation } from '../../data'
-import { Logo } from '../Logo'
+import { Logo } from '../logo'
 
 export const Nav = () => {
   const {
