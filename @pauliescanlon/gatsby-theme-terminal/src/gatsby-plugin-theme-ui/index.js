@@ -45,6 +45,9 @@ const theme = {
       fontWeight: 'body',
       fontSize: 1,
       lineHeight: 'body',
+      'input:-webkit-autofill:first-line': {
+        color: (theme) => `${theme.colors.primary}!important`,
+      },
       a: {
         variant: 'styles.focus',
       },
