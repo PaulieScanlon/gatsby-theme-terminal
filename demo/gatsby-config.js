@@ -3,9 +3,9 @@ module.exports = {
     name: `gatsby-theme-terminal`,
     description: `A zero component Gatsby theme for developers`,
     keywords: [`gatsby`, `gatsbyjs`, `gatsby-theme`],
-    siteUrl: `https://gatsby-theme-terminal.netlify.com`,
-    siteImage: `https://gatsby-theme-terminal.netlify.com/images/terminal-open-graph-image.jpg`,
-    profileImage: `https://gatsby-theme-terminal.netlify.com/images/terminal-profile-image.jpg`,
+    siteUrl: `https://gatsbythemeterminal.gatsbyjs.io`,
+    siteImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-open-graph-image.jpg`,
+    profileImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-profile-image.jpg`,
     lang: `en`,
     config: {
       sidebarWidth: 280,
