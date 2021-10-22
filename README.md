@@ -4,11 +4,13 @@
 
 ## gatsby-theme-terminal
 
-Gatsby Theme Terminal aims to be a **zero component theme**. It provides _data_ components to aid in the abstraction of presentational and data layers which together provide the most flexibility
+Gatsby Theme Terminal aims to be a **zero component theme**. It provides _data_ components to aid in the abstraction of
+presentational and data layers which together provide the most flexibility
 
 The theme handles the data but how it's displayed is up to you!
 
-You can create any page layout or component combination you like using your own components or components provided by [theme-ui/components](https://theme-ui.com/components)
+You can create any page layout or component combination you like using your own components or components provided by
+[theme-ui/components](https://theme-ui.com/components)
 
 ## 👀 Preview
 
@@ -16,7 +18,8 @@ You can create any page layout or component combination you like using your own 
 
 ## 🚀 Getting started
 
-To help you get started you can either clone the starter [gatsby-starter-terminal](https://github.com/PaulieScanlon/gatsby-starter-terminal) or read the below.
+To help you get started you can either clone the starter
+[gatsby-starter-terminal](https://github.com/PaulieScanlon/gatsby-starter-terminal) or read the below.
 
 ### Install
 
@@ -57,7 +60,8 @@ module.exports = {
 
 ### directory structure
 
-To add pages create `.mdx` files in the `src/pages` directory. You need at least one file called `index.mdx` located at `src/pages` or you'll see a GraphQL error.
+To add pages create `.mdx` files in the `src/pages` directory. You need at least one file called `index.mdx` located at
+`src/pages` or you'll see a GraphQL error.
 
 <!-- prettier-ignore -->
 ```
@@ -89,7 +93,8 @@ This is about page
 
 #### Theme options
 
-Additional `.mdx` can be sourced from _anywhere_ outside the `pages` directory but you need to tell the theme where to source these files from.
+Additional `.mdx` can be sourced from _anywhere_ outside the `pages` directory but you need to tell the theme where to
+source these files from.
 
 Use the `source` option in `gatsby-config.js`
 
@@ -135,7 +140,8 @@ Then create the relevant files and directories
 
 ```
 
-Any file that is _not_ sourced from `pages` can contain any of the following `frontmatter` but a `title` is required, this is how the theme distinguishes between pages and other `.mdx` files
+Any file that is _not_ sourced from `pages` can contain any of the following `frontmatter` but a `title` is required,
+this is how the theme distinguishes between pages and other `.mdx` files
 
 <!-- prettier-ignore -->
 ```
@@ -162,7 +168,8 @@ embeddedImageUrls:
 
 ### Embedded Images
 
-By using the The `<GatsbyImage />` component from `gatsby-plugin-image` you can pass the image data queried by GraphQL and pass it on via the `image` prop
+By using the The `<GatsbyImage />` component from `gatsby-plugin-image` you can pass the image data queried by GraphQL
+and pass it on via the `image` prop
 
 The `gatsbyImageData`, data is available via `props.embedded.image(n)`
 
@@ -178,7 +185,8 @@ You can also use the Theme UI `<Image />` component by passing it a `src`
 
 `image1` in this example would be `markus-spiske-FXFz-sW0uwo-unsplash.jpg`
 
-EmbeddedImages can also be sourced from a remote url, in this case use the `<Image />` component and pass it the same props
+EmbeddedImages can also be sourced from a remote url, in this case use the `<Image />` component and pass it the same
+props
 
 ```
 <Image src={props.embedded.image2.gatsbyImageData.images.fallback.src} />
@@ -186,21 +194,25 @@ EmbeddedImages can also be sourced from a remote url, in this case use the `<Ima
 
 ### markdown
 
-The theme supports the complete markdown spec and you can see how to use markdown in the [demo](https://gatsby-theme-terminal.netlify.com/markdown/)
+The theme supports the complete markdown spec and you can see how to use markdown in the
+[demo](https://gatsby-theme-terminal.netlify.com/markdown/)
 
 ### theme-ui/components
 
-The theme supports _all_ the components provided by [theme-ui/components](https://theme-ui.com/components) and you can see in the [demo](https://gatsby-theme-terminal.netlify.com/theme-ui-components/) how they are used.
+The theme supports _all_ the components provided by [theme-ui/components](https://theme-ui.com/components) and you can
+see in the [demo](https://gatsby-theme-terminal.netlify.com/theme-ui-components/) how they are used.
 
 ### gatsby-theme-terminal/components
 
-The theme also comes with it's own components _but_... These are purely to provide access to the source nodes. What you choose to render is completely up to you!
+The theme also comes with it's own components _but_... These are purely to provide access to the source nodes. What you
+choose to render is completely up to you!
 
-For example to display a list of _all_ files sourced from the `source` theme option you _could_ do something like this. This component can be used in ANY `.mdx` file 😎
+For example to display a list of _all_ files sourced from the `source` theme option you _could_ do something like this.
+This component can be used in ANY `.mdx` file 😎
 
 ```javascript
 <SourceList>
-  {source => (
+  {(source) => (
     <ul>
       {source.map((edge, index) => {
         const {
@@ -213,13 +225,16 @@ For example to display a list of _all_ files sourced from the `source` theme opt
 </SourceList>
 ```
 
-You can see more about how to use the theme components in the [demo](https://gatsby-theme-terminal.netlify.com/components/)
+You can see more about how to use the theme components in the
+[demo](https://gatsby-theme-terminal.netlify.com/components/)
 
 ### Component Shadowing
 
-There is very little to shadow because almost everything is exposed by the components but you might want to add your own logo.
+There is very little to shadow because almost everything is exposed by the components but you might want to add your own
+logo.
 
-To do this create the following directories `@pauliescanlon/gatsby-theme-terminal/components/Logo` in the `src` directory of your project and then create a `Logo.js` file. You can do anything you like in here.
+To do this create the following directories `@pauliescanlon/gatsby-theme-terminal/components/Logo` in the `src`
+directory of your project and then create a `Logo.js` file. You can do anything you like in here.
 
 ```
 |-- src
@@ -254,8 +269,10 @@ export default {
 
 ### favicon
 
-favicon(s) need to be saved in `static/images` and named `favicon-16x16.png` and `favicon-32x32.png` along with an `.icon` file called `favicon.ico`
+favicon(s) need to be saved in `static/images` and named `favicon-16x16.png` and `favicon-32x32.png` along with an
+`.icon` file called `favicon.ico`
 
-If you're using **gatsby-theme-terminal** in your project i'd love to hear from you [@pauliescanlon](https://twitter.com/PaulieScanlon)
+If you're using **gatsby-theme-terminal** in your project i'd love to hear from you
+[@pauliescanlon](https://twitter.com/PaulieScanlon)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P31B7G8)
