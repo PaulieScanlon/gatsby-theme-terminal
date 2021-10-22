@@ -1,5 +1,5 @@
-<a href="https://gatsby-theme-termninal.netlify.com/" target="_blank">
-<img src="https://gatsby-theme-terminal.netlify.com/images/terminal-open-graph-image.jpg" alt="gatsby-theme-termninal main image" />
+<a href="https://gatsbythemeterminal.gatsbyjs.io/" target="_blank">
+<img src="https://gatsbythemeterminal.gatsbyjs.io/images/terminal-open-graph-image.jpg" alt="gatsby-theme-termninal main image" />
 </a>
 
 ## gatsby-theme-terminal
@@ -14,7 +14,7 @@ You can create any page layout or component combination you like using your own 
 
 ## 👀 Preview
 
-- [Live Demo](https://gatsby-theme-terminal.netlify.com/)
+- [Live Demo](https://gatsbythemeterminal.gatsbyjs.io/)
 
 ## 🚀 Getting started
 
@@ -195,12 +195,12 @@ props
 ### markdown
 
 The theme supports the complete markdown spec and you can see how to use markdown in the
-[demo](https://gatsby-theme-terminal.netlify.com/markdown/)
+[demo](https://gatsbythemeterminal.gatsbyjs.io/markdown/)
 
 ### theme-ui/components
 
 The theme supports _all_ the components provided by [theme-ui/components](https://theme-ui.com/components) and you can
-see in the [demo](https://gatsby-theme-terminal.netlify.com/theme-ui-components/) how they are used.
+see in the [demo](https://gatsbythemeterminal.gatsbyjs.io/theme-ui-components/) how they are used.
 
 ### gatsby-theme-terminal/components
 
@@ -226,7 +226,7 @@ This component can be used in ANY `.mdx` file 😎
 ```
 
 You can see more about how to use the theme components in the
-[demo](https://gatsby-theme-terminal.netlify.com/components/)
+[demo](https://gatsbythemeterminal.gatsbyjs.io/components/)
 
 ### Component Shadowing
 
