@@ -42,8 +42,8 @@ export const SourceArticle = ({
             {featuredImage && featuredImage.childImageSharp && (
               <GatsbyImage alt={`${title}-image`} image={featuredImage.childImageSharp.gatsbyImageData} />
             )}
-            {featuredImageUrl && featuredImageUrl.url.childImageSharp && (
-              <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.url.childImageSharp.gatsbyImageData} />
+            {featuredImageUrl && featuredImageUrl.childImageSharp && (
+              <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.childImageSharp.gatsbyImageData} />
             )}
           </Box>
 

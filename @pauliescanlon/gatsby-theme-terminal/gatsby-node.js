@@ -8,7 +8,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
   createTypes(`
     type Mdx implements Node {
       frontmatter: Frontmatter
-      featuredImageUrl: FeaturedImageUrl
+      featuredImageUrl: File @link(from: "fields.featuredImageUrl")
       embeddedImageUrls: [EmbeddedImageUrls]
     }
 
@@ -28,10 +28,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
         featuredImageUrl: String
         embeddedImages: [File] @fileByRelativePath
         embeddedImageUrls: [String]
-    }
-
-    type FeaturedImageUrl  {
-      url: File @link(by: "url")
     }
 
     type EmbeddedImageUrls  {
@@ -73,19 +69,19 @@ exports.onCreateNode = async (
       value: node.frontmatter.navigationLabel ? value : `${basePath}${value}`,
     })
 
-    // await console.log(node.fields)
-
     if (node.frontmatter.featuredImageUrl) {
-      node.featuredImageUrl = await createRemoteFileNode({
+      let featuredImageUrl = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl,
         parentNodeId: node.id,
         createNode,
         createNodeId,
         cache,
         store,
-      }).catch((error) => {
-        console.error(error)
       })
+
+      if (featuredImageUrl) {
+        createNodeField({ node, name: 'featuredImageUrl', value: featuredImageUrl.id })
+      }
     }
 
     if (node.frontmatter.embeddedImageUrls) {

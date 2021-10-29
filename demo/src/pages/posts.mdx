@@ -58,7 +58,7 @@ Here we use it to return all the `posts` by using the filter prop
                 >
                   <Box sx={{ minHeight: '1px' }}>
                     {featuredImage ? <GatsbyImage alt={title} image={featuredImage.childImageSharp} /> : null}
-                    {featuredImageUrl ? <GatsbyImage alt={title} image={featuredImageUrl.url.childImageSharp} /> : null}
+                    {featuredImageUrl ? <GatsbyImage alt={title} image={featuredImageUrl.childImageSharp} /> : null}
                   </Box>
                   <Box
                     sx={{
