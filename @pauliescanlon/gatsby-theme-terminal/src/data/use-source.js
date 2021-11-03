@@ -34,10 +34,8 @@ export const useSource = (filter) => {
               }
             }
             featuredImageUrl {
-              url {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             fields {

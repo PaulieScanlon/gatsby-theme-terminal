@@ -8,8 +8,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
   createTypes(`
     type Mdx implements Node {
       frontmatter: Frontmatter
-      featuredImageUrl: FeaturedImageUrl
-      embeddedImageUrls: [EmbeddedImageUrls]
+      featuredImageUrl: File @link(from: "fields.featuredImageUrl")
+      embeddedImageUrls: [File] @link(from: "fields.embeddedImageUrls")
     }
 
     type Frontmatter @dontInfer {
@@ -28,14 +28,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
         featuredImageUrl: String
         embeddedImages: [File] @fileByRelativePath
         embeddedImageUrls: [String]
-    }
-
-    type FeaturedImageUrl  {
-      url: File @link(by: "url")
-    }
-
-    type EmbeddedImageUrls  {
-      url: [File] @link(by: "url")
     }
   `)
 
@@ -73,38 +65,43 @@ exports.onCreateNode = async (
       value: node.frontmatter.navigationLabel ? value : `${basePath}${value}`,
     })
 
-    // await console.log(node.fields)
-
     if (node.frontmatter.featuredImageUrl) {
-      node.featuredImageUrl = await createRemoteFileNode({
+      let featuredImageUrl = await createRemoteFileNode({
         url: node.frontmatter.featuredImageUrl,
         parentNodeId: node.id,
         createNode,
         createNodeId,
         cache,
         store,
-      }).catch((error) => {
-        console.error(error)
       })
+
+      if (featuredImageUrl) {
+        createNodeField({ node, name: 'featuredImageUrl', value: featuredImageUrl.id })
+      }
     }
 
     if (node.frontmatter.embeddedImageUrls) {
-      node.embeddedImageUrls = await Promise.all(
+      let embeddedImageUrls = await Promise.all(
         node.frontmatter.embeddedImageUrls.map((url) => {
-          try {
-            return createRemoteFileNode({
-              url,
-              parentNodeId: node.id,
-              createNode,
-              createNodeId,
-              cache,
-              store,
-            })
-          } catch (error) {
-            console.error(error)
-          }
+          return createRemoteFileNode({
+            url,
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            cache,
+            store,
+          })
         }),
       )
+      if (embeddedImageUrls) {
+        createNodeField({
+          node,
+          name: 'embeddedImageUrls',
+          value: embeddedImageUrls.map((embeddedImageUrl) => {
+            return embeddedImageUrl.id
+          }),
+        })
+      }
     }
   }
 }

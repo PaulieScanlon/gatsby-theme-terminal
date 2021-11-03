@@ -41,7 +41,7 @@ const SourceLayout = ({
     }
 
     if (featuredImageUrl) {
-      return `${siteUrl}${featuredImageUrl.url.childImageSharp.gatsbyImageData.images.fallback.src}`
+      return `${siteUrl}${featuredImageUrl.childImageSharp.gatsbyImageData.images.fallback.src}`
     }
 
     return siteImage
@@ -133,22 +133,16 @@ export const singleMdx = graphql`
           }
         }
       }
-
       featuredImageUrl {
-        url {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       embeddedImageUrls {
-        url {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+        childImageSharp {
+          gatsbyImageData
         }
       }
-
       fields {
         slug
       }
