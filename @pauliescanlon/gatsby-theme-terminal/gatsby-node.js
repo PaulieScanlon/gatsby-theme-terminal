@@ -77,7 +77,6 @@ exports.onCreateNode = async (
 
       if (featuredImageUrl) {
         createNodeField({ node, name: 'featuredImageUrl', value: featuredImageUrl.id })
-        console.log('featuredImageUrl.id: ', featuredImageUrl.id)
       }
     }
 
