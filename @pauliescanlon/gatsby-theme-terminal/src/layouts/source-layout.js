@@ -139,10 +139,8 @@ export const singleMdx = graphql`
         }
       }
       embeddedImageUrls {
-        url {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+        childImageSharp {
+          gatsbyImageData
         }
       }
       fields {

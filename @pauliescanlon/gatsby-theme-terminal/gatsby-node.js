@@ -9,7 +9,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type Mdx implements Node {
       frontmatter: Frontmatter
       featuredImageUrl: File @link(from: "fields.featuredImageUrl")
-      embeddedImageUrls: [EmbeddedImageUrls]
+      embeddedImageUrls: [File] @link(from: "fields.embeddedImageUrls")
     }
 
     type Frontmatter @dontInfer {
@@ -28,10 +28,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
         featuredImageUrl: String
         embeddedImages: [File] @fileByRelativePath
         embeddedImageUrls: [String]
-    }
-
-    type EmbeddedImageUrls  {
-      url: [File] @link(by: "url")
     }
   `)
 
@@ -81,26 +77,32 @@ exports.onCreateNode = async (
 
       if (featuredImageUrl) {
         createNodeField({ node, name: 'featuredImageUrl', value: featuredImageUrl.id })
+        console.log('featuredImageUrl.id: ', featuredImageUrl.id)
       }
     }
 
     if (node.frontmatter.embeddedImageUrls) {
-      node.embeddedImageUrls = await Promise.all(
+      let embeddedImageUrls = await Promise.all(
         node.frontmatter.embeddedImageUrls.map((url) => {
-          try {
-            return createRemoteFileNode({
-              url,
-              parentNodeId: node.id,
-              createNode,
-              createNodeId,
-              cache,
-              store,
-            })
-          } catch (error) {
-            console.error(error)
-          }
+          return createRemoteFileNode({
+            url,
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            cache,
+            store,
+          })
         }),
       )
+      if (embeddedImageUrls) {
+        createNodeField({
+          node,
+          name: 'embeddedImageUrls',
+          value: embeddedImageUrls.map((embeddedImageUrl) => {
+            return embeddedImageUrl.id
+          }),
+        })
+      }
     }
   }
 }
