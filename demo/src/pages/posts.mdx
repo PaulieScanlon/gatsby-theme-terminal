@@ -10,11 +10,11 @@ You can use the `<SourceList filter="posts" />` component from any `.mdx`.
 
 Here we use it to return all the `posts` by using the filter prop
 
-<SourceList filter="posts">
+<SourceListPagination filter="posts">
   {(posts) => (
     <Grid
       sx={{
-        gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'],
+        gridTemplateColumns: ['1fr', '1fr', '1fr 1fr 1fr'],
       }}
     >
       {posts
@@ -68,7 +68,7 @@ Here we use it to return all the `posts` by using the filter prop
                       p: 3,
                     }}
                   >
-                    <Heading variant="styles.h4" sx={{ color: pinned ? 'primary' : 'text' }}>
+                    <Heading variant="styles.h4" sx={{ color: pinned ? 'primary' : 'text', fontWeight: 400 }}>
                       {title}
                     </Heading>
                     <Text sx={{ mb: 1, color: 'muted' }}>{format(new Date(date), 'd-MMM-u')}</Text>
@@ -84,4 +84,6 @@ Here we use it to return all the `posts` by using the filter prop
         })}
     </Grid>
   )}
-</SourceList>
+</SourceListPagination>
+
+<PaginationButtons filter="posts"/>

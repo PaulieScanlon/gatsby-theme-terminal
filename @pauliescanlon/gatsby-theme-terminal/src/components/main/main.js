@@ -18,8 +18,11 @@ import { transparentize } from '@theme-ui/color'
 
 // Theme specific components
 import { Logo } from '../logo'
+import { Footer } from '../footer'
 import { SiteMetaData } from '../site-metadata'
 import { SourceList } from '../source-list'
+import { SourceListPagination } from '../source-list-pagination'
+import { PaginationButtons } from '../pagination-buttons'
 import { SourceDays } from '../source-days'
 import { SourceMonths } from '../source-months'
 import { SourceWords } from '../source-words'
@@ -51,6 +54,8 @@ const components = {
   Fragment,
   SiteMetaData,
   SourceList,
+  SourceListPagination,
+  PaginationButtons,
   SourceDays,
   SourceMonths,
   SourceWords,
@@ -63,7 +68,7 @@ export const Main = ({ children }) => {
   const {
     site: {
       siteMetadata: {
-        config: { sidebarWidth },
+        config: { sidebarWidth, postPerPage },
       },
     },
   } = useConfig()
@@ -87,7 +92,7 @@ export const Main = ({ children }) => {
           height: (theme) => `64px`,
           ml: 0,
           overflow: 'hidden',
-          // position: 'fixed',
+          position: ['fixed', 'static'],
           px: [3, 4],
           width: '100%',
           zIndex: 997,
@@ -141,6 +146,7 @@ export const Main = ({ children }) => {
               `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
               `${isNavOpen ? `-${sidebarWidth}px` : `-${sidebarWidth}px`}`,
             ],
+            top: 0,
             position: 'fixed',
             transition: '.3s ease-in-out left',
             width: sidebarWidth,
@@ -168,7 +174,7 @@ export const Main = ({ children }) => {
         </Box>
         {/* End of nav bar section */}
 
-        {/* Nav Bar close button for small devices */}
+        {/* Nav Bar close button, and its bg for small devices */}
         <Box
           role="button"
           tabIndex="0"
@@ -182,6 +188,7 @@ export const Main = ({ children }) => {
             position: 'fixed',
             transition: '.2s linear background-color',
             width: '100%',
+            top: 0,
             zIndex: 998,
             ':focus': {
               outline: 'none',
@@ -191,7 +198,7 @@ export const Main = ({ children }) => {
           onClick={() => dispatch({ type: 'closeNav' })}
           onKeyDown={(event) => (event.key === 'Enter' ? dispatch({ type: 'closeNav' }) : {})}
         >
-          <Close />
+          {/* <Close /> */}
         </Box>
 
         {/* Page MDX content */}
@@ -202,7 +209,7 @@ export const Main = ({ children }) => {
               display: 'block',
               ml: 0,
               px: [3, 4],
-              py: 6,
+              pt: ['var(--space-2xl)', 'var(--space-m)'],
               transition: '.3s ease-in-out margin-left',
             }}
           >
@@ -212,6 +219,9 @@ export const Main = ({ children }) => {
         {/* End of MDX content */}
       </Container>
       {/* End of page body */}
+
+      {/* Footer Box */}
+      <Footer />
     </Fragment>
   )
 }

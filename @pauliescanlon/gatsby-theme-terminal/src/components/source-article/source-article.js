@@ -9,7 +9,10 @@ import { format } from 'date-fns'
 import { Main } from '../main'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-const formatDate = (date) => format(new Date(date), 'd-MMM-u')
+import { AnchorTag } from '../anchor-tag'
+import { BackRef } from '../back-ref'
+
+const formatDate = (date) => format(new Date(date), 'yyyy-MM-dd')
 
 export const SourceArticle = ({
   title,
@@ -25,107 +28,122 @@ export const SourceArticle = ({
   timeToRead,
   wordCount,
   slug,
+  outboundReferences,
+  inboundReferences,
 }) => {
+  const ProvidedAnchorTag = (anchorProps) => {
+    return <AnchorTag {...anchorProps} references={outboundReferences}></AnchorTag>
+  }
+
+  const MDXProviderComponents = {
+    a: ProvidedAnchorTag,
+  }
+
+
   return (
     <Main>
-      {title ? (
-        <Fragment>
-          {isPrivate && (
-            <Fragment>
-              <Alert variant="error" sx={{ mb: 4 }}>
-                This is a private post
-              </Alert>
-            </Fragment>
-          )}
-
-          <Box sx={{ mb: 4 }}>
-            {featuredImage && featuredImage.childImageSharp && (
-              <GatsbyImage alt={`${title}-image`} image={featuredImage.childImageSharp.gatsbyImageData} />
+      <Box sx={{ px: [0, 0, 0, 'calc(var(--space-2xl) * 1.618)'] }}>
+        {title ? (
+          <Fragment>
+            {isPrivate && (
+              <Fragment>
+                <Alert variant="error" sx={{ mb: 4 }}>
+                  This is a private post
+                </Alert>
+              </Fragment>
             )}
-            {featuredImageUrl && featuredImageUrl.childImageSharp && (
-              <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.childImageSharp.gatsbyImageData} />
-            )}
-          </Box>
 
-          <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
-            {title}
-          </Heading>
-          <Flex sx={{ flexWrap: 'wrap', mb: 1 }}>
-            <Box
-              sx={{
-                width: ['100%', '50%'],
-              }}
-            >
-              {date && (
-                <Text as="div" sx={{ color: 'muted' }}>
-                  Date published: {formatDate(date)}
-                </Text>
+            <Box sx={{ mb: 4 }}>
+              {featuredImage && featuredImage.childImageSharp && (
+                <GatsbyImage alt={`${title}-image`} image={featuredImage.childImageSharp.gatsbyImageData} />
+              )}
+              {featuredImageUrl && featuredImageUrl.childImageSharp && (
+                <GatsbyImage alt={`${title}-image`} image={featuredImageUrl.childImageSharp.gatsbyImageData} />
               )}
             </Box>
-            <Box
-              sx={{
-                width: ['100%', '50%'],
-              }}
-            >
-              {dateModified && (
-                <Text
-                  as="div"
-                  sx={{
-                    color: 'muted',
-                    textAlign: ['left', 'right'],
-                  }}
-                >
-                  Date modified: {formatDate(dateModified)}
-                </Text>
-              )}
-            </Box>
-          </Flex>
 
-          <Flex sx={{ flexWrap: 'wrap', mb: 3 }}>
-            <Box
-              sx={{
-                width: ['100%', '50%'],
-              }}
-            >
-              <Text as="div" sx={{ color: 'muted' }}>{`${timeToRead} min read / ${wordCount.words} words`}</Text>
-            </Box>
-            {author && (
+            <Heading as="h1" variant="styles.h1" sx={{ mb: 4 }}>
+              {title}
+            </Heading>
+            <Flex sx={{ flexWrap: 'wrap', mb: 1 }}>
               <Box
                 sx={{
                   width: ['100%', '50%'],
                 }}
               >
-                <Text as="div" sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
-                  Author: {author}
-                </Text>
+                {date && (
+                  <Text as="div" sx={{ color: 'muted' }}>
+                    Date published: {formatDate(date)}
+                  </Text>
+                )}
               </Box>
-            )}
-          </Flex>
-        </Fragment>
-      ) : null}
+              <Box
+                sx={{
+                  width: ['100%', '50%'],
+                }}
+              >
+                {dateModified && (
+                  <Text
+                    as="div"
+                    sx={{
+                      color: 'muted',
+                      textAlign: ['left', 'right'],
+                    }}
+                  >
+                    Date modified: {formatDate(dateModified)}
+                  </Text>
+                )}
+              </Box>
+            </Flex>
 
-      {tags ? (
-        <Box sx={{ mb: 3 }}>
-          {tags.map((tag, index) => (
-            <Badge
-              key={index}
-              variant="primary"
-              sx={{
-                mb: 2,
-                mr: 2,
-                color: mix('muted', 'primary', `${index / tags.length}`),
-                borderColor: mix('muted', 'primary', `${index / tags.length}`),
-              }}
-            >
-              {tag}
-            </Badge>
-          ))}
-        </Box>
-      ) : null}
+            <Flex sx={{ flexWrap: 'wrap', mb: 3 }}>
+              <Box
+                sx={{
+                  width: ['100%', '50%'],
+                }}
+              >
+                <Text as="div" sx={{ color: 'muted' }}>{`${timeToRead} min read / ${wordCount.words} words`}</Text>
+              </Box>
+              {author && (
+                <Box
+                  sx={{
+                    width: ['100%', '50%'],
+                  }}
+                >
+                  <Text as="div" sx={{ color: 'muted', textAlign: ['left', 'right'] }}>
+                    Author: {author}
+                  </Text>
+                </Box>
+              )}
+            </Flex>
+          </Fragment>
+        ) : null}
 
-      <MDXProvider>
-        <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
-      </MDXProvider>
+        {tags ? (
+          <Box sx={{ mb: 3 }}>
+            {tags.map((tag, index) => (
+              <Badge
+                key={index}
+                variant="primary"
+                sx={{
+                  mb: 2,
+                  mr: 2,
+                  color: mix('muted', 'primary', `${index / tags.length}`),
+                  borderColor: mix('muted', 'primary', `${index / tags.length}`),
+                }}
+              >
+                {tag}
+              </Badge>
+            ))}
+          </Box>
+        ) : null}
+
+        <MDXProvider components={MDXProviderComponents}>
+          <MDXRenderer embedded={embedded}>{body}</MDXRenderer>
+        </MDXProvider>
+
+        <BackRef inboundReferences={inboundReferences} />
+      </Box>
     </Main>
   )
 }

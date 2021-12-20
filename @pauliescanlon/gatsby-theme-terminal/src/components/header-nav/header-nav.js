@@ -23,7 +23,7 @@ export const HeaderNav = () => {
           } = route.node
 
           return (
-            <NavLink as={GatsbyLink} to={slug} sx={{ px: 2 }}>
+            <NavLink as={GatsbyLink} to={slug} sx={{ px: 2 }} key={index}>
               {navigationLabel}
             </NavLink>
           )

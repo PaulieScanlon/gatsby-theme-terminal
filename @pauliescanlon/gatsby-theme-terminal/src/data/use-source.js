@@ -5,7 +5,7 @@ export const useSource = (filter) => {
     query source {
       allMdx(
         filter: { frontmatter: { status: { ne: "draft" }, navigationLabel: { eq: null } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: [DESC, DESC], fields: [frontmatter___dateModified, frontmatter___date] }
       ) {
         edges {
           node {

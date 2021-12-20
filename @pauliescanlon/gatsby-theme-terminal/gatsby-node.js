@@ -16,6 +16,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
         title: String
         navigationLabel: String
         tags: [String]
+        aliases: [String]
         date: String
         dateModified: String
         author: String

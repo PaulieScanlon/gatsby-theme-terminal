@@ -38,6 +38,7 @@ module.exports = (themeOptions) => {
       lang: ``,
       config: {
         sidebarWidth: 260,
+        postPerPage: 50,
       },
     },
     plugins: [
@@ -48,19 +49,52 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-plugin-sharp`,
         options: {
           defaults: {
-            quality: 70,
-            formats: ['auto', 'webp', 'avif'],
+            quality: 80,
+            formats: ['auto', 'jpg', 'png', 'webp', 'avif'],
             placeholder: 'blurred',
           },
         },
       },
       `gatsby-plugin-theme-ui`,
       {
+        resolve: `gatsby-transformer-remark`,
+        options: {
+          plugins: [
+            {
+              resolve: `gatsby-remark-katex`,
+            },
+          ],
+        },
+      },
+      {
         resolve: `gatsby-plugin-mdx`,
         options: {
+          extensions: ['.md', '.mdx'],
           defaultLayouts: {
             default: require.resolve(`./src/layouts/page-layout.js`),
           },
+          gatsbyRemarkPlugins: [
+            {
+              // doesn't work
+              resolve: `gatsby-remark-katex`,
+            },
+            {
+              // fix this first
+              resolve: 'gatsby-remark-wiki-link',
+              options: {
+                stripBrackets: true,
+                stripDefinitionExts: ['.md', '.mdx']
+              },
+            },
+          ],
+          // error
+          // remarkPlugins: [require('remark-html-katex')],
+        },
+      },
+      {
+        resolve: `@gatsby-project-kb/transformer-wiki-references`,
+        options: {
+          types: ['Mdx'], // or ["MarkdownRemark"] (or both)
         },
       },
 

@@ -1,24 +1,37 @@
 import codeTheme from '@theme-ui/prism/presets/night-owl.json'
-import { lighten } from '@theme-ui/color'
+import { lighten, darken } from '@theme-ui/color'
+
+const codeFontSize = '15px'
+const codeBlockFontSize = '14px'
+
+const sansFontPreset = 'Lato, sans-serif'
+const serifFontPreset = '"EB Garamond", serif'
+
+const codeFontPreset = '"Inconsolata", monospace'
+const codeFontFeature = "'zero' on, 'ss02' on, 'ONUM' on, 'liga' on"
+
+// based font size index from array `theme/fontSizes`
+const basedFontInd = 2
 
 const theme = {
   borderWidths: [0, 1, 4],
   colors: {
-    text: '#ffffff',
-    background: '#282a36',
-    muted: '#8394ca',
+    text: '#1b262c',
+    muted: "#8b87ea",
+    primary: '#202f66',
+    secondary: '#ff7048',
+    success: '#48ADA9',
+    background: '#f9f7f7',
+    surface: '#EDE8E8',
     highlight: '#5a6084',
-    surface: '#323442',
-    primary: '#ff79c6',
-    secondary: '#8be9fd',
-    success: '#50fa7b',
     error: '#ff5555',
     black: '#000000',
   },
   fonts: {
-    body: 'Inconsolata, monospace',
-    heading: 'Inconsolata, monospace',
-    code: 'monospace',
+    body: serifFontPreset,
+    heading: serifFontPreset,
+    code: codeFontPreset,
+    sans: sansFontPreset
   },
   fontWeights: {
     body: 400,
@@ -29,7 +42,20 @@ const theme = {
     body: 1.75,
     heading: 1.125,
   },
-  fontSizes: [12, 16, 18, 28],
+  // fluid CSS type scales,
+  // step 0 = h5, h6 and default text
+  // step 4 = h1
+  fontSizes: [
+    'var(--step--2)',
+    'var(--step--1)',
+    'var(--step-0)',
+    'var(--step-1)',
+    'var(--step-2)',
+    'var(--step-3)',
+    'var(--step-4)',
+    'var(--step-5)',
+    'var(--step-6)',
+  ],
   space: [0, 4, 8, 16, 32, 48, 64],
   shadows: [
     `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
@@ -40,10 +66,12 @@ const theme = {
   ],
 
   styles: {
+    // default html tags
     root: {
       fontFamily: 'body',
       fontWeight: 'body',
-      fontSize: 1,
+      // default root fontsize
+      fontSize: 16,
       lineHeight: 'body',
       'input:-webkit-autofill:first-line': {
         color: (theme) => `${theme.colors.primary}!important`,
@@ -51,17 +79,24 @@ const theme = {
       a: {
         variant: 'styles.focus',
       },
+      // code block
       pre: {
         ...codeTheme,
         fontFamily: 'code',
         borderRadius: 0,
         overflow: 'auto',
-        fontSize: '13px',
+        fontSize: codeBlockFontSize,
         overflow: 'auto',
         p: 3,
         my: '48px!important',
+        backgroundColor: darken('#05192D', 0.075),
+      },
+      body: {
+        fontSize: basedFontInd,
       },
     },
+
+    // ??
     focus: {
       transition: '.2s linear box-shadow',
       ':focus': {
@@ -70,51 +105,62 @@ const theme = {
       },
     },
     h1: {
-      variant: 'text.specialHeading',
+      variant: 'text.heading',
       color: 'primary',
-      fontSize: 3,
+      fontSize: basedFontInd + 4,
     },
     h2: {
-      variant: 'text.specialHeading',
+      variant: 'text.heading',
       color: 'primary',
+      fontSize: basedFontInd + 3,
     },
     h3: {
       variant: 'text.heading',
       color: 'secondary',
+      fontSize: basedFontInd + 2,
     },
     h4: {
       variant: 'text.heading',
       color: 'text',
+      fontSize: basedFontInd + 1,
     },
     h5: {
       variant: 'text.heading',
       color: 'success',
+      fontSize: basedFontInd,
     },
     h6: {
       variant: 'text.heading',
       color: 'error',
+      fontSize: basedFontInd,
     },
     p: {
       mt: 0,
       mb: 3,
       code: {
         variant: 'styles.code',
+        'font-feature-settings': `${codeFontFeature}`,
       },
     },
     small: {
       color: 'muted',
-      fontSize: 0,
+      fontSize: basedFontInd - 1,
     },
     a: {
       color: 'muted',
       variant: 'styles.focus',
+      textDecoration: 'none',
     },
+    // inline code
     code: {
       fontFamily: 'code',
       color: 'inherit',
       backgroundColor: 'surface',
-      fontSize: '13px',
-      p: 1,
+      fontSize: codeFontSize,
+      px: 2,
+      py: 1,
+      borderRadius: '4px',
+      'font-feature-settings': `${codeFontFeature}`,
     },
 
     hr: {
@@ -264,7 +310,8 @@ const theme = {
     primary: {
       color: 'primary',
       borderColor: 'primary',
-      fontSize: 0,
+      fontSize: basedFontInd - 1,
+      fontFamily: 'sans',
       borderRadius: 0,
       borderWidth: 1,
       borderStyle: 'solid',
@@ -350,6 +397,7 @@ const theme = {
   links: {
     variant: 'styles.a',
     nav: {
+      fontFamily: 'sans',
       variant: 'styles.a',
       fontWeight: 'body',
       ':before': {
@@ -368,15 +416,17 @@ const theme = {
         color: 'text',
         pointerEvents: 'none',
       },
+      fontSize: basedFontInd-1,
     },
   },
 
   text: {
     color: 'text',
+    fontSize: basedFontInd,
     heading: {
       fontFamily: 'heading',
       fontWeight: 'heading',
-      fontSize: 2,
+      fontSize: basedFontInd + 1,
       mt: 0,
       mb: 3,
       a: {

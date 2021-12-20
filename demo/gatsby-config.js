@@ -8,7 +8,8 @@ module.exports = {
     profileImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-profile-image.jpg`,
     lang: `en`,
     config: {
-      sidebarWidth: 280,
+      sidebarWidth: 240,
+      postPerPage: 50,
     },
   },
   plugins: [

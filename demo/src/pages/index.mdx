@@ -38,7 +38,7 @@ import { format } from 'date-fns'
   View theme on GitHub
 </Button>
 
-<Link sx={{ whiteSpace: 'nowrap' }} href="https://github.com/PaulieScanlon/gatsby-theme-terminal" target="_blank">
+<Link sx={{ wordWrap: 'break-word' }} href="https://github.com/PaulieScanlon/gatsby-theme-terminal" target="_blank">
   gatsby-theme-terminal
 </Link>
 </Grid>
@@ -92,6 +92,15 @@ Write anything you want in `src/pages/index.mdx` and it'll go here.
 <Link href="https://www.linkedin.com/in/PaulieScanlon/" variant="styles.a">
   https://linkedin.com/in/PaulieScanlon/
 </Link>
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  Super long link
+</Heading>
+
+<Link href="https://www.linkedin.com/in/PaulieScanlon/" variant="styles.a">
+  A super long Link-html-tag title....Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</Link>
+
 
 </Box>
 

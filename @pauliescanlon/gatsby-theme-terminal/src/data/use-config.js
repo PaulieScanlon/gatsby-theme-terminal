@@ -15,6 +15,7 @@ export const useConfig = () => {
             lang
             config {
               sidebarWidth
+              postPerPage
             }
           }
         }

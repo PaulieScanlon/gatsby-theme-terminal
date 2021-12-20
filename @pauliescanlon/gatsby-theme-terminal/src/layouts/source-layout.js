@@ -24,6 +24,8 @@ const SourceLayout = ({
       fields: { slug },
       timeToRead,
       wordCount,
+      outboundReferences,
+      inboundReferences
     },
   },
 }) => {
@@ -83,6 +85,8 @@ const SourceLayout = ({
                 timeToRead={timeToRead}
                 wordCount={wordCount}
                 slug={slug}
+                outboundReferences={outboundReferences}
+                inboundReferences={inboundReferences}
               />
             </Fragment>
           )
@@ -145,6 +149,38 @@ export const singleMdx = graphql`
       }
       fields {
         slug
+      }
+      outboundReferences {
+        contextLine
+        targetAnchor
+        refWord
+        target {
+          ... on Mdx {
+            body
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              aliases
+            }
+          }
+        }
+      }
+      inboundReferences {
+        referrer {
+          ... on Mdx {
+            id
+            slug
+            fields{
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
+        contextLine
       }
     }
   }
