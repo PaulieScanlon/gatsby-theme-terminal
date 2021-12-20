@@ -14,9 +14,9 @@
     "demo"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
-    "husky": "^7.0.1",
-    "prettier": "^2.3.2"
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1"
   }
 }
