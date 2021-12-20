@@ -6,6 +6,7 @@ import { Link as GatsbyLink } from 'gatsby'
 
 import { Context } from '../../context'
 import { Nav } from '../nav'
+import { HeaderNav } from '../header-nav'
 import { useConfig } from '../../data'
 
 // Mdx components
@@ -74,6 +75,7 @@ export const Main = ({ children }) => {
 
   return (
     <Fragment>
+      {/* Header bar */}
       <Box
         as="header"
         sx={{
@@ -82,19 +84,19 @@ export const Main = ({ children }) => {
           borderBottom: (theme) => `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
           display: 'flex',
           justifyContent: 'space-between',
-          height: (theme) => `${theme.space[5]}px`,
-          ml: [0, 0, 0, sidebarWidth],
+          height: (theme) => `64px`,
+          ml: 0,
           overflow: 'hidden',
-          position: 'fixed',
+          // position: 'fixed',
           px: [3, 4],
-          width: ['100%', '100%', '100%', `calc(100% - ${sidebarWidth}px)`],
+          width: '100%',
           zIndex: 997,
         }}
       >
         <Box
           sx={{
             alignItems: 'center',
-            display: ['flex', 'flex', 'flex', 'none'],
+            display: 'flex',
           }}
         >
           <Logo />
@@ -109,22 +111,35 @@ export const Main = ({ children }) => {
         >
           <MenuButton aria-label="Toggle Menu" onClick={() => dispatch({ type: 'openNav' })} />
         </Box>
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: ['none', 'none', 'none', 'flex'],
+            flexBasis: '100%',
+            justifyContent: 'flex-end',
+          }}
+        >
+          <HeaderNav />
+        </Box>
       </Box>
+
+      {/* Page Body */}
       <Container
         sx={{
           margin: '0 auto',
-          maxWidth: 1200,
+          maxWidth: 1400,
         }}
       >
+        {/* Nav Bar section (box) */}
         <Box
           sx={{
             backgroundColor: 'background',
             height: '100%',
             left: [
-              isNavOpen ? '0px' : `-${sidebarWidth}px`,
-              isNavOpen ? '0px' : `-${sidebarWidth}px`,
-              isNavOpen ? '0px' : `-${sidebarWidth}px`,
-              '0px',
+              `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
+              `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
+              `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
+              `${isNavOpen ? `-${sidebarWidth}px` : `-${sidebarWidth}px`}`,
             ],
             position: 'fixed',
             transition: '.3s ease-in-out left',
@@ -132,6 +147,7 @@ export const Main = ({ children }) => {
             zIndex: 999,
           }}
         >
+          {/* Nav bar content box */}
           <Box
             sx={{
               borderRight: (theme) => `${theme.borderWidths[1]}px solid ${theme.colors.surface}`,
@@ -140,15 +156,19 @@ export const Main = ({ children }) => {
                 `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
                 `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
                 `${isNavOpen ? 0 : `-${sidebarWidth}px`}`,
-                0,
+                `${isNavOpen ? `-${sidebarWidth}px` : `-${sidebarWidth}px`}`,
               ],
               transition: '.3s ease-in-out left',
               position: 'relative',
             }}
           >
+            {/* vertical nav link */}
             <Nav />
           </Box>
         </Box>
+        {/* End of nav bar section */}
+
+        {/* Nav Bar close button for small devices */}
         <Box
           role="button"
           tabIndex="0"
@@ -173,12 +193,14 @@ export const Main = ({ children }) => {
         >
           <Close />
         </Box>
+
+        {/* Page MDX content */}
         <MDXProvider components={components}>
           <Box
             as="main"
             sx={{
               display: 'block',
-              ml: [0, 0, 0, sidebarWidth],
+              ml: 0,
               px: [3, 4],
               py: 6,
               transition: '.3s ease-in-out margin-left',
@@ -187,7 +209,9 @@ export const Main = ({ children }) => {
             {children}
           </Box>
         </MDXProvider>
+        {/* End of MDX content */}
       </Container>
+      {/* End of page body */}
     </Fragment>
   )
 }
