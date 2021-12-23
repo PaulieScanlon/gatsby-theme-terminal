@@ -1,8 +1,8 @@
 {
   "name": "@pauliescanlon/gatsby-theme-terminal",
-  "description": "A zero component Gatsby theme for developers",
+  "description": "My customised theme based on @pauliescanlon/gatsby-theme-terminal",
   "version": "2.0.0",
-  "author": "Paul Scanlon <pauliescanlon@gmail.com>",
+  "author": "Chuan Khuna <chuan.khuna@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@gatsby-project-kb/transformer-wiki-references": "^0.3.0",
@@ -52,15 +52,15 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "prepublish": "npm run format",
     "publish": "npm login"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pauliescanlon/gatsby-theme-terminal.git"
+    "url": "git+https://github.com/chuan-khuna/gatsby-theme-terminal-altr.git"
   },
-  "bugs": {
-    "url": "https://github.com/pauliescanlon/gatsby-theme-terminal/issues"
-  },
-  "homepage": "https://gatsby-theme-terminal.netlify.com/",
   "main": "index.js"
 }

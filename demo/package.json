@@ -3,7 +3,7 @@
   "private": true,
   "description": "A simple starter using gatsby-theme-terminal",
   "version": "0.1.0",
-  "author": "Paul Scanlon <pauliescanlon@gmail.com>",
+  "author": "Chuan Khuna <chuan.khuna@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
