@@ -25,7 +25,7 @@ const SourceLayout = ({
       timeToRead,
       wordCount,
       outboundReferences,
-      inboundReferences
+      inboundReferences,
     },
   },
 }) => {
@@ -172,7 +172,7 @@ export const singleMdx = graphql`
           ... on Mdx {
             id
             slug
-            fields{
+            fields {
               slug
             }
             frontmatter {

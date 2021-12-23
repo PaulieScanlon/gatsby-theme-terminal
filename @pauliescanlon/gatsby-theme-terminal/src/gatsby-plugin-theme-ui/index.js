@@ -17,7 +17,7 @@ const theme = {
   borderWidths: [0, 1, 4],
   colors: {
     text: '#1b262c',
-    muted: "#8b87ea",
+    muted: '#8b87ea',
     primary: '#202f66',
     secondary: '#ff7048',
     success: '#48ADA9',
@@ -31,7 +31,7 @@ const theme = {
     body: serifFontPreset,
     heading: serifFontPreset,
     code: codeFontPreset,
-    sans: sansFontPreset
+    sans: sansFontPreset,
   },
   fontWeights: {
     body: 400,
@@ -416,7 +416,7 @@ const theme = {
         color: 'text',
         pointerEvents: 'none',
       },
-      fontSize: basedFontInd-1,
+      fontSize: basedFontInd - 1,
     },
   },
 

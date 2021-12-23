@@ -83,7 +83,7 @@ module.exports = (themeOptions) => {
               resolve: 'gatsby-remark-wiki-link',
               options: {
                 stripBrackets: true,
-                stripDefinitionExts: ['.md', '.mdx']
+                stripDefinitionExts: ['.md', '.mdx'],
               },
             },
           ],

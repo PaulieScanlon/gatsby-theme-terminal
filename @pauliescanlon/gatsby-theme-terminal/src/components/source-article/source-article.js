@@ -39,7 +39,6 @@ export const SourceArticle = ({
     a: ProvidedAnchorTag,
   }
 
-
   return (
     <Main>
       <Box sx={{ px: [0, 0, 0, 'calc(var(--space-2xl) * 1.618)'] }}>

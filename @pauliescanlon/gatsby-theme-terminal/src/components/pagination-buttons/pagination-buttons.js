@@ -15,7 +15,7 @@ export const PaginationButtons = ({ filter }) => {
       },
     },
   } = useConfig()
-  
+
   const location = useLocation()
   const pageParams = queryString.parse(location.search).page
 

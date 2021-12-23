@@ -55,28 +55,28 @@ export const AnchorTag = ({ title, href, references = [], ...restProps }) => {
     title = title || ref.refWord
     child = (
       <Tippy
-      arrow={tippyArrow}
-      interactive={tippyInteractive}
-      theme={tippyTheme}
-      animation={tippyAnimation}
-      content={
-        <Box>
-          <Link as={GatsbyLink} href={fileds.slug} sx={tippyStyle}>
-            {fileds.slug}
-          </Link>
-        </Box>
-      }
-    >
-      <Link
-        as={GatsbyLink}
-        {...restProps}
-        to={padHrefWithAnchor(fileds.slug, ref.targetAnchor)}
-        title={title}
-        sx={{ color: 'secondary' }}
+        arrow={tippyArrow}
+        interactive={tippyInteractive}
+        theme={tippyTheme}
+        animation={tippyAnimation}
+        content={
+          <Box>
+            <Link as={GatsbyLink} href={fileds.slug} sx={tippyStyle}>
+              {fileds.slug}
+            </Link>
+          </Box>
+        }
       >
-        {title}
-      </Link>
-    </Tippy>
+        <Link
+          as={GatsbyLink}
+          {...restProps}
+          to={padHrefWithAnchor(fileds.slug, ref.targetAnchor)}
+          title={title}
+          sx={{ color: 'secondary' }}
+        >
+          {title}
+        </Link>
+      </Tippy>
     )
   }
   // outside links via markdown syntax
