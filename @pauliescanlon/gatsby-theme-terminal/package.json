@@ -1,7 +1,7 @@
 {
-  "name": "@pauliescanlon/gatsby-theme-terminal",
+  "name": "@chuan-khuna/gatsby-theme-terminal-altr",
   "description": "My customised theme based on @pauliescanlon/gatsby-theme-terminal",
-  "version": "2.0.0",
+  "version": "20211223.15.18",
   "author": "Chuan Khuna <chuan.khuna@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.7.1",
