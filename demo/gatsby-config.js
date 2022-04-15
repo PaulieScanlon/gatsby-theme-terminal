@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    name: `gatsby-theme-terminal`,
-    description: `A zero component Gatsby theme for developers`,
-    keywords: [`gatsby`, `gatsbyjs`, `gatsby-theme`],
-    siteUrl: `https://gatsbythemeterminal.gatsbyjs.io`,
-    siteImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-open-graph-image.jpg`,
+    name: `FearTheOldBlood.dev`,
+    description: `A blog owned by Dillon Watts`,
+    keywords: [`gatsby`, `tech`, `cloud`, `programming`, `revies`],
+    siteUrl: `https://feartheoldblood.dev`,
+    siteImage: `https://feartheoldblood.dev/images/terminal-open-graph-image.jpg`,
     profileImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-profile-image.jpg`,
     lang: `en`,
     config: {
@@ -24,6 +24,10 @@ module.exports = {
             name: 'projects',
             dir: 'projects',
           },
+          {
+            name: 'resume',
+            dir: 'resume',
+          }
         ],
       },
     },
