@@ -24,10 +24,6 @@ module.exports = {
             name: 'projects',
             dir: 'projects',
           },
-          {
-            name: 'resume',
-            dir: 'resume',
-          }
         ],
       },
     },
