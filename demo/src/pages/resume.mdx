@@ -49,16 +49,61 @@ import { format } from 'date-fns'
   }}
 >
 
-## About
+# Technical Skills
+### Progamming Lanaguages
+  - Python
+  - Golang
+  - BASH
 
-I am a Cloud Security Engineer based on of Texas. I am a father, husband, love of sci-fi books and lifelong learner.
+### Declarative InfraAsCode
+  - Terraform
+  - Vagrant
+  - Packer
 
+### Cloud Compenticies
+  - AWS
+  - GCP
+
+### Distributed Systems
+  - Kubernetes (EKS/GKE/Anthos)
+  - Docker
+
+## Specialized Skills
+
+### Secrets Management
+   - Hashicorp Vault
+   - Snyk Code Scanning
+
+### Service Mesh
+   - Hashicorp Consul
+   - Anthos Service Mesh
+
+
+## Non-Technical Skills
+  - Experience with evalangizing best practices cross teams.
+  - Performing and presenting production evaluations to C-Suite
+  - Performing Security Reviews (app and infra)
+
+# Experience
+## Unity Technologies - Austin, Texas
+  - 2021 - Present - Infrastructure Security Engineer (Cloud)
+## H-E-B - San Antonio, Texas
+  - 2019 - 2021 - Application Security Engineer (Hybrid Cloud + On-Prem)
+## TrueAbility - San Antonio, Texas
+  - 2018 - 2019 - Deployment Engineer (AWS Cloud + Heroku)
+## Diligent Consulting - San Antonio, Texas
+  - 2017 - 2018 - Systems Administrator (Windows On-Prem)
+## Jr. Systems Administrator - San Antonio, Texas
+  - 2016 - 2018 - Systems Administrator (Windows On-Prem)
+
+# Certifications
+ - ### Security+
+ - ### CySA
 
 </Grid>
 
-<Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>  
+<Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>
 <Box>
-
 ## Contact
 
 <Heading variant="styles.h3" sx={{ mb: 0 }}>
@@ -82,42 +127,13 @@ I am a Cloud Security Engineer based on of Texas. I am a father, husband, love o
   https://www.linkedin.com/in/heavymetalops/
 </Link>
 
-</Box>
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  GitHub
+</Heading>
+<Link href="https://github.com/DmGwatts0x79" variant="styles.a">
+  https://github.com/DmGwatts0x79
+</Link>
 
-<Box>
-
-## Top 5 tags
-
-<SourceTags filter="posts">
-  {(tags) => (
-    <Flex sx={{ flexDirection: 'column' }}>
-      {tags
-        .splice(0, 5)
-        .sort((a, b) => b.percent - a.percent)
-        .map((tag, index) => {
-          const { name, count, percent } = tag
-          return (
-            <Box key={index} sx={{ color: 'muted', mb: 3, svg: { fill: 'muted' } }}>
-              <Flex sx={{ lineHeight: 'normal' }}>
-                <Text sx={{ color: 'secondary', mr: 2, mb: 0 }}>{`${name}`}</Text>
-                <Text sx={{ color: 'muted' }}>{percent}</Text>
-                <Text sx={{ color: 'error' }}>%</Text>
-              </Flex>
-              <Flex>
-                <Box>{'['}</Box>
-                <Box sx={{ flexBasis: '100%' }}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 8" width="100%" height="8">
-                    <rect width={`${percent * 3}%`} height={4} />
-                  </svg>
-                </Box>
-                <Box> {']'}</Box>
-              </Flex>
-            </Box>
-          )
-        })}
-    </Flex>
-  )}
-</SourceTags>
 </Box>
 
 </Grid>

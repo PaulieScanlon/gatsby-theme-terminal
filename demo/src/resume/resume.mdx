@@ -1,0 +1,87 @@
+---
+navigationLabel: Resume
+---
+
+import { format } from 'date-fns'
+
+<Grid
+  sx={{
+    mb: 6
+  }}
+>
+
+<SiteMetaData>
+  {(siteMetadata) => {
+    const { name, description } = siteMetadata
+    return (
+      <Fragment>
+        <Heading variant="styles.h1">{name}</Heading>
+        <Text>{description}</Text>
+      </Fragment>
+    )
+  }}
+</SiteMetaData>
+
+<Grid
+  sx={{ 
+    alignItems: 'center',
+    gridTemplateColumns: 'auto 1fr'
+  }}
+>
+<Button
+  sx={{ mb: 2 }}
+  as="a"
+  variant="success"
+  href="https://github.com/DmGwatts0x79/DmGwatts0x79"
+  target="_blank"
+>
+  Cloud Security Engineer - View my work on Github
+</Button>
+</Grid>
+
+
+</Grid>
+
+<Grid
+  sx={{
+    gap: 0,
+    mb: 6
+  }}
+>
+
+## Skills
+
+
+
+
+</Grid>
+
+<Grid sx={{ gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'] }}>
+<Box>
+
+## Contact
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  Email
+</Heading>
+<Link href="mailto:dmgwatts@gmail.com" variant="styles.a">
+  dmgwatts@gmail.com
+</Link>
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  Twitter
+</Heading>
+<Link href="https://twitter.com/0xVoid79" variant="styles.a">
+  https://twitter.com/0xVoid79
+</Link>
+
+<Heading variant="styles.h3" sx={{ mb: 0 }}>
+  LinkedIn
+</Heading>
+<Link href="https://www.linkedin.com/in/heavymetalops/" variant="styles.a">
+  https://www.linkedin.com/in/heavymetalops/
+</Link>
+
+</Box>
+
+</Grid>
