@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     name: `FearTheOldBlood.dev`,
-    description: `A blog owned by Dillon Watts`,
+    description: `A blog owned by 0xWoidW`,
     keywords: [`gatsby`, `tech`, `cloud`, `programming`, `revies`],
     siteUrl: `https://feartheoldblood.dev`,
-    siteImage: `https://feartheoldblood.dev/images/terminal-open-graph-image.jpg`,
-    profileImage: `https://gatsbythemeterminal.gatsbyjs.io/images/terminal-profile-image.jpg`,
+    siteImage: `./static/images/kratos.jpeg`,
+    profileImage: `./static/images/kratos.jpeg`,
     lang: `en`,
     config: {
       sidebarWidth: 280,
