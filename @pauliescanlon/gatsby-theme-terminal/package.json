@@ -9,7 +9,7 @@
     "@theme-ui/prism": "^0.11.3",
     "date-fns": "^2.23.0",
     "gatsby-plugin-image": "^2.0.0",
-    "gatsby-plugin-mdx": "^3.0.0",
+    "gatsby-plugin-mdx": "^3.15.2",
     "gatsby-plugin-react-helmet": "^5.0.0",
     "gatsby-plugin-sharp": "^4.0.0",
     "gatsby-plugin-theme-ui": "^0.11.3",
@@ -25,7 +25,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.0.0",
-    "gatsby-plugin-mdx": "^3.0.0",
+    "gatsby-plugin-mdx": "^3.15.2",
     "gatsby-source-filesystem": "^4.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
